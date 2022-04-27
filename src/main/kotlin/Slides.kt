@@ -37,13 +37,13 @@ fun main() {
           """
           # Paul's Slides
           
-          * [HTTP and REST Basics](rest.html)
+          * [HTTP and REST Basics](http.html)
           """
         }
       }
     }
     presentation {
-      path = "rest.html"
+      path = "http.html"
 
       css += """
         .reveal h2 {
@@ -105,6 +105,20 @@ fun main() {
       markdownSlide {
         content {
           """
+          ## What are we talking about today?  
+
+          * The Internet is a huge part of our lives 
+          
+          * At the heart of everything we want to build 
+          
+          * Bird's eye view
+          """
+        }
+      }
+
+      markdownSlide {
+        content {
+          """
           ## How did we get here?  
 
           ![history-image](images/timeline.jpeg)
@@ -133,9 +147,9 @@ fun main() {
           ## Cloud Endpoints
           
           * [Google Vision API](https://cloud.google.com/vision)
-          * [Google Natural Language](https://cloud.google.com/natural-language)
           * [Google Translation API](https://cloud.google.com/translate)
           * [Google Speech to Text API](https://cloud.google.com/speech-to-text)
+          * [Google Natural Language API](https://cloud.google.com/natural-language)
           * [Twilio API](https://www.twilio.com/docs/)
           * [Expedia API](https://expediapartnersolutions.com/products/api)
           * [Alexa API](https://developer.amazon.com/en-US/alexa/alexa-skills-kit/get-deeper/dev-tools-skill-management-api)
@@ -159,14 +173,14 @@ fun main() {
           """
           ## Connecting to a Network   
           
-          * IP Address: 230.168.123.12 
+          * IP Address: 230.168.123.12 (4,294,967,296 possible addresses)
           
+          * Subnets
+
           * Domain name: www<span>&#46;</span>example<span>&#46;</span>com
           
           * Port: 80, 22, 8080 
-          
-          * Subnets
-                   
+                             
           * Network packets: TCP, UDP   
           """
         }
@@ -384,24 +398,29 @@ fun main() {
           """
           ## HTML Response
           
-          ```html [1-10 | 1,10 | 2-5 | 7-9]
+          ```html [1-10 | 1,10 | 2-5 | 7-9 | ]
           ${includeFile("src/main/resources/html-example.html")}
           ```
           """
         }
       }
 
-      markdownSlide {
-        content {
-          """
-          ## JSON Response
-          
-          ```json [1-14 | 1,14 | 2,13 | 3-7 | 8-12]
-          ${includeFile("src/main/resources/json-example.json")}
-          ```
-          """
+      for (lines in lineNumbers("[8-12 | 3-12 | 2-13 | ]")) {
+        htmlSlide {
+          autoAnimate = true
+          content {
+            """
+              <h2>JSON Response</h2>  
+              <pre data-id="code-animation" data-cc="false"> 
+                <code data-trim="" data-line-numbers="">
+                  ${includeFile("src/main/resources/json-example.json", lineNumbers = lines)}
+                </code>
+              </pre>
+              """
+          }
         }
       }
+
 
       markdownSlide {
         content {

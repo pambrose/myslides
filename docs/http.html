@@ -83,6 +83,18 @@
         
         <section data-markdown="">
           <script type="text/template">
+## What are we talking about today?  
+
+* The Internet is a huge part of our lives 
+
+* At the heart of everything we want to build 
+
+* Bird's eye view
+</script>
+        </section>
+        
+        <section data-markdown="">
+          <script type="text/template">
 ## How did we get here?  
 
 ![history-image](images/timeline.jpeg)
@@ -105,9 +117,9 @@
 ## Cloud Endpoints
 
 * [Google Vision API](https://cloud.google.com/vision)
-* [Google Natural Language](https://cloud.google.com/natural-language)
 * [Google Translation API](https://cloud.google.com/translate)
 * [Google Speech to Text API](https://cloud.google.com/speech-to-text)
+* [Google Natural Language API](https://cloud.google.com/natural-language)
 * [Twilio API](https://www.twilio.com/docs/)
 * [Expedia API](https://expediapartnersolutions.com/products/api)
 * [Alexa API](https://developer.amazon.com/en-US/alexa/alexa-skills-kit/get-deeper/dev-tools-skill-management-api)
@@ -127,14 +139,14 @@
           <script type="text/template">
 ## Connecting to a Network   
 
-* IP Address: 230.168.123.12 
+* IP Address: 230.168.123.12 (4,294,967,296 possible addresses)
+
+* Subnets
 
 * Domain name: www<span>.</span>example<span>.</span>com
 
 * Port: 80, 22, 8080 
-
-* Subnets
-         
+                   
 * Network packets: TCP, UDP   
 </script>
         </section>
@@ -335,7 +347,7 @@ https://www.example.co.uk:443/blog/article/search?docid=720<span>&amp;</span>hl=
           <script type="text/template">
 ## HTML Response
 
-```html [1-10 | 1,10 | 2-5 | 7-9]
+```html [1-10 | 1,10 | 2-5 | 7-9 | ]
 <html lang="en">
   <head>
     <meta charset=UTF-8">
@@ -350,13 +362,32 @@ https://www.example.co.uk:443/blog/article/search?docid=720<span>&amp;</span>hl=
 </script>
         </section>
         
-        <section data-markdown="">
-          <script type="text/template">
-## JSON Response
+        <section data-auto-animate="">
+          
+          <h2>JSON Response</h2>
+            
 
-```json [1-14 | 1,14 | 2,13 | 3-7 | 8-12]
-{
-  "book":[
+          <pre data-cc="false" data-id="code-animation">
+             
+  <code data-line-numbers="" data-trim="">
+    {
+      "id":"555",
+      "language":"C++",
+      "author":" Bjarne Stroustrup "
+    }
+  </code>
+
+          </pre>
+        </section>
+        
+        <section data-auto-animate="">
+          
+          <h2>JSON Response</h2>
+            
+
+          <pre data-cc="false" data-id="code-animation">
+             
+  <code data-line-numbers="" data-trim="">
     {
       "id":"444",
       "language":"C",
@@ -367,10 +398,61 @@ https://www.example.co.uk:443/blog/article/search?docid=720<span>&amp;</span>hl=
       "language":"C++",
       "author":" Bjarne Stroustrup "
     }
-  ]
-}
-```
-</script>
+  </code>
+
+          </pre>
+        </section>
+        
+        <section data-auto-animate="">
+          
+          <h2>JSON Response</h2>
+            
+
+          <pre data-cc="false" data-id="code-animation">
+             
+  <code data-line-numbers="" data-trim="">
+    "books":[
+      {
+        "id":"444",
+        "language":"C",
+        "author":"Dennis Ritchie "
+      },
+      {
+        "id":"555",
+        "language":"C++",
+        "author":" Bjarne Stroustrup "
+      }
+    ]
+  </code>
+
+          </pre>
+        </section>
+        
+        <section data-auto-animate="">
+          
+          <h2>JSON Response</h2>
+            
+
+          <pre data-cc="false" data-id="code-animation">
+             
+  <code data-line-numbers="" data-trim="">
+    {
+      "books":[
+        {
+          "id":"444",
+          "language":"C",
+          "author":"Dennis Ritchie "
+        },
+        {
+          "id":"555",
+          "language":"C++",
+          "author":" Bjarne Stroustrup "
+        }
+      ]
+    }
+  </code>
+
+          </pre>
         </section>
         
         <section data-markdown="">

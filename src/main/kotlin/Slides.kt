@@ -97,7 +97,10 @@ fun main() {
           """
           ## HTTP and REST Basics  
 
+          https://pambrose.github.io/myslides
+
           ![upload-image](https://img.ifunny.co/images/0b6a5f5a9dbc19563eb13dcd7ae3e984547fe2a80fd9ce736119fc21f95d96d3_1.jpg)
+          
           """
         }
       }

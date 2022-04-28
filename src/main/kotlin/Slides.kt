@@ -95,12 +95,10 @@ fun main() {
         classes = "title-slide"
         content {
           """
-          ## HTTP and REST Basics  
-
-          https://pambrose.github.io/myslides
-
           ![upload-image](https://img.ifunny.co/images/0b6a5f5a9dbc19563eb13dcd7ae3e984547fe2a80fd9ce736119fc21f95d96d3_1.jpg)
-          
+
+          ## HTTP and REST Basics  
+          https://pambrose.github.io/myslides          
           """
         }
       }
@@ -163,10 +161,10 @@ fun main() {
 
       markdownSlide {
         content {
-          """
-          ## HTTP In Action
+          """          
+          ## HTTP Toolkit Demo
           
-          ### HTTP Toolkit Demo
+          ![history-image](https://www.drupal.org/files/project-images/proxy.png)
           """
         }
       }
@@ -176,10 +174,10 @@ fun main() {
           """
           ## Connecting to a Network   
           
-          * IP Address: 230.168.123.12 (4,294,967,296 possible addresses)
+          * IP Address: 230.168.123.12 
           
-          * Subnets
-
+          * 4,294,967,296 possible addresses -- Subnets
+          
           * Domain name: www<span>&#46;</span>example<span>&#46;</span>com
           
           * Port: 80, 22, 8080 
@@ -254,41 +252,6 @@ fun main() {
           * Synchronous request/response
           * Non-binary data -- you can read it!
           * Simple, easy to use, easy to implement
-          """
-        }
-      }
-
-      markdownSlide {
-        content {
-          """
-          ## HTTP Clients
-                    
-          * Browser: Chrome, Firefox, Safari, IE
-          
-          * CLI: httpie, curl, wget
-
-          * Code: Kotlin, Java, JS, Python
-          """
-        }
-      }
-
-      markdownSlide {
-        content {
-          """
-          ## HTTP Servers
-            
-          * Static Servers: Apache, IIS, Nginx
-          
-          * Dynamic Servers: Ktor, Spring, Express, Flask
-          """
-        }
-      }
-
-      markdownSlide {
-        content {
-          """
-          ## Cloud Computing Universe 
-          ![cloud-image](https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Cloud_computing.svg/1920px-Cloud_computing.svg.png)
           """
         }
       }
@@ -428,9 +391,56 @@ fun main() {
       markdownSlide {
         content {
           """
+          ## HTTP Clients
+                    
+          * Browser: Chrome, Firefox, Safari, IE
+          
+          * CLI: httpie, curl, wget
+
+          * Code: Kotlin, Java, JS, Python
+          """
+        }
+      }
+
+      markdownSlide {
+        content {
+          """
+          ## HTTP Servers
+            
+          * Static Servers: Apache, IIS, Nginx
+          
+          * Dynamic Servers: Ktor, Spring, Express, Flask
+          """
+        }
+      }
+
+//      markdownSlide {
+//        content {
+//          """
+//          ## Cloud Computing Universe
+//          ![cloud-image](https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Cloud_computing.svg/1920px-Cloud_computing.svg.png)
+//          """
+//        }
+//      }
+
+      markdownSlide {
+        content {
+          """
           ## Playing with HTTP
           
-          ### https://github.com/athenian-programming/web-services-demo
+          #### https://github.com/athenian-programming/web-services-demo
+          """
+        }
+      }
+
+      markdownSlide {
+        content {
+          """
+          ## Easiest HTTP Server Possible
+          
+          ```bash
+          python3 -m http.server 8080
+          ```        
           """
         }
       }

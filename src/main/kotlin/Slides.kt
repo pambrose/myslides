@@ -432,6 +432,7 @@ fun main() {
           * https://github.com/athenian-programming/heroku-demo
           * https://github.com/athenian-programming/web-services-demo
           * https://github.com/athenian-programming/web-database-demo
+          * https://github.com/athenian-programming/web_flutter_demo
           """
         }
       }

@@ -52,7 +52,7 @@ fun main() {
         }
         
         img[alt=upload-image] { 
-          width: 350px; 
+          width: 300px; 
         }
         
         img[alt=cloud-image] { 

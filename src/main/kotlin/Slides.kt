@@ -52,7 +52,7 @@ fun main() {
         }
         
         img[alt=upload-image] { 
-          width: 400px; 
+          width: 350px; 
         }
         
         img[alt=cloud-image] { 
@@ -144,6 +144,16 @@ fun main() {
             +"👇"
             p { +"Dynamic Programmable Content" }
           }
+        }
+      }
+
+      markdownSlide {
+        content {
+          """
+          ## Cloud Computing Universe
+          
+          ![cloud-image](https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Cloud_computing.svg/1920px-Cloud_computing.svg.png)
+          """
         }
       }
 
@@ -445,18 +455,10 @@ fun main() {
         }
       }
 
-//      markdownSlide {
-//        content {
-//          """
-//          ## Cloud Computing Universe
-//          ![cloud-image](https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Cloud_computing.svg/1920px-Cloud_computing.svg.png)
-//          """
-//        }
-//      }
-
-      fun LI.link(url: String) {
+      fun LI.linkHref(url: String, block: A.() -> Unit = {}) {
         a {
           href = url; +url
+          block()
         }
       }
 
@@ -466,11 +468,11 @@ fun main() {
 
           div("playitems") {
             unorderedList(
-              { link("https://github.com/athenian-programming/static-http-demo") },
-              { link("https://github.com/athenian-programming/heroku-demo") },
-              { link("https://github.com/athenian-programming/web-services-demo") },
-              { link("https://github.com/athenian-programming/web-database-demo") },
-              { link("https://github.com/athenian-programming/web_flutter_demo") },
+              { linkHref("https://github.com/athenian-programming/static-http-demo") },
+              { linkHref("https://github.com/athenian-programming/heroku-demo") },
+              { linkHref("https://github.com/athenian-programming/web-services-demo") },
+              { linkHref("https://github.com/athenian-programming/web-database-demo") },
+              { linkHref("https://github.com/athenian-programming/web_flutter_demo") },
             ) {
               style = "padding-top:30px; list-style-type:square;"
             }

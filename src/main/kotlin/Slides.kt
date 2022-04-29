@@ -454,13 +454,20 @@ fun main() {
 //        }
 //      }
 
+//      fun DIV.link2(url: String) {
+//        a {
+//          href = url; +url
+//        }
+//      }
+
       dslSlide {
         content {
-          h2 { +"Playing with HTTP" }
+          h2 { +"Sandbox Repos" }
 
           div("playitems") {
             unorderedList(
               {
+//                link2 ("https://github.com/athenian-programming/static-http-demo")
                 a {
                   href =
                     "https://github.com/athenian-programming/static-http-demo"; +"https://github.com/athenian-programming/static-http-demo"

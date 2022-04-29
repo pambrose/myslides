@@ -29,6 +29,7 @@ fun main() {
       githubCornerTitle = "View presentation source on Github"
       enableMenu = true
       theme = Theme.SOLARIZED
+      slideNumber = "c/t"
     }
 
     presentation {

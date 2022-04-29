@@ -435,18 +435,6 @@ fun main() {
           """
         }
       }
-
-      markdownSlide {
-        content {
-          """
-          ## Simple Static HTTP Server
-          
-          ```bash
-          python3 -m http.server 8080
-          ```        
-          """
-        }
-      }
     }
   }
 }

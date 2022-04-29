@@ -428,7 +428,10 @@ fun main() {
           """
           ## Playing with HTTP
           
-          #### https://github.com/athenian-programming/web-services-demo
+          * https://github.com/athenian-programming/static-http-demo
+          * https://github.com/athenian-programming/heroku-demo
+          * https://github.com/athenian-programming/web-services-demo
+          * https://github.com/athenian-programming/web-database-demo
           """
         }
       }
@@ -436,7 +439,7 @@ fun main() {
       markdownSlide {
         content {
           """
-          ## Easiest HTTP Server Possible
+          ## Simple Static HTTP Server
           
           ```bash
           python3 -m http.server 8080

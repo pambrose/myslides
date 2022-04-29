@@ -89,6 +89,10 @@ fun main() {
           display: table;
           clear: both;
         }
+        
+        .playitems a {
+          font-size:30px;
+        }
       """
 
       markdownSlide {
@@ -419,7 +423,7 @@ fun main() {
           """
           ## HTTP Clients
                     
-          * Browser: Chrome, Firefox, Safari, IE
+          * Browser: Chrome, Safari, IE
           
           * CLI: httpie, curl, wget
 
@@ -449,17 +453,46 @@ fun main() {
 //        }
 //      }
 
-      markdownSlide {
+      dslSlide {
         content {
-          """
-          ## Playing with HTTP
-          
-          * https://github.com/athenian-programming/static-http-demo
-          * https://github.com/athenian-programming/heroku-demo
-          * https://github.com/athenian-programming/web-services-demo
-          * https://github.com/athenian-programming/web-database-demo
-          * https://github.com/athenian-programming/web_flutter_demo
-          """
+          h2 { +"Playing with HTTP" }
+
+          div("playitems") {
+            unorderedList(
+              {
+                a {
+                  href =
+                    "https://github.com/athenian-programming/static-http-demo"; +"https://github.com/athenian-programming/static-http-demo"
+                }
+              },
+              {
+                a {
+                  href =
+                    "https://github.com/athenian-programming/heroku-demo"; +"https://github.com/athenian-programming/heroku-demo"
+                }
+              },
+              {
+                a {
+                  href =
+                    "https://github.com/athenian-programming/web-services-demo"; +"https://github.com/athenian-programming/web-services-demo"
+                }
+              },
+              {
+                a {
+                  href =
+                    "https://github.com/athenian-programming/web-database-demo"; +"https://github.com/athenian-programming/web-database-demo"
+                }
+              },
+              {
+                a {
+                  href =
+                    "https://github.com/athenian-programming/web_flutter_demo"; +"https://github.com/athenian-programming/web_flutter_demo"
+                }
+              },
+            ) {
+              style = "padding-top:30px; list-style-type:square;"
+            }
+          }
         }
       }
     }

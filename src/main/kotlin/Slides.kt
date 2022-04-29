@@ -454,11 +454,11 @@ fun main() {
 //        }
 //      }
 
-//      fun DIV.link2(url: String) {
-//        a {
-//          href = url; +url
-//        }
-//      }
+      fun LI.link(url: String) {
+        a {
+          href = url; +url
+        }
+      }
 
       dslSlide {
         content {
@@ -466,37 +466,11 @@ fun main() {
 
           div("playitems") {
             unorderedList(
-              {
-//                link2 ("https://github.com/athenian-programming/static-http-demo")
-                a {
-                  href =
-                    "https://github.com/athenian-programming/static-http-demo"; +"https://github.com/athenian-programming/static-http-demo"
-                }
-              },
-              {
-                a {
-                  href =
-                    "https://github.com/athenian-programming/heroku-demo"; +"https://github.com/athenian-programming/heroku-demo"
-                }
-              },
-              {
-                a {
-                  href =
-                    "https://github.com/athenian-programming/web-services-demo"; +"https://github.com/athenian-programming/web-services-demo"
-                }
-              },
-              {
-                a {
-                  href =
-                    "https://github.com/athenian-programming/web-database-demo"; +"https://github.com/athenian-programming/web-database-demo"
-                }
-              },
-              {
-                a {
-                  href =
-                    "https://github.com/athenian-programming/web_flutter_demo"; +"https://github.com/athenian-programming/web_flutter_demo"
-                }
-              },
+              { link("https://github.com/athenian-programming/static-http-demo") },
+              { link("https://github.com/athenian-programming/heroku-demo") },
+              { link("https://github.com/athenian-programming/web-services-demo") },
+              { link("https://github.com/athenian-programming/web-database-demo") },
+              { link("https://github.com/athenian-programming/web_flutter_demo") },
             ) {
               style = "padding-top:30px; list-style-type:square;"
             }

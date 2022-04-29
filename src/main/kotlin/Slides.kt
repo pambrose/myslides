@@ -370,12 +370,13 @@ fun main() {
                 "JSON",
                 "XML",
                 "Plain Text",
+                "JS/CSS",
               )
             }
             div("column2") {
               unorderedList(
                 "Binary Data",
-                "Image",
+                "JPG/PNG/GIF",
                 "Audio",
                 "Video",
                 "Other"

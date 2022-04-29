@@ -359,6 +359,31 @@ fun main() {
         }
       }
 
+      dslSlide {
+        content {
+          h2 { +"HTTP Response Payloads" }
+          div("row2") {
+            style = "padding-top:30px;"
+            div("column2") {
+              unorderedList(
+                "HTML",
+                "JSON",
+                "XML",
+                "Plain Text",
+              )
+            }
+            div("column2") {
+              unorderedList(
+                "Binary Data",
+                "Image",
+                "Audio",
+                "Video",
+                "Other"
+              )
+            }
+          }
+        }
+      }
       markdownSlide {
         content {
           """

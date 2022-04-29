@@ -129,7 +129,7 @@ fun main() {
 
       dslSlide {
         content {
-          h2 { +"HTTP Progression" }
+          h2 { +"HTTP Usage Progression" }
 
           div {
             style = "padding-top: 10px; padding-bottom: 10px; outline: 3px solid $blue"
@@ -327,25 +327,25 @@ fun main() {
                 "204 No Content",
                 "301 Moved Permanently",
                 "302 Found",
+                "304 Not Modified",
               ) {
                 style = fmt
               }
             }
             div("column3") {
               unorderedList(
-                "304 Not Modified",
                 "400 Bad Request",
                 "401 Unauthorized",
                 "403 Forbidden",
                 "404 Not Found",
                 "405 Method Not Allowed",
+                "409 Conflict",
               ) {
                 style = fmt
               }
             }
             div("column3") {
               unorderedList(
-                "409 Conflict\n",
                 "500 Internal Server Error",
                 "501 Not Implemented",
                 "502 Bad Gateway",

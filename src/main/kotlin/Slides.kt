@@ -43,6 +43,7 @@ fun main() {
         }
       }
     }
+
     presentation {
       path = "http.html"
 
@@ -452,13 +453,6 @@ fun main() {
           
           * Dynamic Servers: Ktor, Spring, Express, Flask
           """
-        }
-      }
-
-      fun LI.linkHref(url: String, block: A.() -> Unit = {}) {
-        a {
-          href = url; +url
-          block()
         }
       }
 

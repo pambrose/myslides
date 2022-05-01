@@ -25,8 +25,14 @@ fun main() {
       history = true
       transition = Transition.SLIDE
       transitionSpeed = Speed.SLOW
-      githubCornerHref = "https://github.com/pambrose/myslides"
-      githubCornerTitle = "View presentation source on Github"
+
+      topLeftHref = "https://github.com/pambrose/myslides"
+      topLeftTitle = "View presentation source on Github"
+
+      topRightHref = "/"
+      topRightTitle = "Go to 1st Slide"
+      topRightText = "🏠"
+
       enableMenu = true
       theme = Theme.SOLARIZED
       slideNumber = "c/t"
@@ -462,11 +468,11 @@ fun main() {
 
           div("playitems") {
             unorderedList(
-              { linkHref("https://github.com/athenian-programming/static-http-demo") },
-              { linkHref("https://github.com/athenian-programming/heroku-demo") },
-              { linkHref("https://github.com/athenian-programming/web-services-demo") },
-              { linkHref("https://github.com/athenian-programming/web-database-demo") },
-              { linkHref("https://github.com/athenian-programming/web_flutter_demo") },
+              { listHref("https://github.com/athenian-programming/static-http-demo") },
+              { listHref("https://github.com/athenian-programming/heroku-demo") },
+              { listHref("https://github.com/athenian-programming/web-services-demo") },
+              { listHref("https://github.com/athenian-programming/web-database-demo") },
+              { listHref("https://github.com/athenian-programming/web_flutter_demo") },
             ) {
               style = "padding-top:30px; list-style-type:square;"
             }

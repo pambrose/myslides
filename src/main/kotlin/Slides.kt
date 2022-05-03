@@ -419,18 +419,19 @@ fun main() {
         }
       }
 
-      for (lines in lineNumbers("[8-12 | 3-12 | 2-13 | ]")) {
-        htmlSlide {
+      for (lines in lineSeries("[8-12 | 3-12 | 2-13 | ]").zip(listOf(3, 3, 2, 1))) {
+        dslSlide {
           autoAnimate = true
           content {
-            """
-              <h2>JSON Response</h2>  
-              <pre data-id="code-animation" data-cc="false"> 
-                <code data-trim="" data-line-numbers="">
-                  ${includeFile("src/main/resources/json-example.json", lineNumbers = lines)}
-                </code>
-              </pre>
-              """
+            h2 { +"JSON Response" }
+            val file = "src/main/resources/json-example.json"
+            codeSnippet(
+              "json",
+              includeFile(file, linePattern = lines.first, indentToken = "", escapeHtml = false),
+              linePattern = "[]",
+              lineOffSet = lines.second,
+              dataId = "code-animation"
+            )
           }
         }
       }

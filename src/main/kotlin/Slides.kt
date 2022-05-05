@@ -34,7 +34,7 @@ fun main() {
       topRightText = "🏠"
 
       enableMenu = true
-      theme = Theme.SOLARIZED
+      theme = PresentationTheme.SOLARIZED
       slideNumber = "c/t"
     }
 
@@ -435,7 +435,6 @@ fun main() {
           }
         }
       }
-
 
       markdownSlide {
         content {

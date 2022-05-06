@@ -413,13 +413,13 @@ fun main() {
           ## HTML Response
           
           ```html [1-10 | 1,10 | 2-5 | 7-9 | ]
-          ${includeFile("src/main/resources/html-example.html")}
+          ${include("src/main/resources/html-example.html")}
           ```
           """
         }
       }
 
-      for (lines in lineSeries("[8-12 | 3-12 | 2-13 | ]").zip(listOf(3, 3, 2, 1))) {
+      for (lines in highlights("[8-12 | 3-12 | 2-13 | ]").zip(listOf(3, 3, 2, 1))) {
         dslSlide {
           autoAnimate = true
           content {
@@ -427,8 +427,8 @@ fun main() {
             val file = "src/main/resources/json-example.json"
             codeSnippet(
               "json",
-              includeFile(file, linePattern = lines.first, indentToken = "", escapeHtml = false),
-              linePattern = "[]",
+              include(file, linePattern = lines.first),
+              highlightPattern = "[]",
               lineOffSet = lines.second,
               dataId = "code-animation"
             )

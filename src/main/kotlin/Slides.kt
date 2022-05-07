@@ -1,4 +1,5 @@
 import com.kslides.*
+import kotlinx.css.*
 import kotlinx.html.*
 
 fun main() {
@@ -97,11 +98,13 @@ fun main() {
           display: table;
           clear: both;
         }
-        
-        .playitems a {
-          font-size:30px;
-        }
       """
+
+      css {
+        rule(".playitems a") {
+          fontSize = LinearDimension("30px")
+        }
+      }
 
       markdownSlide {
         classes = "title-slide"
@@ -340,7 +343,6 @@ fun main() {
           h2 { +"HTTP Status Codes" }
           div("row3") {
             val fmt = "font-size:30px;"
-            id = "status-codes"
             div("column3") {
               unorderedList(
                 "200 OK",
@@ -350,9 +352,7 @@ fun main() {
                 "301 Moved Permanently",
                 "302 Found",
                 "304 Not Modified",
-              ) {
-                style = fmt
-              }
+              ) { style = fmt }
             }
             div("column3") {
               unorderedList(
@@ -362,9 +362,7 @@ fun main() {
                 "404 Not Found",
                 "405 Method Not Allowed",
                 "409 Conflict",
-              ) {
-                style = fmt
-              }
+              ) { style = fmt }
             }
             div("column3") {
               unorderedList(
@@ -373,9 +371,7 @@ fun main() {
                 "502 Bad Gateway",
                 "503 Service Unavailable",
                 "504 Gateway Timeout"
-              ) {
-                style = fmt
-              }
+              ) { style = fmt }
             }
           }
         }
@@ -419,7 +415,7 @@ fun main() {
         }
       }
 
-      for (lines in highlights("[8-12 | 3-12 | 2-13 | ]").zip(listOf(3, 3, 2, 1))) {
+      for (lines in "[8-12 | 3-12 | 2-13 | ]".toLinePatterns().zip(listOf(3, 3, 2, 1))) {
         dslSlide {
           autoAnimate = true
           content {

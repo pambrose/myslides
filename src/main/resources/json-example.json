@@ -3,12 +3,12 @@
     {
       "id":"444",
       "language":"C",
-      "author":"Dennis Ritchie "
+      "author":"Dennis Ritchie"
     },
     {
       "id":"555",
       "language":"C++",
-      "author":" Bjarne Stroustrup "
+      "author":"Bjarne Stroustrup"
     }
   ]
 }

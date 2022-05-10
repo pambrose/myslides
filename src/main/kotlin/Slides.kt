@@ -22,7 +22,7 @@ fun main() {
       #githubCorner path { fill: #258BD2; }
       """
 
-    presentationDefault {
+    presentationConfig {
       history = true
       transition = Transition.SLIDE
       transitionSpeed = Speed.SLOW
@@ -77,7 +77,7 @@ fun main() {
         }
         
         /* Clear floats after the columns */
-        .row2:after {
+        .multiColumn2:after {
           content: "";
           display: table;
           clear: both;
@@ -93,7 +93,7 @@ fun main() {
         }
         
         /* Clear floats after the columns */
-        .row3:after {
+        .multiColumn3:after {
           content: "";
           display: table;
           clear: both;
@@ -215,7 +215,7 @@ fun main() {
       dslSlide {
         content {
           h2 { style = "margin-bottom:20px;"; +"Network Protocols" }
-          div("row2") {
+          div("multiColumn2") {
             val fmt = "font-size:30px; padding-top:10px; list-style-type:circle;"
             div("column2") {
               p { style = "color: red;"; +"TCP" }
@@ -316,7 +316,7 @@ fun main() {
       dslSlide {
         content {
           h2 { +"HTTP Headers" }
-          div("row3") {
+          div("multiColumn3") {
             val fmt = "font-size:30px; list-style-type:square;"
             style = "padding-top:30px;"
             div("column3") {
@@ -341,7 +341,7 @@ fun main() {
       dslSlide {
         content {
           h2 { +"HTTP Status Codes" }
-          div("row3") {
+          div("multiColumn3") {
             val fmt = "font-size:30px;"
             div("column3") {
               unorderedList(
@@ -380,7 +380,7 @@ fun main() {
       dslSlide {
         content {
           h2 { +"HTTP Response Payloads" }
-          div("row2") {
+          div("multiColumn2") {
             style = "padding-top:30px;"
             div("column2") {
               unorderedList(
@@ -421,13 +421,12 @@ fun main() {
           content {
             h2 { +"JSON Response" }
             val file = "src/main/resources/json-example.json"
-            codeSnippet(
-              "json",
-              include(file, linePattern = lines.first),
-              highlightPattern = "[]",
-              lineOffSet = lines.second,
+            codeSnippet {
               dataId = "code-animation"
-            )
+              language = "json"
+              lineOffSet = lines.second
+              +include(file, linePattern = lines.first)
+            }
           }
         }
       }

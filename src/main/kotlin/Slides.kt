@@ -1,5 +1,7 @@
 import com.kslides.*
+import com.kslides.Transition
 import kotlinx.css.*
+import kotlinx.css.properties.*
 import kotlinx.html.*
 
 fun main() {
@@ -37,6 +39,29 @@ fun main() {
       enableMenu = true
       theme = PresentationTheme.SOLARIZED
       slideNumber = "c/t"
+
+      playgroundConfig {
+          theme = PlaygroundTheme.DARCULA
+          lines = true
+          style = "border:none;"
+          width = "100%"
+          height = "250px"
+
+          css {
+            rule(".CodeMirror pre") {
+              lineHeight = LineHeight("25px")
+            }
+
+            rule(".CodeMirror") {
+              fontSize = LinearDimension("20px")
+            }
+
+            rule(".code-output") {
+              lineHeight = LineHeight("25px")
+              fontSize = LinearDimension("20px")
+            }
+          }
+      }
     }
 
     presentation {
@@ -46,6 +71,7 @@ fun main() {
           # Paul's Slides
           
           * [HTTP and REST Basics](http.html)
+          * [Kotlin Functional Programming](functional.html)
           """
         }
       }
@@ -104,6 +130,10 @@ fun main() {
         rule(".playitems a") {
           fontSize = LinearDimension("30px")
         }
+      }
+
+      presentationConfig {
+        topRightHref = "https://pambrose.github.io/myslides/http.html#/"
       }
 
       markdownSlide {
@@ -472,6 +502,44 @@ fun main() {
               style = "padding-top:30px; list-style-type:square;"
             }
           }
+        }
+      }
+    }
+
+    presentation {
+      path = "functional.html"
+
+      dslSlide {
+        content {
+          h2 { +"Uncle Bob Quote" }
+          blockQuote(classes = "twitter-tweet tw-align-center") {
+            style = ""
+            p {
+              lang = "en"
+              dir = Dir.ltr
+              +"Procedural programming is good."
+              +"Object oriented programming is good."
+              +"Functional programming is good."
+              +"Programming with all three is best."
+            }
+            +"&mdash; Uncle Bob Martin (@unclebobmartin)"
+            a {
+              href = "https://twitter.com/unclebobmartin/status/1522904306948657160?ref_src=twsrc%5Etfw"
+              +"May 7, 2022"
+            }
+          }
+          script {
+            async = true
+            src = "https://platform.twitter.com/widgets.js"
+            charset = "utf-8"
+          }
+        }
+      }
+
+      dslSlide {
+        content {
+          h2 { +"Kotlin Playground Support" }
+          playground("src/main/kotlin/lambdas/SimpleTypes.kt")
         }
       }
     }

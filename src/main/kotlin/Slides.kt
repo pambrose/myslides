@@ -32,7 +32,7 @@ fun main() {
       topLeftHref = "https://github.com/pambrose/myslides"
       topLeftTitle = "View presentation source on Github"
 
-      topRightHref = "/"
+      topRightHref = "https://pambrose.github.io/myslides/#/"
       topRightTitle = "Go to 1st Slide"
       topRightText = "🏠"
 

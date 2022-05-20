@@ -133,7 +133,7 @@ fun main() {
       }
 
       presentationConfig {
-        topRightHref = "https://pambrose.github.io/myslides/http.html#/"
+        topRightHref = "/myslides"
       }
 
       markdownSlide {

@@ -41,26 +41,26 @@ fun main() {
       slideNumber = "c/t"
 
       playgroundConfig {
-          theme = PlaygroundTheme.DARCULA
-          lines = true
-          style = "border:none;"
-          width = "100%"
-          height = "250px"
+        theme = PlaygroundTheme.DARCULA
+        lines = true
+        style = "border:none;"
+        width = "100%"
+        height = "250px"
 
-          css {
-            rule(".CodeMirror pre") {
-              lineHeight = LineHeight("25px")
-            }
-
-            rule(".CodeMirror") {
-              fontSize = LinearDimension("20px")
-            }
-
-            rule(".code-output") {
-              lineHeight = LineHeight("25px")
-              fontSize = LinearDimension("20px")
-            }
+        css {
+          rule(".CodeMirror pre") {
+            lineHeight = LineHeight("25px")
           }
+
+          rule(".CodeMirror") {
+            fontSize = LinearDimension("20px")
+          }
+
+          rule(".code-output") {
+            lineHeight = LineHeight("25px")
+            fontSize = LinearDimension("20px")
+          }
+        }
       }
     }
 
@@ -133,10 +133,11 @@ fun main() {
       }
 
       presentationConfig {
-        topRightHref = "/myslides"
+        topRightHref = "#/http"
       }
 
       markdownSlide {
+        id = "http"
         classes = "title-slide"
         content {
           """
@@ -509,7 +510,12 @@ fun main() {
     presentation {
       path = "functional.html"
 
+      presentationConfig {
+        topRightHref = "#/functional"
+      }
+
       dslSlide {
+        id = "functional"
         content {
           h2 { +"Uncle Bob Quote" }
           blockQuote(classes = "twitter-tweet tw-align-center") {

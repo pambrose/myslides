@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <script data-selector=".playground-code" src="https://unpkg.com/kotlin-playground@1"></script>
+
+    <style media="screen" type="text/css">
+			.CodeMirror pre {
+			line-height: 25px;
+			}
+			.CodeMirror {
+			font-size: 20px;
+			}
+			.code-output {
+			line-height: 25px;
+			font-size: 20px;
+			}
+			
+			
+		</style>
+    
+  </head>
+  <body>
+    <code class="playground-code" lines="true" theme="darcula">
+package lambdas
+
+fun main() {
+
+  //sampleStart
+  fun sum(a: Int, b: Int) = a + b
+
+  val a = sum(8, 9)
+  val b = sum(1, 3)
+
+  println(a)
+  println(b)
+  //sampleEnd
+}
+</code>
+  </body>
+</html>

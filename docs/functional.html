@@ -13,41 +13,45 @@
     <link href="revealjs/plugin/highlight/monokai.css" id="highlight-theme" rel="stylesheet">
     <link href="revealjs/plugin/copycode/copycode.css" rel="stylesheet">
     
+    <link href="/favicon.ico" rel="shortcut icon" type="image/x-icon">
+    <link href="/favicon.ico" rel="icon" type="image/x-icon">
+    
     <style media="screen" type="text/css">
-		/* These CSS settings are embedded directly in the presentation html */
+			/* These CSS settings are embedded directly in the presentation html */
 		
-		/* This prevents auto-capitalization of headers */
-		.reveal h1,
-		.reveal h2,
-		.reveal h3,
-		.reveal h4,
-		.reveal h5,
-		.reveal h6 {
-		    text-transform: none;
-		}
+			/* This prevents auto-capitalization of headers */
+			.reveal h1,
+			.reveal h2,
+			.reveal h3,
+			.reveal h4,
+			.reveal h5,
+			.reveal h6 {
+			    text-transform: none;
+			}
 		
-		a.top-left {
-		    position: absolute;
-		    z-index: 1;
-		    width: clamp(50px, 8vmax, 80px);
-		    line-height: 0;
-		    color: rgba(255, 255, 255, 0.5);
-		}
+			a.top-left {
+			    position: absolute;
+			    z-index: 1;
+			    width: clamp(50px, 8vmax, 80px);
+			    line-height: 0;
+			    color: rgba(255, 255, 255, 0.5);
+			}
 		
-		a.top-left path {
-		    fill: #258bd2;
-		}
+			a.top-left path {
+			    fill: #258bd2;
+			}
 		
-		a.top-left:hover {
-		    color: white;
-		}
+			a.top-left:hover {
+			    color: white;
+			}
 		
-		a.top-right {
-		    position: absolute;
-		    top: 15px;
-		    right: 15px;
-		    z-index: 1;
-		}</style>
+			a.top-right {
+			    position: absolute;
+			    top: 15px;
+			    right: 15px;
+			    z-index: 1;
+			}
+		</style>
     
     <style media="screen" type="text/css">
 			#githubCorner path { fill: #258BD2; }
@@ -69,7 +73,24 @@
 			<a class="top-right" href="#/functional" target="_self" title="Go to 1st Slide">&#127968;</a>
 
       <div class="slides">
-        <section id="functional">
+        <section>
+          <h2>Kotlin Lambdas and Higher-Order Functions</h2>
+          <img src="images/lambda.png">
+        </section>
+        
+        <section>
+          <h2>Imperative vs Declarative Programming</h2>
+          <br>
+          <p class="fragment fade-right">
+            <b>Imperative programming </b>is a programming paradigm that uses statements that change a program&rsquo;s state.
+          </p>
+          <br>
+          <p class="fragment fade-right">
+            <b>Declarative programming </b>is a programming paradigm that expresses the logic of a computation without describing its control flow.
+          </p>
+        </section>
+        
+        <section id="unclebob">
           <h2>Uncle Bob Quote</h2>
           <blockquote class="twitter-tweet tw-align-center" style="">
             <p dir="ltr" lang="en">Procedural programming is good.Object oriented programming is good.Functional programming is good.Programming with all three is best.</p>
@@ -79,8 +100,103 @@
         </section>
         
         <section>
-          <h2>Kotlin Playground Support</h2>
-          <iframe height="250px" src="playground/slide-28-1.html" style="border:none;" width="100%"></iframe>
+          <h2>Primitive Types</h2>
+          <iframe height="250px" src="playground/slide-30-1.html" style="border:none;" width="100%"></iframe>
+        </section>
+        
+        <section>
+          <h2>Object Types</h2>
+          <iframe height="400px" src="playground/slide-31-1.html" style="border:none;" width="100%"></iframe>
+        </section>
+        
+        <section>
+          <h2>Function with a Block Body</h2>
+          <iframe height="400px" src="playground/slide-32-1.html" style="border:none;" width="100%"></iframe>
+        </section>
+        
+        <section>
+          <h2>Function with an Expression Body</h2>
+          <iframe height="400px" src="playground/slide-33-1.html" style="border:none;" width="100%"></iframe>
+        </section>
+        
+        <section>
+          <h2>Assigning a Function Invocation</h2>
+          <iframe height="400px" src="playground/slide-34-1.html" style="border:none;" width="100%"></iframe>
+        </section>
+        
+        <section>
+          <h2>Assigning a Function Reference</h2>
+          <iframe height="400px" src="playground/slide-35-1.html" style="border:none;" width="100%"></iframe>
+        </section>
+        
+        <section>
+          <h2>Assigning a Function Reference</h2>
+          <iframe height="400px" src="playground/slide-36-1.html" style="border:none;" width="100%"></iframe>
+        </section>
+        
+        <section>
+          <h2>How do we describe the type of a function?</h2>
+        </section>
+        
+        <section data-auto-animate="">
+          <h2>Elements of a Function</h2>
+          <ul></ul>
+        </section>
+        
+        <section data-auto-animate="">
+          <h2>Elements of a Function</h2>
+          <ul>
+            <li>Name</li>
+          </ul>
+        </section>
+        
+        <section data-auto-animate="">
+          <h2>Elements of a Function</h2>
+          <ul>
+            <li>Name</li>
+            <li>Parameters</li>
+          </ul>
+        </section>
+        
+        <section data-auto-animate="">
+          <h2>Elements of a Function</h2>
+          <ul>
+            <li>Name</li>
+            <li>Parameters</li>
+            <li>Return Type</li>
+          </ul>
+        </section>
+        
+        <section data-auto-animate="">
+          <h2>Elements of a Function</h2>
+          <ul>
+            <li>Name</li>
+            <li>Parameters</li>
+            <li>Return Type</li>
+            <li>Body</li>
+          </ul>
+        </section>
+        
+        <section data-auto-animate="">
+          <h2>Elements of a Function</h2>
+          <ul>
+            <li>Parameters</li>
+            <li>Return Type</li>
+            <li>Body</li>
+          </ul>
+        </section>
+        
+        <section data-auto-animate="">
+          <h2>Elements of a Function</h2>
+          <ul>
+            <li>Parameters</li>
+            <li>Return Type</li>
+          </ul>
+        </section>
+        
+        <section>
+          <h2>Specifying a Function Type</h2>
+          <iframe height="400px" src="playground/slide-45-1.html" style="border:none;" width="100%"></iframe>
         </section>
         
       </div>

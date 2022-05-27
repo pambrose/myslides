@@ -515,7 +515,30 @@ fun main() {
       }
 
       dslSlide {
-        id = "functional"
+        content {
+          h2 { +"Kotlin Lambdas and Higher-Order Functions" }
+          img { src = "images/lambda.png" }
+        }
+      }
+
+      dslSlide {
+        content {
+          h2 { +"Imperative vs Declarative Programming" }
+          br {}
+          p("fragment fade-right") {
+            b { +"Imperative programming " }
+            +"is a programming paradigm that uses statements that change a program’s state."
+          }
+          br {}
+          p("fragment fade-right") {
+            b { +"Declarative programming " }
+            +"is a programming paradigm that expresses the logic of a computation without describing its control flow."
+          }
+        }
+      }
+
+      dslSlide {
+        id = "unclebob"
         content {
           h2 { +"Uncle Bob Quote" }
           blockQuote(classes = "twitter-tweet tw-align-center") {
@@ -542,10 +565,102 @@ fun main() {
         }
       }
 
+      // https://hmkcode.com/kotlin/kotlin-function-type-lambda/
+
       dslSlide {
         content {
-          h2 { +"Kotlin Playground Support" }
-          playground("src/main/kotlin/lambdas/SimpleTypes.kt")
+          h2 { +"Primitive Types" }
+          playground("src/main/kotlin/lambdas/PrimitiveTypes.kt")
+        }
+      }
+
+      dslSlide {
+        content {
+          h2 { +"Object Types" }
+          playground("src/main/kotlin/lambdas/ObjectTypes.kt") {
+            height = "400px"
+          }
+        }
+      }
+
+      dslSlide {
+        content {
+          h2 { +"Function with a Block Body" }
+          playground("src/main/kotlin/lambdas/BasicFunctions1.kt") {
+            height = "400px"
+          }
+        }
+      }
+
+      dslSlide {
+        content {
+          h2 { +"Function with an Expression Body" }
+          playground("src/main/kotlin/lambdas/BasicFunctions2.kt") {
+            height = "400px"
+          }
+        }
+      }
+
+
+      dslSlide {
+        content {
+          h2 { +"Assigning a Function Invocation" }
+          playground("src/main/kotlin/lambdas/BasicFunctions3.kt") {
+            height = "400px"
+          }
+        }
+      }
+
+      dslSlide {
+        content {
+          h2 { +"Assigning a Function Reference" }
+          playground("src/main/kotlin/lambdas/FuncReference1.kt") {
+            height = "400px"
+          }
+        }
+      }
+
+      dslSlide {
+        content {
+          h2 { +"Assigning a Function Reference" }
+          playground("src/main/kotlin/lambdas/FuncReference2.kt") {
+            height = "400px"
+          }
+        }
+      }
+
+      dslSlide {
+        content {
+          h2 { +"How do we describe the type of a function?" }
+        }
+      }
+
+      listOf("Name", "Parameters", "Return Type", "Body")
+        .permuteBy(
+          listOf(),
+          listOf(0),
+          listOf(0, 1),
+          listOf(0, 1, 2),
+          listOf(0, 1, 2, 3),
+          listOf(1, 2, 3),
+          listOf(1, 2),
+        )
+        .forEach { items ->
+          dslSlide {
+            autoAnimate = true
+            content {
+              h2 { +"Elements of a Function" }
+              unorderedList(*items.toTypedArray())
+            }
+          }
+        }
+
+      dslSlide {
+        content {
+          h2 { +"Specifying a Function Type" }
+          playground("src/main/kotlin/lambdas/FuncReference3.kt") {
+            height = "400px"
+          }
         }
       }
     }

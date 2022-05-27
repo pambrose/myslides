@@ -1,7 +1,6 @@
 package lambdas
 
 fun main() {
-
   //sampleStart
   fun func1(): Unit = println("Hello")
   val a: () -> Unit = ::func1

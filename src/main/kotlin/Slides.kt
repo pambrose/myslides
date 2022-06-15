@@ -1,5 +1,15 @@
-import com.kslides.*
+import com.kslides.PlaygroundTheme
+import com.kslides.PresentationTheme
+import com.kslides.Speed
 import com.kslides.Transition
+import com.kslides.codeSnippet
+import com.kslides.include
+import com.kslides.kslides
+import com.kslides.listHref
+import com.kslides.permuteBy
+import com.kslides.playground
+import com.kslides.toLinePatterns
+import com.kslides.unorderedList
 import kotlinx.css.*
 import kotlinx.css.properties.*
 import kotlinx.html.*
@@ -566,6 +576,7 @@ fun main() {
       }
 
       // https://hmkcode.com/kotlin/kotlin-function-type-lambda/
+      // https://doordash.engineering/2022/03/22/how-to-leverage-functional-programming-in-kotlin-to-write-better-cleaner-code/
 
       dslSlide {
         content {

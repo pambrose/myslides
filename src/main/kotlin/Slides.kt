@@ -531,21 +531,21 @@ fun main() {
         }
       }
 
-      dslSlide {
-        content {
-          h2 { +"Imperative vs Declarative Programming" }
-          br {}
-          p("fragment fade-right") {
-            b { +"Imperative programming " }
-            +"is a programming paradigm that uses statements that change a program’s state."
-          }
-          br {}
-          p("fragment fade-right") {
-            b { +"Declarative programming " }
-            +"is a programming paradigm that expresses the logic of a computation without describing its control flow."
-          }
-        }
-      }
+//      dslSlide {
+//        content {
+//          h2 { +"Imperative vs Declarative Programming" }
+//          br {}
+//          p("fragment fade-right") {
+//            b { +"Imperative programming " }
+//            +"is a programming paradigm that uses statements that change a program’s state."
+//          }
+//          br {}
+//          p("fragment fade-right") {
+//            b { +"Declarative programming " }
+//            +"is a programming paradigm that expresses the logic of a computation without describing its control flow."
+//          }
+//        }
+//      }
 
       dslSlide {
         id = "unclebob"
@@ -580,8 +580,8 @@ fun main() {
 
       dslSlide {
         content {
-          h2 { +"Primitive Types" }
-          playground("src/main/kotlin/lambdas/PrimitiveTypes.kt")
+          h2 { +"Fundamental Types" }
+          playground("src/main/kotlin/lambdas/FundamentalTypes.kt")
         }
       }
 
@@ -596,26 +596,29 @@ fun main() {
 
       dslSlide {
         content {
-          h2 { +"Function with a Block Body" }
+          h2 { +"Elements of a Function" }
           playground("src/main/kotlin/lambdas/BasicFunctions1.kt") {
-            height = "400px"
+            height = "200px"
           }
+          p("fragment fade-right") { b { +"Name" } }
+          p("fragment fade-right") { b { +"Parameter Types" } }
+          p("fragment fade-right") { b { +"Body" } }
+          p("fragment fade-right") { b { +"Return Type" } }
         }
       }
 
+//      dslSlide {
+//        content {
+//          h2 { +"Function with an Expression Body" }
+//          playground("src/main/kotlin/lambdas/BasicFunctions2.kt") {
+//            height = "400px"
+//          }
+//        }
+//      }
+
       dslSlide {
         content {
-          h2 { +"Function with an Expression Body" }
-          playground("src/main/kotlin/lambdas/BasicFunctions2.kt") {
-            height = "400px"
-          }
-        }
-      }
-
-
-      dslSlide {
-        content {
-          h2 { +"Assigning a Function Invocation" }
+          h2 { +"Function Invocation" }
           playground("src/main/kotlin/lambdas/BasicFunctions3.kt") {
             height = "400px"
           }
@@ -626,16 +629,16 @@ fun main() {
         content {
           h2 { +"Assigning a Function Reference" }
           playground("src/main/kotlin/lambdas/FuncReference1.kt") {
-            height = "400px"
+            height = "450px"
           }
         }
       }
 
       dslSlide {
         content {
-          h2 { +"Assigning a Function Reference" }
+          h2 { +"Invoking a Function Reference" }
           playground("src/main/kotlin/lambdas/FuncReference2.kt") {
-            height = "400px"
+            height = "450px"
           }
         }
       }
@@ -670,8 +673,16 @@ fun main() {
         content {
           h2 { +"Specifying a Function Type" }
           playground("src/main/kotlin/lambdas/FuncReference3.kt") {
-            height = "400px"
+            height = "450px"
           }
+        }
+      }
+
+      dslSlide {
+        content {
+          h2 { +"Break Through Moment #1" }
+          img { width="400px"; src = "images/breakthrough1.jpg" }
+          h3 { style="color: red;"; +"Functions are 1st Class Types!!" }
         }
       }
     }

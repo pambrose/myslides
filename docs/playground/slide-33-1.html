@@ -26,9 +26,13 @@ package lambdas
 
 fun main() {
   //sampleStart
-  fun sum(a: Int, b: Int) = a + b         // inferred Int return type
+  fun sum(a: Int, b: Int): Int {
+    return a + b
+  }
 
-  println(sum(8, 9))
+  val a = ::sum
+
+  println(a)
   //sampleEnd
 }
 </code>

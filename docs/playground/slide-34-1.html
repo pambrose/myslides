@@ -26,13 +26,14 @@ package lambdas
 
 fun main() {
   //sampleStart
-  fun sum(a: Int, b: Int) = a + b
+  fun sum(a: Int, b: Int): Int {
+    return a + b
+  }
 
-  val a = sum(8, 9)
-  val b = sum(1, 3)
+  val a = ::sum
 
-  println(a)
-  println(b)
+  println(a.invoke(5, 6))
+  println(a(7, 7))
   //sampleEnd
 }
 </code>

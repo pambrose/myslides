@@ -26,10 +26,12 @@ package lambdas
 
 fun main() {
   //sampleStart
-  val a: Int = 1                          // explicit Int type
-  val b = "ABC"                           // inferred String type
+  class SomeClass(val value: Int)
 
-  println("a = $a, b = $b")
+  val a: SomeClass = SomeClass(4)   // explicit SomeClass type
+  val b = SomeClass(5)              // inferred SomeClass type
+
+  println("a = ${a.value}, b = ${b.value}")
   //sampleEnd
 }
 </code>

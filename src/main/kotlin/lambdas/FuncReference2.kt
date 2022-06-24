@@ -2,11 +2,13 @@ package lambdas
 
 fun main() {
   //sampleStart
-  fun sum(a: Int, b: Int) = a + b
+  fun sum(a: Int, b: Int): Int {
+    return a + b
+  }
 
-  val a = ::sum        // Let Kotlin infer the type of 'a'
+  val a = ::sum
 
-  println(a(5, 6))
+  println(a.invoke(5, 6))
   println(a(7, 7))
   //sampleEnd
 }

@@ -710,7 +710,7 @@ fun main() {
 
       dslSlide {
         content {
-          h2 { +"Single Arg Lambdas" }
+          h2 { +"Single Parameter Lambdas" }
           playground("src/main/kotlin/lambdas/Lambda3.kt") {
             height = "400px"
             dataHighlightOnly = true
@@ -757,6 +757,59 @@ fun main() {
         }
       }
 
+      dslSlide {
+        content {
+          h2 { +"Higher Order Functions" }
+          p {
+            +"""
+              A function that takes another function as an argument, 
+              or returns a function as a result.
+            """.trimIndent()
+          }
+        }
+      }
+
+      dslSlide {
+        content {
+          h3 { +"Higher Order Function Example" }
+          playground("src/main/kotlin/lambdas/Hof1.kt") {
+            height = "400px"
+            foldedButton = false
+            dataHighlightOnly = true
+          }
+        }
+      }
+
+      dslSlide {
+        content {
+          h3 { +"Higher Order Function Example" }
+          playground("src/main/kotlin/lambdas/Hof2.kt") {
+            height = "575px"
+            foldedButton = false
+          }
+        }
+      }
+
+      dslSlide {
+        content {
+          h3 { +"Higher Order Function Example" }
+          playground("src/main/kotlin/lambdas/Hof3.kt") {
+            height = "400px"
+            foldedButton = false
+            dataHighlightOnly = true
+          }
+        }
+      }
+
+      dslSlide {
+        content {
+          h3 { +"Higher Order Function Example" }
+          playground("src/main/kotlin/lambdas/Hof4.kt") {
+            height = "500px"
+            foldedButton = false
+          }
+        }
+      }
 
       dslSlide {
         content {

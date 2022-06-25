@@ -7,7 +7,9 @@ fun main() {
     return a + b
   }
 
-  val sumLambda: (Int, Int) -> Int = { a: Int, b: Int -> a + b }
+  val sumLambda: (Int, Int) -> Int = { a: Int, b: Int ->
+    a + b     // last expression is returned
+  }
 
   println(sumFunc(1, 2))
   println(sumLambda.invoke(3, 4))

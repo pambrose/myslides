@@ -10,5 +10,7 @@ fun main() {
   val dupLambda3: (String) -> String = { it -> it + it }
 
   val dupLambda4: (String) -> String = { it + it }
+
+  val dupLambda5 = { s: String -> s + s }
   //sampleEnd
 }

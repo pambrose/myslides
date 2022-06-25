@@ -81,7 +81,7 @@ fun main() {
           # Paul's Slides
           
           * [HTTP and REST Basics](http.html)
-          * [Kotlin Functional Programming](functional.html)
+          * [Functional Programming](functional.html)
           """
         }
       }
@@ -526,7 +526,7 @@ fun main() {
 
       dslSlide {
         content {
-          h2 { +"Kotlin Lambdas and Higher-Order Functions" }
+          h2 { +"Lambdas and Higher-Order Functions" }
           img { src = "images/lambda.png" }
         }
       }
@@ -581,7 +581,10 @@ fun main() {
       dslSlide {
         content {
           h2 { +"Fundamental Types" }
-          playground("src/main/kotlin/lambdas/FundamentalTypes.kt")
+          playground("src/main/kotlin/lambdas/FundamentalTypes.kt") {
+            height = "400px"
+            foldedButton = false
+          }
         }
       }
 
@@ -590,37 +593,17 @@ fun main() {
           h2 { +"Object Types" }
           playground("src/main/kotlin/lambdas/ObjectTypes.kt") {
             height = "400px"
+            foldedButton = false
           }
         }
       }
 
-//      dslSlide {
-//        content {
-//          h2 { +"Elements of a Function" }
-//          playground("src/main/kotlin/lambdas/BasicFunctions1.kt") {
-//            height = "200px"
-//          }
-//          p("fragment fade-right") { b { +"Name" } }
-//          p("fragment fade-right") { b { +"Parameter Types" } }
-//          p("fragment fade-right") { b { +"Body" } }
-//          p("fragment fade-right") { b { +"Return Type" } }
-//        }
-//      }
-
-//      dslSlide {
-//        content {
-//          h2 { +"Function with an Expression Body" }
-//          playground("src/main/kotlin/lambdas/BasicFunctions2.kt") {
-//            height = "400px"
-//          }
-//        }
-//      }
-
       dslSlide {
         content {
           h2 { +"Function Invocation" }
-          playground("src/main/kotlin/lambdas/BasicFunctions3.kt") {
-            height = "400px"
+          playground("src/main/kotlin/lambdas/FunctionInvoke.kt") {
+            height = "450px"
+            foldedButton = false
           }
         }
       }
@@ -630,6 +613,7 @@ fun main() {
           h2 { +"Assigning a Function Reference" }
           playground("src/main/kotlin/lambdas/FuncReference1.kt") {
             height = "450px"
+            foldedButton = false
           }
         }
       }
@@ -639,6 +623,7 @@ fun main() {
           h2 { +"Invoking a Function Reference" }
           playground("src/main/kotlin/lambdas/FuncReference2.kt") {
             height = "450px"
+            foldedButton = false
           }
         }
       }
@@ -664,7 +649,7 @@ fun main() {
             autoAnimate = true
             content {
               h2 { +"Elements of a Function" }
-              playground("src/main/kotlin/lambdas/BasicFunctions1.kt") {
+              playground("src/main/kotlin/lambdas/BasicFunction.kt") {
                 height = "220px"
                 dataHighlightOnly = true
                 foldedButton = false
@@ -679,6 +664,7 @@ fun main() {
           h2 { +"Specifying a Function Type" }
           playground("src/main/kotlin/lambdas/FuncReference3.kt") {
             height = "450px"
+            foldedButton = false
           }
         }
       }
@@ -688,13 +674,14 @@ fun main() {
           h2 { +"Type Equivalence" }
           playground("src/main/kotlin/lambdas/FuncReference4.kt") {
             height = "450px"
+            dataHighlightOnly = true
           }
         }
       }
 
       dslSlide {
         content {
-          h2 { +"Break Through Moment #1" }
+          h2 { +"Break Through Moment #1 of 4" }
           img { width = "400px"; src = "images/breakthrough1.jpg" }
           h3 { style = "color: red;"; +"Functions are 1st Class Types!!" }
         }
@@ -705,6 +692,7 @@ fun main() {
           h2 { +"Defining a Lambda" }
           playground("src/main/kotlin/lambdas/Lambda1.kt") {
             height = "400px"
+            foldedButton = false
           }
         }
       }
@@ -763,9 +751,18 @@ fun main() {
 
       dslSlide {
         content {
-          h2 { +"Break Through Moment #2" }
+          h2 { +"Break Through Moment #2 of 4" }
           img { width = "400px"; src = "images/breakthrough2.jpg" }
-          h3 { style = "color: red;"; +"We can define functions without names!!" }
+          h3 { style = "color: red;"; +"We can work with lambdas!!" }
+        }
+      }
+
+
+      dslSlide {
+        content {
+          h2 { +"Break Through Moment #3 of 4" }
+          img { width = "400px"; src = "images/breakthrough3.jpg" }
+          h3 { style = "color: red;"; +"We can work with higher-order functions!!" }
         }
       }
     }

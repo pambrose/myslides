@@ -27,6 +27,7 @@ fun main() {
   }
 
   //sampleStart
+
   val a: () -> Unit = ::func1
   val b: () -> Int = ::func2
   val c: (String) -> Int = ::func3

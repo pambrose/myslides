@@ -2,6 +2,7 @@ package lambdas
 
 fun main() {
   //sampleStart
+
   fun func1(): String {
     return "Hello"
   }

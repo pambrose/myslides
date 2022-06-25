@@ -21,7 +21,7 @@
     
   </head>
   <body>
-    <code class="playground-code" lines="true" theme="darcula">
+    <code class="playground-code" folded-button="false" lines="true" theme="darcula">
 package lambdas
 
 fun main() {
@@ -34,7 +34,8 @@ fun main() {
   val sumLambda: (Int, Int) -&gt; Int = { a: Int, b: Int -&gt; a + b }
 
   println(sumFunc(1, 2))
-  println(sumLambda.invoke(1, 2))
+  println(sumLambda.invoke(3, 4))
+  println(sumLambda(5, 6))
   //sampleEnd
 }
 </code>

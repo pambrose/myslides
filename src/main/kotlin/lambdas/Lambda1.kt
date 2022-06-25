@@ -10,6 +10,7 @@ fun main() {
   val sumLambda: (Int, Int) -> Int = { a: Int, b: Int -> a + b }
 
   println(sumFunc(1, 2))
-  println(sumLambda.invoke(1, 2))
+  println(sumLambda.invoke(3, 4))
+  println(sumLambda(5, 6))
   //sampleEnd
 }

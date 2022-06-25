@@ -26,17 +26,15 @@ package lambdas
 
 fun main() {
   //sampleStart
-  fun func1(): Unit = println("Hello")
-  val a: () -&gt; Unit = ::func1
 
-  fun func2(): String = "Hello"
-  val b: () -&gt; String = ::func2
+  fun sumFunc(a: Int, b: Int): Int {
+    return a + b
+  }
 
-  fun func3(a: Int) = println(a * a)
-  val c: (Int) -&gt; Unit = ::func3
+  val sumLambda: (Int, Int) -&gt; Int = { a: Int, b: Int -&gt; a + b }
 
-  fun func4(a: Int, b: Int) = a * b
-  val d: (Int, Int) -&gt; Int = ::func4
+  println(sumFunc(1, 2))
+  println(sumLambda.invoke(1, 2))
   //sampleEnd
 }
 </code>

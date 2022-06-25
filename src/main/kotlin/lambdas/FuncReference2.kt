@@ -8,7 +8,8 @@ fun main() {
 
   val a = ::sum
 
+  println(sum(3, 2))
   println(a.invoke(5, 6))
-  println(a(7, 7))
+  println(a(9, 8))
   //sampleEnd
 }

@@ -594,18 +594,18 @@ fun main() {
         }
       }
 
-      dslSlide {
-        content {
-          h2 { +"Elements of a Function" }
-          playground("src/main/kotlin/lambdas/BasicFunctions1.kt") {
-            height = "200px"
-          }
-          p("fragment fade-right") { b { +"Name" } }
-          p("fragment fade-right") { b { +"Parameter Types" } }
-          p("fragment fade-right") { b { +"Body" } }
-          p("fragment fade-right") { b { +"Return Type" } }
-        }
-      }
+//      dslSlide {
+//        content {
+//          h2 { +"Elements of a Function" }
+//          playground("src/main/kotlin/lambdas/BasicFunctions1.kt") {
+//            height = "200px"
+//          }
+//          p("fragment fade-right") { b { +"Name" } }
+//          p("fragment fade-right") { b { +"Parameter Types" } }
+//          p("fragment fade-right") { b { +"Body" } }
+//          p("fragment fade-right") { b { +"Return Type" } }
+//        }
+//      }
 
 //      dslSlide {
 //        content {
@@ -664,6 +664,11 @@ fun main() {
             autoAnimate = true
             content {
               h2 { +"Elements of a Function" }
+              playground("src/main/kotlin/lambdas/BasicFunctions1.kt") {
+                height = "220px"
+                dataHighlightOnly = true
+                foldedButton = false
+              }
               unorderedList(*items.toTypedArray())
             }
           }
@@ -680,9 +685,87 @@ fun main() {
 
       dslSlide {
         content {
+          h2 { +"Type Equivalence" }
+          playground("src/main/kotlin/lambdas/FuncReference4.kt") {
+            height = "450px"
+          }
+        }
+      }
+
+      dslSlide {
+        content {
           h2 { +"Break Through Moment #1" }
-          img { width="400px"; src = "images/breakthrough1.jpg" }
-          h3 { style="color: red;"; +"Functions are 1st Class Types!!" }
+          img { width = "400px"; src = "images/breakthrough1.jpg" }
+          h3 { style = "color: red;"; +"Functions are 1st Class Types!!" }
+        }
+      }
+
+      dslSlide {
+        content {
+          h2 { +"Defining a Lambda" }
+          playground("src/main/kotlin/lambdas/Lambda1.kt") {
+            height = "400px"
+          }
+        }
+      }
+
+      dslSlide {
+        content {
+          h2 { +"Lambda Simplification" }
+          playground("src/main/kotlin/lambdas/Lambda2.kt") {
+            height = "400px"
+            dataHighlightOnly = true
+            foldedButton = false
+          }
+        }
+      }
+
+      dslSlide {
+        content {
+          h2 { +"Single Arg Lambdas" }
+          playground("src/main/kotlin/lambdas/Lambda3.kt") {
+            height = "400px"
+            dataHighlightOnly = true
+            foldedButton = false
+          }
+        }
+      }
+
+      dslSlide {
+        content {
+          h2 { +"Lambda Examples" }
+          playground("src/main/kotlin/lambdas/LambdaExample1.kt") {
+            height = "400px"
+            foldedButton = false
+          }
+        }
+      }
+
+      dslSlide {
+        content {
+          h2 { +"Lambda Examples" }
+          playground("src/main/kotlin/lambdas/LambdaExample2.kt") {
+            height = "400px"
+            foldedButton = false
+          }
+        }
+      }
+
+      dslSlide {
+        content {
+          h2 { +"Lambda Examples" }
+          playground("src/main/kotlin/lambdas/LambdaExample3.kt") {
+            height = "400px"
+            foldedButton = false
+          }
+        }
+      }
+
+      dslSlide {
+        content {
+          h2 { +"Break Through Moment #2" }
+          img { width = "400px"; src = "images/breakthrough2.jpg" }
+          h3 { style = "color: red;"; +"We can define functions without names!!" }
         }
       }
     }

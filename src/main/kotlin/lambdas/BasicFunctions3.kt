@@ -6,7 +6,7 @@ fun main() {
     return a + b
   }
 
-  val a = sum(8, 9)
+  val a: Int = sum(8, 9)
   val b = sum(1, 3)
 
   println(a)

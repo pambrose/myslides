@@ -544,6 +544,10 @@ fun main() {
           id = "functional"
           h2 { +"Lambdas and Higher-Order Functions" }
           img { src = "images/lambda.png" }
+          a {
+            href = "https://pambrose.github.io/myslides/functional.html"
+            +"https://pambrose.github.io/myslides/functional.html"
+          }
         }
       }
 

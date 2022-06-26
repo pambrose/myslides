@@ -526,6 +526,7 @@ fun main() {
 
       dslSlide {
         content {
+          id = "functional"
           h2 { +"Lambdas and Higher-Order Functions" }
           img { src = "images/lambda.png" }
         }
@@ -580,8 +581,14 @@ fun main() {
 
       dslSlide {
         content {
-          h2 { +"Fundamental Types" }
-          playground("src/main/kotlin/lambdas/FundamentalTypes.kt") {
+          h2 { style = "color: red;"; +"Functions as Types" }
+        }
+      }
+
+      dslSlide {
+        content {
+          h2 { +"Simple Types" }
+          playground("src/main/kotlin/lambdas/SimpleTypes.kt") {
             height = "400px"
             foldedButton = false
           }
@@ -590,7 +597,7 @@ fun main() {
 
       dslSlide {
         content {
-          h2 { +"Object Types" }
+          h2 { +"User Object Types" }
           playground("src/main/kotlin/lambdas/ObjectTypes.kt") {
             height = "400px"
             foldedButton = false
@@ -622,7 +629,7 @@ fun main() {
         content {
           h2 { +"Invoking a Function Reference" }
           playground("src/main/kotlin/lambdas/FuncReference2.kt") {
-            height = "450px"
+            height = "500px"
             foldedButton = false
           }
         }
@@ -634,7 +641,12 @@ fun main() {
         }
       }
 
-      listOf("Name", "Parameters", "Return Type", "Body")
+      listOf("Name (sum)",
+             "Parameters (a: Int, b: Int)",
+             "Return Type (Int)",
+             "Body (return a + b)",
+             "Parameters (Int, Int)",
+             "(Int, Int) -> Int")
         .permuteBy(
           listOf(),
           listOf(0),
@@ -643,6 +655,8 @@ fun main() {
           listOf(0, 1, 2, 3),
           listOf(1, 2, 3),
           listOf(1, 2),
+          listOf(4, 2),
+          listOf(4, 2, 5),
         )
         .forEach { items ->
           dslSlide {
@@ -689,9 +703,15 @@ fun main() {
 
       dslSlide {
         content {
-          h2 { +"Defining a Lambda" }
+          h2 { style = "color: red;"; +"Lambdas" }
+        }
+      }
+
+      dslSlide {
+        content {
+          h3 { +"Defining a Lambda" }
           playground("src/main/kotlin/lambdas/Lambda1.kt") {
-            height = "400px"
+            height = "550px"
             foldedButton = false
           }
         }
@@ -699,7 +719,7 @@ fun main() {
 
       dslSlide {
         content {
-          h2 { +"Lambda Simplification" }
+          h3 { +"Lambda Simplification" }
           playground("src/main/kotlin/lambdas/Lambda2.kt") {
             height = "400px"
             dataHighlightOnly = true
@@ -710,7 +730,7 @@ fun main() {
 
       dslSlide {
         content {
-          h2 { +"Single Parameter Lambdas" }
+          h3 { +"Single Parameter Lambdas" }
           playground("src/main/kotlin/lambdas/Lambda3.kt") {
             height = "400px"
             dataHighlightOnly = true
@@ -721,7 +741,7 @@ fun main() {
 
       dslSlide {
         content {
-          h2 { +"Lambda Examples" }
+          h3 { +"Lambda Examples" }
           playground("src/main/kotlin/lambdas/LambdaExample1.kt") {
             height = "400px"
             foldedButton = false
@@ -731,7 +751,7 @@ fun main() {
 
       dslSlide {
         content {
-          h2 { +"Lambda Examples" }
+          h3 { +"Lambda Examples" }
           playground("src/main/kotlin/lambdas/LambdaExample2.kt") {
             height = "400px"
             foldedButton = false
@@ -741,7 +761,7 @@ fun main() {
 
       dslSlide {
         content {
-          h2 { +"Lambda Examples" }
+          h3 { +"Lambda Examples" }
           playground("src/main/kotlin/lambdas/LambdaExample3.kt") {
             height = "400px"
             foldedButton = false
@@ -759,7 +779,7 @@ fun main() {
 
       dslSlide {
         content {
-          h2 { +"Higher Order Functions" }
+          h2 { style = "color: red;"; +"Higher Order Functions" }
           p {
             +"""
               A function that takes another function as an argument, 
@@ -771,7 +791,7 @@ fun main() {
 
       dslSlide {
         content {
-          h3 { +"Higher Order Function Example" }
+          h3 { +"Functional Argument" }
           playground("src/main/kotlin/lambdas/Hof1.kt") {
             height = "400px"
             foldedButton = false
@@ -782,7 +802,7 @@ fun main() {
 
       dslSlide {
         content {
-          h3 { +"Higher Order Function Example" }
+          h3 { +"Functional Argument" }
           playground("src/main/kotlin/lambdas/Hof2.kt") {
             height = "575px"
             foldedButton = false
@@ -792,8 +812,18 @@ fun main() {
 
       dslSlide {
         content {
-          h3 { +"Higher Order Function Example" }
+          h3 { +"List of Functional Arguments" }
           playground("src/main/kotlin/lambdas/Hof3.kt") {
+            height = "550px"
+            foldedButton = false
+          }
+        }
+      }
+
+      dslSlide {
+        content {
+          h3 { +"Functional Return Value" }
+          playground("src/main/kotlin/lambdas/Hof4.kt") {
             height = "400px"
             foldedButton = false
             dataHighlightOnly = true
@@ -803,9 +833,19 @@ fun main() {
 
       dslSlide {
         content {
-          h3 { +"Higher Order Function Example" }
-          playground("src/main/kotlin/lambdas/Hof4.kt") {
+          h3 { +"Functional Return Value" }
+          playground("src/main/kotlin/lambdas/Hof5.kt") {
             height = "500px"
+            foldedButton = false
+          }
+        }
+      }
+
+      dslSlide {
+        content {
+          h3 { +"Functional Argument and Return Value" }
+          playground("src/main/kotlin/lambdas/Hof6.kt") {
+            height = "550px"
             foldedButton = false
           }
         }
@@ -816,6 +856,30 @@ fun main() {
           h2 { +"Break Through Moment #3 of 4" }
           img { width = "400px"; src = "images/breakthrough3.jpg" }
           h3 { style = "color: red;"; +"We can work with higher-order functions!!" }
+        }
+      }
+
+      dslSlide {
+        content {
+          h2 { style = "color: red;"; +"Collection Transformation Operations" }
+        }
+      }
+
+      dslSlide {
+        content {
+          h3 { +"Higher Order Function Example" }
+          playground("src/main/kotlin/lambdas/Transform1.kt") {
+            height = "500px"
+            foldedButton = false
+          }
+        }
+      }
+
+      dslSlide {
+        content {
+          h2 { +"Break Through Moment #4 of 4" }
+          img { width = "400px"; src = "images/breakthrough4.jpg" }
+          h3 { style = "color: red;"; +"We can use lambdas in collection transformation operations!!" }
         }
       }
     }

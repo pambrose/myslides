@@ -7,9 +7,10 @@ fun main() {
     return a + b
   }
 
+  println(sum(3, 2))
+
   val a = ::sum           // cheat and infer type
 
-  println(sum(3, 2))
   println(a.invoke(5, 6))
   println(a(9, 8))
   //sampleEnd

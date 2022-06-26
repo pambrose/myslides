@@ -73,7 +73,7 @@
 			<a class="top-right" href="#/functional" target="_self" title="Go to 1st Slide">&#127968;</a>
 
       <div class="slides">
-        <section>
+        <section id="functional">
           <h2>Lambdas and Higher-Order Functions</h2>
           <img src="images/lambda.png">
         </section>
@@ -88,28 +88,32 @@
         </section>
         
         <section>
-          <h2>Fundamental Types</h2>
-          <iframe height="400px" src="playground/slide-29-1.html" style="border:none;" width="100%"></iframe>
+          <h2 style="color: red;">Functions as Types</h2>
         </section>
         
         <section>
-          <h2>Object Types</h2>
+          <h2>Simple Types</h2>
           <iframe height="400px" src="playground/slide-30-1.html" style="border:none;" width="100%"></iframe>
         </section>
         
         <section>
-          <h2>Function Invocation</h2>
-          <iframe height="450px" src="playground/slide-31-1.html" style="border:none;" width="100%"></iframe>
+          <h2>User Object Types</h2>
+          <iframe height="400px" src="playground/slide-31-1.html" style="border:none;" width="100%"></iframe>
         </section>
         
         <section>
-          <h2>Assigning a Function Reference</h2>
+          <h2>Function Invocation</h2>
           <iframe height="450px" src="playground/slide-32-1.html" style="border:none;" width="100%"></iframe>
         </section>
         
         <section>
-          <h2>Invoking a Function Reference</h2>
+          <h2>Assigning a Function Reference</h2>
           <iframe height="450px" src="playground/slide-33-1.html" style="border:none;" width="100%"></iframe>
+        </section>
+        
+        <section>
+          <h2>Invoking a Function Reference</h2>
+          <iframe height="500px" src="playground/slide-34-1.html" style="border:none;" width="100%"></iframe>
         </section>
         
         <section>
@@ -118,24 +122,15 @@
         
         <section data-auto-animate="">
           <h2>Elements of a Function</h2>
-          <iframe height="220px" src="playground/slide-35-1.html" style="border:none;" width="100%"></iframe>
-          <ul></ul>
-        </section>
-        
-        <section data-auto-animate="">
-          <h2>Elements of a Function</h2>
           <iframe height="220px" src="playground/slide-36-1.html" style="border:none;" width="100%"></iframe>
-          <ul>
-            <li>Name</li>
-          </ul>
+          <ul></ul>
         </section>
         
         <section data-auto-animate="">
           <h2>Elements of a Function</h2>
           <iframe height="220px" src="playground/slide-37-1.html" style="border:none;" width="100%"></iframe>
           <ul>
-            <li>Name</li>
-            <li>Parameters</li>
+            <li>Name (sum)</li>
           </ul>
         </section>
         
@@ -143,9 +138,8 @@
           <h2>Elements of a Function</h2>
           <iframe height="220px" src="playground/slide-38-1.html" style="border:none;" width="100%"></iframe>
           <ul>
-            <li>Name</li>
-            <li>Parameters</li>
-            <li>Return Type</li>
+            <li>Name (sum)</li>
+            <li>Parameters (a: Int, b: Int)</li>
           </ul>
         </section>
         
@@ -153,10 +147,9 @@
           <h2>Elements of a Function</h2>
           <iframe height="220px" src="playground/slide-39-1.html" style="border:none;" width="100%"></iframe>
           <ul>
-            <li>Name</li>
-            <li>Parameters</li>
-            <li>Return Type</li>
-            <li>Body</li>
+            <li>Name (sum)</li>
+            <li>Parameters (a: Int, b: Int)</li>
+            <li>Return Type (Int)</li>
           </ul>
         </section>
         
@@ -164,9 +157,10 @@
           <h2>Elements of a Function</h2>
           <iframe height="220px" src="playground/slide-40-1.html" style="border:none;" width="100%"></iframe>
           <ul>
-            <li>Parameters</li>
-            <li>Return Type</li>
-            <li>Body</li>
+            <li>Name (sum)</li>
+            <li>Parameters (a: Int, b: Int)</li>
+            <li>Return Type (Int)</li>
+            <li>Body (return a + b)</li>
           </ul>
         </section>
         
@@ -174,19 +168,48 @@
           <h2>Elements of a Function</h2>
           <iframe height="220px" src="playground/slide-41-1.html" style="border:none;" width="100%"></iframe>
           <ul>
-            <li>Parameters</li>
-            <li>Return Type</li>
+            <li>Parameters (a: Int, b: Int)</li>
+            <li>Return Type (Int)</li>
+            <li>Body (return a + b)</li>
+          </ul>
+        </section>
+        
+        <section data-auto-animate="">
+          <h2>Elements of a Function</h2>
+          <iframe height="220px" src="playground/slide-42-1.html" style="border:none;" width="100%"></iframe>
+          <ul>
+            <li>Parameters (a: Int, b: Int)</li>
+            <li>Return Type (Int)</li>
+          </ul>
+        </section>
+        
+        <section data-auto-animate="">
+          <h2>Elements of a Function</h2>
+          <iframe height="220px" src="playground/slide-43-1.html" style="border:none;" width="100%"></iframe>
+          <ul>
+            <li>Parameters (Int, Int)</li>
+            <li>Return Type (Int)</li>
+          </ul>
+        </section>
+        
+        <section data-auto-animate="">
+          <h2>Elements of a Function</h2>
+          <iframe height="220px" src="playground/slide-44-1.html" style="border:none;" width="100%"></iframe>
+          <ul>
+            <li>Parameters (Int, Int)</li>
+            <li>Return Type (Int)</li>
+            <li>(Int, Int) -&gt; Int</li>
           </ul>
         </section>
         
         <section>
           <h2>Specifying a Function Type</h2>
-          <iframe height="450px" src="playground/slide-42-1.html" style="border:none;" width="100%"></iframe>
+          <iframe height="450px" src="playground/slide-45-1.html" style="border:none;" width="100%"></iframe>
         </section>
         
         <section>
           <h2>Type Equivalence</h2>
-          <iframe height="450px" src="playground/slide-43-1.html" style="border:none;" width="100%"></iframe>
+          <iframe height="450px" src="playground/slide-46-1.html" style="border:none;" width="100%"></iframe>
         </section>
         
         <section>
@@ -196,33 +219,37 @@
         </section>
         
         <section>
-          <h2>Defining a Lambda</h2>
-          <iframe height="400px" src="playground/slide-45-1.html" style="border:none;" width="100%"></iframe>
+          <h2 style="color: red;">Lambdas</h2>
         </section>
         
         <section>
-          <h2>Lambda Simplification</h2>
-          <iframe height="400px" src="playground/slide-46-1.html" style="border:none;" width="100%"></iframe>
+          <h3>Defining a Lambda</h3>
+          <iframe height="550px" src="playground/slide-49-1.html" style="border:none;" width="100%"></iframe>
         </section>
         
         <section>
-          <h2>Single Parameter Lambdas</h2>
-          <iframe height="400px" src="playground/slide-47-1.html" style="border:none;" width="100%"></iframe>
-        </section>
-        
-        <section>
-          <h2>Lambda Examples</h2>
-          <iframe height="400px" src="playground/slide-48-1.html" style="border:none;" width="100%"></iframe>
-        </section>
-        
-        <section>
-          <h2>Lambda Examples</h2>
-          <iframe height="400px" src="playground/slide-49-1.html" style="border:none;" width="100%"></iframe>
-        </section>
-        
-        <section>
-          <h2>Lambda Examples</h2>
+          <h3>Lambda Simplification</h3>
           <iframe height="400px" src="playground/slide-50-1.html" style="border:none;" width="100%"></iframe>
+        </section>
+        
+        <section>
+          <h3>Single Parameter Lambdas</h3>
+          <iframe height="400px" src="playground/slide-51-1.html" style="border:none;" width="100%"></iframe>
+        </section>
+        
+        <section>
+          <h3>Lambda Examples</h3>
+          <iframe height="400px" src="playground/slide-52-1.html" style="border:none;" width="100%"></iframe>
+        </section>
+        
+        <section>
+          <h3>Lambda Examples</h3>
+          <iframe height="400px" src="playground/slide-53-1.html" style="border:none;" width="100%"></iframe>
+        </section>
+        
+        <section>
+          <h3>Lambda Examples</h3>
+          <iframe height="400px" src="playground/slide-54-1.html" style="border:none;" width="100%"></iframe>
         </section>
         
         <section>
@@ -232,35 +259,60 @@
         </section>
         
         <section>
-          <h2>Higher Order Functions</h2>
+          <h2 style="color: red;">Higher Order Functions</h2>
           <p>A function that takes another function as an argument, 
 or returns a function as a result.</p>
         </section>
         
         <section>
-          <h3>Higher Order Function Example</h3>
-          <iframe height="400px" src="playground/slide-53-1.html" style="border:none;" width="100%"></iframe>
+          <h3>Functional Argument</h3>
+          <iframe height="400px" src="playground/slide-57-1.html" style="border:none;" width="100%"></iframe>
         </section>
         
         <section>
-          <h3>Higher Order Function Example</h3>
-          <iframe height="575px" src="playground/slide-54-1.html" style="border:none;" width="100%"></iframe>
+          <h3>Functional Argument</h3>
+          <iframe height="575px" src="playground/slide-58-1.html" style="border:none;" width="100%"></iframe>
         </section>
         
         <section>
-          <h3>Higher Order Function Example</h3>
-          <iframe height="400px" src="playground/slide-55-1.html" style="border:none;" width="100%"></iframe>
+          <h3>List of Functional Arguments</h3>
+          <iframe height="550px" src="playground/slide-59-1.html" style="border:none;" width="100%"></iframe>
         </section>
         
         <section>
-          <h3>Higher Order Function Example</h3>
-          <iframe height="500px" src="playground/slide-56-1.html" style="border:none;" width="100%"></iframe>
+          <h3>Functional Return Value</h3>
+          <iframe height="400px" src="playground/slide-60-1.html" style="border:none;" width="100%"></iframe>
+        </section>
+        
+        <section>
+          <h3>Functional Return Value</h3>
+          <iframe height="500px" src="playground/slide-61-1.html" style="border:none;" width="100%"></iframe>
+        </section>
+        
+        <section>
+          <h3>Functional Argument and Return Value</h3>
+          <iframe height="550px" src="playground/slide-62-1.html" style="border:none;" width="100%"></iframe>
         </section>
         
         <section>
           <h2>Break Through Moment #3 of 4</h2>
           <img src="images/breakthrough3.jpg" width="400px">
           <h3 style="color: red;">We can work with higher-order functions!!</h3>
+        </section>
+        
+        <section>
+          <h2 style="color: red;">Collection Transformation Operations</h2>
+        </section>
+        
+        <section>
+          <h3>Higher Order Function Example</h3>
+          <iframe height="500px" src="playground/slide-65-1.html" style="border:none;" width="100%"></iframe>
+        </section>
+        
+        <section>
+          <h2>Break Through Moment #4 of 4</h2>
+          <img src="images/breakthrough4.jpg" width="400px">
+          <h3 style="color: red;">We can use lambdas in collection transformation operations!!</h3>
         </section>
         
       </div>

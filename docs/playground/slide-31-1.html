@@ -27,15 +27,12 @@ package lambdas
 fun main() {
   //sampleStart
 
-  fun sum(a: Int, b: Int): Int {
-    return a + b
-  }
+  data class SomeClass(val value: Int)
 
-  val a: Int = sum(8, 9)
-  val b = sum(1, 3)
+  val a: SomeClass = SomeClass(4)   // explicit SomeClass type
+  val b = SomeClass(5)              // inferred SomeClass type
 
-  println(a)
-  println(b)
+  println("a = $a, b = $b")
   //sampleEnd
 }
 </code>

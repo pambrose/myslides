@@ -27,18 +27,18 @@ package lambdas
 fun main() {
   //sampleStart
 
-  fun sumFunc(a: Int, b: Int): Int {
+  fun add(a: Int, b: Int): Int {
     return a + b
   }
 
-  val sumLambda: (Int, Int) -&gt; Int = { a: Int, b: Int -&gt;
-    a + b     // last expression is returned
+  val x: (Int, Int) -&gt; Int = ::add
+
+  fun greeting(): String {
+    return "Hello"
   }
 
-  println(sumFunc(1, 2))
-  println(sumLambda.invoke(3, 4))
-  println(sumLambda(5, 6))
-  //sampleEnd
+  val y: () -&gt; String = ::greeting
+ //sampleEnd
 }
 </code>
   </body>

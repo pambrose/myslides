@@ -1128,6 +1128,12 @@ fun main() {
           }
         }
       }
+
+      dslSlide {
+        content {
+          h2 { +"Thank You" }
+        }
+      }
     }
   }
 }

@@ -21,16 +21,18 @@
     
   </head>
   <body>
-    <code class="playground-code" data-highlight-only="true" folded-button="false" lines="true" theme="darcula">
+    <code class="playground-code" folded-button="false" lines="true" theme="darcula">
 package lambdas
 
 fun main() {
   //sampleStart
 
-  fun sum(a: Int, b: Int): Int {
-    return a + b
-  }
- //sampleEnd
+  val intList =
+    listOf(0, 1, 2, 3, 4, 5, 6)
+      .filterIndexed { index, v -&gt; index % 2 == 0  || v == 5}
+
+  println(intList)
+  //sampleEnd
 }
 </code>
   </body>

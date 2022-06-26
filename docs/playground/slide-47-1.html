@@ -27,11 +27,11 @@ package lambdas
 fun main() {
   //sampleStart
 
-  fun add(a: Int, b: Int): Int {
-    return a + b
+  fun greeting(): String {
+    return "Hello"
   }
 
-  val x: (Int, Int) -&gt; Int = ::add
+  val x: () -&gt; String = ::greeting
  //sampleEnd
 }
 </code>

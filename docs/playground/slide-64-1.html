@@ -27,12 +27,16 @@ package lambdas
 fun main() {
   //sampleStart
 
-  fun add(a: Int, b: Int): Int {
-    return a + b
+  fun returnHof(): (Int, Int) -&gt; Int {
+    return { x, y -&gt; x + y }
   }
 
-  val x: (Int, Int) -&gt; Int = ::add
- //sampleEnd
+  val hofFunc = returnHof()
+
+  println(hofFunc)
+  println(hofFunc.invoke(1, 2))
+  println(hofFunc(1, 2))
+  //sampleEnd
 }
 </code>
   </body>

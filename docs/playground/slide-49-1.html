@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <script data-selector=".playground-code" src="https://unpkg.com/kotlin-playground@1"></script>
+
+    <style media="screen" type="text/css">
+			.CodeMirror pre {
+			line-height: 25px;
+			}
+			.CodeMirror {
+			font-size: 20px;
+			}
+			.code-output {
+			line-height: 25px;
+			font-size: 20px;
+			}
+			
+			
+		</style>
+    
+  </head>
+  <body>
+    <code class="playground-code" data-highlight-only="true" lines="true" theme="darcula">
+package lambdas
+
+fun main() {
+
+  fun func1(): Unit {
+    println("Hello")
+  }
+
+  fun func2(): Int {
+    return 5
+  }
+
+  fun func3(a: String): Int {
+    return a.toInt()
+  }
+
+  fun func4(a: Int, b: Int): String {
+    return "$a and $b"
+  }
+
+  fun func5(a: Int, b: Int): String {
+    return "The values are: $a and $b"
+  }
+
+  fun func6(a: Int, b: Int): Int {
+    return a * b
+  }
+
+  //sampleStart
+
+  val a: () -&gt; Unit = ::func1
+  val b: () -&gt; Int = ::func2
+  val c: (String) -&gt; Int = ::func3
+  val d: (Int, Int) -&gt; String = ::func4
+  val e: (Int, Int) -&gt; String = ::func5
+  val f: (Int, Int) -&gt; Int = ::func6
+  //sampleEnd
+}
+</code>
+  </body>
+</html>

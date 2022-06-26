@@ -14,7 +14,7 @@ fun main() {
 
   text.lines()
     .mapIndexed { index, s -> if (index % 2 == 0) s.uppercase() else s }
-    //.filterIndexed { index, s ->  index > 1 }
+    .filterIndexed { index, s ->  index >= 2 }
     .also { println(it) }
   //sampleEnd
 }

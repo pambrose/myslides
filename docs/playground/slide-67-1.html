@@ -26,13 +26,21 @@ package lambdas
 
 fun main() {
   //sampleStart
-
-  fun add(a: Int, b: Int): Int {
-    return a + b
+  fun filter(list: List&lt;Int&gt;, predicate: (Int) -&gt; Boolean): List&lt;Int&gt; {
+    val result = mutableListOf&lt;Int&gt;()
+    for (element in list) {
+      if (predicate(element)) result.add(element)
+    }
+    return result
   }
 
-  val x: (Int, Int) -&gt; Int = ::add
- //sampleEnd
+  val nums = listOf(0, 1, 2, 3, 4, 5, 6)
+  val evens = filter(nums) { it % 2 == 0 }
+  val by3s = filter(evens) { it % 3 == 0 }
+
+  println(evens)
+  println(by3s)
+  //sampleEnd
 }
 </code>
   </body>

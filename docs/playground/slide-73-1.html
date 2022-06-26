@@ -27,12 +27,14 @@ package lambdas
 fun main() {
   //sampleStart
 
-  fun add(a: Int, b: Int): Int {
-    return a + b
-  }
+  val strList =
+    listOf(0, "dog", "cat", 3, 44.5, 5, "house", null)
+      .filterNotNull()
+      .filterIsInstance&lt;String&gt;()
+      .filter { it.length &gt; 3 }
 
-  val x: (Int, Int) -&gt; Int = ::add
- //sampleEnd
+  println(strList)
+  //sampleEnd
 }
 </code>
   </body>

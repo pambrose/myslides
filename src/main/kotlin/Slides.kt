@@ -6,6 +6,7 @@ import com.kslides.codeSnippet
 import com.kslides.include
 import com.kslides.kslides
 import com.kslides.listHref
+import com.kslides.orderedList
 import com.kslides.permuteBy
 import com.kslides.playground
 import com.kslides.toLinePatterns
@@ -520,6 +521,20 @@ fun main() {
     presentation {
       path = "functional.html"
 
+      css += """
+        .agenda li {
+          padding-top: 10px;
+        }
+
+        .cbo li {
+          padding-top: 10px;
+        }
+
+        .benefits li {
+          padding-top: 10px;
+        }
+      """
+
       presentationConfig {
         topRightHref = "#/functional"
       }
@@ -531,22 +546,6 @@ fun main() {
           img { src = "images/lambda.png" }
         }
       }
-
-//      dslSlide {
-//        content {
-//          h2 { +"Imperative vs Declarative Programming" }
-//          br {}
-//          p("fragment fade-right") {
-//            b { +"Imperative programming " }
-//            +"is a programming paradigm that uses statements that change a program’s state."
-//          }
-//          br {}
-//          p("fragment fade-right") {
-//            b { +"Declarative programming " }
-//            +"is a programming paradigm that expresses the logic of a computation without describing its control flow."
-//          }
-//        }
-//      }
 
       dslSlide {
         id = "unclebob"
@@ -578,6 +577,22 @@ fun main() {
 
       // https://hmkcode.com/kotlin/kotlin-function-type-lambda/
       // https://doordash.engineering/2022/03/22/how-to-leverage-functional-programming-in-kotlin-to-write-better-cleaner-code/
+
+      dslSlide {
+        content {
+          h2 { +"Agenda" }
+          div("agenda") {
+            orderedList(
+              "Functions as Types",
+              "Lambdas",
+              "Higher-Order Functions",
+              "Collection-based Operations"
+            ) {
+              style = "color: red; font-size:35px; padding-top:5px;"
+            }
+          }
+        }
+      }
 
       dslSlide {
         content {
@@ -642,12 +657,14 @@ fun main() {
         }
       }
 
-      listOf("Name (sum)",
-             "Parameters (a: Int, b: Int)",
-             "Return Type (Int)",
-             "Body (return a + b)",
-             "Parameters (Int, Int)",
-             "(Int, Int) -> Int")
+      listOf(
+        "Name (sum)",
+        "Parameters (a: Int, b: Int)",
+        "Return Type (Int)",
+        "Body (return a + b)",
+        "Parameters (Int, Int)",
+        "(Int, Int) -> Int"
+      )
         .permuteBy(
           listOf(),
           listOf(0),
@@ -664,10 +681,11 @@ fun main() {
             autoAnimate = true
             content {
               h2 { +"Elements of a Function" }
-              playground("$lambdas/BasicFunction.kt") {
-                height = "220px"
-                dataHighlightOnly = true
-                foldedButton = false
+              codeSnippet {
+                copyButton = false
+                trim = false
+                highlightPattern = "none"
+                +include("$lambdas/BasicFunction.kt", "5-10")
               }
               unorderedList(*items.toTypedArray())
             }
@@ -686,8 +704,28 @@ fun main() {
 
       dslSlide {
         content {
-          h2 { +"Type Equivalence" }
+          h2 { +"Specifying a Function Type" }
           playground("$lambdas/FuncReference4.kt") {
+            height = "450px"
+            foldedButton = false
+          }
+        }
+      }
+
+      dslSlide {
+        content {
+          h2 { +"Specifying a Function Type" }
+          playground("$lambdas/FuncReference5.kt") {
+            height = "450px"
+            foldedButton = false
+          }
+        }
+      }
+
+      dslSlide {
+        content {
+          h2 { +"Type Equivalence" }
+          playground("$lambdas/FuncReference6.kt") {
             height = "450px"
             dataHighlightOnly = true
           }
@@ -698,19 +736,23 @@ fun main() {
         content {
           h2 { +"Break Through Moment #1 of 4" }
           img { width = "400px"; src = "images/breakthrough1.jpg" }
-          h3 { style = "color: red;"; +"Functions are 1st Class Types!!" }
+          h3 { style = "color: red;"; +"We understand that functions are 1st class types!!" }
         }
       }
 
       dslSlide {
         content {
           h2 { style = "color: red;"; +"Lambdas" }
+          p {
+            +"Lambdas are nameless functions that can be passed around as values. "
+            +"They are also called closures."
+          }
         }
       }
 
       dslSlide {
         content {
-          h3 { +"Defining a Lambda" }
+          h3 { +"Defining and Invoking a Lambda" }
           playground("$lambdas/Lambda1.kt") {
             height = "550px"
             foldedButton = false
@@ -788,7 +830,9 @@ fun main() {
             """.trimIndent()
           }
           p {
-            a {href = "https://en.wikipedia.org/wiki/Higher-order_function"; +"(Languages with Higher-Order Functions)"}
+            a {
+              href = "https://en.wikipedia.org/wiki/Higher-order_function"; +"(Languages with Higher-Order Functions)"
+            }
           }
         }
       }
@@ -865,13 +909,26 @@ fun main() {
 
       dslSlide {
         content {
-          h2 { style = "color: red;"; +"Collection Transformation Operations" }
+          h2 { style = "color: red;"; +"Collection-based Operations" }
+          div("cbo") {
+            unorderedList(
+              "Filtering",
+              "Transformations",
+              "Grouping",
+              "Retrieving collection parts",
+              "Retrieving single elements",
+              "Ordering",
+              "Aggregate",
+            ) {
+              style = "color: red; font-size:30px;"
+            }
+          }
         }
       }
 
       dslSlide {
         content {
-          h3 { +"Collection Transformation" }
+          h3 { +"Filter Calls" }
           playground("$lambdas/Filter1.kt") {
             height = "500px"
             foldedButton = false
@@ -881,7 +938,7 @@ fun main() {
 
       dslSlide {
         content {
-          h3 { +"filter() Calls" }
+          h3 { +"Filter Calls" }
           playground("$lambdas/Filter2.kt") {
             height = "500px"
             foldedButton = false
@@ -891,7 +948,7 @@ fun main() {
 
       dslSlide {
         content {
-          h3 { +"Method Chaining, Cascading, Fluent Calls" }
+          h3 { +"Method Chaining" }
           playground("$lambdas/Filter3.kt") {
             height = "500px"
             foldedButton = false
@@ -901,7 +958,37 @@ fun main() {
 
       dslSlide {
         content {
-          h3 { +"map() Calls" }
+          h3 { +"Negated Filter Calls" }
+          playground("$lambdas/Filter4.kt") {
+            height = "500px"
+            foldedButton = false
+          }
+        }
+      }
+
+      dslSlide {
+        content {
+          h3 { +"Filter with Index Calls" }
+          playground("$lambdas/Filter5.kt") {
+            height = "400px"
+            foldedButton = false
+          }
+        }
+      }
+
+      dslSlide {
+        content {
+          h3 { +"Filter by Type and Null" }
+          playground("$lambdas/Filter6.kt") {
+            height = "400px"
+            foldedButton = false
+          }
+        }
+      }
+
+      dslSlide {
+        content {
+          h3 { +"Transformation Calls" }
           playground("$lambdas/Map1.kt") {
             height = "500px"
             foldedButton = false
@@ -911,7 +998,7 @@ fun main() {
 
       dslSlide {
         content {
-          h3 { +"map() Calls" }
+          h3 { +"Transformation Calls" }
           playground("$lambdas/Map2.kt") {
             height = "500px"
             foldedButton = false
@@ -921,7 +1008,7 @@ fun main() {
 
       dslSlide {
         content {
-          h3 { +"map() Calls" }
+          h3 { +"Transformation Calls" }
           playground("$lambdas/Map3.kt") {
             height = "500px"
             foldedButton = false
@@ -984,6 +1071,7 @@ fun main() {
           h3 { +"Working with Strings" }
           playground("$lambdas/Combo4.kt") {
             height = "500px"
+            foldedButton = false
           }
         }
       }
@@ -993,6 +1081,27 @@ fun main() {
           h3 { +"Working with Strings" }
           playground("$lambdas/Combo5.kt") {
             height = "500px"
+            foldedButton = false
+          }
+        }
+      }
+
+      dslSlide {
+        content {
+          h3 { +"Aggregates - sum() Call" }
+          playground("$lambdas/Aggregate1.kt") {
+            height = "400px"
+            foldedButton = false
+          }
+        }
+      }
+
+      dslSlide {
+        content {
+          h3 { +"Aggregates - max() Call" }
+          playground("$lambdas/Aggregate2.kt") {
+            height = "400px"
+            foldedButton = false
           }
         }
       }
@@ -1001,7 +1110,22 @@ fun main() {
         content {
           h2 { +"Break Through Moment #4 of 4" }
           img { width = "400px"; src = "images/breakthrough4.jpg" }
-          h3 { style = "color: red;"; +"We can use lambdas in collection transformation operations!!" }
+          h3 { style = "color: red;"; +"We can use lambdas in collection operations!!" }
+        }
+      }
+
+      dslSlide {
+        content {
+          h2 { +"Benefits of Functional Programming" }
+          div("benefits") {
+            unorderedList(
+              "Side-effect-free executions",
+              "Easy iterations on existing functions",
+              "Increased testability",
+            ) {
+              style = "color: red; font-size:30px; padding-top:5px;"
+            }
+          }
         }
       }
     }

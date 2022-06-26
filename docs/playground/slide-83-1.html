@@ -25,14 +25,22 @@
 package lambdas
 
 fun main() {
+  fun String.splitByWS() = split("\\s".toRegex())
+
   //sampleStart
 
-  fun add(a: Int, b: Int): Int {
-    return a + b
-  }
+  val text = """
+    A poem about a frog
+    that was a little green
+    and a little blue
+    and a little yellow.
+    """.trimIndent()
 
-  val x: (Int, Int) -&gt; Int = ::add
- //sampleEnd
+  text.lines()
+    .mapIndexed { index, s -&gt; if (index % 2 == 0) s.uppercase() else s }
+    .filterIndexed { index, s -&gt;  index &gt;= 2 }
+    .also { println(it) }
+  //sampleEnd
 }
 </code>
   </body>

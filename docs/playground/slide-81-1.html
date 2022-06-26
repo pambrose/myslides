@@ -27,12 +27,15 @@ package lambdas
 fun main() {
   //sampleStart
 
-  fun add(a: Int, b: Int): Int {
-    return a + b
-  }
-
-  val x: (Int, Int) -&gt; Int = ::add
- //sampleEnd
+  listOf(0, 1, 2, 3, 4, 5, 6)
+    .filter { it % 2 == 0 }
+    .map { it * it }
+    .filter { it &gt;= 16 }
+    .map { "Value: $it" }
+    .also { println(it) }
+    .joinToString(" ")
+    .also { println(it) }
+  //sampleEnd
 }
 </code>
   </body>

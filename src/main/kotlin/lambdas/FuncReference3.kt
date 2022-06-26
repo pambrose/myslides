@@ -8,11 +8,5 @@ fun main() {
   }
 
   val x: (Int, Int) -> Int = ::add
-
-  fun greeting(): String {
-    return "Hello"
-  }
-
-  val y: () -> String = ::greeting
  //sampleEnd
 }

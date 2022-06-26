@@ -12,7 +12,7 @@ fun main() {
   println(comboFunc(1, 2))
   println(comboFunc(4, 5))
 
-  println(comboHof({ x, y -> x % y })(7, 3))
+  println(comboHof { x, y -> x % y }(7, 3))
   println(comboHof { x, y -> x % y }(5, 3))
   //sampleEnd
 }

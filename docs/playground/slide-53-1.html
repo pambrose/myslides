@@ -21,18 +21,18 @@
     
   </head>
   <body>
-    <code class="playground-code" folded-button="false" lines="true" theme="darcula">
+    <code class="playground-code" data-highlight-only="true" folded-button="false" lines="true" theme="darcula">
 package lambdas
 
 fun main() {
   //sampleStart
 
-  fun add(a: Int, b: Int): Int {
-    return a + b
-  }
+  val sumLambda1: (Int, Int) -&gt; Int = { a: Int, b: Int -&gt; a + b }
 
-  val x: (Int, Int) -&gt; Int = ::add
- //sampleEnd
+  val sumLambda2: (Int, Int) -&gt; Int = { a, b -&gt; a + b }
+
+  val sumLambda3 = { a: Int, b: Int -&gt; a + b }
+  //sampleEnd
 }
 </code>
   </body>

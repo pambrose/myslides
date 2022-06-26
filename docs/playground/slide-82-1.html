@@ -25,14 +25,23 @@
 package lambdas
 
 fun main() {
+  fun String.splitByWS() = split("\\s".toRegex())
+
   //sampleStart
 
-  fun add(a: Int, b: Int): Int {
-    return a + b
-  }
+  val text = """
+    Tell me and I forget.
+    Tell me and I remember.
+    Tell me and I think.
+    Tell me and I know.
+    """
 
-  val x: (Int, Int) -&gt; Int = ::add
- //sampleEnd
+  text.splitByWS()
+    .map { it.replace(".", "") }
+    .filter { it.length &gt; 4 }
+    .joinToString(" ")
+    .also { println(it) }
+  //sampleEnd
 }
 </code>
   </body>

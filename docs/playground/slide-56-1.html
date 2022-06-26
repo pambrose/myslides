@@ -27,12 +27,13 @@ package lambdas
 fun main() {
   //sampleStart
 
-  fun add(a: Int, b: Int): Int {
-    return a + b
-  }
+  val squareGt100: (Int) -&gt; Boolean = { it * it &gt; 100 }
 
-  val x: (Int, Int) -&gt; Int = ::add
- //sampleEnd
+  val multGt: (Int, Int, Int) -&gt; Boolean = { i1, i2, i3 -&gt; i1 * i2 &gt; i3 }
+
+  println(squareGt100(9))
+  println(multGt(9, 10, 75))
+  //sampleEnd
 }
 </code>
   </body>

@@ -21,18 +21,22 @@
     
   </head>
   <body>
-    <code class="playground-code" folded-button="false" lines="true" theme="darcula">
+    <code class="playground-code" data-highlight-only="true" folded-button="false" lines="true" theme="darcula">
 package lambdas
 
 fun main() {
   //sampleStart
 
-  fun add(a: Int, b: Int): Int {
-    return a + b
-  }
+  val dupLambda1: (String) -&gt; String = { s: String -&gt; s + s }
 
-  val x: (Int, Int) -&gt; Int = ::add
- //sampleEnd
+  val dupLambda2: (String) -&gt; String = { s -&gt; s + s }
+
+  val dupLambda3: (String) -&gt; String = { it -&gt; it + it }
+
+  val dupLambda4: (String) -&gt; String = { it + it }
+
+  val dupLambda5 = { s: String -&gt; s + s }
+  //sampleEnd
 }
 </code>
   </body>

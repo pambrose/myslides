@@ -27,12 +27,13 @@ package lambdas
 fun main() {
   //sampleStart
 
-  fun add(a: Int, b: Int): Int {
-    return a + b
-  }
+  val atLeast8CharsLong: (String) -&gt; Boolean = { s -&gt; s.length &gt;= 8 }
 
-  val x: (Int, Int) -&gt; Int = ::add
- //sampleEnd
+  val atLeast10CharsLong: (String) -&gt; Boolean = { it.length &gt;= 10 }
+
+  println(atLeast8CharsLong.invoke("This is"))
+  println(atLeast10CharsLong("This is a test"))
+  //sampleEnd
 }
 </code>
   </body>

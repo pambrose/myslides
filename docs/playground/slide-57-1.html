@@ -27,12 +27,13 @@ package lambdas
 fun main() {
   //sampleStart
 
-  fun add(a: Int, b: Int): Int {
-    return a + b
-  }
+  val doubleToString: (Int) -&gt; String = { it.toString() + it.toString() }
 
-  val x: (Int, Int) -&gt; Int = ::add
- //sampleEnd
+  val doubleToInt: (Int) -&gt; Int = { it + it }
+
+  println(doubleToString(10))
+  println(doubleToInt(11))
+  //sampleEnd
 }
 </code>
   </body>

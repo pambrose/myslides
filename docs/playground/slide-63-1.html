@@ -21,18 +21,16 @@
     
   </head>
   <body>
-    <code class="playground-code" folded-button="false" lines="true" theme="darcula">
+    <code class="playground-code" data-highlight-only="true" folded-button="false" lines="true" theme="darcula">
 package lambdas
 
 fun main() {
   //sampleStart
 
-  fun add(a: Int, b: Int): Int {
-    return a + b
+  fun returnHof(): (Int, Int) -&gt; Int {
+    return { x, y -&gt; x + y }
   }
-
-  val x: (Int, Int) -&gt; Int = ::add
- //sampleEnd
+  //sampleEnd
 }
 </code>
   </body>

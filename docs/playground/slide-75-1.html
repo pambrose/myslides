@@ -27,12 +27,13 @@ package lambdas
 fun main() {
   //sampleStart
 
-  fun add(a: Int, b: Int): Int {
-    return a + b
-  }
+  val intList =
+    listOf(0, 1, 2, 3, 4, 5, 6)
+      .map { it * 2 }
+      .map { it * it }
 
-  val x: (Int, Int) -&gt; Int = ::add
- //sampleEnd
+  println(intList)
+  //sampleEnd
 }
 </code>
   </body>

@@ -27,12 +27,21 @@ package lambdas
 fun main() {
   //sampleStart
 
-  fun add(a: Int, b: Int): Int {
+  fun argHof(a: Int, b: Int, block: (Int, Int) -&gt; Int): Int {
+    return block.invoke(a, b)
+  }
+
+  fun addIt(a: Int, b: Int): Int {
     return a + b
   }
 
-  val x: (Int, Int) -&gt; Int = ::add
- //sampleEnd
+  val multIt: (Int, Int) -&gt; Int = { a, b -&gt; a * b }
+
+  val ops = listOf(::addIt, multIt, { a, b -&gt; a % b })
+  for (op in ops) {
+    println(argHof(5, 4, op))
+  }
+  //sampleEnd
 }
 </code>
   </body>

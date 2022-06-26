@@ -27,12 +27,18 @@ package lambdas
 fun main() {
   //sampleStart
 
-  fun add(a: Int, b: Int): Int {
-    return a + b
+  fun comboHof(block: (Int, Int) -&gt; Int): (Int, Int) -&gt; Int {
+    return { x, y -&gt; block.invoke(x, y) }
   }
 
-  val x: (Int, Int) -&gt; Int = ::add
- //sampleEnd
+  val comboFunc = comboHof { x, y -&gt; x + y }
+
+  println(comboFunc(1, 2))
+  println(comboFunc(4, 5))
+
+  println(comboHof { x, y -&gt; x % y }(7, 3))
+  println(comboHof { x, y -&gt; x % y }(5, 3))
+  //sampleEnd
 }
 </code>
   </body>

@@ -585,10 +585,11 @@ fun main() {
         }
       }
 
+      val lambdas = "src/main/kotlin/lambdas"
       dslSlide {
         content {
           h2 { +"Simple Types" }
-          playground("src/main/kotlin/lambdas/SimpleTypes.kt") {
+          playground("$lambdas/SimpleTypes.kt") {
             height = "400px"
             foldedButton = false
           }
@@ -598,7 +599,7 @@ fun main() {
       dslSlide {
         content {
           h2 { +"User Object Types" }
-          playground("src/main/kotlin/lambdas/ObjectTypes.kt") {
+          playground("$lambdas/ObjectTypes.kt") {
             height = "400px"
             foldedButton = false
           }
@@ -608,7 +609,7 @@ fun main() {
       dslSlide {
         content {
           h2 { +"Function Invocation" }
-          playground("src/main/kotlin/lambdas/FunctionInvoke.kt") {
+          playground("$lambdas/FunctionInvoke.kt") {
             height = "450px"
             foldedButton = false
           }
@@ -618,7 +619,7 @@ fun main() {
       dslSlide {
         content {
           h2 { +"Assigning a Function Reference" }
-          playground("src/main/kotlin/lambdas/FuncReference1.kt") {
+          playground("$lambdas/FuncReference1.kt") {
             height = "450px"
             foldedButton = false
           }
@@ -628,7 +629,7 @@ fun main() {
       dslSlide {
         content {
           h2 { +"Invoking a Function Reference" }
-          playground("src/main/kotlin/lambdas/FuncReference2.kt") {
+          playground("$lambdas/FuncReference2.kt") {
             height = "500px"
             foldedButton = false
           }
@@ -663,7 +664,7 @@ fun main() {
             autoAnimate = true
             content {
               h2 { +"Elements of a Function" }
-              playground("src/main/kotlin/lambdas/BasicFunction.kt") {
+              playground("$lambdas/BasicFunction.kt") {
                 height = "220px"
                 dataHighlightOnly = true
                 foldedButton = false
@@ -676,7 +677,7 @@ fun main() {
       dslSlide {
         content {
           h2 { +"Specifying a Function Type" }
-          playground("src/main/kotlin/lambdas/FuncReference3.kt") {
+          playground("$lambdas/FuncReference3.kt") {
             height = "450px"
             foldedButton = false
           }
@@ -686,7 +687,7 @@ fun main() {
       dslSlide {
         content {
           h2 { +"Type Equivalence" }
-          playground("src/main/kotlin/lambdas/FuncReference4.kt") {
+          playground("$lambdas/FuncReference4.kt") {
             height = "450px"
             dataHighlightOnly = true
           }
@@ -710,7 +711,7 @@ fun main() {
       dslSlide {
         content {
           h3 { +"Defining a Lambda" }
-          playground("src/main/kotlin/lambdas/Lambda1.kt") {
+          playground("$lambdas/Lambda1.kt") {
             height = "550px"
             foldedButton = false
           }
@@ -720,7 +721,7 @@ fun main() {
       dslSlide {
         content {
           h3 { +"Lambda Simplification" }
-          playground("src/main/kotlin/lambdas/Lambda2.kt") {
+          playground("$lambdas/Lambda2.kt") {
             height = "400px"
             dataHighlightOnly = true
             foldedButton = false
@@ -731,7 +732,7 @@ fun main() {
       dslSlide {
         content {
           h3 { +"Single Parameter Lambdas" }
-          playground("src/main/kotlin/lambdas/Lambda3.kt") {
+          playground("$lambdas/Lambda3.kt") {
             height = "400px"
             dataHighlightOnly = true
             foldedButton = false
@@ -742,7 +743,7 @@ fun main() {
       dslSlide {
         content {
           h3 { +"Lambda Examples" }
-          playground("src/main/kotlin/lambdas/LambdaExample1.kt") {
+          playground("$lambdas/LambdaExample1.kt") {
             height = "400px"
             foldedButton = false
           }
@@ -752,7 +753,7 @@ fun main() {
       dslSlide {
         content {
           h3 { +"Lambda Examples" }
-          playground("src/main/kotlin/lambdas/LambdaExample2.kt") {
+          playground("$lambdas/LambdaExample2.kt") {
             height = "400px"
             foldedButton = false
           }
@@ -762,7 +763,7 @@ fun main() {
       dslSlide {
         content {
           h3 { +"Lambda Examples" }
-          playground("src/main/kotlin/lambdas/LambdaExample3.kt") {
+          playground("$lambdas/LambdaExample3.kt") {
             height = "400px"
             foldedButton = false
           }
@@ -779,12 +780,15 @@ fun main() {
 
       dslSlide {
         content {
-          h2 { style = "color: red;"; +"Higher Order Functions" }
+          h2 { style = "color: red;"; +"Higher-Order Functions" }
           p {
             +"""
               A function that takes another function as an argument, 
               or returns a function as a result.
             """.trimIndent()
+          }
+          p {
+            a {href = "https://en.wikipedia.org/wiki/Higher-order_function"; +"(Languages with Higher-Order Functions)"}
           }
         }
       }
@@ -792,7 +796,7 @@ fun main() {
       dslSlide {
         content {
           h3 { +"Functional Argument" }
-          playground("src/main/kotlin/lambdas/Hof1.kt") {
+          playground("$lambdas/Hof1.kt") {
             height = "400px"
             foldedButton = false
             dataHighlightOnly = true
@@ -803,7 +807,7 @@ fun main() {
       dslSlide {
         content {
           h3 { +"Functional Argument" }
-          playground("src/main/kotlin/lambdas/Hof2.kt") {
+          playground("$lambdas/Hof2.kt") {
             height = "575px"
             foldedButton = false
           }
@@ -813,7 +817,7 @@ fun main() {
       dslSlide {
         content {
           h3 { +"List of Functional Arguments" }
-          playground("src/main/kotlin/lambdas/Hof3.kt") {
+          playground("$lambdas/Hof3.kt") {
             height = "550px"
             foldedButton = false
           }
@@ -823,7 +827,7 @@ fun main() {
       dslSlide {
         content {
           h3 { +"Functional Return Value" }
-          playground("src/main/kotlin/lambdas/Hof4.kt") {
+          playground("$lambdas/Hof4.kt") {
             height = "400px"
             foldedButton = false
             dataHighlightOnly = true
@@ -834,7 +838,7 @@ fun main() {
       dslSlide {
         content {
           h3 { +"Functional Return Value" }
-          playground("src/main/kotlin/lambdas/Hof5.kt") {
+          playground("$lambdas/Hof5.kt") {
             height = "500px"
             foldedButton = false
           }
@@ -844,7 +848,7 @@ fun main() {
       dslSlide {
         content {
           h3 { +"Functional Argument and Return Value" }
-          playground("src/main/kotlin/lambdas/Hof6.kt") {
+          playground("$lambdas/Hof6.kt") {
             height = "550px"
             foldedButton = false
           }
@@ -867,10 +871,128 @@ fun main() {
 
       dslSlide {
         content {
-          h3 { +"Higher Order Function Example" }
-          playground("src/main/kotlin/lambdas/Transform1.kt") {
+          h3 { +"Collection Transformation" }
+          playground("$lambdas/Filter1.kt") {
             height = "500px"
             foldedButton = false
+          }
+        }
+      }
+
+      dslSlide {
+        content {
+          h3 { +"filter() Calls" }
+          playground("$lambdas/Filter2.kt") {
+            height = "500px"
+            foldedButton = false
+          }
+        }
+      }
+
+      dslSlide {
+        content {
+          h3 { +"Method Chaining, Cascading, Fluent Calls" }
+          playground("$lambdas/Filter3.kt") {
+            height = "500px"
+            foldedButton = false
+          }
+        }
+      }
+
+      dslSlide {
+        content {
+          h3 { +"map() Calls" }
+          playground("$lambdas/Map1.kt") {
+            height = "500px"
+            foldedButton = false
+          }
+        }
+      }
+
+      dslSlide {
+        content {
+          h3 { +"map() Calls" }
+          playground("$lambdas/Map2.kt") {
+            height = "500px"
+            foldedButton = false
+          }
+        }
+      }
+
+      dslSlide {
+        content {
+          h3 { +"map() Calls" }
+          playground("$lambdas/Map3.kt") {
+            height = "500px"
+            foldedButton = false
+          }
+        }
+      }
+
+      dslSlide {
+        content {
+          h3 { +"onEach() Calls" }
+          playground("$lambdas/Map4.kt") {
+            height = "500px"
+            foldedButton = false
+          }
+        }
+      }
+
+      dslSlide {
+        content {
+          h3 { +"also() Calls" }
+          playground("$lambdas/Map5.kt") {
+            height = "500px"
+            foldedButton = false
+          }
+        }
+      }
+
+      dslSlide {
+        content {
+          h3 { +"Combining Calls" }
+          playground("$lambdas/Combo1.kt") {
+            height = "400px"
+            foldedButton = false
+          }
+        }
+      }
+
+      dslSlide {
+        content {
+          h3 { +"Combining Calls" }
+          playground("$lambdas/Combo2.kt") {
+            height = "400px"
+            foldedButton = false
+          }
+        }
+      }
+
+      dslSlide {
+        content {
+          h3 { +"Combining Calls" }
+          playground("$lambdas/Combo3.kt") {
+            height = "500px"
+            foldedButton = false
+          }
+        }
+      }
+
+      dslSlide {
+        content {
+          h3 { +"Working with Strings" }
+          playground("$lambdas/Combo4.kt") {
+            height = "500px"
+          }
+        }
+      }
+
+      dslSlide {
+        content {
+          h3 { +"Working with Strings" }
+          playground("$lambdas/Combo5.kt") {
+            height = "500px"
           }
         }
       }

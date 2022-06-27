@@ -611,6 +611,7 @@ fun main() {
           playground("$lambdas/SimpleTypes.kt") {
             height = "400px"
             foldedButton = false
+            lines = true
           }
         }
       }
@@ -621,6 +622,7 @@ fun main() {
           playground("$lambdas/ObjectTypes.kt") {
             height = "400px"
             foldedButton = false
+            lines = true
           }
         }
       }
@@ -631,6 +633,7 @@ fun main() {
           playground("$lambdas/FunctionInvoke.kt") {
             height = "450px"
             foldedButton = false
+            lines = true
           }
         }
       }
@@ -641,6 +644,7 @@ fun main() {
           playground("$lambdas/FuncReference1.kt") {
             height = "450px"
             foldedButton = false
+            lines = true
           }
         }
       }
@@ -651,6 +655,7 @@ fun main() {
           playground("$lambdas/FuncReference2.kt") {
             height = "500px"
             foldedButton = false
+            lines = true
           }
         }
       }
@@ -702,6 +707,7 @@ fun main() {
           playground("$lambdas/FuncReference3.kt") {
             height = "450px"
             foldedButton = false
+            lines = true
           }
         }
       }
@@ -712,6 +718,7 @@ fun main() {
           playground("$lambdas/FuncReference4.kt") {
             height = "450px"
             foldedButton = false
+            lines = true
           }
         }
       }
@@ -722,6 +729,7 @@ fun main() {
           playground("$lambdas/FuncReference5.kt") {
             height = "450px"
             foldedButton = false
+            lines = true
           }
         }
       }
@@ -732,6 +740,7 @@ fun main() {
           playground("$lambdas/FuncReference6.kt") {
             height = "450px"
             dataHighlightOnly = true
+            lines = true
           }
         }
       }
@@ -760,6 +769,7 @@ fun main() {
           playground("$lambdas/Lambda1.kt") {
             height = "550px"
             foldedButton = false
+            lines = true
           }
         }
       }
@@ -771,6 +781,7 @@ fun main() {
             height = "400px"
             dataHighlightOnly = true
             foldedButton = false
+            lines = true
           }
         }
       }
@@ -782,6 +793,7 @@ fun main() {
             height = "400px"
             dataHighlightOnly = true
             foldedButton = false
+            lines = true
           }
         }
       }
@@ -792,6 +804,7 @@ fun main() {
           playground("$lambdas/LambdaExample1.kt") {
             height = "400px"
             foldedButton = false
+            lines = true
           }
         }
       }
@@ -802,6 +815,7 @@ fun main() {
           playground("$lambdas/LambdaExample2.kt") {
             height = "400px"
             foldedButton = false
+            lines = true
           }
         }
       }
@@ -812,6 +826,7 @@ fun main() {
           playground("$lambdas/LambdaExample3.kt") {
             height = "400px"
             foldedButton = false
+            lines = true
           }
         }
       }
@@ -848,6 +863,7 @@ fun main() {
             height = "400px"
             foldedButton = false
             dataHighlightOnly = true
+            lines = true
           }
         }
       }
@@ -858,6 +874,7 @@ fun main() {
           playground("$lambdas/Hof2.kt") {
             height = "575px"
             foldedButton = false
+            lines = true
           }
         }
       }
@@ -868,6 +885,7 @@ fun main() {
           playground("$lambdas/Hof3.kt") {
             height = "550px"
             foldedButton = false
+            lines = true
           }
         }
       }
@@ -879,6 +897,7 @@ fun main() {
             height = "400px"
             foldedButton = false
             dataHighlightOnly = true
+            lines = true
           }
         }
       }
@@ -889,6 +908,7 @@ fun main() {
           playground("$lambdas/Hof5.kt") {
             height = "500px"
             foldedButton = false
+            lines = true
           }
         }
       }
@@ -899,6 +919,7 @@ fun main() {
           playground("$lambdas/Hof6.kt") {
             height = "550px"
             foldedButton = false
+            lines = true
           }
         }
       }
@@ -909,6 +930,7 @@ fun main() {
           playground("$lambdas/Hof7.kt") {
             height = "550px"
             foldedButton = false
+            lines = true
           }
         }
       }
@@ -946,6 +968,7 @@ fun main() {
           playground("$lambdas/Filter1.kt") {
             height = "500px"
             foldedButton = false
+            lines = true
           }
         }
       }
@@ -956,6 +979,7 @@ fun main() {
           playground("$lambdas/Filter2.kt") {
             height = "500px"
             foldedButton = false
+            lines = true
           }
         }
       }
@@ -966,6 +990,7 @@ fun main() {
           playground("$lambdas/Filter3.kt") {
             height = "500px"
             foldedButton = false
+            lines = true
           }
         }
       }
@@ -976,6 +1001,7 @@ fun main() {
           playground("$lambdas/Filter4.kt") {
             height = "500px"
             foldedButton = false
+            lines = true
           }
         }
       }
@@ -986,6 +1012,7 @@ fun main() {
           playground("$lambdas/Filter5.kt") {
             height = "400px"
             foldedButton = false
+            lines = true
           }
         }
       }
@@ -996,6 +1023,7 @@ fun main() {
           playground("$lambdas/Filter6.kt") {
             height = "400px"
             foldedButton = false
+            lines = true
           }
         }
       }
@@ -1006,6 +1034,7 @@ fun main() {
           playground("$lambdas/Map1.kt") {
             height = "500px"
             foldedButton = false
+            lines = true
           }
         }
       }
@@ -1016,6 +1045,7 @@ fun main() {
           playground("$lambdas/Map2.kt") {
             height = "500px"
             foldedButton = false
+            lines = true
           }
         }
       }
@@ -1026,6 +1056,7 @@ fun main() {
           playground("$lambdas/Map3.kt") {
             height = "500px"
             foldedButton = false
+            lines = true
           }
         }
       }
@@ -1036,6 +1067,7 @@ fun main() {
           playground("$lambdas/Map4.kt") {
             height = "500px"
             foldedButton = false
+            lines = true
           }
         }
       }
@@ -1046,6 +1078,7 @@ fun main() {
           playground("$lambdas/Map5.kt") {
             height = "500px"
             foldedButton = false
+            lines = true
           }
         }
       }
@@ -1056,6 +1089,7 @@ fun main() {
           playground("$lambdas/Combo1.kt") {
             height = "400px"
             foldedButton = false
+            lines = true
           }
         }
       }
@@ -1066,6 +1100,7 @@ fun main() {
           playground("$lambdas/Combo2.kt") {
             height = "400px"
             foldedButton = false
+            lines = true
           }
         }
       }
@@ -1076,6 +1111,7 @@ fun main() {
           playground("$lambdas/Combo3.kt") {
             height = "500px"
             foldedButton = false
+            lines = true
           }
         }
       }
@@ -1086,6 +1122,7 @@ fun main() {
           playground("$lambdas/Combo4.kt") {
             height = "500px"
             foldedButton = false
+            lines = true
           }
         }
       }
@@ -1096,6 +1133,7 @@ fun main() {
           playground("$lambdas/Combo5.kt") {
             height = "500px"
             foldedButton = false
+            lines = true
           }
         }
       }
@@ -1106,6 +1144,7 @@ fun main() {
           playground("$lambdas/Aggregate1.kt") {
             height = "400px"
             foldedButton = false
+            lines = true
           }
         }
       }
@@ -1116,6 +1155,7 @@ fun main() {
           playground("$lambdas/Aggregate2.kt") {
             height = "400px"
             foldedButton = false
+            lines = true
           }
         }
       }

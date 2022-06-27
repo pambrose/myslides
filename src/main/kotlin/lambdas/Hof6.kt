@@ -12,7 +12,8 @@ fun main() {
 
   val funcRef: (Int, Int) -> Int = comboHof("+")
 
-  println(funcRef(1, 2))
+  println(funcRef(7, 2))
+  println(funcRef(5, 3))
 
   println(comboHof("*")(7, 3))
   println(comboHof("+")(5, 3))

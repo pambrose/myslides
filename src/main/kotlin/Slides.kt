@@ -1183,6 +1183,22 @@ fun main() {
 
       dslSlide {
         content {
+          h2 { +"What Have We Learned?" }
+          div("agenda") {
+            orderedList(
+              "Functions are 1st class types",
+              "We can succinctly define functions with lambdas",
+              "Behavior can be used as values",
+              "We can avoid mutations, loops and conditionals with lambdas and collection operations",
+            ) {
+              style = "color: red; font-size:35px; padding-left: 90px; padding-top:5px;"
+            }
+          }
+        }
+      }
+
+      dslSlide {
+        content {
           h2 { +"Thank You" }
         }
       }

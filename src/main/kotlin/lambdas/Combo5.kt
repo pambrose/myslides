@@ -10,9 +10,12 @@ fun main() {
     that was a little green
     and a little blue
     and a little yellow.
-    """.trimIndent()
+    """
 
   text.lines()
+    .map { it.trim() }
+    .filter { it.isNotEmpty() }
+    .also { println(it) }
     .mapIndexed { index, s -> if (index % 2 == 0) s.uppercase() else s }
     .filterIndexed { index, s ->  index >= 2 }
     .also { println(it) }

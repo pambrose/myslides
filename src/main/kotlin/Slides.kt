@@ -57,6 +57,10 @@ fun main() {
         style = "border:none;"
         width = "100%"
         height = "250px"
+        dataAutocomplete = true
+        matchBrackets = true
+        foldedButton = false
+        lines = true
 
         css {
           rule(".CodeMirror pre") {
@@ -610,8 +614,6 @@ fun main() {
           h2 { +"Simple Types" }
           playground("$lambdas/SimpleTypes.kt") {
             height = "400px"
-            foldedButton = false
-            lines = true
           }
         }
       }
@@ -621,8 +623,6 @@ fun main() {
           h2 { +"User Object Types" }
           playground("$lambdas/ObjectTypes.kt") {
             height = "400px"
-            foldedButton = false
-            lines = true
           }
         }
       }
@@ -632,8 +632,6 @@ fun main() {
           h2 { +"Function Invocation" }
           playground("$lambdas/FunctionInvoke.kt") {
             height = "450px"
-            foldedButton = false
-            lines = true
           }
         }
       }
@@ -643,8 +641,6 @@ fun main() {
           h2 { +"Assigning a Function Reference" }
           playground("$lambdas/FuncReference1.kt") {
             height = "450px"
-            foldedButton = false
-            lines = true
           }
         }
       }
@@ -654,8 +650,6 @@ fun main() {
           h2 { +"Invoking a Function Reference" }
           playground("$lambdas/FuncReference2.kt") {
             height = "500px"
-            foldedButton = false
-            lines = true
           }
         }
       }
@@ -706,8 +700,6 @@ fun main() {
           h2 { +"Specifying a Function Type" }
           playground("$lambdas/FuncReference3.kt") {
             height = "450px"
-            foldedButton = false
-            lines = true
           }
         }
       }
@@ -717,8 +709,6 @@ fun main() {
           h2 { +"Specifying a Function Type" }
           playground("$lambdas/FuncReference4.kt") {
             height = "450px"
-            foldedButton = false
-            lines = true
           }
         }
       }
@@ -728,8 +718,6 @@ fun main() {
           h2 { +"Specifying a Function Type" }
           playground("$lambdas/FuncReference5.kt") {
             height = "450px"
-            foldedButton = false
-            lines = true
           }
         }
       }
@@ -740,7 +728,7 @@ fun main() {
           playground("$lambdas/FuncReference6.kt") {
             height = "450px"
             dataHighlightOnly = true
-            lines = true
+            foldedButton = true
           }
         }
       }
@@ -768,8 +756,6 @@ fun main() {
           h3 { +"Defining and Invoking a Lambda" }
           playground("$lambdas/Lambda1.kt") {
             height = "550px"
-            foldedButton = false
-            lines = true
           }
         }
       }
@@ -780,8 +766,6 @@ fun main() {
           playground("$lambdas/Lambda2.kt") {
             height = "400px"
             dataHighlightOnly = true
-            foldedButton = false
-            lines = true
           }
         }
       }
@@ -792,8 +776,6 @@ fun main() {
           playground("$lambdas/Lambda3.kt") {
             height = "400px"
             dataHighlightOnly = true
-            foldedButton = false
-            lines = true
           }
         }
       }
@@ -803,8 +785,6 @@ fun main() {
           h3 { +"Lambda Examples" }
           playground("$lambdas/LambdaExample1.kt") {
             height = "400px"
-            foldedButton = false
-            lines = true
           }
         }
       }
@@ -814,8 +794,6 @@ fun main() {
           h3 { +"Lambda Examples" }
           playground("$lambdas/LambdaExample2.kt") {
             height = "400px"
-            foldedButton = false
-            lines = true
           }
         }
       }
@@ -825,8 +803,6 @@ fun main() {
           h3 { +"Lambda Examples" }
           playground("$lambdas/LambdaExample3.kt") {
             height = "400px"
-            foldedButton = false
-            lines = true
           }
         }
       }
@@ -861,9 +837,7 @@ fun main() {
           h3 { +"Functional Argument" }
           playground("$lambdas/Hof1.kt") {
             height = "400px"
-            foldedButton = false
             dataHighlightOnly = true
-            lines = true
           }
         }
       }
@@ -873,8 +847,6 @@ fun main() {
           h3 { +"Functional Argument" }
           playground("$lambdas/Hof2.kt") {
             height = "575px"
-            foldedButton = false
-            lines = true
           }
         }
       }
@@ -884,8 +856,6 @@ fun main() {
           h3 { +"List of Functional Arguments" }
           playground("$lambdas/Hof3.kt") {
             height = "550px"
-            foldedButton = false
-            lines = true
           }
         }
       }
@@ -895,9 +865,7 @@ fun main() {
           h3 { +"Functional Return Value" }
           playground("$lambdas/Hof4.kt") {
             height = "400px"
-            foldedButton = false
             dataHighlightOnly = true
-            lines = true
           }
         }
       }
@@ -907,8 +875,6 @@ fun main() {
           h3 { +"Functional Return Value" }
           playground("$lambdas/Hof5.kt") {
             height = "500px"
-            foldedButton = false
-            lines = true
           }
         }
       }
@@ -918,8 +884,6 @@ fun main() {
           h3 { +"Conditional Functional Return Value" }
           playground("$lambdas/Hof6.kt") {
             height = "550px"
-            foldedButton = false
-            lines = true
           }
         }
       }
@@ -929,8 +893,6 @@ fun main() {
           h3 { +"Functional Argument and Return Value" }
           playground("$lambdas/Hof7.kt") {
             height = "550px"
-            foldedButton = false
-            lines = true
           }
         }
       }
@@ -967,8 +929,6 @@ fun main() {
           h3 { +"Filter Calls" }
           playground("$lambdas/Filter1.kt") {
             height = "500px"
-            foldedButton = false
-            lines = true
           }
         }
       }
@@ -978,8 +938,6 @@ fun main() {
           h3 { +"Filter Calls" }
           playground("$lambdas/Filter2.kt") {
             height = "500px"
-            foldedButton = false
-            lines = true
           }
         }
       }
@@ -989,8 +947,6 @@ fun main() {
           h3 { +"Method Chaining" }
           playground("$lambdas/Filter3.kt") {
             height = "500px"
-            foldedButton = false
-            lines = true
           }
         }
       }
@@ -1000,8 +956,6 @@ fun main() {
           h3 { +"Negated Filter Calls" }
           playground("$lambdas/Filter4.kt") {
             height = "500px"
-            foldedButton = false
-            lines = true
           }
         }
       }
@@ -1011,8 +965,6 @@ fun main() {
           h3 { +"Filter with Index Calls" }
           playground("$lambdas/Filter5.kt") {
             height = "400px"
-            foldedButton = false
-            lines = true
           }
         }
       }
@@ -1022,8 +974,6 @@ fun main() {
           h3 { +"Filter by Type and Null" }
           playground("$lambdas/Filter6.kt") {
             height = "400px"
-            foldedButton = false
-            lines = true
           }
         }
       }
@@ -1033,8 +983,6 @@ fun main() {
           h3 { +"Transformation Calls" }
           playground("$lambdas/Map1.kt") {
             height = "500px"
-            foldedButton = false
-            lines = true
           }
         }
       }
@@ -1044,8 +992,6 @@ fun main() {
           h3 { +"Transformation Calls" }
           playground("$lambdas/Map2.kt") {
             height = "500px"
-            foldedButton = false
-            lines = true
           }
         }
       }
@@ -1055,8 +1001,6 @@ fun main() {
           h3 { +"Transformation Calls" }
           playground("$lambdas/Map3.kt") {
             height = "500px"
-            foldedButton = false
-            lines = true
           }
         }
       }
@@ -1066,8 +1010,6 @@ fun main() {
           h3 { +"onEach() Calls" }
           playground("$lambdas/Map4.kt") {
             height = "500px"
-            foldedButton = false
-            lines = true
           }
         }
       }
@@ -1077,8 +1019,6 @@ fun main() {
           h3 { +"also() Calls" }
           playground("$lambdas/Map5.kt") {
             height = "500px"
-            foldedButton = false
-            lines = true
           }
         }
       }
@@ -1088,8 +1028,6 @@ fun main() {
           h3 { +"Combining Calls" }
           playground("$lambdas/Combo1.kt") {
             height = "400px"
-            foldedButton = false
-            lines = true
           }
         }
       }
@@ -1099,8 +1037,6 @@ fun main() {
           h3 { +"Combining Calls" }
           playground("$lambdas/Combo2.kt") {
             height = "400px"
-            foldedButton = false
-            lines = true
           }
         }
       }
@@ -1110,8 +1046,6 @@ fun main() {
           h3 { +"Combining Calls" }
           playground("$lambdas/Combo3.kt") {
             height = "500px"
-            foldedButton = false
-            lines = true
           }
         }
       }
@@ -1121,7 +1055,7 @@ fun main() {
           h3 { +"Working with Strings" }
           playground("$lambdas/Combo4.kt") {
             height = "500px"
-            lines = true
+            foldedButton = true
           }
         }
       }
@@ -1131,7 +1065,6 @@ fun main() {
           h3 { +"Working with Strings" }
           playground("$lambdas/Combo5.kt") {
             height = "500px"
-            lines = true
           }
         }
       }
@@ -1141,8 +1074,6 @@ fun main() {
           h3 { +"Aggregates - sum() Call" }
           playground("$lambdas/Aggregate1.kt") {
             height = "400px"
-            foldedButton = false
-            lines = true
           }
         }
       }
@@ -1152,8 +1083,6 @@ fun main() {
           h3 { +"Aggregates - max() Call" }
           playground("$lambdas/Aggregate2.kt") {
             height = "400px"
-            foldedButton = false
-            lines = true
           }
         }
       }
@@ -1174,6 +1103,22 @@ fun main() {
               "Side-effect-free executions",
               "Easy iterations on existing functions",
               "Increased testability",
+            ) {
+              style = "color: red; font-size:30px; padding-top:5px;"
+            }
+          }
+        }
+      }
+
+      dslSlide {
+        content {
+          h2 { +"Problems with Functional Programming" }
+          div("benefits") {
+            unorderedList(
+              "Speed and memory",
+              "Big O Notation == O(N*N*N…)",
+              "Abstraction can lead to sloppiness",
+              "Problems begin to appear at scale",
             ) {
               style = "color: red; font-size:30px; padding-top:5px;"
             }

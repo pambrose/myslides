@@ -1,8 +1,6 @@
 package lambdas
 
 fun main() {
-  fun String.splitByWS() = split("\\s".toRegex())
-
   //sampleStart
 
   val text = """
@@ -16,8 +14,8 @@ fun main() {
     .map { it.trim() }
     .filter { it.isNotEmpty() }
     .also { println(it) }
-    .mapIndexed { index, s -> if (index % 2 == 0) s.uppercase() else s }
-    .filterIndexed { index, s ->  index >= 2 }
+    .mapIndexed { i, s -> if (i % 2 == 0) s.uppercase() else s }
+    .filterIndexed { i, s ->  i >= 2 }
     .also { println(it) }
   //sampleEnd
 }

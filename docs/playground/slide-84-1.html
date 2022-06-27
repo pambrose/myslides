@@ -21,12 +21,10 @@
     
   </head>
   <body>
-    <code class="playground-code" lines="true" theme="darcula">
+    <code class="playground-code" data-autocomplete="true" folded-button="false" lines="true" match-brackets="true" theme="darcula">
 package lambdas
 
 fun main() {
-  fun String.splitByWS() = split("\\s".toRegex())
-
   //sampleStart
 
   val text = """
@@ -40,8 +38,8 @@ fun main() {
     .map { it.trim() }
     .filter { it.isNotEmpty() }
     .also { println(it) }
-    .mapIndexed { index, s -&gt; if (index % 2 == 0) s.uppercase() else s }
-    .filterIndexed { index, s -&gt;  index &gt;= 2 }
+    .mapIndexed { i, s -&gt; if (i % 2 == 0) s.uppercase() else s }
+    .filterIndexed { i, s -&gt;  i &gt;= 2 }
     .also { println(it) }
   //sampleEnd
 }

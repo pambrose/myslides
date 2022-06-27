@@ -1121,7 +1121,6 @@ fun main() {
           h3 { +"Working with Strings" }
           playground("$lambdas/Combo4.kt") {
             height = "500px"
-            foldedButton = false
             lines = true
           }
         }
@@ -1132,7 +1131,6 @@ fun main() {
           h3 { +"Working with Strings" }
           playground("$lambdas/Combo5.kt") {
             height = "500px"
-            foldedButton = false
             lines = true
           }
         }

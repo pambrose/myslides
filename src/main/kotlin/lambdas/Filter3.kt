@@ -9,7 +9,7 @@ fun main() {
   println(chained1)
 
   val chained2 =
-    listOf(0, 1, 2, 3, 4, 5, 6)
+    intList
       .filter { it % 2 == 0 }
       .filter { it % 3 == 0 }
 

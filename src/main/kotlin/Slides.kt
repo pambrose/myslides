@@ -895,8 +895,18 @@ fun main() {
 
       dslSlide {
         content {
-          h3 { +"Functional Argument and Return Value" }
+          h3 { +"Conditional Functional Return Value" }
           playground("$lambdas/Hof6.kt") {
+            height = "550px"
+            foldedButton = false
+          }
+        }
+      }
+
+      dslSlide {
+        content {
+          h3 { +"Functional Argument and Return Value" }
+          playground("$lambdas/Hof7.kt") {
             height = "550px"
             foldedButton = false
           }

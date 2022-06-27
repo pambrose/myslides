@@ -26,18 +26,20 @@ package lambdas
 
 fun main() {
   //sampleStart
+  fun &lt;T&gt; List&lt;T&gt;.filter(predicate: (T) -&gt; Boolean): List&lt;T&gt; {
+    val result = ArrayList&lt;T&gt;()
+    for (element in this) {
+      if (predicate(element)) result.add(element)
+    }
+    return result
+  }
 
-  val intList = listOf(0, 1, 2, 3, 4, 5, 6)
-  val chained1 = intList.filter { it % 2 == 0 }.filter { it % 3 == 0 }
+  val nums: List&lt;Int&gt; = listOf(0, 1, 2, 3, 4, 5, 6)
+  val evens: List&lt;Int&gt; = nums.filter { it % 2 == 0 }
+  val by3s: List&lt;Int&gt; = evens.filter { it % 3 == 0 }
 
-  println(chained1)
-
-  val chained2 =
-    listOf(0, 1, 2, 3, 4, 5, 6)
-      .filter { it % 2 == 0 }
-      .filter { it % 3 == 0 }
-
-  println(chained2)
+  println(evens)
+  println(by3s)
   //sampleEnd
 }
 </code>

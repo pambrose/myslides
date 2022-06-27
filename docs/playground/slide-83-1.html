@@ -30,15 +30,16 @@ fun main() {
   //sampleStart
 
   val text = """
-    A poem about a frog
-    that was a little green
-    and a little blue
-    and a little yellow.
-    """.trimIndent()
+    Tell me and I forget.
+    Tell me and I remember.
+    Tell me and I think.
+    Tell me and I know.
+    """
 
-  text.lines()
-    .mapIndexed { index, s -&gt; if (index % 2 == 0) s.uppercase() else s }
-    .filterIndexed { index, s -&gt;  index &gt;= 2 }
+  text.splitByWS()
+    .map { it.replace(".", "") }
+    .filter { it.length &gt; 4 }
+    .joinToString(" ")
     .also { println(it) }
   //sampleEnd
 }

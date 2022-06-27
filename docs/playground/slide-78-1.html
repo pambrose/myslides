@@ -27,16 +27,16 @@ package lambdas
 fun main() {
   //sampleStart
 
-  val valList =
+  val intList =
     listOf(3, 4, 5, 6)
       .map { it * it }
-      .also { println("Mult $it") }
+      .onEach { println("Mult $it") }
       .map { it.toString() }
       .map { it + it }
-      .also { println("Add $it") }
+      .onEach { println("Add $it") }
       .map { it.length }
 
-  println(valList)
+  println(intList)
   //sampleEnd
 }
 </code>

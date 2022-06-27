@@ -26,7 +26,6 @@ package lambdas
 
 fun main() {
   //sampleStart
-
   fun argHof(a: Int, b: Int, block: (Int, Int) -&gt; Int): Int {
     return block.invoke(a, b)
   }
@@ -37,7 +36,7 @@ fun main() {
 
   val multIt: (Int, Int) -&gt; Int = { a, b -&gt; a * b }
 
-  val ops = listOf(::addIt, multIt, { a, b -&gt; a % b })
+  val ops: List&lt;(Int, Int) -&gt; Int&gt; = listOf(::addIt, multIt, { a, b -&gt; a % b })
   for (op in ops) {
     println(argHof(5, 4, op))
   }

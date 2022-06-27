@@ -27,17 +27,13 @@ package lambdas
 fun main() {
   //sampleStart
 
-  fun &lt;T, R&gt; List&lt;T&gt;.map(transform: (T) -&gt; R): List&lt;R&gt; {
-    val result = ArrayList&lt;R&gt;(10)
-    for (item in this) {
-      result.add(transform(item))
-    }
-    return result
-  }
+  val strList =
+    listOf(0, "dog", "cat", 3, 44.5, 5, "house", null)
+      .filterNotNull()
+      .filterIsInstance&lt;String&gt;()
+      .filter { it.length &gt; 3 }
 
-  val intList = listOf(0, 1, 2, 3, 4, 5, 6).map { it * 2 }
-
-  println(intList)
+  println(strList)
   //sampleEnd
 }
 </code>

@@ -31,9 +31,7 @@ fun main() {
     .filter { it % 2 == 0 }
     .map { it * it }
     .filter { it &gt;= 16 }
-    .map { "Value: $it" }
-    .also { println(it) }
-    .joinToString(" ")
+    .map { "The values are: $it" }
     .also { println(it) }
   //sampleEnd
 }

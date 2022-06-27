@@ -2,17 +2,19 @@ package lambdas
 
 fun main() {
   //sampleStart
-
-  fun comboHof(block: (Int, Int) -> Int): (Int, Int) -> Int {
-    return { x, y -> block.invoke(x, y) }
+  fun comboHof(op: String): (Int, Int) -> Int {
+    return when (op) {
+      "*" -> { a, b -> a * b }
+      "+" -> { a, b -> a + b }
+      else -> { a, b -> a - b }
+    }
   }
 
-  val comboFunc = comboHof { x, y -> x + y }
+  val funcRef: (Int, Int) -> Int = comboHof("+")
 
-  println(comboFunc(1, 2))
-  println(comboFunc(4, 5))
+  println(funcRef(1, 2))
 
-  println(comboHof { x, y -> x % y }(7, 3))
-  println(comboHof { x, y -> x % y }(5, 3))
+  println(comboHof("*")(7, 3))
+  println(comboHof("+")(5, 3))
   //sampleEnd
 }

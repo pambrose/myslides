@@ -25,12 +25,20 @@
 package lambdas
 
 fun main() {
+  fun String.splitByWS() = split("\\s".toRegex())
+
   //sampleStart
 
-  listOf(0, 1, 2, 3, 4, 5, 6)
-    .filter { it % 2 == 0 }
-    .map { it * it }
-    .sum()
+  val text = """
+    A poem about a frog
+    that was a little green
+    and a little blue
+    and a little yellow.
+    """.trimIndent()
+
+  text.lines()
+    .mapIndexed { index, s -&gt; if (index % 2 == 0) s.uppercase() else s }
+    .filterIndexed { index, s -&gt;  index &gt;= 2 }
     .also { println(it) }
   //sampleEnd
 }

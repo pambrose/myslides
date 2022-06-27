@@ -25,20 +25,14 @@
 package lambdas
 
 fun main() {
-  fun String.splitByWS() = split("\\s".toRegex())
-
   //sampleStart
 
-  val text = """
-    Tell me and I forget.
-    Tell me and I remember.
-    Tell me and I think.
-    Tell me and I know.
-    """
-
-  text.splitByWS()
-    .map { it.replace(".", "") }
-    .filter { it.length &gt; 4 }
+  listOf(0, 1, 2, 3, 4, 5, 6)
+    .filter { it % 2 == 0 }
+    .map { it * it }
+    .filter { it &gt;= 16 }
+    .map { "Value: $it" }
+    .also { println(it) }
     .joinToString(" ")
     .also { println(it) }
   //sampleEnd

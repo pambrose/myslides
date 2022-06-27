@@ -27,11 +27,17 @@ package lambdas
 fun main() {
   //sampleStart
 
-  val intList =
-    listOf(0, 1, 2, 3, 4, 5, 6)
-      .filterIndexed { index, v -&gt; index % 2 == 0  || v == 5}
+  fun comboHof(block: (Int, Int) -&gt; Int): (Int, Int) -&gt; Int {
+    return { x, y -&gt; block.invoke(x, y) }
+  }
 
-  println(intList)
+  val comboFunc = comboHof { x, y -&gt; x + y }
+
+  println(comboFunc(1, 2))
+  println(comboFunc(4, 5))
+
+  println(comboHof { x, y -&gt; x % y }(7, 3))
+  println(comboHof { x, y -&gt; x % y }(5, 3))
   //sampleEnd
 }
 </code>

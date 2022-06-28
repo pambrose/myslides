@@ -1100,8 +1100,12 @@ fun main() {
           h2 { +"Benefits of Functional Programming" }
           div("benefits") {
             unorderedList(
+              "Expressive, and concise",
               "Side-effect-free executions",
+              "Fewer bugs",
+              "Easier to understand discrete components",
               "Easy iterations on existing functions",
+              "Easier concurrency",
               "Increased testability",
             ) {
               style = "color: red; font-size:30px; padding-top:5px;"
@@ -1116,7 +1120,7 @@ fun main() {
           div("benefits") {
             unorderedList(
               "Speed and memory",
-              "Big O Notation == O(N*N*N…)",
+              "Big O Notation == O(N+N+N…)",
               "Abstraction can lead to sloppiness",
               "Problems begin to appear at scale",
             ) {

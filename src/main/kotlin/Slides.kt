@@ -1100,10 +1100,10 @@ fun main() {
           h2 { +"Benefits of Functional Programming" }
           div("benefits") {
             unorderedList(
-              "Expressive, and concise",
+              "Expressive and concise",
               "Side-effect-free executions",
-              "Fewer bugs",
               "Easier to understand discrete components",
+              "Fewer bugs",
               "Easy iterations on existing functions",
               "Easier concurrency",
               "Increased testability",

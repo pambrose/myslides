@@ -1121,7 +1121,7 @@ fun main() {
             unorderedList(
               "Speed and memory",
               "O(N+N+N…)",
-              "Problems begin to appear at scale",
+              "Problems can begin to appear at scale",
               "Abstraction can lead to sloppiness",
             ) {
               style = "color: red; font-size:30px; padding-top:5px;"

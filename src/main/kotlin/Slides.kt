@@ -700,6 +700,7 @@ fun main() {
           h2 { +"Specifying a Function Type" }
           playground("$lambdas/FuncReference3.kt") {
             height = "450px"
+            dataHighlightOnly = true
           }
         }
       }
@@ -709,6 +710,7 @@ fun main() {
           h2 { +"Specifying a Function Type" }
           playground("$lambdas/FuncReference4.kt") {
             height = "450px"
+            dataHighlightOnly = true
           }
         }
       }
@@ -718,6 +720,7 @@ fun main() {
           h2 { +"Specifying a Function Type" }
           playground("$lambdas/FuncReference5.kt") {
             height = "450px"
+            dataHighlightOnly = true
           }
         }
       }

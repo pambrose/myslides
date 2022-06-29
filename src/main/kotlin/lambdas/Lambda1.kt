@@ -5,9 +5,9 @@ fun main() {
   fun sumFunc(a: Int, b: Int): Int {
     return a + b
   }
-  val sumVar = ::sumFunc
-
   println(sumFunc(1, 2))
+
+  val sumVar = ::sumFunc
   println(sumVar(4, 6))
 
   val sumLambda: (Int, Int) -> Int = { a: Int, b: Int ->

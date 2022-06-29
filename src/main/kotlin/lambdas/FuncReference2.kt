@@ -7,8 +7,6 @@ fun main() {
     return a + b
   }
 
-  println(sum(3, 2))
-
   val a = ::sum           // cheat and infer type
 
   println(a.invoke(5, 6))

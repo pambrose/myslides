@@ -1166,6 +1166,7 @@ fun main() {
               "Thinking functionally will fundamentally change the way you solve problems.",
               "Lambdas will make you a better programmer!",
               "FP makes for beautiful and elegant code.",
+              "Dive in!",
             ) {
               style = "color: red; font-size:35px; padding-left: 90px; padding-top:5px;"
             }

@@ -9,7 +9,7 @@ fun main() {
     return result
   }
 
-//sampleStart
+  //sampleStart
 
   val nums = listOf(0, 1, 2, 3, 4, 5, 6)
   val evens = filter(nums, { it % 2 == 0 })

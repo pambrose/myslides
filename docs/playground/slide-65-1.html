@@ -26,21 +26,15 @@ package lambdas
 
 fun main() {
   //sampleStart
-  fun comboHof(op: String): (Int, Int) -&gt; Int {
-    return when (op) {
-      "*" -&gt; { a, b -&gt; a * b }
-      "+" -&gt; { a, b -&gt; a + b }
-      else -&gt; { a, b -&gt; a - b }
-    }
+
+  fun returnHof(): (Int, Int) -&gt; Int {
+    return { x, y -&gt; x + y }
   }
 
-  val funcRef: (Int, Int) -&gt; Int = comboHof("+")
+  val hofFunc = returnHof()
 
-  println(funcRef(7, 2))
-  println(funcRef(5, 3))
-
-  println(comboHof("*")(7, 3))
-  println(comboHof("+")(5, 3))
+  println(hofFunc.invoke(1, 2))
+  println(hofFunc(1, 2))
   //sampleEnd
 }
 </code>

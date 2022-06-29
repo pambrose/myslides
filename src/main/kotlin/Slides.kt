@@ -837,7 +837,7 @@ fun main() {
 
       dslSlide {
         content {
-          h3 { +"Functional Argument" }
+          h3 { +"Functional Parameter" }
           playground("$lambdas/Hof1.kt") {
             height = "400px"
             dataHighlightOnly = true
@@ -857,7 +857,16 @@ fun main() {
       dslSlide {
         content {
           h3 { +"List of Functional Arguments" }
-          playground("$lambdas/Hof3.kt") {
+          playground("$lambdas/Hof3a.kt") {
+            height = "550px"
+          }
+        }
+      }
+
+      dslSlide {
+        content {
+          h3 { +"List of Functional Arguments" }
+          playground("$lambdas/Hof3b.kt") {
             height = "550px"
           }
         }

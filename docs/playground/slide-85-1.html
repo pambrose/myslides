@@ -27,10 +27,19 @@ package lambdas
 fun main() {
   //sampleStart
 
-  listOf(0, 1, 2, 3, 4, 5, 6)
-    .filter { it % 2 == 0 }
-    .map { it * it }
-    .sum()
+  val text = """
+    A poem about a frog
+    that was a little green
+    and a little blue
+    and a little yellow.
+    """
+
+  text.lines()
+    .map { it.trim() }
+    .filter { it.isNotEmpty() }
+    .also { println(it) }
+    .mapIndexed { i, s -&gt; if (i % 2 == 0) s.uppercase() else s }
+    .filterIndexed { i, s -&gt;  i &gt;= 2 }
     .also { println(it) }
   //sampleEnd
 }

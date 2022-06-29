@@ -29,7 +29,8 @@ fun main() {
 
   val intList =
     listOf(0, 1, 2, 3, 4, 5, 6)
-      .filterIndexed { index, v -&gt; index % 2 == 0  || v == 5}
+      .filterNot { it % 2 == 0 }
+      .filterNot { it % 3 == 0 }
 
   println(intList)
   //sampleEnd

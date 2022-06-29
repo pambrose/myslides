@@ -939,7 +939,16 @@ fun main() {
       dslSlide {
         content {
           h3 { +"Filter Calls" }
-          playground("$lambdas/Filter1.kt") {
+          playground("$lambdas/Filter1a.kt") {
+            height = "500px"
+          }
+        }
+      }
+
+      dslSlide {
+        content {
+          h3 { +"Filter Calls" }
+          playground("$lambdas/Filter1b.kt") {
             height = "500px"
           }
         }

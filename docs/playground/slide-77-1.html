@@ -27,10 +27,15 @@ package lambdas
 fun main() {
   //sampleStart
 
-  val intList =
-    listOf(0, 1, 2, 3, 4, 5, 6)
-      .map { it * 2 }
-      .map { it * it }
+  fun &lt;T, R&gt; List&lt;T&gt;.map(transform: (T) -&gt; R): List&lt;R&gt; {
+    val result = ArrayList&lt;R&gt;(10)
+    for (item in this) {
+      result.add(transform(item))
+    }
+    return result
+  }
+
+  val intList = listOf(0, 1, 2, 3, 4, 5, 6).map { it * 2 }
 
   println(intList)
   //sampleEnd

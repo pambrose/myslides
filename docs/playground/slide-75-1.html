@@ -27,13 +27,11 @@ package lambdas
 fun main() {
   //sampleStart
 
-  val strList =
-    listOf(0, "dog", "cat", 3, 44.5, 5, "house", null)
-      .filterNotNull()
-      .filterIsInstance&lt;String&gt;()
-      .filter { it.length &gt; 3 }
+  val intList =
+    listOf(0, 1, 2, 3, 4, 5, 6)
+      .filterIndexed { index, v -&gt; index % 2 == 0  || v == 5}
 
-  println(strList)
+  println(intList)
   //sampleEnd
 }
 </code>

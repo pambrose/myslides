@@ -25,22 +25,13 @@
 package lambdas
 
 fun main() {
-  fun filter(list: List&lt;Int&gt;, predicate: (Int) -&gt; Boolean): List&lt;Int&gt; {
-    val result = mutableListOf&lt;Int&gt;()
-    for (element in list) {
-      if (predicate(element)) result.add(element)
-    }
-    return result
-  }
+  //sampleStart
 
-//sampleStart
-
-  val nums = listOf(0, 1, 2, 3, 4, 5, 6)
-  val evens = filter(nums, { it % 2 == 0 })
-  val odds = filter(nums) { it % 2 == 1 }
-
-  println(evens)
-  println(odds)
+  listOf(0, 1, 2, 3, 4, 5, 6)
+    .filter { it % 2 == 1 }
+    .map { it * it }
+    .max()
+    .also { println(it) }
   //sampleEnd
 }
 </code>

@@ -26,17 +26,17 @@ package lambdas
 
 fun main() {
   //sampleStart
-  fun &lt;T&gt; List&lt;T&gt;.filter(predicate: (T) -&gt; Boolean): List&lt;T&gt; {
-    val result = ArrayList&lt;T&gt;()
-    for (element in this) {
+  fun filter(list: List&lt;Int&gt;, predicate: (Int) -&gt; Boolean): List&lt;Int&gt; {
+    val result = mutableListOf&lt;Int&gt;()
+    for (element in list) {
       if (predicate(element)) result.add(element)
     }
     return result
   }
 
-  val nums: List&lt;Int&gt; = listOf(0, 1, 2, 3, 4, 5, 6)
-  val evens: List&lt;Int&gt; = nums.filter { it % 2 == 0 }
-  val by3s: List&lt;Int&gt; = evens.filter { it % 3 == 0 }
+  val nums = listOf(0, 1, 2, 3, 4, 5, 6)
+  val evens = filter(nums) { it % 2 == 0 }
+  val by3s = filter(evens) { it % 3 == 0 }
 
   println(evens)
   println(by3s)

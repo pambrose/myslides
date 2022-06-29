@@ -1162,7 +1162,7 @@ fun main() {
         content {
           h2 { +"Big Picture Takeaways" }
           div("agenda") {
-            orderedList(
+            unorderedList(
               "Thinking functionally will fundamentally change the way you solve problems.",
               "Lambdas will make you a better programmer!",
               "FP makes for beautiful and elegant code.",

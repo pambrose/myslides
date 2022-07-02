@@ -87,6 +87,7 @@ fun main() {
           
           * [HTTP and REST Basics](http.html)
           * [Functional Programming](functional.html)
+          * [Unix Basics](unix.html)
           """
         }
       }
@@ -1188,6 +1189,38 @@ fun main() {
           h2 { +"Thank You" }
         }
       }
+    }
+
+    presentation {
+      path = "unix.html"
+
+      css += """
+        .agenda li {
+          padding-top: 10px;
+        }
+      """
+
+      presentationConfig {
+        topRightHref = "#/unix"
+      }
+
+      dslSlide {
+        content {
+          id = "unix"
+          h2 { +"Basic Unix" }
+          a {
+            href = "http://oldcomputers.net/att-unix-pc.html"
+            target = "_blank"
+            img { width = "400px"; src = "images/att-unix-pc-3b1.jpg" }
+          }
+          a {
+            href = "https://pambrose.github.io/myslides/unix.html"
+            +"https://pambrose.github.io/myslides/unix.html"
+          }
+        }
+      }
+
+
     }
   }
 }

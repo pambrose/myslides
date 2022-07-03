@@ -1195,8 +1195,8 @@ fun main() {
       path = "unix.html"
 
       css += """
-        .agenda li {
-          padding-top: 10px;
+        .history li {
+          padding-top: 0px;
         }
       """
 
@@ -1223,19 +1223,44 @@ fun main() {
       dslSlide {
         content {
           h2 { +"History of Unix" }
-          div("agenda") {
-            unorderedList(
-              "1969 at AT&T Bell Labs",
-              "Dennis Ritchie, Ken Thompson, and Brian Kernighan",
-              "Assembly Language -> C Programming Language",
-              "HP, IBM, DEC, Sun, and others",
-              "Linux, BSD, and others",
-            )
+          unorderedList(
+            "1969 at AT&T Bell Labs",
+            "Dennis Ritchie, Ken Thompson, and Brian Kernighan",
+            "Assembly Language -> C Programming Language",
+            "HP, IBM, DEC, Sun, and others",
+            "Minix, Linux, BSD, and others",
+            "Android, OSX, IOS, and WatchOS"
+          ) {
+            style = "font-size:30px; padding-left: 90px"
           }
           a {
             href = "images/Unix_history.png"
             target = "_blank"
             img { width = "300px"; src = "images/Unix_history.png" }
+          }
+        }
+      }
+
+      dslSlide {
+        content {
+          h2 { +"What is an Operating System?" }
+          h4 {
+            style = "color: red;"
+            +"A set of programs that control on a computer"
+          }
+          unorderedList(
+            "Input/Output",
+            "User Interaction",
+            "Memory Management",
+            "File System",
+            "Network",
+            "Process Control/Scheduling",
+            "Security",
+            "System Logging/Monitoring/Maintenance",
+            "System Backup/Recovery/Upgrade",
+            "User program execution",
+          ) {
+            style = "font-size:30px; padding-left: 80px"
           }
         }
       }

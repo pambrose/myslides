@@ -1207,7 +1207,7 @@ fun main() {
       dslSlide {
         content {
           id = "unix"
-          h2 { +"Basic Unix" }
+          h2 { +"Unix Basics" }
           a {
             href = "http://oldcomputers.net/att-unix-pc.html"
             target = "_blank"
@@ -1220,7 +1220,25 @@ fun main() {
         }
       }
 
-
+      dslSlide {
+        content {
+          h2 { +"History of Unix" }
+          div("agenda") {
+            unorderedList(
+              "1969 at AT&T Bell Labs",
+              "Dennis Ritchie, Ken Thompson, and Brian Kernighan",
+              "Assembly Language -> C Programming Language",
+              "HP, IBM, DEC, Sun, and others",
+              "Linux, BSD, and others",
+            )
+          }
+          a {
+            href = "images/Unix_history.png"
+            target = "_blank"
+            img { width = "300px"; src = "images/Unix_history.png" }
+          }
+        }
+      }
     }
   }
 }

@@ -1252,15 +1252,101 @@ fun main() {
             "Input/Output",
             "User Interaction",
             "Memory Management",
-            "File System",
+            "Disk Access and File Systems",
             "Network",
             "Process Control/Scheduling",
             "Security",
             "System Logging/Monitoring/Maintenance",
             "System Backup/Recovery/Upgrade",
-            "User program execution",
+            "User Program Execution",
           ) {
             style = "font-size:30px; padding-left: 80px"
+          }
+        }
+      }
+
+      dslSlide {
+        content {
+          h2 { +"What is a shell?" }
+          unorderedList(
+            "sh",
+            "csh",
+            "bash",
+            "ksh",
+            "fish",
+            "zsh",
+          ) {
+            style = "font-size:30px"
+          }
+        }
+      }
+
+      dslSlide {
+        content {
+          h2 { +"File System Commands" }
+          unorderedList(
+            "Files, Directories, and Paths",
+            "ls",
+            "cat/bat/less/more",
+            "mv",
+            "rm",
+            "file",
+            "pwd",
+            "cd",
+            "mkdir",
+            "pushd/popd",
+            "rmdir",
+          ) {
+            style = "font-size:30px; padding-left: 20px"
+          }
+        }
+      }
+
+      dslSlide {
+        content {
+          h2 { +"stdin, stdout, and stderr" }
+          div {
+            unorderedList(
+              "The Unix Philosophy",
+              "Redirecting input/output",
+              "< n> > 2> 2>&1 >>",
+              "/dev/null",
+            ) {
+              style = "font-size:30px; padding-left: 20px"
+            }
+          }
+          img { width = "600px"; src = "images/diagram-shell-keyboard-terminal.png" }
+        }
+      }
+
+      dslSlide {
+        content {
+          h2 { +"Pipes" }
+          img { width = "1000px"; src = "images/diagram-cat-sort-uniq-pipeline.png" }
+        }
+      }
+
+      dslSlide {
+        content {
+          h2 { +"Common Patterns - Standard Input" }
+          img { width = "1000px"; src = "images/diagram-input-examples.png" }
+        }
+      }
+
+      dslSlide {
+        content {
+          h2 { +"Common Patterns - Standard Output" }
+          img { width = "1000px"; src = "images/diagram-output-examples.png" }
+        }
+      }
+
+      dslSlide {
+        content {
+          h2 { +"Practice on your own" }
+          a {
+            href = "https://effective-shell.com"
+            target = "_blank"
+            +"Effective Shell"
           }
         }
       }

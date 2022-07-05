@@ -99,7 +99,6 @@
           <h4 style="color: red;">A set of programs that control on a computer</h4>
           <ul style="font-size:30px; padding-left: 80px">
             <li>Input/Output</li>
-            <li>User Interaction</li>
             <li>Memory Management</li>
             <li>Disk Access and File Systems</li>
             <li>Network</li>
@@ -124,33 +123,48 @@
         </section>
         
         <section>
-          <h2>File System Commands</h2>
-          <ul style="font-size:30px; padding-left: 20px">
-            <li>Files, Directories, and Paths</li>
-            <li>ls</li>
-            <li>cat/bat/less/more</li>
-            <li>mv</li>
-            <li>rm</li>
-            <li>file</li>
-            <li>pwd</li>
-            <li>cd</li>
-            <li>mkdir</li>
-            <li>pushd/popd</li>
-            <li>rmdir</li>
+          <h2>General Command Structure</h2>
+          <ul style="font-size:30px">
+            <li>man page</li>
+            <li>tldr</li>
+            <li>single and double dash options</li>
+            <li>args[] in programs</li>
           </ul>
         </section>
         
         <section>
-          <h2>stdin, stdout, and stderr</h2>
+          <h2>File System Commands</h2>
+          <ul style="font-size:30px; padding-left: 20px">
+            <li>Files, Directories, and Paths ( / .. . ../.. ~ )</li>
+            <li>ls</li>
+            <li>cat/more/less/bat</li>
+            <li>mv</li>
+            <li>rm</li>
+            <li>file</li>
+            <li>strings</li>
+            <li>pwd</li>
+            <li>cd</li>
+            <li>pushd/popd</li>
+            <li>mkdir, rmdir</li>
+          </ul>
+        </section>
+        
+        <section>
+          <h2>Unix Files</h2>
           <div>
             <ul style="font-size:30px; padding-left: 20px">
               <li>The Unix Philosophy</li>
+              <li>Interoperability</li>
+              <li>stdin, stdout, and stderr</li>
               <li>Redirecting input/output</li>
               <li>&lt; n&gt; &gt; 2&gt; 2&gt;&amp;1 &gt;&gt;</li>
               <li>/dev/null</li>
+              <li>chmod</li>
+              <li>chgrp</li>
+              <li>chown</li>
             </ul>
           </div>
-          <img src="images/diagram-shell-keyboard-terminal.png" width="600px">
+          <img src="images/diagram-shell-keyboard-terminal.png" width="800px">
         </section>
         
         <section>
@@ -166,6 +180,99 @@
         <section>
           <h2>Common Patterns - Standard Output</h2>
           <img src="images/diagram-output-examples.png" width="1000px">
+        </section>
+        
+        <section>
+          <h2>Text Processing</h2>
+          <ul style="font-size:30px; padding-left: 20px">
+            <li>wc</li>
+            <li>grep</li>
+            <li>head, tail, fold</li>
+            <li>split</li>
+            <li>sort</li>
+            <li>uniq</li>
+            <li>tr</li>
+            <li>rev</li>
+            <li>sed</li>
+            <li>awk</li>
+            <li>diff</li>
+            <li>compress/uncompress</li>
+          </ul>
+        </section>
+        
+        <section>
+          <h2>Searching</h2>
+          <pre><code class="kotlin" data-line-numbers="" data-noescape="" data-trim="">
+              find
+              find . -type f
+              find . -type d
+              find . -name Utils.java
+              find . -name "*.java"
+              find . -name "*.java" -exec wc {} \;
+            </code>
+          </pre>
+        </section>
+        
+        <section>
+          <h2>Misc Commands</h2>
+          <ul style="font-size:30px; padding-left: 20px">
+            <li>ssh</li>
+            <li>echo</li>
+            <li>date</li>
+            <li>env</li>
+            <li>which</li>
+            <li>du</li>
+          </ul>
+        </section>
+        
+        <section>
+          <h2>Job/Process Control</h2>
+          <pre><code class="kotlin" data-line-numbers="" data-noescape="" data-trim="">
+              python3 -m http.server 8080
+            </code>
+          </pre>
+          <ul style="font-size:30px; padding-left: 20px">
+            <li>control-z, jobs, fg, bg, &amp;</li>
+            <li>top/htop</li>
+            <li>ps</li>
+            <li>kill</li>
+          </ul>
+        </section>
+        
+        <section>
+          <h2>Scripts</h2>
+          <pre><code class="kotlin" data-line-numbers="" data-noescape="" data-trim="">
+              #!/bin/sh
+              echo "&#128054; woof &#128054;"
+            </code>
+          </pre>
+        </section>
+        
+        <section>
+          <h2>User Management</h2>
+          <ul style="font-size:30px; padding-left: 20px">
+            <li>w, who</li>
+            <li>su</li>
+            <li>root</li>
+            <li>sudo</li>
+            <li>adduser, rmuser</li>
+          </ul>
+        </section>
+        
+        <section>
+          <h2>Fun Commands</h2>
+          <ul style="font-size:30px; padding-left: 20px">
+            <li>cal</li>
+            <li>lynx</li>
+            <li>say</li>
+            <li>fortune</li>
+            <li>cowsay</li>
+            <li>pbpaste</li>
+            <li>banner/figlet</li>
+            <li>sl</li>
+            <li>cmatrix</li>
+            <li>asciiquarium</li>
+          </ul>
         </section>
         
         <section>

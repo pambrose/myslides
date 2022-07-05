@@ -1250,7 +1250,6 @@ fun main() {
           }
           unorderedList(
             "Input/Output",
-            "User Interaction",
             "Memory Management",
             "Disk Access and File Systems",
             "Network",
@@ -1283,19 +1282,33 @@ fun main() {
 
       dslSlide {
         content {
+          h2 { +"General Command Structure" }
+          unorderedList(
+            "man page",
+            "tldr",
+            "single and double dash options",
+            "args[] in programs",
+          ) {
+            style = "font-size:30px"
+          }
+        }
+      }
+
+      dslSlide {
+        content {
           h2 { +"File System Commands" }
           unorderedList(
-            "Files, Directories, and Paths",
+            "Files, Directories, and Paths ( / .. . ../.. ~ )",
             "ls",
-            "cat/bat/less/more",
+            "cat/more/less/bat",
             "mv",
             "rm",
             "file",
+            "strings",
             "pwd",
             "cd",
-            "mkdir",
             "pushd/popd",
-            "rmdir",
+            "mkdir, rmdir",
           ) {
             style = "font-size:30px; padding-left: 20px"
           }
@@ -1304,18 +1317,23 @@ fun main() {
 
       dslSlide {
         content {
-          h2 { +"stdin, stdout, and stderr" }
+          h2 { +"Unix Files" }
           div {
             unorderedList(
               "The Unix Philosophy",
+              "Interoperability",
+              "stdin, stdout, and stderr",
               "Redirecting input/output",
               "< n> > 2> 2>&1 >>",
               "/dev/null",
-            ) {
+              "chmod",
+              "chgrp",
+              "chown",
+              ) {
               style = "font-size:30px; padding-left: 20px"
             }
           }
-          img { width = "600px"; src = "images/diagram-shell-keyboard-terminal.png" }
+          img { width = "800px"; src = "images/diagram-shell-keyboard-terminal.png" }
         }
       }
 
@@ -1337,6 +1355,126 @@ fun main() {
         content {
           h2 { +"Common Patterns - Standard Output" }
           img { width = "1000px"; src = "images/diagram-output-examples.png" }
+        }
+      }
+
+      dslSlide {
+        content {
+          h2 { +"Text Processing" }
+          unorderedList(
+            "wc",
+            "grep",
+            "head, tail, fold",
+            "split",
+            "sort",
+            "uniq",
+            "tr",
+            "rev",
+            "sed",
+            "awk",
+            "diff",
+            "compress/uncompress",
+          ) {
+            style = "font-size:30px; padding-left: 20px"
+          }
+        }
+      }
+
+      dslSlide {
+        content {
+          h2 { +"Searching" }
+          codeSnippet {
+            code = """
+              find
+              find . -type f
+              find . -type d
+              find . -name Utils.java
+              find . -name "*.java"
+              find . -name "*.java" -exec wc {} \;
+            """
+          }
+        }
+      }
+
+      dslSlide {
+        content {
+          h2 { +"Misc Commands" }
+          unorderedList(
+            "ssh",
+            "echo",
+            "date",
+            "env",
+            "which",
+            "du",
+          ) {
+            style = "font-size:30px; padding-left: 20px"
+          }
+        }
+      }
+
+      dslSlide {
+        content {
+          h2 { +"Job/Process Control" }
+          codeSnippet {
+            code = """
+              python3 -m http.server 8080
+            """
+          }
+          unorderedList(
+            "control-z, jobs, fg, bg, &",
+            "top/htop",
+            "ps",
+            "kill",
+          ) {
+            style = "font-size:30px; padding-left: 20px"
+          }
+        }
+      }
+
+      dslSlide {
+        content {
+          h2 { +"Scripts" }
+          codeSnippet {
+            code = """
+              #!/bin/sh
+              echo "🐶 woof 🐶"
+            """
+          }
+        }
+      }
+
+      dslSlide {
+        content {
+          h2 { +"User Management" }
+          unorderedList(
+            "w, who",
+            "su",
+            "root",
+            "sudo",
+            "adduser, rmuser",
+          ) {
+            style = "font-size:30px; padding-left: 20px"
+          }
+        }
+      }
+
+      dslSlide {
+        content {
+          h2 { +"Fun Commands" }
+          unorderedList(
+            "cal",
+            "lynx",
+            "say",
+            "fortune",
+            "cowsay",
+            "pbpaste",
+            "banner/figlet",
+            "sl",
+            "cmatrix",
+            "asciiquarium",
+          ) {
+            style = "font-size:30px; padding-left: 20px"
+          }
         }
       }
 

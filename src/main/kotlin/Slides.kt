@@ -1222,44 +1222,7 @@ fun main() {
 
       dslSlide {
         content {
-          h2 { +"Why Should You Care About Unix?" }
-          unorderedList(
-            "AWS, Google, Azure, Digital Ocean, and more",
-            "Docker and Kubernetes",
-            "Raspberry Pi",
-            "Enterprise Computing",
-            "DevOps",
-            "Data Science",
-            "It is where most CS people work",
-          )
-        }
-      }
-
-      dslSlide {
-        content {
-          h2 { +"History of Unix" }
-          unorderedList(
-            "1969 at AT&T Bell Labs -- Unix was a trademark of AT&T",
-            "Dennis Ritchie, Ken Thompson, and Brian Kernighan",
-            "Assembly Language -> C Programming Language",
-            "UC Berkeley and GNU",
-            "HP, IBM, DEC, Sun, and others",
-            "Minix, Linux, BSD, and others",
-            "Android, OSX, IOS, and WatchOS"
-          ) {
-            style = "font-size:30px; padding-left: 90px"
-          }
-          a {
-            href = "images/Unix_history.png"
-            target = "_blank"
-            img { width = "300px"; src = "images/Unix_history.png" }
-          }
-        }
-      }
-
-      dslSlide {
-        content {
-          h2 { +"What is an Operating System?" }
+          h2 { +"❓ What is an Operating System?" }
           h4 {
             style = "color: red;"
             +"A set of programs that control on a computer"
@@ -1282,7 +1245,44 @@ fun main() {
 
       dslSlide {
         content {
-          h2 { +"What is a shell?" }
+          h2 { +"❓ Why Should You Care About Unix?" }
+          unorderedList(
+            "AWS, Google, Azure, Digital Ocean, and more",
+            "Docker and Kubernetes",
+            "Raspberry Pi",
+            "Enterprise Computing",
+            "DevOps",
+            "Data Science",
+            "It is where most CS people work",
+          )
+        }
+      }
+
+      dslSlide {
+        content {
+          h2 { +"📚 History of Unix" }
+          unorderedList(
+            "1969 at AT&T Bell Labs -- Unix was a trademark of AT&T",
+            "Dennis Ritchie, Ken Thompson, and Brian Kernighan",
+            "Assembly Language -> C Programming Language",
+            "UC Berkeley and GNU",
+            "HP, IBM, DEC, Sun, and others",
+            "Minix, Linux, BSD, and others",
+            "Android, OSX, IOS, and WatchOS"
+          ) {
+            style = "font-size:30px; padding-left: 90px"
+          }
+          a {
+            href = "images/Unix_history.png"
+            target = "_blank"
+            img { width = "300px"; src = "images/Unix_history.png" }
+          }
+        }
+      }
+
+      dslSlide {
+        content {
+          h2 { +"🐚 What is a Unix Shell?" }
           div {
             unorderedList(
               "sh",
@@ -1307,7 +1307,7 @@ fun main() {
 
       dslSlide {
         content {
-          h2 { +"Shell Environment Variables" }
+          h2 { +"✉ Unix Shell Environment Variables" }
           unorderedList(
             "env",
             "echo",
@@ -1322,7 +1322,7 @@ fun main() {
 
       dslSlide {
         content {
-          h2 { +"General Command Structure" }
+          h2 { +"🦺 General Command Structure" }
           unorderedList(
             "man page",
             "tldr",
@@ -1337,7 +1337,7 @@ fun main() {
 
       dslSlide {
         content {
-          h2 { +"File System Commands" }
+          h2 { +"📂 File System Commands" }
           unorderedList(
             "Files, Directories, and Paths ( / .. . ../ ~ *)",
             "ls",
@@ -1359,7 +1359,7 @@ fun main() {
 
       dslSlide {
         content {
-          h2 { +"Unix Editors" }
+          h2 { +"🖊 Unix Editors" }
           div {
             unorderedList(
               "vi/vim/neovim",
@@ -1378,7 +1378,7 @@ fun main() {
 
       dslSlide {
         content {
-          h2 { +"Unix Files" }
+          h2 { +"💪 I/O Control" }
           div {
             unorderedList(
               "The Unix Philosophy",
@@ -1386,10 +1386,6 @@ fun main() {
               "stdin, stdout, and stderr",
               "Redirecting input/output",
               "< n> > 2> 2>&1 >>",
-              "/dev/null",
-              "chmod",
-              "chgrp",
-              "chown",
             ) {
               style = "font-size:30px; padding-left: 20px"
             }
@@ -1400,21 +1396,21 @@ fun main() {
 
       dslSlide {
         content {
-          h2 { +"Common Patterns - Standard Input" }
+          h2 { +"📥 Common Patterns - Standard Input" }
           img { width = "1000px"; src = "images/diagram-input-examples.png" }
         }
       }
 
       dslSlide {
         content {
-          h2 { +"Common Patterns - Standard Output" }
+          h2 { +"📤 Common Patterns - Standard Output" }
           img { width = "1000px"; src = "images/diagram-output-examples.png" }
         }
       }
 
       dslSlide {
         content {
-          h2 { +"Pipes" }
+          h2 { +"🚿 Pipes" }
           img { width = "1000px"; src = "images/diagram-cat-sort-uniq-pipeline.png" }
         }
       }
@@ -1422,7 +1418,7 @@ fun main() {
       verticalSlides {
         dslSlide {
           content {
-            h2 { +"Text Processing" }
+            h2 { +"📜 Text Processing" }
             unorderedList(
               "wc",
               "grep",
@@ -1476,7 +1472,7 @@ fun main() {
 
       dslSlide {
         content {
-          h2 { +"Searching" }
+          h2 { +"🔎 Searching" }
           codeSnippet {
             code = """
               find
@@ -1492,7 +1488,7 @@ fun main() {
 
       dslSlide {
         content {
-          h2 { +"Misc Commands" }
+          h2 { +"🎈 Misc Commands" }
           unorderedList(
             "ssh",
             "date/cal",
@@ -1507,7 +1503,7 @@ fun main() {
 
       dslSlide {
         content {
-          h2 { +"Job/Process Control" }
+          h2 { +"📦 Job/Process Control" }
           codeSnippet {
             code = """
               python3 -m http.server 8080
@@ -1526,7 +1522,7 @@ fun main() {
 
       dslSlide {
         content {
-          h2 { +"Scripts" }
+          h2 { +"📜 Scripts" }
           codeSnippet {
             code = """
               #!/bin/sh
@@ -1538,14 +1534,17 @@ fun main() {
 
       dslSlide {
         content {
-          h2 { +"User Management" }
+          h2 { +"🧑 User Management" }
           unorderedList(
             "w/who",
             "su",
             "root",
             "sudo",
             "adduser/rmuser",
-          ) {
+            "chmod",
+            "chgrp",
+            "chown",
+            ) {
             style = "font-size:30px; padding-left: 20px"
           }
         }
@@ -1553,7 +1552,7 @@ fun main() {
 
       dslSlide {
         content {
-          h2 { +"Fun Commands" }
+          h2 { +"🎉 Fun Commands" }
           unorderedList(
             "lynx",
             "say",
@@ -1572,7 +1571,7 @@ fun main() {
 
       dslSlide {
         content {
-          h2 { +"Helpful Links" }
+          h2 { +"💁 Helpful Links" }
           a {
             href = "https://effective-shell.com"
             target = "_blank"

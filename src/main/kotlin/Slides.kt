@@ -88,6 +88,7 @@ fun main() {
           * [HTTP and REST Basics](http.html)
           * [Functional Programming](functional.html)
           * [Unix Basics](unix.html)
+          * [Docker Basics](docker.html)
           """
         }
       }
@@ -1615,5 +1616,35 @@ fun main() {
         }
       }
     }
-  }
+
+    presentation {
+      path = "docker.html"
+
+      css += """
+        .history li {
+          padding-top: 0px;
+        }
+      """
+
+      presentationConfig {
+        topRightHref = "#/docker"
+      }
+
+      dslSlide {
+        content {
+          id = "docker"
+          h2 { +"Docker Basics" }
+          a {
+            href = "http://oldcomputers.net/att-unix-pc.html"
+            target = "_blank"
+            img { width = "400px"; src = "images/att-unix-pc-3b1.jpg" }
+          }
+          a {
+            href = "https://pambrose.github.io/myslides/docker.html"
+            +"https://pambrose.github.io/myslides/docker.html"
+          }
+        }
+      }
+    }
+    }
 }

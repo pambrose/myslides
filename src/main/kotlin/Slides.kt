@@ -1282,6 +1282,19 @@ fun main() {
 
       dslSlide {
         content {
+          h2 { +"💪 The Unix Philosophy" }
+          unorderedList(
+            "Write programs that do one thing and do it well -- DOTADIW",
+            "Write programs to work together",
+            "Write programs to handle text streams, because that is a universal interface",
+          ) {
+            style = "font-size:30px; padding-left: 20px"
+          }
+        }
+      }
+
+      dslSlide {
+        content {
           h2 { +"🐚 What is a Unix Shell?" }
           div {
             unorderedList(
@@ -1379,11 +1392,9 @@ fun main() {
 
       dslSlide {
         content {
-          h2 { +"💪 I/O Control" }
+          h2 { +"🛫 I/O Control" }
           div {
             unorderedList(
-              "The Unix Philosophy",
-              "Command Interoperability",
               "stdin, stdout, and stderr",
               "Redirecting input/output",
               "< n> > 2> 2>&1 >>",

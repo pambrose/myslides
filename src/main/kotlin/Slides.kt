@@ -1327,6 +1327,7 @@ fun main() {
             "man page",
             "tldr",
             "single and double dash options",
+            "which/where/whereis",
             "args[] in programs",
           ) {
             style = "font-size:30px"
@@ -1495,7 +1496,6 @@ fun main() {
           unorderedList(
             "ssh",
             "date/cal",
-            "which/where/whereis",
             "split",
             "diff",
             "compress/uncompress",

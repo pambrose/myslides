@@ -1300,7 +1300,7 @@ fun main() {
           a {
             href = "https://hyperpolyglot.org/unix-shells"
             target = "_blank"
-            +"Summary of shells"
+            +"👉 Summary of shells"
           }
         }
       }

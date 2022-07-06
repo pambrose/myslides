@@ -1250,7 +1250,7 @@ fun main() {
             "1969 at AT&T Bell Labs -- Unix was a trademark of AT&T",
             "Dennis Ritchie, Ken Thompson, and Brian Kernighan",
             "Assembly Language -> C Programming Language",
-            "UC Berkeley and GNU",
+            "BSD and GNU",
             "Commercial: HP, IBM, DEC, Sun, and others",
             "FOSS: Minix, Linux, BSD, and others",
             "Consumer: Android, OSX, IOS, and WatchOS"
@@ -1275,7 +1275,6 @@ fun main() {
             "Enterprise Computing",
             "DevOps",
             "Data Science",
-            "It is where many CS people work",
           )
         }
       }
@@ -1508,6 +1507,7 @@ fun main() {
           h2 { +"🎈 Misc Commands" }
           unorderedList(
             "ssh",
+            "sftp",
             "date/cal",
             "split",
             "diff",

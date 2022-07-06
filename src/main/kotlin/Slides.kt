@@ -1222,6 +1222,21 @@ fun main() {
 
       dslSlide {
         content {
+          h2 { +"Why Should You Care About Unix?" }
+          unorderedList(
+            "AWS, Google, Azure, Digital Ocean, and more",
+            "Docker and Kubernetes",
+            "Raspberry Pi",
+            "Enterprise Computing",
+            "DevOps",
+            "Data Science",
+            "It is where most CS people work",
+          )
+        }
+      }
+
+      dslSlide {
+        content {
           h2 { +"History of Unix" }
           unorderedList(
             "1969 at AT&T Bell Labs -- Unix was a trademark of AT&T",
@@ -1268,15 +1283,23 @@ fun main() {
       dslSlide {
         content {
           h2 { +"What is a shell?" }
-          unorderedList(
-            "sh",
-            "csh",
-            "bash",
-            "ksh",
-            "fish",
-            "zsh",
-          ) {
-            style = "font-size:30px"
+          div {
+            unorderedList(
+              "sh",
+              "csh",
+              "bash",
+              "ksh",
+              "fish",
+              "zsh",
+              "tcsh",
+            ) {
+              style = "font-size:30px"
+            }
+          }
+          a {
+            href = "https://hyperpolyglot.org/unix-shells"
+            target = "_blank"
+            +"Summary of shells"
           }
         }
       }
@@ -1287,8 +1310,8 @@ fun main() {
           unorderedList(
             "env",
             "echo",
-            "\$PATH, \$HOME, \$USER, \$SHELL, \$JAVA_HOME, \$CLASSPATH",
-            ".zshrc, .cshrc, .bashrc",
+            "\$PATH / \$HOME / \$USER / \$SHELL / \$JAVA_HOME / \$CLASSPATH",
+            ".zshrc / .cshrc / .bashrc",
           ) {
             style = "font-size:30px; padding-left: 20px"
           }
@@ -1324,7 +1347,7 @@ fun main() {
             "pwd",
             "cd",
             "pushd/popd",
-            "mkdir, rmdir",
+            "mkdir/rmdir",
           ) {
             style = "font-size:30px; padding-left: 20px"
           }
@@ -1336,7 +1359,7 @@ fun main() {
           h2 { +"Unix Editors" }
           div {
             unorderedList(
-              "vi, vim, and neovim",
+              "vi/vim/neovim",
               "emacs",
               "pico",
               "ed",
@@ -1398,7 +1421,7 @@ fun main() {
             unorderedList(
               "wc",
               "grep",
-              "head, tail",
+              "head/tail",
               "nl",
               "fold",
               "sort",
@@ -1467,8 +1490,8 @@ fun main() {
           h2 { +"Misc Commands" }
           unorderedList(
             "ssh",
-            "date, cal",
-            "which, where, whereis",
+            "date/cal",
+            "which/where/whereis",
             "split",
             "diff",
             "compress/uncompress",
@@ -1487,7 +1510,7 @@ fun main() {
             """
           }
           unorderedList(
-            "control-z, jobs, fg, bg, &",
+            "control-z/jobs/fg/bg/&",
             "top/htop",
             "ps",
             "kill",
@@ -1513,11 +1536,11 @@ fun main() {
         content {
           h2 { +"User Management" }
           unorderedList(
-            "w, who",
+            "w/who",
             "su",
             "root",
             "sudo",
-            "adduser, rmuser",
+            "adduser/rmuser",
           ) {
             style = "font-size:30px; padding-left: 20px"
           }

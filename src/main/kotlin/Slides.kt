@@ -1323,6 +1323,7 @@ fun main() {
       dslSlide {
         content {
           h2 { +"🦺 General Command Structure" }
+          h3 { style = "color: red;"; +"command options args" }
           unorderedList(
             "man page",
             "tldr",
@@ -1448,7 +1449,7 @@ fun main() {
             
             echo "Welcome to the shell" | tr 'shell' 'machine'
             ```
-          """
+            """
           }
         }
 
@@ -1465,7 +1466,7 @@ fun main() {
             
             ps -e | cut -c 26-500
             ```
-          """
+            """
           }
         }
       }

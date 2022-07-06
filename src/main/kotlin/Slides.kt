@@ -1296,6 +1296,7 @@ fun main() {
               style = "font-size:30px"
             }
           }
+          br {}
           a {
             href = "https://hyperpolyglot.org/unix-shells"
             target = "_blank"
@@ -1310,7 +1311,8 @@ fun main() {
           unorderedList(
             "env",
             "echo",
-            "\$PATH / \$HOME / \$USER / \$SHELL / \$JAVA_HOME / \$CLASSPATH",
+            "\$PATH / \$HOME / \$USER / \$SHELL",
+            "\$JAVA_HOME / \$CLASSPATH",
             ".zshrc / .cshrc / .bashrc",
           ) {
             style = "font-size:30px; padding-left: 20px"
@@ -1362,11 +1364,13 @@ fun main() {
               "vi/vim/neovim",
               "emacs",
               "pico",
-              "ed",
               "nano",
             ) {
               style = "font-size:30px; padding-left: 20px"
             }
+            br {}
+            br {}
+            h3 { style = "color: red;"; +"Choose one and learn it!!" }
           }
         }
       }

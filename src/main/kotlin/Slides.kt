@@ -1572,11 +1572,29 @@ fun main() {
 
       dslSlide {
         content {
-          h2 { +"Practice on your own" }
+          h2 { +"Helpful Links" }
           a {
             href = "https://effective-shell.com"
             target = "_blank"
-            +"Effective Shell"
+            +"👉 Effective Shell"
+          }
+          br{}
+          a {
+            href = "https://www.makeuseof.com/linux-commands-and-alternatives/"
+            target = "_blank"
+            +"👉 8 Classic Commands and Their Modern Alternatives"
+          }
+          br{}
+          a {
+            href = "https://jvns.ca/blog/2022/04/12/a-list-of-new-ish--command-line-tools/"
+            target = "_blank"
+            +"👉 A list of new(ish) command line tools"
+          }
+          br{}
+          a {
+            href = "https://www.tomshardware.com/how-to/getting-to-know-the-linux-filesystem"
+            target = "_blank"
+            +"👉 Getting To Know the Linux Filesystem"
           }
         }
       }

@@ -84,9 +84,10 @@
         <section>
           <h2>History of Unix</h2>
           <ul style="font-size:30px; padding-left: 90px">
-            <li>1969 at AT&amp;T Bell Labs</li>
+            <li>1969 at AT&amp;T Bell Labs -- Unix was a trademark of AT&amp;T</li>
             <li>Dennis Ritchie, Ken Thompson, and Brian Kernighan</li>
             <li>Assembly Language -&gt; C Programming Language</li>
+            <li>UC Berkeley and GNU</li>
             <li>HP, IBM, DEC, Sun, and others</li>
             <li>Minix, Linux, BSD, and others</li>
             <li>Android, OSX, IOS, and WatchOS</li>
@@ -123,6 +124,16 @@
         </section>
         
         <section>
+          <h2>Shell Environment Variables</h2>
+          <ul style="font-size:30px; padding-left: 20px">
+            <li>env</li>
+            <li>echo</li>
+            <li>$PATH, $HOME, $USER, $SHELL, $JAVA_HOME, $CLASSPATH</li>
+            <li>.zshrc, .cshrc, .bashrc</li>
+          </ul>
+        </section>
+        
+        <section>
           <h2>General Command Structure</h2>
           <ul style="font-size:30px">
             <li>man page</li>
@@ -137,6 +148,7 @@
           <ul style="font-size:30px; padding-left: 20px">
             <li>Files, Directories, and Paths ( / .. . ../.. ~ )</li>
             <li>ls</li>
+            <li>touch</li>
             <li>cat/more/less/bat</li>
             <li>mv</li>
             <li>rm</li>
@@ -150,11 +162,24 @@
         </section>
         
         <section>
+          <h2>Unix Editors</h2>
+          <div>
+            <ul style="font-size:30px; padding-left: 20px">
+              <li>vi, vim, and neovim</li>
+              <li>emacs</li>
+              <li>pico</li>
+              <li>ed</li>
+              <li>nano</li>
+            </ul>
+          </div>
+        </section>
+        
+        <section>
           <h2>Unix Files</h2>
           <div>
             <ul style="font-size:30px; padding-left: 20px">
               <li>The Unix Philosophy</li>
-              <li>Interoperability</li>
+              <li>Command Interoperability</li>
               <li>stdin, stdout, and stderr</li>
               <li>Redirecting input/output</li>
               <li>&lt; n&gt; &gt; 2&gt; 2&gt;&amp;1 &gt;&gt;</li>
@@ -168,11 +193,6 @@
         </section>
         
         <section>
-          <h2>Pipes</h2>
-          <img src="images/diagram-cat-sort-uniq-pipeline.png" width="1000px">
-        </section>
-        
-        <section>
           <h2>Common Patterns - Standard Input</h2>
           <img src="images/diagram-input-examples.png" width="1000px">
         </section>
@@ -183,21 +203,56 @@
         </section>
         
         <section>
-          <h2>Text Processing</h2>
-          <ul style="font-size:30px; padding-left: 20px">
-            <li>wc</li>
-            <li>grep</li>
-            <li>head, tail, fold</li>
-            <li>split</li>
-            <li>sort</li>
-            <li>uniq</li>
-            <li>tr</li>
-            <li>rev</li>
-            <li>sed</li>
-            <li>awk</li>
-            <li>diff</li>
-            <li>compress/uncompress</li>
-          </ul>
+          <h2>Pipes</h2>
+          <img src="images/diagram-cat-sort-uniq-pipeline.png" width="1000px">
+        </section>
+        
+        <section>
+          <section>
+            <h2>Text Processing</h2>
+            <ul style="font-size:30px; padding-left: 20px">
+              <li>wc</li>
+              <li>grep</li>
+              <li>head, tail</li>
+              <li>nl</li>
+              <li>fold</li>
+              <li>sort</li>
+              <li>uniq</li>
+              <li>rev</li>
+              <li>sed</li>
+              <li>tr</li>
+              <li>cut</li>
+            </ul>
+          </section>
+          
+          <section data-markdown="" data-separator="" data-separator-notes="^Notes?:" data-separator-vertical="">
+            <script type="text/template">
+## tr examples
+```bash
+head -n 1 ~/samples/data/top100.csv | tr ',' '\n'
+
+head -n 1 ~/samples/data/top100.csv | tr ',' '\n' | tr -d '"'
+
+echo "Welcome to the shell" | tr 'shell' 'machine'
+```
+</script>
+          </section>
+          
+          <section data-markdown="" data-separator="" data-separator-notes="^Notes?:" data-separator-vertical="">
+            <script type="text/template">
+## cut examples
+```bash
+cut -d',' -f 3 ~/samples/data/top100.csv | head
+
+cut -d',' -f 1,3 ~/samples/data/top100.csv | head
+
+tail -n 5 ~/samples/logs/web-server-logs.txt | cut -c 12-19
+
+ps -e | cut -c 26-500
+```
+</script>
+          </section>
+          
         </section>
         
         <section>
@@ -217,11 +272,11 @@
           <h2>Misc Commands</h2>
           <ul style="font-size:30px; padding-left: 20px">
             <li>ssh</li>
-            <li>echo</li>
             <li>date</li>
-            <li>env</li>
             <li>which</li>
-            <li>du</li>
+            <li>split</li>
+            <li>diff</li>
+            <li>compress/uncompress</li>
           </ul>
         </section>
         

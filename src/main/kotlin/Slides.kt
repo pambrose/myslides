@@ -1224,9 +1224,10 @@ fun main() {
         content {
           h2 { +"History of Unix" }
           unorderedList(
-            "1969 at AT&T Bell Labs",
+            "1969 at AT&T Bell Labs -- Unix was a trademark of AT&T",
             "Dennis Ritchie, Ken Thompson, and Brian Kernighan",
             "Assembly Language -> C Programming Language",
+            "UC Berkeley and GNU",
             "HP, IBM, DEC, Sun, and others",
             "Minix, Linux, BSD, and others",
             "Android, OSX, IOS, and WatchOS"
@@ -1282,6 +1283,20 @@ fun main() {
 
       dslSlide {
         content {
+          h2 { +"Shell Environment Variables" }
+          unorderedList(
+            "env",
+            "echo",
+            "\$PATH, \$HOME, \$USER, \$SHELL, \$JAVA_HOME, \$CLASSPATH",
+            ".zshrc, .cshrc, .bashrc",
+          ) {
+            style = "font-size:30px; padding-left: 20px"
+          }
+        }
+      }
+
+      dslSlide {
+        content {
           h2 { +"General Command Structure" }
           unorderedList(
             "man page",
@@ -1300,6 +1315,7 @@ fun main() {
           unorderedList(
             "Files, Directories, and Paths ( / .. . ../.. ~ )",
             "ls",
+            "touch",
             "cat/more/less/bat",
             "mv",
             "rm",
@@ -1317,11 +1333,28 @@ fun main() {
 
       dslSlide {
         content {
+          h2 { +"Unix Editors" }
+          div {
+            unorderedList(
+              "vi, vim, and neovim",
+              "emacs",
+              "pico",
+              "ed",
+              "nano",
+            ) {
+              style = "font-size:30px; padding-left: 20px"
+            }
+          }
+        }
+      }
+
+      dslSlide {
+        content {
           h2 { +"Unix Files" }
           div {
             unorderedList(
               "The Unix Philosophy",
-              "Interoperability",
+              "Command Interoperability",
               "stdin, stdout, and stderr",
               "Redirecting input/output",
               "< n> > 2> 2>&1 >>",
@@ -1329,18 +1362,11 @@ fun main() {
               "chmod",
               "chgrp",
               "chown",
-              ) {
+            ) {
               style = "font-size:30px; padding-left: 20px"
             }
           }
           img { width = "800px"; src = "images/diagram-shell-keyboard-terminal.png" }
-        }
-      }
-
-      dslSlide {
-        content {
-          h2 { +"Pipes" }
-          img { width = "1000px"; src = "images/diagram-cat-sort-uniq-pipeline.png" }
         }
       }
 
@@ -1360,22 +1386,62 @@ fun main() {
 
       dslSlide {
         content {
-          h2 { +"Text Processing" }
-          unorderedList(
-            "wc",
-            "grep",
-            "head, tail, fold",
-            "split",
-            "sort",
-            "uniq",
-            "tr",
-            "rev",
-            "sed",
-            "awk",
-            "diff",
-            "compress/uncompress",
-          ) {
-            style = "font-size:30px; padding-left: 20px"
+          h2 { +"Pipes" }
+          img { width = "1000px"; src = "images/diagram-cat-sort-uniq-pipeline.png" }
+        }
+      }
+
+      verticalSlides {
+        dslSlide {
+          content {
+            h2 { +"Text Processing" }
+            unorderedList(
+              "wc",
+              "grep",
+              "head, tail",
+              "nl",
+              "fold",
+              "sort",
+              "uniq",
+              "rev",
+              "sed",
+              "tr",
+              "cut",
+            ) {
+              style = "font-size:30px; padding-left: 20px"
+            }
+          }
+        }
+
+        markdownSlide {
+          content {
+            """
+            ## tr examples
+            ```bash
+            head -n 1 ~/samples/data/top100.csv | tr ',' '\n'
+            
+            head -n 1 ~/samples/data/top100.csv | tr ',' '\n' | tr -d '"'
+            
+            echo "Welcome to the shell" | tr 'shell' 'machine'
+            ```
+          """
+          }
+        }
+
+        markdownSlide {
+          content {
+            """
+            ## cut examples
+            ```bash
+            cut -d',' -f 3 ~/samples/data/top100.csv | head
+            
+            cut -d',' -f 1,3 ~/samples/data/top100.csv | head
+            
+            tail -n 5 ~/samples/logs/web-server-logs.txt | cut -c 12-19
+            
+            ps -e | cut -c 26-500
+            ```
+          """
           }
         }
       }
@@ -1401,11 +1467,11 @@ fun main() {
           h2 { +"Misc Commands" }
           unorderedList(
             "ssh",
-            "echo",
             "date",
-            "env",
             "which",
-            "du",
+            "split",
+            "diff",
+            "compress/uncompress",
           ) {
             style = "font-size:30px; padding-left: 20px"
           }

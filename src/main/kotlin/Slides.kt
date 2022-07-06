@@ -1370,7 +1370,7 @@ fun main() {
             }
             br {}
             br {}
-            h3 { style = "color: red;"; +"Choose one and learn it!!" }
+            h3 { style = "color: red;"; +"Choose one (preferably vim) and learn it!!" }
           }
         }
       }

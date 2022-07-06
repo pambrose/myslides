@@ -1470,19 +1470,24 @@ fun main() {
         }
       }
 
-      dslSlide {
+      markdownSlide {
         content {
-          h2 { +"🔎 Searching" }
-          codeSnippet {
-            code = """
-              find
-              find . -type f
-              find . -type d
-              find . -name Utils.java
-              find . -name "*.java"
-              find . -name "*.java" -exec wc {} \;
-            """
-          }
+          """
+          ## 🔎 Searching with find
+          ```bash
+            find
+            
+            find . -type f
+            
+            find . -type d
+            
+            find . -name Utils.java
+            
+            find . -name "*.java"
+            
+            find . -name "*.java" -exec wc {} \;
+          ```  
+          """
         }
       }
 
@@ -1544,7 +1549,7 @@ fun main() {
             "chmod",
             "chgrp",
             "chown",
-            ) {
+          ) {
             style = "font-size:30px; padding-left: 20px"
           }
         }
@@ -1577,19 +1582,19 @@ fun main() {
             target = "_blank"
             +"👉 Effective Shell"
           }
-          br{}
+          br {}
           a {
             href = "https://www.makeuseof.com/linux-commands-and-alternatives/"
             target = "_blank"
             +"👉 8 Classic Commands and Their Modern Alternatives"
           }
-          br{}
+          br {}
           a {
             href = "https://jvns.ca/blog/2022/04/12/a-list-of-new-ish--command-line-tools/"
             target = "_blank"
             +"👉 A list of new(ish) command line tools"
           }
-          br{}
+          br {}
           a {
             href = "https://www.tomshardware.com/how-to/getting-to-know-the-linux-filesystem"
             target = "_blank"

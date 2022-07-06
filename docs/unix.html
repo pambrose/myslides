@@ -273,17 +273,23 @@ ps -e | cut -c 26-500
           
         </section>
         
-        <section>
-          <h2>&#128270; Searching</h2>
-          <pre><code class="kotlin" data-line-numbers="" data-noescape="" data-trim="">
-              find
-              find . -type f
-              find . -type d
-              find . -name Utils.java
-              find . -name "*.java"
-              find . -name "*.java" -exec wc {} \;
-            </code>
-          </pre>
+        <section data-markdown="">
+          <script type="text/template">
+## 🔎 Searching with find
+```bash
+  find
+  
+  find . -type f
+  
+  find . -type d
+  
+  find . -name Utils.java
+  
+  find . -name "*.java"
+  
+  find . -name "*.java" -exec wc {} \;
+```  
+</script>
         </section>
         
         <section>

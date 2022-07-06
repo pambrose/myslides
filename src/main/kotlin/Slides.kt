@@ -1222,7 +1222,7 @@ fun main() {
 
       dslSlide {
         content {
-          h2 { +"❓ What is an Operating System?" }
+          h2 { +"🔦 What is an Operating System?" }
           h4 {
             style = "color: red;"
             +"A set of programs that control on a computer"
@@ -1267,7 +1267,7 @@ fun main() {
 
       dslSlide {
         content {
-          h2 { +"❓ Why Should You Care About Unix?" }
+          h2 { +"🚨 Why do we care about Unix?" }
           unorderedList(
             "AWS, Google, Azure, Digital Ocean, and more",
             "Docker and Kubernetes",
@@ -1275,7 +1275,7 @@ fun main() {
             "Enterprise Computing",
             "DevOps",
             "Data Science",
-            "It is where most CS people work",
+            "It is where many CS people work",
           )
         }
       }

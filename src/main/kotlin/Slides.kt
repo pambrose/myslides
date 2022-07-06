@@ -1313,7 +1313,7 @@ fun main() {
         content {
           h2 { +"File System Commands" }
           unorderedList(
-            "Files, Directories, and Paths ( / .. . ../.. ~ )",
+            "Files, Directories, and Paths ( / .. . ../ ~ *)",
             "ls",
             "touch",
             "cat/more/less/bat",
@@ -1467,8 +1467,8 @@ fun main() {
           h2 { +"Misc Commands" }
           unorderedList(
             "ssh",
-            "date",
-            "which",
+            "date, cal",
+            "which, where, whereis",
             "split",
             "diff",
             "compress/uncompress",
@@ -1528,7 +1528,6 @@ fun main() {
         content {
           h2 { +"Fun Commands" }
           unorderedList(
-            "cal",
             "lynx",
             "say",
             "fortune",

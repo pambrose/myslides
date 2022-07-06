@@ -1245,21 +1245,6 @@ fun main() {
 
       dslSlide {
         content {
-          h2 { +"❓ Why Should You Care About Unix?" }
-          unorderedList(
-            "AWS, Google, Azure, Digital Ocean, and more",
-            "Docker and Kubernetes",
-            "Raspberry Pi",
-            "Enterprise Computing",
-            "DevOps",
-            "Data Science",
-            "It is where most CS people work",
-          )
-        }
-      }
-
-      dslSlide {
-        content {
           h2 { +"📚 History of Unix" }
           unorderedList(
             "1969 at AT&T Bell Labs -- Unix was a trademark of AT&T",
@@ -1277,6 +1262,21 @@ fun main() {
             target = "_blank"
             img { width = "300px"; src = "images/Unix_history.png" }
           }
+        }
+      }
+
+      dslSlide {
+        content {
+          h2 { +"❓ Why Should You Care About Unix?" }
+          unorderedList(
+            "AWS, Google, Azure, Digital Ocean, and more",
+            "Docker and Kubernetes",
+            "Raspberry Pi",
+            "Enterprise Computing",
+            "DevOps",
+            "Data Science",
+            "It is where most CS people work",
+          )
         }
       }
 

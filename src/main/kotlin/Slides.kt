@@ -1251,9 +1251,9 @@ fun main() {
             "Dennis Ritchie, Ken Thompson, and Brian Kernighan",
             "Assembly Language -> C Programming Language",
             "UC Berkeley and GNU",
-            "HP, IBM, DEC, Sun, and others",
-            "Minix, Linux, BSD, and others",
-            "Android, OSX, IOS, and WatchOS"
+            "Commercial: HP, IBM, DEC, Sun, and others",
+            "FOSS: Minix, Linux, BSD, and others",
+            "Consumer: Android, OSX, IOS, and WatchOS"
           ) {
             style = "font-size:30px; padding-left: 90px"
           }

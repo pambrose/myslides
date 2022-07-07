@@ -1634,17 +1634,26 @@ fun main() {
         content {
           id = "docker"
           h2 { +"Docker Basics" }
-          a {
-            href = "http://oldcomputers.net/att-unix-pc.html"
-            target = "_blank"
-            img { width = "400px"; src = "images/att-unix-pc-3b1.jpg" }
-          }
+          img { width = "300px"; src = "images/docker.png" }
           a {
             href = "https://pambrose.github.io/myslides/docker.html"
             +"https://pambrose.github.io/myslides/docker.html"
           }
         }
       }
+
+      dslSlide {
+        content {
+          h2 { +"History of Docker" }
+          unorderedList(
+            "dotcloud.com and Solomon Hykes",
+            "Y Combinator 2010, Debuted in 2013",
+            "MSFT, IBM, Google, and Amazon Support",
+          )
+        }
+      }
+
+
     }
-    }
+  }
 }

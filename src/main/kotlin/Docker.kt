@@ -38,7 +38,6 @@ object Docker {
             "dotcloud.com and Solomon Hykes",
             "Y Combinator 2010, Debuted in 2013",
             "MSFT, IBM, Google, and Amazon Support",
-            "Collision with Kubernetes",
           )
         }
       }
@@ -48,11 +47,29 @@ object Docker {
           h2 { +"What is Docker?" }
           unorderedList(
             "Platform to build, ship and run any app, anywhere",
+            "Docker is open source",
             "Docker applications run in containers",
-            "Containers are not new",
-            "",
-            "",
+            "Built on top of Linux LXC",
           )
+        }
+      }
+
+      dslSlide {
+        content {
+          h2 { +"What is a Container?" }
+          +"""
+            A Docker container image is a lightweight, standalone, executable package of software 
+            that includes everything needed to run an application: code, runtime, system tools, 
+            system libraries and settings. Container images become containers at runtime and 
+            in the case of Docker containers - images become containers when they run on Docker Engine.
+           """
+        }
+      }
+      dslSlide {
+        content {
+          h2 { +"Containers vs VMs" }
+          +"Containers are isolated, but share OS and bins/libraries (where appropriate)"
+          img { width = "1000px"; src = "images/docker-containers-and-vm.png" }
         }
       }
 
@@ -60,9 +77,9 @@ object Docker {
         content {
           h2 { +"Advantages of Containerization" }
           unorderedList(
-            "Consistent test environment for development and QA",
+            "Consistent test environment for dev and QA",
             "Cross-platform packages called images",
-            "Isolation and encapsulation of application dependencies",
+            "Isolation and encapsulation of app dependencies",
             "Ability to scale efficiently, easily, and in real time",
             "Enhances efficiency via easy reuse of images",
           )
@@ -71,22 +88,41 @@ object Docker {
 
       dslSlide {
         content {
-          h2 { +"📜 Docker Containers" }
+          h2 { +"Getting Started with Docker" }
+          unorderedList(
+            "Download/install from https://docker.com",
+            "Run Docker",
+            "CLI or Desktop Interface",
+            "Run a container",
+            "Will automatically download a Docker image",
+            "Volumes, network, hostname, DNS, etc.",
+          )
+        }
+      }
+
+      dslSlide {
+        content {
+          h2 { +"🏃‍ Running a Container" }
           codeSnippet {
+            copyButton = false
             code = """
-              docker info
               docker run hello-world
               docker run -it ubuntu bash
               docker ps
               docker ps -a
-              docker run -it --name mycontainer ubuntu bash
-              docker start -i mycontainer        
-              docker stop mycontainer
-              docker rm mycontainer
+              docker rm 
               docker images
               docker rmi
+              docker run -it --rm debian bash
              """
           }
+        }
+      }
+
+      dslSlide {
+        content {
+          h2 { +"Container Lifecycle" }
+          img { width = "1000px"; src = "images/container_life_cycle.png" }
         }
       }
 
@@ -95,6 +131,9 @@ object Docker {
           h2 { +"📜 Docker Examples" }
           codeSnippet {
             code = """
+              docker run -d -p 80:80 wordpress:latest
+
+
               git clone 
               cd docker-demo
               cd docker-website
@@ -106,7 +145,8 @@ object Docker {
                 
               docker run -d -p 8082:80 docker/getting-started
               
-              docker run vanessa/asciiquarium 
+              
+              docker run danielkraic/asciiquarium 
             """
           }
         }

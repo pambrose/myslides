@@ -212,6 +212,7 @@ object Unix {
               "stdin, stdout, and stderr",
               "Redirecting input/output",
               "< n> > 2> 2>&1 >>",
+              "/dev/stdin /dev/stdout /dev/stderr",
             ) {
               style = "font-size:30px; padding-left: 20px"
             }

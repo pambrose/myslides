@@ -93,30 +93,89 @@
         <section>
           <h2>What is Docker?</h2>
           <ul>
-            <li>Platform for packaging, deploying, and running applications</li>
+            <li>Platform to build, ship and run any app, anywhere</li>
+            <li>Docker is open source</li>
             <li>Docker applications run in containers</li>
-            <li>Containers are not new</li>
-            <li></li>
-            <li></li>
+            <li>Built on top of Linux LXC</li>
           </ul>
+        </section>
+        
+        <section>
+          <h2>What is a Container?</h2>
+                      A Docker container image is a lightweight, standalone, executable package of software 
+            that includes everything needed to run an application: code, runtime, system tools, 
+            system libraries and settings. Container images become containers at runtime and 
+            in the case of Docker containers - images become containers when they run on Docker Engine.
+           
+        </section>
+        
+        <section>
+          <h2>Containers vs VMs</h2>
+          Containers are isolated, but share OS and bins/libraries (where appropriate)<img src="images/docker-containers-and-vm.png" width="1000px">
         </section>
         
         <section>
           <h2>Advantages of Containerization</h2>
           <ul>
-            <li>Consistent test environment for development and QA</li>
+            <li>Consistent test environment for dev and QA</li>
             <li>Cross-platform packages called images</li>
-            <li>Isolation and encapsulation of application dependencies</li>
+            <li>Isolation and encapsulation of app dependencies</li>
             <li>Ability to scale efficiently, easily, and in real time</li>
             <li>Enhances efficiency via easy reuse of images</li>
           </ul>
         </section>
         
         <section>
-          <h2>&#128220; Scripts</h2>
-          <pre><code class="kotlin" data-line-numbers="" data-noescape="" data-trim="">
+          <h2>Getting Started with Docker</h2>
+          <ul>
+            <li>Download/install from https://docker.com</li>
+            <li>Run Docker</li>
+            <li>CLI or Desktop Interface</li>
+            <li>Run a container</li>
+            <li>Will automatically download a Docker image</li>
+            <li>Volumes, network, hostname, DNS, etc.</li>
+          </ul>
+        </section>
+        
+        <section>
+          <h2>&#127939;&zwj; Running a Container</h2>
+          <pre data-cc="false"><code class="kotlin" data-line-numbers="" data-noescape="" data-trim="">
               docker run hello-world
-              docker run vanessa/asciiquarium 
+              docker run -it ubuntu bash
+              docker ps
+              docker ps -a
+              docker rm 
+              docker images
+              docker rmi
+              docker run -it --rm debian bash
+             </code>
+          </pre>
+        </section>
+        
+        <section>
+          <h2>Container Lifecycle</h2>
+          <img src="images/container_life_cycle.png" width="1000px">
+        </section>
+        
+        <section>
+          <h2>&#128220; Docker Examples</h2>
+          <pre><code class="kotlin" data-line-numbers="" data-noescape="" data-trim="">
+              docker run -d -p 80:80 wordpress:latest
+
+
+              git clone 
+              cd docker-demo
+              cd docker-website
+              
+              docker build -t docker-website .
+              docker run -d -p 9000:8888 --name mysite docker-website
+              docker logs -tf mysite
+                
+                
+              docker run -d -p 8082:80 docker/getting-started
+              
+              
+              docker run danielkraic/asciiquarium 
             </code>
           </pre>
         </section>

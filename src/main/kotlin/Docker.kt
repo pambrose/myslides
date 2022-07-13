@@ -227,6 +227,7 @@ object Docker {
             "K8s vs. Swarm",
             "Hykes' Departure",
             "K8s and CRI",
+            "Sold off enterprise business to Mirantis",
             "Dual Licensing",
           )
         }

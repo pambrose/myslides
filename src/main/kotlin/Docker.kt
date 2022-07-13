@@ -22,11 +22,31 @@ object Docker {
       dslSlide {
         content {
           id = "docker"
-          h2 { +"Docker Basics" }
+          h2 { +"📚 Docker Basics" }
           img { width = "300px"; src = "images/docker.png" }
           a {
             href = "https://pambrose.github.io/myslides/docker.html"
             +"https://pambrose.github.io/myslides/docker.html"
+          }
+        }
+      }
+
+
+
+      dslSlide {
+        content {
+          h2 { +"🍴 Taste of Docker" }
+          codeSnippet {
+            trim = false
+            copyButton = false
+            code = """
+              
+              docker run -t -p 8080:80 docker/getting-started
+              
+              docker run -d -p 8082:80 wordpress:latest
+
+
+            """.trimIndent()
           }
         }
       }
@@ -44,30 +64,34 @@ object Docker {
 
       dslSlide {
         content {
-          h2 { +"What is Docker?" }
+          h2 { +"❓ What is Docker?" }
           unorderedList(
-            "Platform to build, ship and run any app, anywhere",
-            "Docker is open source",
+            "Platform to build, ship and run any server apps",
+            "Supports any language",
+            "Supports many OSes",
             "Docker applications run in containers",
             "Built on top of Linux LXC",
+            "One command per container",
           )
         }
       }
 
       dslSlide {
         content {
-          h2 { +"What is a Container?" }
-          +"""
-            A Docker container image is a lightweight, standalone, executable package of software 
+          h2 { +"🔬 Images and Containers" }
+          h5 {
+            +"""
+            A Docker image is a lightweight, standalone, executable package of software 
             that includes everything needed to run an application: code, runtime, system tools, 
-            system libraries and settings. Container images become containers at runtime and 
-            in the case of Docker containers - images become containers when they run on Docker Engine.
+            system libraries and settings. 
            """
+          }
+          h5 { +"Images become containers when they are run." }
         }
       }
       dslSlide {
         content {
-          h2 { +"Containers vs VMs" }
+          h2 { +"🥊 Containers vs VMs" }
           +"Containers are isolated, but share OS and bins/libraries (where appropriate)"
           img { width = "1000px"; src = "images/docker-containers-and-vm.png" }
         }
@@ -75,22 +99,22 @@ object Docker {
 
       dslSlide {
         content {
-          h2 { +"Advantages of Containerization" }
+          h2 { +"👍 Advantages of Containerization" }
           unorderedList(
             "Consistent test environment for dev and QA",
-            "Cross-platform packages called images",
             "Isolation and encapsulation of app dependencies",
-            "Ability to scale efficiently, easily, and in real time",
+            "Ability to scale efficiently, easily, and in real-time",
             "Enhances efficiency via easy reuse of images",
+            "Great for getting apps to customers",
           )
         }
       }
 
       dslSlide {
         content {
-          h2 { +"Getting Started with Docker" }
+          h2 { +"🚆 Getting Started with Docker" }
           unorderedList(
-            "Download/install from https://docker.com",
+            "Download from https://docker.com and install",
             "Run Docker",
             "CLI or Desktop Interface",
             "Run a container",
@@ -105,23 +129,26 @@ object Docker {
           h2 { +"🏃‍ Running a Container" }
           codeSnippet {
             copyButton = false
+            trim = false
             code = """
+              
               docker run hello-world
+              
               docker run -it ubuntu bash
               docker ps
-              docker ps -a
-              docker rm 
               docker images
-              docker rmi
+              
               docker run -it --rm debian bash
-             """
+              
+              
+             """.trimIndent()
           }
         }
       }
 
       dslSlide {
         content {
-          h2 { +"Container Lifecycle" }
+          h2 { +"🧬 Container Lifecycle" }
           img { width = "1000px"; src = "images/container_life_cycle.png" }
         }
       }
@@ -129,38 +156,62 @@ object Docker {
       dslSlide {
         content {
           h2 { +"📜 Docker Examples" }
+          br()
           codeSnippet {
+            trim = false
+            copyButton = false
             code = """
-              docker run -d -p 80:80 wordpress:latest
-
-
-              git clone 
-              cd docker-demo
-              cd docker-website
               
-              docker build -t docker-website .
-              docker run -d -p 9000:8888 --name mysite docker-website
-              docker logs -tf mysite
-                
-                
-              docker run -d -p 8082:80 docker/getting-started
+              git clone https://github.com/pambrose/docker-demo.git
+              
+              docker run -it --rm pambrose/asciiquarium
+              
+              docker run -p 8080:8888 -it --rm pambrose/nginx-demo
+              
+              docker run --rm -p 8080:8080 pambrose/ktor-demo    
               
               
-              docker run danielkraic/asciiquarium 
-            """
+            """.trimIndent()
           }
         }
       }
 
       dslSlide {
         content {
-          h2 { +"Docker Commands" }
+          h2 { +"🎆 Pushing to Docker Hub" }
           unorderedList(
-            "docker ps -a",
-            "Cross-platform packages called images",
-            "Isolation and encapsulation of application dependencies",
-            "Ability to scale efficiently, easily, and in real time",
-            "Enhances efficiency via easy reuse of images",
+            "Docker Registries",
+            "https://hub.docker.com",
+            "Naming conventions",
+            "Versioning",
+          )
+        }
+      }
+
+      dslSlide {
+        content {
+          h2 { +"🏄 Deploying to Digital Ocean" }
+          unorderedList(
+            "https://www.digitalocean.com",
+            "Choose resources",
+            "Specify environment variables",
+            "Choose region",
+            "Scaling",
+            "Integrate with other services",
+          )
+        }
+      }
+
+      dslSlide {
+        content {
+          h2 { +"🎛 Container Orchestration" }
+          unorderedList(
+            "Microservices",
+            "Kubernetes",
+            "Load balancing and traffic routing",
+            "Monitoring and security",
+            "Istio",
+            "Hosting on AWS, Azure, and GCP",
           )
         }
       }

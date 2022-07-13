@@ -42,7 +42,9 @@ object Docker {
             code = """
               
               docker pull postgres
-
+              docker pull bitnami/redis
+              docker pull quay.io/coreos/etcd
+              
               docker run -t -p 8080:80 docker/getting-started
               
               docker run -d -p 8082:80 wordpress:latest

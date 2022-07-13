@@ -177,6 +177,10 @@ object Docker {
               
             """.trimIndent()
           }
+          a {
+            href = "https://github.com/pambrose/docker-demo"
+            +"https://github.com/pambrose/docker-demo"
+          }
         }
       }
 

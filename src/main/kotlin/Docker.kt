@@ -41,6 +41,8 @@ object Docker {
             copyButton = false
             code = """
               
+              docker pull postgres
+
               docker run -t -p 8080:80 docker/getting-started
               
               docker run -d -p 8082:80 wordpress:latest

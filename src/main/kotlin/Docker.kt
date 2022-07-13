@@ -56,6 +56,7 @@ object Docker {
           h2 { +"History of Docker" }
           unorderedList(
             "dotcloud.com and Solomon Hykes",
+            "Made Linux LXC accessible",
             "Y Combinator 2010, Debuted in 2013",
             "MSFT, IBM, Google, and Amazon Support",
           )
@@ -66,11 +67,10 @@ object Docker {
         content {
           h2 { +"❓ What is Docker?" }
           unorderedList(
+            "Docker is a containerization technology",
             "Platform to build, ship and run any server apps",
             "Supports any language",
             "Supports many OSes",
-            "Docker applications run in containers",
-            "Built on top of Linux LXC",
             "One command per container",
           )
         }
@@ -119,7 +119,7 @@ object Docker {
             "CLI or Desktop Interface",
             "Run a container",
             "Will automatically download a Docker image",
-            "Volumes, network, hostname, DNS, etc.",
+            "Can control volumes, network, DNS, etc.",
           )
         }
       }

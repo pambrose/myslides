@@ -215,6 +215,18 @@ object Docker {
           )
         }
       }
+
+      dslSlide {
+        content {
+          h2 { +"🕴 Docker as a Business" }
+          unorderedList(
+            "K8s vs. Swarm",
+            "Hykes' Departure",
+            "K8s and CRI",
+            "Dual Licensing",
+          )
+        }
+      }
     }
   }
 }

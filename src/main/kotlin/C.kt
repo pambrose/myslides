@@ -24,7 +24,8 @@ object C {
           id = "unix"
           h2 { +"C Basics" }
           a {
-            href = "https://www.amazon.com/Programming-Language-PROGRAMMING-LANG-p2-ebook-dp-B009ZUZ9FW/dp/B009ZUZ9FW/ref=mt_other"
+            href =
+              "https://www.amazon.com/Programming-Language-PROGRAMMING-LANG-p2-ebook-dp-B009ZUZ9FW/dp/B009ZUZ9FW/ref=mt_other"
             target = "_blank"
             img { width = "250px"; src = "images/CProgrammingLanguage.jpg" }
           }
@@ -37,21 +38,15 @@ object C {
 
       dslSlide {
         content {
-          h2 { +"🔦 What is an Operating System?" }
-          h4 {
-            style = "color: red;"
-            +"A set of programs that control on a computer"
-          }
+          h3 { +"🔦 What is the C Programming Language?" }
           unorderedList(
-            "Input/Output",
-            "Memory Management",
-            "Disk Access and File Systems",
-            "Network",
-            "Process Control/Scheduling",
-            "Security",
-            "System Logging/Monitoring/Maintenance",
-            "System Backup/Recovery/Upgrade",
-            "User Program Execution",
+            "Dennis Ritchie at AT&T Bell Labs in 1972",
+            "Speedcode -> FORTRAN -> ALGOL 58 -> ALGOL 60 -> CPL -> BCPL -> B -> C",
+            "Influenced countless languages, including: C++, C#, Java, Python, Go, and Obj-C",
+            "Low-level systems language",
+            "Static type system with weak enforcement",
+            "Architecture-specific language -- not WORA",
+            "C source files are compiled to object files",
           ) {
             style = "font-size:30px; padding-left: 80px"
           }
@@ -60,26 +55,61 @@ object C {
 
       dslSlide {
         content {
-          h2 { +"📚 History of Unix" }
+          h2 { +"🚌 The Basics" }
           unorderedList(
-            "1969 at AT&T Bell Labs -- Unix was a trademark of AT&T",
-            "Dennis Ritchie, Ken Thompson, and Brian Kernighan",
-            "Assembly Language -> C Programming Language",
-            "BSD and GNU",
-            "Commercial: HP, IBM, DEC, Sun, and others",
-            "FOSS: Minix, Linux, BSD, and others",
-            "Consumer: Android, OSX, IOS, and WatchOS"
-          ) {
-            style = "font-size:30px; padding-left: 90px"
-          }
-          a {
-            href = "images/Unix_history.png"
-            target = "_blank"
-            img { width = "300px"; src = "images/Unix_history.png" }
-          }
+            "Hello World",
+          )
         }
       }
 
+      // https://courses.engr.illinois.edu/cs225/sp2022/resources/stack-heap/
+
+      dslSlide {
+        content {
+          h2 { +"Stack and Heap" }
+        }
+      }
+
+      val stackCaptions =
+        listOf(
+          "Allocate variable a for main",
+          "Allocate b for main and store -3",
+          "Allocate c for main and store 12345",
+          "Allocate p for main and store address of b",
+          "Allocate variable a for hello and store 100",
+          "Deallocate the stack memory of hello and return 100 to main",
+          "Allocate d for main and store 100",
+          "Deallocate the stack memory of main and return 0",
+        )
+      for (i in (1..8))
+        dslSlide {
+          content {
+            img {
+              width = "800px"
+              src = "images/stack_demo_$i.png"
+            }
+            h6 { +stackCaptions[i - 1] }
+          }
+        }
+
+      val heapCaptions =
+        listOf(
+          "Allocate an integer with default value 0 on the heap, allocate p on main's stack to store the address of the integer",
+          "Allocate a Cube with default width 20 on the heap, allocate c1 on main's stack to store the address of the Cube",
+          "Allocate c2 on main's stack and store a copy of c1",
+          "Call method setLength on c2, changes the width of the Cube pointed by both c1 and c2",
+          "Deallocate stack memory of main and return 0",
+        )
+      for (i in (1..5))
+        dslSlide {
+          content {
+            img {
+              width = "800px"
+              src = "images/heap_demo_$i.png"
+            }
+            h6 { +heapCaptions[i - 1] }
+          }
+        }
       dslSlide {
         content {
           h2 { +"🚨 Why do we care about Unix?" }

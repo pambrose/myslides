@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black-translucent" name="apple-mobile-web-app-status-bar-style">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
+    
+    <link href="revealjs/dist/reveal.css" rel="stylesheet">
+    <link href="revealjs/dist/reset.css" rel="stylesheet">
+    <link href="revealjs/dist/theme/solarized.css" id="theme" rel="stylesheet">
+    <link href="revealjs/plugin/highlight/monokai.css" id="highlight-theme" rel="stylesheet">
+    <link href="revealjs/plugin/copycode/copycode.css" rel="stylesheet">
+    
+    <link href="/favicon.ico" rel="shortcut icon" type="image/x-icon">
+    <link href="/favicon.ico" rel="icon" type="image/x-icon">
+    
+    <style media="screen" type="text/css">
+			/* These CSS settings are embedded directly in the presentation html */
+		
+			/* This prevents auto-capitalization of headers */
+			.reveal h1,
+			.reveal h2,
+			.reveal h3,
+			.reveal h4,
+			.reveal h5,
+			.reveal h6 {
+			    text-transform: none;
+			}
+		
+			a.top-left {
+			    position: absolute;
+			    z-index: 1;
+			    width: clamp(50px, 8vmax, 80px);
+			    line-height: 0;
+			    color: rgba(255, 255, 255, 0.5);
+			}
+		
+			a.top-left path {
+			    fill: #258bd2;
+			}
+		
+			a.top-left:hover {
+			    color: white;
+			}
+		
+			a.top-right {
+			    position: absolute;
+			    top: 15px;
+			    right: 15px;
+			    z-index: 1;
+			}
+		</style>
+    
+    <style media="screen" type="text/css">
+			#githubCorner path { fill: #258BD2; }
+			
+			.history li {
+			  padding-top: 0px;
+			}
+			
+		</style>
+    
+  </head>
+  <body>
+    <div class="reveal">
+      <a class="top-left" href="https://github.com/pambrose/myslides" target="_blank" title="View presentation source on Github">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 55 55">
+                    
+          <path d="M27.5 11.2a16.3 16.3 0 0 0-5.1 31.7c.8.2 1.1-.3 1.1-.7v-2.8c-4.5 1-5.5-2.2-5.5-2.2-.7-1.9-1.8-2.4-1.8-2.4-1.5-1 .1-1 .1-1 1.6.1 2.5 1.7 2.5 1.7 1.5 2.5 3.8 1.8 4.7 1.4.2-1 .6-1.8 1-2.2-3.5-.4-7.3-1.8-7.3-8 0-1.8.6-3.3 1.6-4.4-.1-.5-.7-2.1.2-4.4 0 0 1.4-.4 4.5 1.7a15.6 15.6 0 0 1 8.1 0c3.1-2 4.5-1.7 4.5-1.7.9 2.3.3 4 .2 4.4 1 1 1.6 2.6 1.6 4.3 0 6.3-3.8 7.7-7.4 8 .6.6 1.1 1.6 1.1 3v4.6c0 .4.3.9 1.1.7a16.3 16.3 0 0 0-5.2-31.7" fill="currentColor" stroke="none"></path>
+                  
+        </svg>
+              </a>
+			<a class="top-right" href="#/c" target="_self" title="Go to 1st Slide">&#127968;</a>
+
+      <div class="slides">
+        <section id="unix">
+          <h2>C Basics</h2>
+          <a href="https://www.amazon.com/Programming-Language-PROGRAMMING-LANG-p2-ebook-dp-B009ZUZ9FW/dp/B009ZUZ9FW/ref=mt_other" target="_blank"><img src="images/CProgrammingLanguage.jpg" width="250px"></a><a href="https://pambrose.github.io/myslides/c.html">https://pambrose.github.io/myslides/c.html</a>
+        </section>
+        
+        <section>
+          <h2>&#128294; What is an Operating System?</h2>
+          <h4 style="color: red;">A set of programs that control on a computer</h4>
+          <ul style="font-size:30px; padding-left: 80px">
+            <li>Input/Output</li>
+            <li>Memory Management</li>
+            <li>Disk Access and File Systems</li>
+            <li>Network</li>
+            <li>Process Control/Scheduling</li>
+            <li>Security</li>
+            <li>System Logging/Monitoring/Maintenance</li>
+            <li>System Backup/Recovery/Upgrade</li>
+            <li>User Program Execution</li>
+          </ul>
+        </section>
+        
+        <section>
+          <h2>&#128218; History of Unix</h2>
+          <ul style="font-size:30px; padding-left: 90px">
+            <li>1969 at AT&amp;T Bell Labs -- Unix was a trademark of AT&amp;T</li>
+            <li>Dennis Ritchie, Ken Thompson, and Brian Kernighan</li>
+            <li>Assembly Language -&gt; C Programming Language</li>
+            <li>BSD and GNU</li>
+            <li>Commercial: HP, IBM, DEC, Sun, and others</li>
+            <li>FOSS: Minix, Linux, BSD, and others</li>
+            <li>Consumer: Android, OSX, IOS, and WatchOS</li>
+          </ul>
+          <a href="images/Unix_history.png" target="_blank"><img src="images/Unix_history.png" width="300px"></a>
+        </section>
+        
+        <section>
+          <h2>&#128680; Why do we care about Unix?</h2>
+          <ul>
+            <li>AWS, Google, Azure, Digital Ocean, and more</li>
+            <li>Docker and Kubernetes</li>
+            <li>Raspberry Pi</li>
+            <li>Enterprise Computing</li>
+            <li>DevOps</li>
+            <li>Data Science</li>
+          </ul>
+        </section>
+        
+        <section>
+          <h2>&#128170; The Unix Philosophy</h2>
+          <ul style="font-size:30px; padding-left: 20px">
+            <li>Write programs that do one thing and do it well -- DOTADIW</li>
+            <li>Write programs to work together</li>
+            <li>Write programs to handle text streams, because that is a universal interface</li>
+          </ul>
+        </section>
+        
+        <section>
+          <h2>&#128026; What is a Unix Shell?</h2>
+          <div>
+            <ul style="font-size:30px">
+              <li>sh</li>
+              <li>csh</li>
+              <li>bash</li>
+              <li>ksh</li>
+              <li>fish</li>
+              <li>zsh</li>
+              <li>tcsh</li>
+            </ul>
+          </div>
+          <br>
+          <a href="https://hyperpolyglot.org/unix-shells" target="_blank">&#128073; Summary of shells</a>
+        </section>
+        
+        <section>
+          <h2>✉ Unix Shell Environment Variables</h2>
+          <ul style="font-size:30px; padding-left: 20px">
+            <li>env</li>
+            <li>echo</li>
+            <li>$PATH / $HOME / $USER / $SHELL</li>
+            <li>$JAVA_HOME / $CLASSPATH</li>
+            <li>.zshrc / .cshrc / .bashrc</li>
+          </ul>
+        </section>
+        
+        <section>
+          <h2>&#129466; General Command Structure</h2>
+          <h3 style="color: red;">command options args</h3>
+          <ul style="font-size:30px">
+            <li>man page</li>
+            <li>tldr</li>
+            <li>single and double dash options</li>
+            <li>which/where/whereis</li>
+            <li>args[] in programs</li>
+          </ul>
+        </section>
+        
+        <section>
+          <h2>&#128194; File System Commands</h2>
+          <ul style="font-size:30px; padding-left: 20px">
+            <li>Files, Directories, and Paths ( / .. . ../ ~ *)</li>
+            <li>ls</li>
+            <li>touch</li>
+            <li>cat/more/less/bat</li>
+            <li>mv</li>
+            <li>rm</li>
+            <li>file</li>
+            <li>strings</li>
+            <li>pwd</li>
+            <li>cd</li>
+            <li>pushd/popd</li>
+            <li>mkdir/rmdir</li>
+          </ul>
+        </section>
+        
+        <section>
+          <h2>&#128394; Unix Editors</h2>
+          <div>
+            <ul style="font-size:30px; padding-left: 20px">
+              <li>vi/vim/neovim</li>
+              <li>emacs</li>
+              <li>pico</li>
+              <li>nano</li>
+            </ul>
+            <br>
+            <br>
+            <h3 style="color: red;">Choose one (preferably vim) and learn it!!</h3>
+          </div>
+        </section>
+        
+        <section>
+          <h2>&#128747; I/O Control</h2>
+          <div>
+            <ul style="font-size:30px; padding-left: 20px">
+              <li>stdin, stdout, and stderr</li>
+              <li>Redirecting input/output</li>
+              <li>&lt; n&gt; &gt; 2&gt; 2&gt;&amp;1 &gt;&gt;</li>
+              <li>/dev/stdin /dev/stdout /dev/stderr</li>
+            </ul>
+          </div>
+          <img src="images/diagram-shell-keyboard-terminal.png" width="800px">
+        </section>
+        
+        <section>
+          <h2>&#128229; Common Patterns - Standard Input</h2>
+          <img src="images/diagram-input-examples.png" width="1000px">
+        </section>
+        
+        <section>
+          <h2>&#128228; Common Patterns - Standard Output</h2>
+          <img src="images/diagram-output-examples.png" width="1000px">
+        </section>
+        
+        <section>
+          <h2>&#128703; Pipes</h2>
+          <img src="images/diagram-cat-sort-uniq-pipeline.png" width="1000px">
+        </section>
+        
+        <section>
+          <section>
+            <h2>&#128220; Text Processing</h2>
+            <ul style="font-size:30px; padding-left: 20px">
+              <li>wc</li>
+              <li>grep</li>
+              <li>head/tail</li>
+              <li>nl</li>
+              <li>fold</li>
+              <li>sort</li>
+              <li>uniq</li>
+              <li>rev</li>
+              <li>sed</li>
+              <li>tr</li>
+              <li>cut</li>
+            </ul>
+          </section>
+          
+          <section data-markdown="" data-separator="" data-separator-notes="^Notes?:" data-separator-vertical="">
+            <script type="text/template">
+## tr examples
+```bash
+head -n 1 ~/samples/data/top100.csv | tr ',' '\n'
+
+head -n 1 ~/samples/data/top100.csv | tr ',' '\n' | tr -d '"'
+
+echo "Welcome to the shell" | tr 'shell' 'machine'
+```
+</script>
+          </section>
+          
+          <section data-markdown="" data-separator="" data-separator-notes="^Notes?:" data-separator-vertical="">
+            <script type="text/template">
+## cut examples
+```bash
+cut -d',' -f 3 ~/samples/data/top100.csv | head
+
+cut -d',' -f 1,3 ~/samples/data/top100.csv | head
+
+tail -n 5 ~/samples/logs/web-server-logs.txt | cut -c 12-19
+
+ps -e | cut -c 26-500
+```
+</script>
+          </section>
+          
+        </section>
+        
+        <section data-markdown="">
+          <script type="text/template">
+## 🔎 Searching with find
+```bash
+  find
+  
+  find . -type f
+  
+  find . -type d
+  
+  find . -name Utils.java
+  
+  find . -name "*.java"
+  
+  find . -name "*.java" -exec wc {} \;
+```  
+</script>
+        </section>
+        
+        <section>
+          <h2>&#127880; Misc Commands</h2>
+          <ul style="font-size:30px; padding-left: 20px">
+            <li>ssh</li>
+            <li>sftp</li>
+            <li>date/cal</li>
+            <li>split</li>
+            <li>diff</li>
+            <li>compress/uncompress</li>
+          </ul>
+        </section>
+        
+        <section>
+          <h2>&#128230; Job/Process Control</h2>
+          <pre><code class="kotlin" data-line-numbers="" data-noescape="" data-trim="">
+              python3 -m http.server 8080
+            </code>
+          </pre>
+          <ul style="font-size:30px; padding-left: 20px">
+            <li>control-z/jobs/fg/bg/&amp;</li>
+            <li>top/htop</li>
+            <li>ps</li>
+            <li>kill</li>
+          </ul>
+        </section>
+        
+        <section>
+          <h2>&#128220; Scripts</h2>
+          <pre><code class="kotlin" data-line-numbers="" data-noescape="" data-trim="">
+              #!/bin/sh
+              echo "&#128054; woof &#128054;"
+            </code>
+          </pre>
+        </section>
+        
+        <section>
+          <h2>&#129489; User Management</h2>
+          <ul style="font-size:30px; padding-left: 20px">
+            <li>w/who</li>
+            <li>su</li>
+            <li>root</li>
+            <li>sudo</li>
+            <li>adduser/rmuser</li>
+            <li>chmod</li>
+            <li>chgrp</li>
+            <li>chown</li>
+          </ul>
+        </section>
+        
+        <section>
+          <h2>&#127881; Fun Commands</h2>
+          <ul style="font-size:30px; padding-left: 20px">
+            <li>lynx</li>
+            <li>say</li>
+            <li>fortune</li>
+            <li>cowsay</li>
+            <li>pbpaste</li>
+            <li>banner/figlet</li>
+            <li>sl</li>
+            <li>cmatrix</li>
+            <li>asciiquarium</li>
+          </ul>
+        </section>
+        
+        <section>
+          <h2>&#128129; Helpful Links</h2>
+          <a href="https://effective-shell.com" target="_blank">&#128073; Effective Shell</a>
+          <br>
+          <a href="https://www.makeuseof.com/linux-commands-and-alternatives/" target="_blank">&#128073; 8 Classic Commands and Their Modern Alternatives</a>
+          <br>
+          <a href="https://jvns.ca/blog/2022/04/12/a-list-of-new-ish--command-line-tools/" target="_blank">&#128073; A list of new(ish) command line tools</a>
+          <br>
+          <a href="https://www.tomshardware.com/how-to/getting-to-know-the-linux-filesystem" target="_blank">&#128073; Getting To Know the Linux Filesystem</a>
+        </section>
+        
+      </div>
+    </div>
+    	
+	<script src="revealjs/dist/reveal.js"></script>
+	<script src="revealjs/plugin/zoom/zoom.js"></script>
+	<script src="revealjs/plugin/search/search.js"></script>
+	<script src="revealjs/plugin/markdown/markdown.js"></script>
+	<script src="revealjs/plugin/highlight/highlight.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.11/clipboard.min.js"></script>
+	<script src="revealjs/plugin/copycode/copycode.js"></script>
+	<script src="revealjs/plugin/menu/menu.js"></script>
+
+	<script>
+		Reveal.initialize({
+			history: true,
+			transition: 'slide',
+			transitionSpeed: 'slow',
+
+			slideNumber: 'c/t',
+
+			plugins: [ RevealZoom, RevealSearch, RevealMarkdown, RevealHighlight, RevealMenu, CopyCode ]
+		});
+
+</script>
+  </body>
+</html>
+

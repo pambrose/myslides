@@ -58,10 +58,7 @@ task uberjar(type: Jar, dependsOn: shadowJar) {
 
 compileKotlin {
     kotlinOptions {
-        //useIR = true
         jvmTarget = '11'
-        //languageVersion = '1.7'
-        //apiVersion = '1.7'
         freeCompilerArgs += ['-Xbackend-threads=8',
                              //'-Xcontext-receivers',
                              //'-Xskip-prerelease-check',
@@ -71,10 +68,7 @@ compileKotlin {
 
 compileTestKotlin {
     kotlinOptions {
-        //useIR = true
         jvmTarget = '11'
-        //languageVersion = '1.7'
-        //apiVersion = '1.7'
         freeCompilerArgs += ['-Xbackend-threads=8',
                              //'-Xcontext-receivers',
                              //'-Xskip-prerelease-check',

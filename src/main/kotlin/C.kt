@@ -1,5 +1,8 @@
 import com.kslides.KSlides
+import com.kslides.PlaygroundMode
 import com.kslides.codeSnippet
+import com.kslides.githubRawUrl
+import com.kslides.playground
 import com.kslides.unorderedList
 import kotlinx.html.*
 
@@ -15,13 +18,15 @@ object C {
         }
       """
 
+      val owner = "pambrose"
+      val repoName = "c-demo"
       presentationConfig {
         topRightHref = "#/c"
       }
 
       dslSlide {
         content {
-          id = "unix"
+          id = "c"
           h2 { +"C Basics" }
           a {
             href =
@@ -38,7 +43,7 @@ object C {
 
       dslSlide {
         content {
-          h3 { +"🔦 What is the C Programming Language?" }
+          h3 { +"🔦 What is C?" }
           unorderedList(
             "Dennis Ritchie at AT&T Bell Labs in 1972",
             "Speedcode -> FORTRAN -> ALGOL 58 -> ALGOL 60 -> CPL -> BCPL -> B -> C",
@@ -55,10 +60,48 @@ object C {
 
       dslSlide {
         content {
-          h2 { +"🚌 The Basics" }
+          h2 { +"🌅 Hello World" }
           unorderedList(
-            "Hello World",
-          )
+            "#include preprocessing directives",
+            ".c and .h files",
+            "stdio.h",
+          ) {
+            style = "list-style-type:square;"
+          }
+          playground(githubRawUrl(owner, repoName, "helloworld.c")) {
+            mode = PlaygroundMode.C
+          }
+        }
+      }
+
+      dslSlide {
+        content {
+          h2 { +"🚌 Basic Types in C" }
+          unorderedList(
+            { +"char, int, float and double" },
+            { +"Modifiers: signed, unsigned, short, and long" },
+            {
+              a {
+                href = "https://en.wikipedia.org/wiki/C_data_types#Main_types"
+                +"Summary"
+              }
+            }
+          ) {
+            style = "list-style-type:square;"
+          }
+          playground(githubRawUrl(owner, repoName, "basic_types.c")) {
+            mode = PlaygroundMode.C
+            height = "400px"
+          }
+        }
+      }
+
+      dslSlide {
+        content {
+          h2 { +"🧶 Strings in C" }
+          playground(githubRawUrl(owner, repoName, "strings.c")) {
+            mode = PlaygroundMode.C
+          }
         }
       }
 

@@ -3,6 +3,7 @@ import com.kslides.PlaygroundMode
 import com.kslides.codeSnippet
 import com.kslides.githubRawUrl
 import com.kslides.playground
+import com.kslides.slide.DslSlide
 import com.kslides.unorderedList
 import kotlinx.html.*
 
@@ -16,12 +17,24 @@ object C {
         .history li {
           padding-top: 0px;
         }
+        
+        .smallText li {
+          font-size: 0.8em;
+        }
       """
 
       val owner = "pambrose"
       val repoName = "c-demo"
       presentationConfig {
         topRightHref = "#/c"
+      }
+
+      fun DslSlide.cSlide(fileName: String, heightPx: Int = -1) {
+        playground(githubRawUrl(owner, repoName, fileName)) {
+          mode = PlaygroundMode.C
+          if (heightPx > 0)
+            height = "${heightPx}px"
+        }
       }
 
       dslSlide {
@@ -52,6 +65,7 @@ object C {
             "Static type system with weak enforcement",
             "Architecture-specific language -- not WORA",
             "C source files are compiled to object files",
+            "Write programs and libraries",
           ) {
             style = "font-size:30px; padding-left: 80px"
           }
@@ -61,47 +75,74 @@ object C {
       dslSlide {
         content {
           h2 { +"🌅 Hello World" }
-          unorderedList(
-            "#include preprocessing directives",
-            ".c and .h files",
-            "stdio.h",
-          ) {
-            style = "list-style-type:square;"
+          div("smallText") {
+            unorderedList(
+              "#include preprocessing directives",
+              ".c and .h files",
+              "stdio.h",
+            ) {
+              style = "list-style-type:square;"
+            }
           }
-          playground(githubRawUrl(owner, repoName, "helloworld.c")) {
-            mode = PlaygroundMode.C
-          }
+          cSlide("helloworld.c", 400)
         }
       }
 
       dslSlide {
         content {
           h2 { +"🚌 Basic Types in C" }
-          unorderedList(
-            { +"char, int, float and double" },
-            { +"Modifiers: signed, unsigned, short, and long" },
-            {
-              a {
-                href = "https://en.wikipedia.org/wiki/C_data_types#Main_types"
-                +"Summary"
-              }
+          div("smallText") {
+            unorderedList(
+              { +"char, int, float and double" },
+              { +"Modifiers: signed, unsigned, short, and long" },
+              { a { +"Summary";href = "https://en.wikipedia.org/wiki/C_data_types#Main_types" } }
+            ) {
+              style = "list-style-type:square;"
             }
-          ) {
-            style = "list-style-type:square;"
           }
-          playground(githubRawUrl(owner, repoName, "basic_types.c")) {
-            mode = PlaygroundMode.C
-            height = "400px"
-          }
+          cSlide("basic_types.c", 400)
+        }
+      }
+
+      dslSlide {
+        content {
+          h2 { +"🚌 Arrays in C" }
+          cSlide("arrays1.c", 500)
+        }
+      }
+
+      dslSlide {
+        content {
+          h2 { +"🚌 More Arrays in C" }
+          cSlide("arrays2.c", 500)
+        }
+      }
+
+      dslSlide {
+        content {
+          h2 { +"☝ Pointers in C" }
+          cSlide("pointers1.c")
+        }
+      }
+
+      dslSlide {
+        content {
+          h2 { +"☝ Pointer Arithmetic in C" }
+          cSlide("pointers2.c")
         }
       }
 
       dslSlide {
         content {
           h2 { +"🧶 Strings in C" }
-          playground(githubRawUrl(owner, repoName, "strings.c")) {
-            mode = PlaygroundMode.C
-          }
+          cSlide("strings1.c")
+        }
+      }
+
+      dslSlide {
+        content {
+          h2 { +"🧶 More Strings in C" }
+          cSlide("strings2.c")
         }
       }
 

@@ -23,17 +23,25 @@
   <body>
     <code class="playground-code" data-autocomplete="true" folded-button="false" lines="true" match-brackets="true" mode="c" theme="darcula">
 #include &lt;stdio.h&gt;
-#include "arrays.h"
+#include &lt;string.h&gt;
+#include "strings.h"
 
-void arrays1() {
-    const int SIZE = 3;
-    // Allocate an array of 3 integers
-    int a[SIZE];
-    a[0] = 10;
-    a[1] = 20;
-    a[2] = 30;
-    for (int i = 0; i &lt; SIZE; i++)
-        printf("a[%d] = %d\n", i, a[i]);
+void strings3() {
+    char vec[20];
+    vec[0] = 'H';
+    vec[1] = 'e';
+
+    *(vec + 2) = 'l';
+    *(vec + 3) = 'l';
+
+    char *str = vec;
+    *(str + 4) = 'o';
+    *(str + 5) = '\0';
+
+    printf("vec = %p, str = %p\n", vec, str);
+    printf("vec = %s, str = %s\n", vec, str);
+    printf("strlens = %ld and %ld\n",
+           strlen(vec), strlen(str));
 }
 </code>
   </body>

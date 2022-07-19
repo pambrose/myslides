@@ -23,17 +23,17 @@
   <body>
     <code class="playground-code" data-autocomplete="true" folded-button="false" lines="true" match-brackets="true" mode="c" theme="darcula">
 #include &lt;stdio.h&gt;
-#include "pointers.h"
+#include "arrays.h"
 
-void pointers1() {
-    int i = 100;
-    int *p = &amp;i;
-    printf("i = %d, p = %p\n", i, p);
-    printf("*p = %d\n", *p);
-    i++;
-    printf("i = %d, *p = %d\n", i, *p);
-    (*p)++;
-    printf("i = %d, *p = %d\n", i, *p);
+void arrays1() {
+    const int SIZE = 3;
+    // Allocate an array of 3 integers
+    int a[SIZE];
+    a[0] = 10;
+    a[1] = 20;
+    a[2] = 30;
+    for (int i = 0; i &lt; SIZE; i++)
+        printf("a[%d] = %d\n", i, a[i]);
 }
 </code>
   </body>

@@ -95,7 +95,7 @@
             <li>Static type system with weak enforcement</li>
             <li>Architecture-specific language -- not WORA</li>
             <li>C source files are compiled to object files</li>
-            <li>Write programs and libraries</li>
+            <li>Programs and libraries</li>
           </ul>
         </section>
         
@@ -105,7 +105,9 @@
             <ul style="list-style-type:square;">
               <li>#include preprocessing directives</li>
               <li>.c and .h files</li>
-              <li>stdio.h</li>
+              <li>Braces, quotes, and ;</li>
+              <li>&lt;stdio.h&gt;</li>
+              <li>Return success value</li>
             </ul>
           </div>
           <iframe height="400px" src="playground/slide-134-1.html" style="border:none;" width="100%"></iframe>
@@ -126,37 +128,48 @@
         </section>
         
         <section>
-          <h2>&#128652; Arrays in C</h2>
-          <iframe height="500px" src="playground/slide-136-1.html" style="border:none;" width="100%"></iframe>
+          <h2>&#128238; Working with Hex Addresses</h2>
+          <img src="images/hexvalues.png" width="900px">
         </section>
         
         <section>
-          <h2>&#128652; Arrays in C</h2>
-          <iframe height="500px" src="playground/slide-137-1.html" style="border:none;" width="100%"></iframe>
+          <h2>&#128300; Variables in Memory</h2>
+          <img src="images/basic_types.png" width="900px">
+        </section>
+        
+        <section>
+          <h2>&#128652; Arrays in C (1)</h2>
+          <iframe height="500px" src="playground/slide-138-1.html" style="border:none;" width="100%"></iframe>
+        </section>
+        
+        <section>
+          <h2>&#128652; Arrays in C (2)</h2>
+          <iframe height="500px" src="playground/slide-139-1.html" style="border:none;" width="100%"></iframe>
         </section>
         
         <section>
           <h2>☝ Pointers in C</h2>
-          <iframe height="250px" src="playground/slide-138-1.html" style="border:none;" width="100%"></iframe>
+          <iframe height="500px" src="playground/slide-140-1.html" style="border:none;" width="100%"></iframe>
         </section>
         
         <section>
           <h2>☝ Pointer Arithmetic in C</h2>
-          <iframe height="250px" src="playground/slide-139-1.html" style="border:none;" width="100%"></iframe>
+          <iframe height="500px" src="playground/slide-141-1.html" style="border:none;" width="100%"></iframe>
         </section>
         
         <section>
-          <h2>&#129526; Strings in C</h2>
-          <iframe height="250px" src="playground/slide-140-1.html" style="border:none;" width="100%"></iframe>
+          <h2>&#129526; Strings in C (1)</h2>
+          <iframe height="500px" src="playground/slide-142-1.html" style="border:none;" width="100%"></iframe>
         </section>
         
         <section>
-          <h2>&#129526; More Strings in C</h2>
-          <iframe height="250px" src="playground/slide-141-1.html" style="border:none;" width="100%"></iframe>
+          <h2>&#129526; Strings in C (2)</h2>
+          <iframe height="500px" src="playground/slide-143-1.html" style="border:none;" width="100%"></iframe>
         </section>
         
         <section>
-          <h2>Stack and Heap</h2>
+          <h2>&#129526; Strings in C (3)</h2>
+          <iframe height="500px" src="playground/slide-144-1.html" style="border:none;" width="100%"></iframe>
         </section>
         
         <section>
@@ -222,270 +235,6 @@
         <section>
           <img src="images/heap_demo_5.png" width="800px">
           <h6>Deallocate stack memory of main and return 0</h6>
-        </section>
-        
-        <section>
-          <h2>&#128680; Why do we care about Unix?</h2>
-          <ul>
-            <li>AWS, Google, Azure, Digital Ocean, and more</li>
-            <li>Docker and Kubernetes</li>
-            <li>Raspberry Pi</li>
-            <li>Enterprise Computing</li>
-            <li>DevOps</li>
-            <li>Data Science</li>
-          </ul>
-        </section>
-        
-        <section>
-          <h2>&#128170; The Unix Philosophy</h2>
-          <ul style="font-size:30px; padding-left: 20px">
-            <li>Write programs that do one thing and do it well -- DOTADIW</li>
-            <li>Write programs to work together</li>
-            <li>Write programs to handle text streams, because that is a universal interface</li>
-          </ul>
-        </section>
-        
-        <section>
-          <h2>&#128026; What is a Unix Shell?</h2>
-          <div>
-            <ul style="font-size:30px">
-              <li>sh</li>
-              <li>csh</li>
-              <li>bash</li>
-              <li>ksh</li>
-              <li>fish</li>
-              <li>zsh</li>
-              <li>tcsh</li>
-            </ul>
-          </div>
-          <br>
-          <a href="https://hyperpolyglot.org/unix-shells" target="_blank">&#128073; Summary of shells</a>
-        </section>
-        
-        <section>
-          <h2>✉ Unix Shell Environment Variables</h2>
-          <ul style="font-size:30px; padding-left: 20px">
-            <li>env</li>
-            <li>echo</li>
-            <li>$PATH / $HOME / $USER / $SHELL</li>
-            <li>$JAVA_HOME / $CLASSPATH</li>
-            <li>.zshrc / .cshrc / .bashrc</li>
-          </ul>
-        </section>
-        
-        <section>
-          <h2>&#129466; General Command Structure</h2>
-          <h3 style="color: red;">command options args</h3>
-          <ul style="font-size:30px">
-            <li>man page</li>
-            <li>tldr</li>
-            <li>single and double dash options</li>
-            <li>which/where/whereis</li>
-            <li>args[] in programs</li>
-          </ul>
-        </section>
-        
-        <section>
-          <h2>&#128194; File System Commands</h2>
-          <ul style="font-size:30px; padding-left: 20px">
-            <li>Files, Directories, and Paths ( / .. . ../ ~ *)</li>
-            <li>ls</li>
-            <li>touch</li>
-            <li>cat/more/less/bat</li>
-            <li>mv</li>
-            <li>rm</li>
-            <li>file</li>
-            <li>strings</li>
-            <li>pwd</li>
-            <li>cd</li>
-            <li>pushd/popd</li>
-            <li>mkdir/rmdir</li>
-          </ul>
-        </section>
-        
-        <section>
-          <h2>&#128394; Unix Editors</h2>
-          <div>
-            <ul style="font-size:30px; padding-left: 20px">
-              <li>vi/vim/neovim</li>
-              <li>emacs</li>
-              <li>pico</li>
-              <li>nano</li>
-            </ul>
-            <br>
-            <br>
-            <h3 style="color: red;">Choose one (preferably vim) and learn it!!</h3>
-          </div>
-        </section>
-        
-        <section>
-          <h2>&#128747; I/O Control</h2>
-          <div>
-            <ul style="font-size:30px; padding-left: 20px">
-              <li>stdin, stdout, and stderr</li>
-              <li>Redirecting input/output</li>
-              <li>&lt; n&gt; &gt; 2&gt; 2&gt;&amp;1 &gt;&gt;</li>
-              <li>/dev/stdin /dev/stdout /dev/stderr</li>
-            </ul>
-          </div>
-          <img src="images/diagram-shell-keyboard-terminal.png" width="800px">
-        </section>
-        
-        <section>
-          <h2>&#128229; Common Patterns - Standard Input</h2>
-          <img src="images/diagram-input-examples.png" width="1000px">
-        </section>
-        
-        <section>
-          <h2>&#128228; Common Patterns - Standard Output</h2>
-          <img src="images/diagram-output-examples.png" width="1000px">
-        </section>
-        
-        <section>
-          <h2>&#128703; Pipes</h2>
-          <img src="images/diagram-cat-sort-uniq-pipeline.png" width="1000px">
-        </section>
-        
-        <section>
-          <section>
-            <h2>&#128220; Text Processing</h2>
-            <ul style="font-size:30px; padding-left: 20px">
-              <li>wc</li>
-              <li>grep</li>
-              <li>head/tail</li>
-              <li>nl</li>
-              <li>fold</li>
-              <li>sort</li>
-              <li>uniq</li>
-              <li>rev</li>
-              <li>sed</li>
-              <li>tr</li>
-              <li>cut</li>
-            </ul>
-          </section>
-          
-          <section data-markdown="" data-separator="" data-separator-notes="^Notes?:" data-separator-vertical="">
-            <script type="text/template">
-## tr examples
-```bash
-head -n 1 ~/samples/data/top100.csv | tr ',' '\n'
-
-head -n 1 ~/samples/data/top100.csv | tr ',' '\n' | tr -d '"'
-
-echo "Welcome to the shell" | tr 'shell' 'machine'
-```
-</script>
-          </section>
-          
-          <section data-markdown="" data-separator="" data-separator-notes="^Notes?:" data-separator-vertical="">
-            <script type="text/template">
-## cut examples
-```bash
-cut -d',' -f 3 ~/samples/data/top100.csv | head
-
-cut -d',' -f 1,3 ~/samples/data/top100.csv | head
-
-tail -n 5 ~/samples/logs/web-server-logs.txt | cut -c 12-19
-
-ps -e | cut -c 26-500
-```
-</script>
-          </section>
-          
-        </section>
-        
-        <section data-markdown="">
-          <script type="text/template">
-## 🔎 Searching with find
-```bash
-  find
-  
-  find . -type f
-  
-  find . -type d
-  
-  find . -name Utils.java
-  
-  find . -name "*.java"
-  
-  find . -name "*.java" -exec wc {} \;
-```  
-</script>
-        </section>
-        
-        <section>
-          <h2>&#127880; Misc Commands</h2>
-          <ul style="font-size:30px; padding-left: 20px">
-            <li>ssh</li>
-            <li>sftp</li>
-            <li>date/cal</li>
-            <li>split</li>
-            <li>diff</li>
-            <li>compress/uncompress</li>
-          </ul>
-        </section>
-        
-        <section>
-          <h2>&#128230; Job/Process Control</h2>
-          <pre><code class="kotlin" data-line-numbers="" data-noescape="" data-trim="">
-              python3 -m http.server 8080
-            </code>
-          </pre>
-          <ul style="font-size:30px; padding-left: 20px">
-            <li>control-z/jobs/fg/bg/&amp;</li>
-            <li>top/htop</li>
-            <li>ps</li>
-            <li>kill</li>
-          </ul>
-        </section>
-        
-        <section>
-          <h2>&#128220; Scripts</h2>
-          <pre><code class="kotlin" data-line-numbers="" data-noescape="" data-trim="">
-              #!/bin/sh
-              echo "&#128054; woof &#128054;"
-            </code>
-          </pre>
-        </section>
-        
-        <section>
-          <h2>&#129489; User Management</h2>
-          <ul style="font-size:30px; padding-left: 20px">
-            <li>w/who</li>
-            <li>su</li>
-            <li>root</li>
-            <li>sudo</li>
-            <li>adduser/rmuser</li>
-            <li>chmod</li>
-            <li>chgrp</li>
-            <li>chown</li>
-          </ul>
-        </section>
-        
-        <section>
-          <h2>&#127881; Fun Commands</h2>
-          <ul style="font-size:30px; padding-left: 20px">
-            <li>lynx</li>
-            <li>say</li>
-            <li>fortune</li>
-            <li>cowsay</li>
-            <li>pbpaste</li>
-            <li>banner/figlet</li>
-            <li>sl</li>
-            <li>cmatrix</li>
-            <li>asciiquarium</li>
-          </ul>
-        </section>
-        
-        <section>
-          <h2>&#128129; Helpful Links</h2>
-          <a href="https://effective-shell.com" target="_blank">&#128073; Effective Shell</a>
-          <br>
-          <a href="https://www.makeuseof.com/linux-commands-and-alternatives/" target="_blank">&#128073; 8 Classic Commands and Their Modern Alternatives</a>
-          <br>
-          <a href="https://jvns.ca/blog/2022/04/12/a-list-of-new-ish--command-line-tools/" target="_blank">&#128073; A list of new(ish) command line tools</a>
-          <br>
-          <a href="https://www.tomshardware.com/how-to/getting-to-know-the-linux-filesystem" target="_blank">&#128073; Getting To Know the Linux Filesystem</a>
         </section>
         
       </div>

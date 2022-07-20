@@ -132,7 +132,7 @@ object C {
       dslSlide {
         content {
           h2 { +"📮 Hex Addresses" }
-          img { src = "images/hex_values.png"; width = "900px" }
+          img { src = "images/hex_values.png"; width = "700px" }
         }
       }
 

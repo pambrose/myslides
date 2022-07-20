@@ -13,10 +13,9 @@ object C {
       path = "c.html"
 
       css += """
-        .history li {
-          padding-top: 0px;
+        .smallText {
+          padding-bottom: 20px;
         }
-        
         .smallText li {
           font-size: 0.8em;
         }
@@ -107,8 +106,15 @@ object C {
 
       dslSlide {
         content {
-          h2 { +"📮 Working with Hex Addresses" }
-          img { src = "images/hexvalues.png"; width = "900px" }
+          h2 { +"🧮 Decimal, Octal, Hex, and Binary" }
+          img { src = "images/decocthex.png"; width = "900px" }
+        }
+      }
+
+      dslSlide {
+        content {
+          h2 { +"📮 Hex Addresses" }
+          img { src = "images/hex_values.png"; width = "900px" }
         }
       }
 
@@ -128,8 +134,22 @@ object C {
 
       dslSlide {
         content {
+          h2 { +"🔬 Arrays in Memory" }
+          img { src = "images/arrays1.png"; width = "600px" }
+        }
+      }
+
+      dslSlide {
+        content {
           h2 { +"🚌 Arrays in C (2)" }
           cSlide("arrays2.c", 500)
+        }
+      }
+
+      dslSlide {
+        content {
+          h2 { +"🔬 Arrays in Memory" }
+          img { src = "images/arrays2.png"; width = "600px" }
         }
       }
 
@@ -142,8 +162,22 @@ object C {
 
       dslSlide {
         content {
+          h2 { +"🔬 Arrays in Memory" }
+          img { src = "images/pointers1.png"; width = "600px" }
+        }
+      }
+
+      dslSlide {
+        content {
           h2 { +"☝ Pointer Arithmetic in C" }
           cSlide("pointers2.c", 500)
+        }
+      }
+
+      dslSlide {
+        content {
+          h2 { +"🔬 Arrays in Memory" }
+          img { src = "images/pointers2.png"; width = "600px" }
         }
       }
 

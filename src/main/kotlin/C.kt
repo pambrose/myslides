@@ -43,7 +43,7 @@ object C {
             href =
               "https://www.amazon.com/Programming-Language-PROGRAMMING-LANG-p2-ebook-dp-B009ZUZ9FW/dp/B009ZUZ9FW/ref=mt_other"
             target = "_blank"
-            img { width = "250px"; src = "images/CProgrammingLanguage.jpg" }
+            img { width = "250px"; src = "images/c/CProgrammingLanguage.jpg" }
           }
           a {
             href = "https://pambrose.github.io/myslides/c.html"
@@ -126,21 +126,21 @@ object C {
       dslSlide {
         content {
           h2 { +"🧮 Decimal, Octal, Hex, and Binary" }
-          img { src = "images/decocthex.png"; width = "900px" }
+          img { src = "images/c/decocthex.png"; width = "900px" }
         }
       }
 
       dslSlide {
         content {
           h2 { +"📮 Hex Addresses" }
-          img { src = "images/hex_values.png"; width = "700px" }
+          img { src = "images/c/hex_values.png"; width = "700px" }
         }
       }
 
       dslSlide {
         content {
           h2 { +"🔬 Variables in Memory" }
-          img { src = "images/basic_types.png"; width = "900px" }
+          img { src = "images/c/basic_types.png"; width = "900px" }
         }
       }
 
@@ -154,7 +154,7 @@ object C {
       dslSlide {
         content {
           h2 { +"🔬 Arrays in Memory" }
-          img { src = "images/arrays1.png"; width = "500px" }
+          img { src = "images/c/arrays1.png"; width = "500px" }
         }
       }
 
@@ -168,7 +168,7 @@ object C {
       dslSlide {
         content {
           h2 { +"🔬 Arrays in Memory" }
-          img { src = "images/arrays2.png"; width = "500px" }
+          img { src = "images/c/arrays2.png"; width = "500px" }
         }
       }
 
@@ -182,7 +182,7 @@ object C {
       dslSlide {
         content {
           h2 { +"🔬 Arrays in Memory" }
-          img { src = "images/pointers1.png"; width = "500px" }
+          img { src = "images/c/pointers1.png"; width = "500px" }
         }
       }
 
@@ -196,7 +196,7 @@ object C {
       dslSlide {
         content {
           h2 { +"🔬 Arrays in Memory" }
-          img { src = "images/pointers2.png"; width = "500px" }
+          img { src = "images/c/pointers2.png"; width = "500px" }
         }
       }
 
@@ -210,7 +210,7 @@ object C {
       dslSlide {
         content {
           h2 { +"🔬 Strings in Memory" }
-          img { src = "images/strings1.png"; width = "500px" }
+          img { src = "images/c/strings1.png"; width = "500px" }
         }
       }
 
@@ -224,7 +224,7 @@ object C {
       dslSlide {
         content {
           h2 { +"🔬 Strings in Memory" }
-          img { src = "images/strings2.png"; width = "500px" }
+          img { src = "images/c/strings2.png"; width = "500px" }
         }
       }
 
@@ -238,14 +238,14 @@ object C {
       dslSlide {
         content {
           h2 { +"🔬 Strings in Memory" }
-          img { src = "images/strings3.png"; width = "900px" }
+          img { src = "images/c/strings3.png"; width = "500px" }
         }
       }
 
       dslSlide {
         content {
           h2 { +"Stack and Heap" }
-          img { src = "images/Memory_model.png"; width = "400px" }
+          img { src = "images/c/Memory_model.png"; width = "400px" }
         }
       }
 
@@ -283,7 +283,7 @@ object C {
       dslSlide {
         content {
           h2 { +"🔬 malloc() Memory" }
-          img { src = "images/malloc1.png"; width = "900px" }
+          img { src = "images/c/malloc1.png"; width = "900px" }
         }
       }
 

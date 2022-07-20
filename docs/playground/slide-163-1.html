@@ -24,11 +24,11 @@
     <code class="playground-code" data-autocomplete="true" folded-button="false" lines="true" match-brackets="true" mode="c" theme="darcula">
 #include &lt;stdio.h&gt;
 #include &lt;stdlib.h&gt;
-#include "arrays.h"
+#include "funcs.h"
 
 void malloc1() {
     const int SIZE = 4;
-    // Allocate an array of 4 integers
+    // Allocate an array of 4 integers on the heap
     int *a = malloc(SIZE * sizeof(int));
     *a = 11;
     *(a + 1) = 22;

@@ -273,6 +273,27 @@ object C {
           }
         }
 
+      dslSlide {
+        content {
+          h2 { +"⛰ Heap int array" }
+          cSlide("malloc1.c", 500)
+        }
+      }
+
+      dslSlide {
+        content {
+          h2 { +"🔬 malloc() Memory" }
+          img { src = "images/malloc1.png"; width = "900px" }
+        }
+      }
+
+      dslSlide {
+        content {
+          h2 { +"⛰ Heap char array" }
+          cSlide("malloc2.c", 500)
+        }
+      }
+
       val heapCaptions =
         listOf(
           "Allocate an integer with default value 0 on the heap, allocate p on main's stack to store the address of the integer",

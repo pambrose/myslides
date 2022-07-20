@@ -224,7 +224,7 @@ object C {
       dslSlide {
         content {
           h2 { +"🔬 Strings in Memory" }
-          img { src = "images/strings1.png"; width = "500px" }
+          img { src = "images/strings2.png"; width = "500px" }
         }
       }
 
@@ -267,7 +267,7 @@ object C {
           content {
             img {
               width = "800px"
-              src = "images/stack_demo_$i.png"
+              src = "images/illinois.edu/stack_demo_$i.png"
             }
             h6 { +stackCaptions[i - 1] }
           }
@@ -307,7 +307,7 @@ object C {
           content {
             img {
               width = "800px"
-              src = "images/heap_demo_$i.png"
+              src = "images/illinois.edu/heap_demo_$i.png"
             }
             h6 { +heapCaptions[i - 1] }
           }

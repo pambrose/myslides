@@ -113,7 +113,7 @@ object C {
             unorderedList(
               { +"char, int, float and double" },
               { +"Modifiers: signed, unsigned, short, and long" },
-              { a { +"Summary";href = "https://en.wikipedia.org/wiki/C_data_types#Main_types" } }
+              { a { +"Summary of types";href = "https://en.wikipedia.org/wiki/C_data_types#Main_types" } }
             ) {
               style = "list-style-type:square;"
             }

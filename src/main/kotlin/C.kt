@@ -190,8 +190,22 @@ object C {
 
       dslSlide {
         content {
+          h2 { +"🔬 Strings in Memory" }
+          img { src = "images/strings1.png"; width = "500px" }
+        }
+      }
+
+      dslSlide {
+        content {
           h2 { +"🧶 Strings in C (2)" }
           cSlide("strings2.c", 500)
+        }
+      }
+
+      dslSlide {
+        content {
+          h2 { +"🔬 Strings in Memory" }
+          img { src = "images/strings1.png"; width = "500px" }
         }
       }
 

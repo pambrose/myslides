@@ -1,3 +1,4 @@
+import C.cPresentation
 import Docker.dockerPresentation
 import Functional.functionalPresentation
 import Http.httpPresentation
@@ -84,6 +85,7 @@ fun main() {
           * [Functional Programming](functional.html)
           * [Unix Basics](unix.html)
           * [Docker Basics](docker.html)
+          * [C Basics](c.html)
           """
         }
       }
@@ -93,5 +95,6 @@ fun main() {
     functionalPresentation()
     unixPresentation()
     dockerPresentation()
+    cPresentation()
   }
 }

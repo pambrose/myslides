@@ -31,8 +31,6 @@ object Docker {
         }
       }
 
-
-
       dslSlide {
         content {
           h2 { +"🍴 Taste of Docker" }

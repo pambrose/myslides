@@ -23,19 +23,17 @@
   <body>
     <code class="playground-code" data-autocomplete="true" folded-button="false" lines="true" match-brackets="true" mode="c" theme="darcula">
 #include &lt;stdio.h&gt;
-#include &lt;string.h&gt;
-#include "strings.h"
+#include "pointers.h"
 
-void strings2() {
-    char *str = "Hello, World!";
+void pointers2() {
+    int v[] = {10, 20, 30};
+    int *p = v;
 
-    printf("str = %p\n", str);
-
-    for (int i = 0; str[i] != '\0'; i++)
-        printf("char %d = %c\n", i, *(str + i));
-
-    printf("str = %s\n", str);
-    printf("strlen(str) = %ld\n", strlen(str));
+    printf("v = %p, p = %p\n", v, p);
+    printf("v[0] = %d, *p = %d\n", v[0], *p);
+    printf("v[1] = %d, *(p+1) = %d\n", v[1], *(p + 1));
+    for (int i = 0; i &lt; sizeof(v) / sizeof(int); i++)
+        printf("v[%d] = %d, *(p+%d) = %d\n", i, v[i], i, *(p + i));
 }
 </code>
   </body>

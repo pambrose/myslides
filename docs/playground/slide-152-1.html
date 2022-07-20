@@ -26,16 +26,22 @@
 #include &lt;string.h&gt;
 #include "strings.h"
 
-void strings2() {
-    char *str = "Hello, World!";
+void strings3() {
+    char vec[6];
+    vec[0] = 'H';
+    vec[1] = 'e';
 
-    printf("str = %p\n", str);
+    *(vec + 2) = 'l';
+    *(vec + 3) = 'l';
 
-    for (int i = 0; str[i] != '\0'; i++)
-        printf("char %d = %c\n", i, *(str + i));
+    char *str = vec;
+    *(str + 4) = 'o';
+    *(str + 5) = '\0';
 
-    printf("str = %s\n", str);
-    printf("strlen(str) = %ld\n", strlen(str));
+    printf("vec = %p, str = %p\n", vec, str);
+    printf("vec = %s, str = %s\n", vec, str);
+    printf("strlens = %ld and %ld\n",
+           strlen(vec), strlen(str));
 }
 </code>
   </body>

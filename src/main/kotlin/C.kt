@@ -54,6 +54,24 @@ object C {
 
       dslSlide {
         content {
+          h3 { +"🕯 Overview of Slides" }
+          unorderedList(
+            "What is C?",
+            "Syntax",
+            "Type System",
+            "Number Systems Review",
+            "Variables in Memory",
+            "Pointers and Arrays",
+            "Strings",
+            "Stack and Heap",
+          ) {
+            style = "font-size:30px; padding-left: 80px"
+          }
+        }
+      }
+
+      dslSlide {
+        content {
           h3 { +"🔦 What is C?" }
           unorderedList(
             "Dennis Ritchie at AT&T Bell Labs in 1972",
@@ -135,7 +153,7 @@ object C {
       dslSlide {
         content {
           h2 { +"🔬 Arrays in Memory" }
-          img { src = "images/arrays1.png"; width = "800px" }
+          img { src = "images/arrays1.png"; width = "900px" }
         }
       }
 
@@ -149,7 +167,7 @@ object C {
       dslSlide {
         content {
           h2 { +"🔬 Arrays in Memory" }
-          img { src = "images/arrays2.png"; width = "800px" }
+          img { src = "images/arrays2.png"; width = "700px" }
         }
       }
 
@@ -163,7 +181,7 @@ object C {
       dslSlide {
         content {
           h2 { +"🔬 Arrays in Memory" }
-          img { src = "images/pointers1.png"; width = "800px" }
+          img { src = "images/pointers1.png"; width = "700px" }
         }
       }
 
@@ -177,7 +195,7 @@ object C {
       dslSlide {
         content {
           h2 { +"🔬 Arrays in Memory" }
-          img { src = "images/pointers2.png"; width = "800px" }
+          img { src = "images/pointers2.png"; width = "700px" }
         }
       }
 

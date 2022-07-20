@@ -25,14 +25,15 @@
 #include &lt;stdio.h&gt;
 #include "arrays.h"
 
-void arrays2() {
-    // Allocate and assign an array of 3 integers
-    int b[3] = {100, 200, 300};
-    printf("sizeof(b) = %li, sizeof(int) = %li\n",
-           sizeof(b), sizeof(int));
-    int len = sizeof(b) / sizeof(int);
-    for (int i = 0; i &lt; len; i++)
-        printf("b[%d] = %d\n", i, b[i]);
+void arrays1() {
+    const int SIZE = 3;
+    // Allocate an array of 3 integers
+    int a[SIZE];
+    a[0] = 10;
+    a[1] = 20;
+    a[2] = 30;
+    for (int i = 0; i &lt; SIZE; i++)
+        printf("a[%d] = %d\n", i, a[i]);
 }
 </code>
   </body>

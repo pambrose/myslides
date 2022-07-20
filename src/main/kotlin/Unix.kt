@@ -26,7 +26,7 @@ object Unix {
           a {
             href = "http://oldcomputers.net/att-unix-pc.html"
             target = "_blank"
-            img { width = "400px"; src = "images/att-unix-pc-3b1.jpg" }
+            img { width = "400px"; src = "images/unix/att-unix-pc-3b1.jpg" }
           }
           a {
             href = "https://pambrose.github.io/myslides/unix.html"
@@ -73,9 +73,9 @@ object Unix {
             style = "font-size:30px; padding-left: 90px"
           }
           a {
-            href = "images/Unix_history.png"
+            href = "images/unix/Unix_history.png"
             target = "_blank"
-            img { width = "300px"; src = "images/Unix_history.png" }
+            img { width = "300px"; src = "images/unix/Unix_history.png" }
           }
         }
       }
@@ -217,28 +217,28 @@ object Unix {
               style = "font-size:30px; padding-left: 20px"
             }
           }
-          img { width = "800px"; src = "images/diagram-shell-keyboard-terminal.png" }
+          img { width = "800px"; src = "images/unix/diagram-shell-keyboard-terminal.png" }
         }
       }
 
       dslSlide {
         content {
           h2 { +"📥 Common Patterns - Standard Input" }
-          img { width = "1000px"; src = "images/diagram-input-examples.png" }
+          img { width = "1000px"; src = "images/unix/diagram-input-examples.png" }
         }
       }
 
       dslSlide {
         content {
           h2 { +"📤 Common Patterns - Standard Output" }
-          img { width = "1000px"; src = "images/diagram-output-examples.png" }
+          img { width = "1000px"; src = "images/unix/diagram-output-examples.png" }
         }
       }
 
       dslSlide {
         content {
           h2 { +"🚿 Pipes" }
-          img { width = "1000px"; src = "images/diagram-cat-sort-uniq-pipeline.png" }
+          img { width = "1000px"; src = "images/unix/diagram-cat-sort-uniq-pipeline.png" }
         }
       }
 

@@ -102,7 +102,7 @@ object Http {
           """
           ## How did we get here?  
 
-          ![history-image](images/timeline.jpeg)
+          ![history-image](images/http/timeline.jpeg)
           """
         }
       }
@@ -236,7 +236,7 @@ object Http {
           """
           ## HTTP Protocol 
           
-          ![cs-image](images/client-server-transparent.png)
+          ![cs-image](images/http/client-server-transparent.png)
 
           * Asymmetric client/server
           * Synchronous request/response
@@ -273,7 +273,7 @@ object Http {
           https://www.example.co.uk:443/blog/article/search?docid=720<span>&#38;</span>hl=en#dayone
           </span>
           
-          ![url-image](images/url-parts.png)
+          ![url-image](images/http/url-parts.png)
           """
         }
       }

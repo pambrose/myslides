@@ -23,7 +23,7 @@ object Docker {
         content {
           id = "docker"
           h2 { +"📚 Docker Basics" }
-          img { width = "300px"; src = "images/docker.png" }
+          img { width = "300px"; src = "images/docker/docker.png" }
           a {
             href = "https://pambrose.github.io/myslides/docker.html"
             +"https://pambrose.github.io/myslides/docker.html"
@@ -95,7 +95,7 @@ object Docker {
         content {
           h2 { +"🥊 Containers vs VMs" }
           +"Containers are isolated, but share OS and bins/libraries (where appropriate)"
-          img { width = "1000px"; src = "images/docker-containers-and-vm.png" }
+          img { width = "1000px"; src = "images/docker/docker-containers-and-vm.png" }
         }
       }
 
@@ -151,7 +151,7 @@ object Docker {
       dslSlide {
         content {
           h2 { +"🧬 Container Lifecycle" }
-          img { width = "1000px"; src = "images/container_life_cycle.png" }
+          img { width = "1000px"; src = "images/docker/container_life_cycle.png" }
         }
       }
 

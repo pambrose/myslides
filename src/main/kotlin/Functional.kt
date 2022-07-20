@@ -35,7 +35,7 @@ object Functional {
         content {
           id = "functional"
           h2 { +"Lambdas and Higher-Order Functions" }
-          img { src = "images/lambda.png" }
+          img { src = "images/functional/lambda.png" }
           a {
             href = "https://pambrose.github.io/myslides/functional.html"
             +"https://pambrose.github.io/myslides/functional.html"
@@ -227,7 +227,7 @@ object Functional {
       dslSlide {
         content {
           h2 { +"Break Through Moment #1 of 4" }
-          img { width = "400px"; src = "images/breakthrough1.jpg" }
+          img { width = "400px"; src = "images/functional/breakthrough1.jpg" }
           h3 { style = "color: red;"; +"We understand that functions are 1st class types!!" }
         }
       }
@@ -301,7 +301,7 @@ object Functional {
       dslSlide {
         content {
           h2 { +"Break Through Moment #2 of 4" }
-          img { width = "400px"; src = "images/breakthrough2.jpg" }
+          img { width = "400px"; src = "images/functional/breakthrough2.jpg" }
           h3 { style = "color: red;"; +"We can work with lambdas!!" }
         }
       }
@@ -400,7 +400,7 @@ object Functional {
       dslSlide {
         content {
           h2 { +"Break Through Moment #3 of 4" }
-          img { width = "400px"; src = "images/breakthrough3.jpg" }
+          img { width = "400px"; src = "images/functional/breakthrough3.jpg" }
           h3 { style = "color: red;"; +"We can work with higher-order functions!!" }
         }
       }
@@ -599,7 +599,7 @@ object Functional {
       dslSlide {
         content {
           h2 { +"Break Through Moment #4 of 4" }
-          img { width = "400px"; src = "images/breakthrough4.jpg" }
+          img { width = "400px"; src = "images/functional/breakthrough4.jpg" }
           h3 { style = "color: red;"; +"We can use lambdas in collection operations!!" }
         }
       }

@@ -135,7 +135,7 @@ object C {
       dslSlide {
         content {
           h2 { +"🔬 Arrays in Memory" }
-          img { src = "images/arrays1.png"; width = "600px" }
+          img { src = "images/arrays1.png"; width = "800px" }
         }
       }
 
@@ -149,7 +149,7 @@ object C {
       dslSlide {
         content {
           h2 { +"🔬 Arrays in Memory" }
-          img { src = "images/arrays2.png"; width = "600px" }
+          img { src = "images/arrays2.png"; width = "800px" }
         }
       }
 
@@ -163,7 +163,7 @@ object C {
       dslSlide {
         content {
           h2 { +"🔬 Arrays in Memory" }
-          img { src = "images/pointers1.png"; width = "600px" }
+          img { src = "images/pointers1.png"; width = "800px" }
         }
       }
 
@@ -177,7 +177,7 @@ object C {
       dslSlide {
         content {
           h2 { +"🔬 Arrays in Memory" }
-          img { src = "images/pointers2.png"; width = "600px" }
+          img { src = "images/pointers2.png"; width = "800px" }
         }
       }
 
@@ -216,12 +216,19 @@ object C {
         }
       }
 
+      dslSlide {
+        content {
+          h2 { +"🔬 Strings in Memory" }
+          img { src = "images/strings3.png"; width = "900px" }
+        }
+      }
 
-//      dslSlide {
-//        content {
-//          h2 { +"Stack and Heap" }
-//        }
-//      }
+      dslSlide {
+        content {
+          h2 { +"Stack and Heap" }
+          img { src = "images/Memory_model.png"; width = "400px" }
+        }
+      }
 
       // https://courses.engr.illinois.edu/cs225/sp2022/resources/stack-heap/
 

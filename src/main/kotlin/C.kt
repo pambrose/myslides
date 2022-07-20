@@ -96,7 +96,7 @@ object C {
             unorderedList(
               "#include preprocessing directives",
               ".c and .h files",
-              "Braces, quotes, and ;",
+              "for, if, {}, quotes, and ;",
               "<stdio.h>",
               "Return success value"
             ) {
@@ -154,7 +154,7 @@ object C {
       dslSlide {
         content {
           h2 { +"🔬 Arrays in Memory" }
-          img { src = "images/arrays1.png"; width = "900px" }
+          img { src = "images/arrays1.png"; width = "500px" }
         }
       }
 
@@ -168,7 +168,7 @@ object C {
       dslSlide {
         content {
           h2 { +"🔬 Arrays in Memory" }
-          img { src = "images/arrays2.png"; width = "700px" }
+          img { src = "images/arrays2.png"; width = "500px" }
         }
       }
 
@@ -182,7 +182,7 @@ object C {
       dslSlide {
         content {
           h2 { +"🔬 Arrays in Memory" }
-          img { src = "images/pointers1.png"; width = "700px" }
+          img { src = "images/pointers1.png"; width = "500px" }
         }
       }
 
@@ -196,7 +196,7 @@ object C {
       dslSlide {
         content {
           h2 { +"🔬 Arrays in Memory" }
-          img { src = "images/pointers2.png"; width = "700px" }
+          img { src = "images/pointers2.png"; width = "500px" }
         }
       }
 

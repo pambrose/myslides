@@ -56,14 +56,15 @@ object C {
         content {
           h3 { +"🕯 Overview of Slides" }
           unorderedList(
-            "What is C?",
-            "Syntax",
-            "Type System",
-            "Number Systems Review",
-            "Variables in Memory",
-            "Pointers and Arrays",
-            "Strings",
-            "Stack and Heap",
+            { +"What is C?" },
+            { +"Syntax" },
+            { +"Type System" },
+            { +"Number Systems Review" },
+            { +"Variables in Memory" },
+            { +"Pointers and Arrays" },
+            { +"Strings" },
+            { +"Stack and Heap" },
+            { a { +"Code Sources"; href = "https://github.com/pambrose/c-demo" } }
           ) {
             style = "font-size:30px; padding-left: 80px"
           }
@@ -113,7 +114,7 @@ object C {
             unorderedList(
               { +"char, int, float and double" },
               { +"Modifiers: signed, unsigned, short, and long" },
-              { a { +"Summary of types";href = "https://en.wikipedia.org/wiki/C_data_types#Main_types" } }
+              { a { +"Summary of types"; href = "https://en.wikipedia.org/wiki/C_data_types#Main_types" } }
             ) {
               style = "list-style-type:square;"
             }

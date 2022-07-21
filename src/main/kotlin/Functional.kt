@@ -35,7 +35,8 @@ object Functional {
         content {
           id = "functional"
           h2 { +"Lambdas and Higher-Order Functions" }
-          img { src = "images/functional/lambda.png" }
+          //img { src = "images/functional/lambda.png" }
+          img { src = "images/functional/machine-functional.png"; width = "100%" }
           a {
             href = "https://pambrose.github.io/myslides/functional.html"
             +"https://pambrose.github.io/myslides/functional.html"

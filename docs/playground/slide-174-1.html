@@ -23,17 +23,21 @@
   <body>
     <code class="playground-code" data-autocomplete="true" folded-button="false" lines="true" match-brackets="true" mode="c" theme="darcula">
 #include &lt;stdio.h&gt;
-#include "arrays.h"
+#include &lt;stdlib.h&gt;
+#include "funcs.h"
 
-void arrays1() {
-    const int SIZE = 3;
-    // Allocate an array of 3 integers
-    int a[SIZE];
-    a[0] = 10;
-    a[1] = 20;
-    a[2] = 30;
-    for (int i = 0; i &lt; SIZE; i++)
-        printf("a[%d] = %d\n", i, a[i]);
+int *make_array1(int a) {
+    int int_vec[a];
+    for (int i = 0; i &lt; a; i++)
+        int_vec[i] = i * 10;
+    return int_vec;
+}
+
+void return_int_array1() {
+    int *vec = make_array1(5);
+    for (int i = 0; i &lt; 5; i++)
+        printf("vec[%d] = %d\n", i, vec[i]);
+    free(vec);
 }
 </code>
   </body>

@@ -24,24 +24,18 @@
     <code class="playground-code" data-autocomplete="true" folded-button="false" lines="true" match-brackets="true" mode="c" theme="darcula">
 #include &lt;stdio.h&gt;
 #include &lt;string.h&gt;
-#include "strings.h"
+#include "funcs.h"
 
-void strings3() {
-    char vec[6];
-    vec[0] = 'H';
-    vec[1] = 'e';
+void strings2() {
+    char *str = "Hello, World!";
+    printf("str = %p\n", str);
 
-    *(vec + 2) = 'l';
-    *(vec + 3) = 'l';
+    // Can do this: str++;
+    for (int i = 0; str[i] != '\0'; i++)
+        printf("char %d = %c\n", i, *(str + i));
 
-    char *str = vec;
-    *(str + 4) = 'o';
-    *(str + 5) = '\0';
-
-    printf("vec = %p, str = %p\n", vec, str);
-    printf("vec = %s, str = %s\n", vec, str);
-    printf("strlens = %ld and %ld\n",
-           strlen(vec), strlen(str));
+    printf("str = %s\n", str);
+    printf("strlen(str) = %ld\n", strlen(str));
 }
 </code>
   </body>

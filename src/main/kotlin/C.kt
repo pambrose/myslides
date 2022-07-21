@@ -188,6 +188,13 @@ object C {
 
       dslSlide {
         content {
+          h2 { +"📱 Call by Value and Reference" }
+          cSlide("copy_by.c", 500)
+        }
+      }
+
+      dslSlide {
+        content {
           h2 { +"☝ Pointer Arithmetic in C" }
           cSlide("pointers2.c", 500)
         }
@@ -244,6 +251,13 @@ object C {
 
       dslSlide {
         content {
+          h2 { +"🧶 Strings Functions" }
+          cSlide("string_funcs1.c", 500)
+        }
+      }
+
+      dslSlide {
+        content {
           h2 { +"Stack and Heap" }
           img { src = "images/c/Memory_model.png"; width = "400px" }
         }
@@ -294,6 +308,13 @@ object C {
         }
       }
 
+      dslSlide {
+        content {
+          h2 { +"⛰ Initialized Heap int array" }
+          cSlide("calloc1.c", 500)
+        }
+      }
+
       val heapCaptions =
         listOf(
           "Allocate an integer with default value 0 on the heap, allocate p on main's stack to store the address of the integer",
@@ -312,6 +333,20 @@ object C {
             h6 { +heapCaptions[i - 1] }
           }
         }
+
+      dslSlide {
+        content {
+          h2 { +"⚠ Return int array" }
+          cSlide("return_array1.c", 500)
+        }
+      }
+
+      dslSlide {
+        content {
+          h2 { +"🦺 Return int array" }
+          cSlide("return_array2.c", 500)
+        }
+      }
     }
   }
 }

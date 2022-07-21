@@ -251,13 +251,6 @@ object C {
 
       dslSlide {
         content {
-          h2 { +"🧶 Strings Functions" }
-          cSlide("string_funcs1.c", 500)
-        }
-      }
-
-      dslSlide {
-        content {
           h2 { +"Stack and Heap" }
           img { src = "images/c/Memory_model.png"; width = "400px" }
         }
@@ -343,14 +336,21 @@ object C {
 
       dslSlide {
         content {
-          h2 { +"⚠ Return int Array" }
+          h2 { +"🧶 String Functions" }
+          cSlide("string_funcs1.c", 500)
+        }
+      }
+
+      dslSlide {
+        content {
+          h2 { +"⚠ Return an Array" }
           cSlide("return_array1.c", 500)
         }
       }
 
       dslSlide {
         content {
-          h2 { +"🦺 Return int Array" }
+          h2 { +"🦺 Return an Array" }
           cSlide("return_array2.c", 500)
         }
       }

@@ -195,7 +195,7 @@ object C {
 
       dslSlide {
         content {
-          h2 { +"☝ Pointer Arithmetic in C" }
+          h2 { +"☝ Pointer Arithmetic" }
           cSlide("pointers2.c", 500)
         }
       }
@@ -289,7 +289,7 @@ object C {
 
       dslSlide {
         content {
-          h2 { +"⛰ Heap int array" }
+          h2 { +"⛰ Heap Array (1)" }
           cSlide("malloc1.c", 500)
         }
       }
@@ -303,15 +303,22 @@ object C {
 
       dslSlide {
         content {
-          h2 { +"⛰ Heap char array" }
+          h2 { +"⛰ Heap Array (2)" }
           cSlide("malloc2.c", 500)
         }
       }
 
       dslSlide {
         content {
-          h2 { +"⛰ Initialized Heap int array" }
+          h2 { +"⛰ Initialized Heap Memory" }
           cSlide("calloc1.c", 500)
+        }
+      }
+
+      dslSlide {
+        content {
+          h2 { +"🔁 Reallocating Heap Memory" }
+          cSlide("realloc1.c", 500)
         }
       }
 
@@ -336,14 +343,14 @@ object C {
 
       dslSlide {
         content {
-          h2 { +"⚠ Return int array" }
+          h2 { +"⚠ Return int Array" }
           cSlide("return_array1.c", 500)
         }
       }
 
       dslSlide {
         content {
-          h2 { +"🦺 Return int array" }
+          h2 { +"🦺 Return int Array" }
           cSlide("return_array2.c", 500)
         }
       }

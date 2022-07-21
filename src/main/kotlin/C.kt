@@ -256,6 +256,54 @@ object C {
         }
       }
 
+      dslSlide {
+        id = "callstacks1"
+        content {
+          h2 { +"Call Stacks (1)" }
+          iframe {
+            width = "560"
+            height = "315"
+            src = "https://www.youtube.com/embed/Q2sFmqvpBe0"
+            title = "YouTube video player"
+            attributes["frameborder"] = "0"
+            attributes["allow"] = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope"
+            attributes["allowfullscreen"] = "true"
+          }
+        }
+      }
+
+      dslSlide {
+        id = "callstacks2"
+        content {
+          h2 { +"Call Stacks (2)" }
+          iframe {
+            width = "560"
+            height = "315"
+            src = "https://www.youtube.com/embed/aCPkszeKRa4"
+            title = "YouTube video player"
+            attributes["frameborder"] = "0"
+            attributes["allow"] = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope"
+            attributes["allowfullscreen"] = "true"
+          }
+        }
+      }
+
+      dslSlide {
+        id = "callstacks3"
+        content {
+          h2 { +"Call Stacks (3)" }
+          iframe {
+            width = "560"
+            height = "315"
+            src = "https://www.youtube.com/embed/jVzSBkbfdiw"
+            title = "YouTube video player"
+            attributes["frameborder"] = "0"
+            attributes["allow"] = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope"
+            attributes["allowfullscreen"] = "true"
+          }
+        }
+      }
+
       // https://courses.engr.illinois.edu/cs225/sp2022/resources/stack-heap/
 
       val stackCaptions =

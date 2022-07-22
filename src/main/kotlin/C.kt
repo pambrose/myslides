@@ -195,7 +195,7 @@ object C {
 
       dslSlide {
         content {
-          h2 { +"☝ Pointer Arithmetic" }
+          h2 { +"🧮 Pointer Arithmetic" }
           cSlide("pointers2.c", 500)
         }
       }
@@ -246,6 +246,26 @@ object C {
         content {
           h2 { +"🔬 Strings in Memory" }
           img { src = "images/c/strings3.png"; width = "500px" }
+        }
+      }
+
+      dslSlide {
+        content {
+          h2 { +"🧶 Strings in C (4)" }
+          cSlide("cli_args.c", 500)
+        }
+      }
+
+      dslSlide {
+        content {
+          h3 { +"🔬 Strings in Memory" }
+          img {
+            style = "margin: 0px;"
+            src = "images/c/cli_args1.png"; width = "770px" }
+          img {
+            style = "margin: 0px;"
+            src = "images/c/cli_args2.png"; width = "370px"
+          }
         }
       }
 

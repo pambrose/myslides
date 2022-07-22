@@ -195,8 +195,8 @@ object C {
 
       dslSlide {
         content {
-          h2 { +"🧮 Pointer Arithmetic" }
-          cSlide("pointers2.c", 500)
+          h3 { +"💺 Pointers and sizeof()" }
+          cSlide("pointers2.c", 600)
         }
       }
 

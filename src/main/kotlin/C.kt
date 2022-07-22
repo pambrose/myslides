@@ -252,7 +252,7 @@ object C {
       dslSlide {
         content {
           h2 { +"🧶 Strings in C (4)" }
-          cSlide("cli_args.c", 500)
+          cSlide("cli_args1.c", 500)
         }
       }
 
@@ -266,6 +266,13 @@ object C {
             style = "margin: 0px;"
             src = "images/c/cli_args2.png"; width = "370px"
           }
+        }
+      }
+
+      dslSlide {
+        content {
+          h2 { +"🧶 Strings in C (5)" }
+          cSlide("cli_args2.c", 500)
         }
       }
 

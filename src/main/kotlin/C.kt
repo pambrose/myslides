@@ -27,12 +27,16 @@ object C {
         topRightHref = "#/c"
       }
 
-      fun DslSlide.cSlide(fileName: String, heightPx: Int = -1) {
+      fun DslSlide.cSlide(fileName: String, heightPx: Int = 500) {
         playground(githubRawUrl(owner, repoName, fileName)) {
           mode = PlaygroundMode.C
-          if (heightPx > 0)
-            height = "${heightPx}px"
+          height = "${heightPx}px"
+          width = "100%"
         }
+      }
+
+      fun FlowOrInteractiveOrPhrasingContent.image(fname: String, widthPx: Int = 500) {
+        img { src = "images/c/$fname"; width = "${widthPx}px" }
       }
 
       dslSlide {
@@ -126,133 +130,133 @@ object C {
       dslSlide {
         content {
           h2 { +"🧮 Decimal, Octal, Hex, and Binary" }
-          img { src = "images/c/decocthex.png"; width = "900px" }
+          image("decocthex.png", 900)
         }
       }
 
       dslSlide {
         content {
           h2 { +"📮 Hex Addresses" }
-          img { src = "images/c/hex_values.png"; width = "700px" }
+          image("hex_values.png", 700)
         }
       }
 
       dslSlide {
         content {
           h2 { +"🔬 Variables in Memory" }
-          img { src = "images/c/basic_types.png"; width = "900px" }
+          image("basic_types.png", 900)
         }
       }
 
       dslSlide {
         content {
           h2 { +"🚌 Arrays in C (1)" }
-          cSlide("arrays1.c", 500)
+          cSlide("arrays1.c")
         }
       }
 
       dslSlide {
         content {
           h2 { +"🔬 Arrays in Memory" }
-          img { src = "images/c/arrays1.png"; width = "500px" }
+          image("arrays1.png")
         }
       }
 
       dslSlide {
         content {
           h2 { +"🚌 Arrays in C (2)" }
-          cSlide("arrays2.c", 500)
+          cSlide("arrays2.c")
         }
       }
 
       dslSlide {
         content {
           h2 { +"🔬 Arrays in Memory" }
-          img { src = "images/c/arrays2.png"; width = "500px" }
+          image("arrays2.png")
         }
       }
 
       dslSlide {
         content {
           h2 { +"☝ Pointers in C" }
-          cSlide("pointers1.c", 500)
+          cSlide("pointers1.c")
         }
       }
 
       dslSlide {
         content {
-          h2 { +"🔬 Arrays in Memory" }
-          img { src = "images/c/pointers1.png"; width = "500px" }
+          h2 { +"🔬 Pointers in Memory" }
+          image("pointers1.png")
         }
       }
 
       dslSlide {
         content {
           h2 { +"📱 Call by Value and Reference" }
-          cSlide("copy_by.c", 500)
+          cSlide("copy_by.c")
         }
       }
 
       dslSlide {
         content {
-          h3 { +"💺 Pointers and sizeof()" }
+          h2 { +"💺 Pointers and sizeof()" }
           cSlide("pointers2.c", 600)
         }
       }
 
       dslSlide {
         content {
-          h2 { +"🔬 Arrays in Memory" }
-          img { src = "images/c/pointers2.png"; width = "500px" }
+          h2 { +"🔬 Pointers and Arrays in Memory" }
+          image("pointers2.png")
         }
       }
 
       dslSlide {
         content {
           h2 { +"🧶 Strings in C (1)" }
-          cSlide("strings1.c", 500)
+          cSlide("strings1.c")
         }
       }
 
       dslSlide {
         content {
           h2 { +"🔬 Strings in Memory" }
-          img { src = "images/c/strings1.png"; width = "500px" }
+          image("strings1.png")
         }
       }
 
       dslSlide {
         content {
           h2 { +"🧶 Strings in C (2)" }
-          cSlide("strings2.c", 500)
+          cSlide("strings2.c")
         }
       }
 
       dslSlide {
         content {
           h2 { +"🔬 Strings in Memory" }
-          img { src = "images/c/strings2.png"; width = "500px" }
+          image("strings2.png")
         }
       }
 
       dslSlide {
         content {
           h2 { +"🧶 Strings in C (3)" }
-          cSlide("strings3.c", 500)
+          cSlide("strings3.c")
         }
       }
 
       dslSlide {
         content {
           h2 { +"🔬 Strings in Memory" }
-          img { src = "images/c/strings3.png"; width = "500px" }
+          image("strings3.png")
         }
       }
 
       dslSlide {
         content {
-          h2 { +"🧶 Strings in C (4)" }
-          cSlide("cli_args1.c", 500)
+          h2 { +"🧶 Arrays of Strings (1)" }
+          cSlide("cli_args1.c")
         }
       }
 
@@ -261,7 +265,8 @@ object C {
           h3 { +"🔬 Strings in Memory" }
           img {
             style = "margin: 0px;"
-            src = "images/c/cli_args1.png"; width = "770px" }
+            src = "images/c/cli_args1.png"; width = "770px"
+          }
           img {
             style = "margin: 0px;"
             src = "images/c/cli_args2.png"; width = "370px"
@@ -271,15 +276,15 @@ object C {
 
       dslSlide {
         content {
-          h2 { +"🧶 Strings in C (5)" }
-          cSlide("cli_args2.c", 500)
+          h2 { +"🧶 Arrays of Strings (2)" }
+          cSlide("cli_args2.c")
         }
       }
 
       dslSlide {
         content {
           h2 { +"Stack and Heap" }
-          img { src = "images/c/Memory_model.png"; width = "400px" }
+          image("Memory_model.png", 400)
         }
       }
 
@@ -347,46 +352,43 @@ object C {
       for (i in (1..8))
         dslSlide {
           content {
-            img {
-              width = "800px"
-              src = "images/illinois.edu/stack_demo_$i.png"
-            }
+            img { src = "images/illinois.edu/stack_demo_$i.png"; width = "800px" }
             h6 { +stackCaptions[i - 1] }
           }
         }
 
       dslSlide {
         content {
-          h2 { +"⛰ Heap Array (1)" }
-          cSlide("malloc1.c", 500)
+          h2 { +"⛰ Heap int Array" }
+          cSlide("malloc1.c")
         }
       }
 
       dslSlide {
         content {
           h2 { +"🔬 malloc() Memory" }
-          img { src = "images/c/malloc1.png"; width = "900px" }
+          image("malloc1.png", 900)
         }
       }
 
       dslSlide {
         content {
-          h2 { +"⛰ Heap Array (2)" }
-          cSlide("malloc2.c", 500)
+          h2 { +"⛰ Heap char Array" }
+          cSlide("malloc2.c")
         }
       }
 
       dslSlide {
         content {
           h2 { +"⛰ Initialized Heap Memory" }
-          cSlide("calloc1.c", 500)
+          cSlide("calloc1.c")
         }
       }
 
       dslSlide {
         content {
           h2 { +"🔁 Reallocating Heap Memory" }
-          cSlide("realloc1.c", 500)
+          cSlide("realloc1.c")
         }
       }
 
@@ -401,10 +403,7 @@ object C {
       for (i in (1..5))
         dslSlide {
           content {
-            img {
-              width = "800px"
-              src = "images/illinois.edu/heap_demo_$i.png"
-            }
+            img { src = "images/illinois.edu/heap_demo_$i.png"; width = "800px" }
             h6 { +heapCaptions[i - 1] }
           }
         }
@@ -412,21 +411,21 @@ object C {
       dslSlide {
         content {
           h2 { +"🧶 String Functions" }
-          cSlide("string_funcs1.c", 500)
+          cSlide("string_funcs1.c")
         }
       }
 
       dslSlide {
         content {
           h2 { +"⚠ Return an Array" }
-          cSlide("return_array1.c", 500)
+          cSlide("return_array1.c")
         }
       }
 
       dslSlide {
         content {
           h2 { +"🦺 Return an Array" }
-          cSlide("return_array2.c", 500)
+          cSlide("return_array2.c")
         }
       }
     }

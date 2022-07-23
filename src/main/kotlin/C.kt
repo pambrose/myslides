@@ -428,6 +428,28 @@ object C {
           cSlide("return_array2.c")
         }
       }
+
+      dslSlide {
+        content {
+          h2 { +"🎒 C structs" }
+          cSlide("structs1.c")
+        }
+      }
+
+      dslSlide {
+        content {
+          h2 { +"🎒 C struct Arrays" }
+          cSlide("structs2.c")
+        }
+      }
+
+      dslSlide {
+        content {
+          h2 { +"🎒 C struct Parameters" }
+          cSlide("structs3.c")
+        }
+      }
+
     }
   }
 }

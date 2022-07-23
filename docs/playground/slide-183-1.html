@@ -23,22 +23,21 @@
   <body>
     <code class="playground-code" data-autocomplete="true" folded-button="false" lines="true" match-brackets="true" mode="c" theme="darcula">
 #include &lt;stdio.h&gt;
-#include &lt;strings.h&gt;
+#include &lt;stdlib.h&gt;
 #include "funcs.h"
 
-struct Book {
-    int id;
-    char title[50];
-    char author[50];
-};
+int *make_array1(int a) {
+    int int_vec[a];
+    for (int i = 0; i &lt; a; i++)
+        int_vec[i] = i * 10;
+    return int_vec;
+}
 
-void structs1() {
-    struct Book book;
-    book.id = 1;
-    strcpy(book.title, "Jaws");
-    strcpy(book.author, "Peter Benchley");
-    printf("Book id/title/author: %d/%s/%s\n",
-           book.id, book.title, book.author);
+void return_int_array1() {
+    int *vec = make_array1(5);
+    for (int i = 0; i &lt; 5; i++)
+        printf("vec[%d] = %d\n", i, vec[i]);
+    free(vec);
 }
 </code>
   </body>

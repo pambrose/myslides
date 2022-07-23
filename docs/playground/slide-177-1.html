@@ -27,26 +27,17 @@
 #include &lt;libc.h&gt;
 #include "funcs.h"
 
-void string_funcs1() {
-    char str1[20];
-    strcpy(str1, "hello world 1");
-    printf("str1 = %s\n", str1);
+void realloc1() {
+    int *ptr1 = (int *) malloc(2 * sizeof(int));
+    *ptr1 = 10;
+    *(ptr1 + 1) = 20;
 
-    char *str2 = malloc(20 * sizeof(char));
-    strcpy(str2, "hello world 2");
-    printf("str2 = %s\n", str2);
+    ptr1 = (int *) realloc(ptr1, 3 * sizeof(int));
+    *(ptr1 + 2) = 30;
+    for (int i = 0; i &lt; 3; i++)
+        printf("%d\n", *(ptr1 + i));
 
-    char *str3 = malloc(20 * sizeof(char));
-    strncpy(str3, "hello world 3", 8);
-    printf("str3 = %s\n", str3);
-
-    char *str4 = malloc(40 * sizeof(char));
-    sprintf(str4, "The sprintf string is: %s", str3);
-    printf("str4 = %s\n", str4);
-
-    free(str2);
-    free(str3);
-    free(str4);
+    free(ptr1);
 }
 </code>
   </body>

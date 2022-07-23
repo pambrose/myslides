@@ -26,23 +26,19 @@
 #include &lt;string.h&gt;
 #include "funcs.h"
 
-void cli_args2() {
-    int argc = 4;
-    char *argv[argc];
-    argv[0] = "./cmake-build-debug/c_basics";
-    argv[1] = "a";
-    argv[2] = "bb";
-    argv[3] = "ccc";
+int double_it(int x) {
+    return x * 2;
+}
 
-    // Declare and assign syntax:
-    char *argv2[] = {"./cmake-build-debug/c_basics", "a", "bb", "ccc", NULL};
+void func_pointer1() {
+    // &amp; and * are optional with function pointers.
+    int (*func_ptr1)(int) = &amp;double_it;
+    int v1 = (func_ptr1)(6);
+    printf("Value is: %d\n", v1);
 
-    for (int i = 0; i &lt; argc; i++) {
-        size_t len = strlen(argv[i]);
-        printf("Arg %d at %p =&gt; %p \"%s\" (len=%lu next loc: %p)\n",
-               i, &amp;argv[i], argv[i], argv[i], len,
-               argv[i] + len + 1);
-    }
+    int (*func_ptr2)(int) = double_it;
+    int v2 = (*func_ptr2)(7);
+    printf("Value is: %d\n", v2);
 }
 </code>
   </body>

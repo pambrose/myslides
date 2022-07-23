@@ -283,6 +283,20 @@ object C {
 
       dslSlide {
         content {
+          h2 { +"🧶 String Functions" }
+        }
+      }
+
+
+      dslSlide {
+        content {
+          h2 { +"🧶 String Functions" }
+          cSlide("string_funcs1.c")
+        }
+      }
+
+      dslSlide {
+        content {
           h2 { +"Stack and Heap" }
           image("Memory_model.png", 400)
         }
@@ -359,6 +373,12 @@ object C {
 
       dslSlide {
         content {
+          h2 { +"🏵 malloc() and calloc()" }
+        }
+      }
+
+      dslSlide {
+        content {
           h2 { +"⛰ Heap int Array" }
           cSlide("malloc1.c")
         }
@@ -410,13 +430,6 @@ object C {
 
       dslSlide {
         content {
-          h2 { +"🧶 String Functions" }
-          cSlide("string_funcs1.c")
-        }
-      }
-
-      dslSlide {
-        content {
           h2 { +"⚠ Return an Array" }
           cSlide("return_array1.c")
         }
@@ -428,6 +441,13 @@ object C {
           cSlide("return_array2.c")
         }
       }
+
+      dslSlide {
+        content {
+          h2 { +"🎒 C structs" }
+        }
+      }
+
 
       dslSlide {
         content {
@@ -447,6 +467,33 @@ object C {
         content {
           h2 { +"🎒 C struct Parameters" }
           cSlide("structs3.c")
+        }
+      }
+
+      dslSlide {
+        content {
+          h2 { +"👉 C Function Pointers" }
+        }
+      }
+
+      dslSlide {
+        content {
+          h2 { +"👉 Function Pointers" }
+          cSlide("func_pointer1.c")
+        }
+      }
+
+      dslSlide {
+        content {
+          h2 { +"👉 Higher Order Functions in C (1)" }
+          cSlide("func_pointer2.c")
+        }
+      }
+
+      dslSlide {
+        content {
+          h2 { +"👉 Higher Order Functions in C (2)" }
+          cSlide("func_pointer3.c")
         }
       }
 

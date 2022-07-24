@@ -66,7 +66,7 @@ object C {
             { +"Type System" },
             { +"Number Systems Review" },
             { +"Variables in Memory" },
-            { +"Pointers and Arrays" },
+            { +"Arrays and Pointers" },
             { +"Strings" },
             { +"Stack and Heap" },
             { +"Avoiding Trouble with Memory" },
@@ -369,7 +369,7 @@ object C {
 
       dslSlide {
         content {
-          h2 { +"⛰ Heap Memory (1)" }
+          h2 { +"⛰ Heap Calls (1)" }
           cSlide("malloc1.c")
         }
       }
@@ -383,7 +383,7 @@ object C {
 
       dslSlide {
         content {
-          h2 { +"⛰ Heap Memory (2)" }
+          h2 { +"⛰ Heap Calls (2)" }
           cSlide("malloc2.c")
         }
       }

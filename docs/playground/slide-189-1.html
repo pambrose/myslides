@@ -32,11 +32,27 @@ struct Book {
     char author[50];
 };
 
-void structs1() {
+void update_book_val(struct Book book) {
+    book.id = 2;
+    strcpy(book.title, "Hamlet");
+    strcpy(book.author, "William Shakespeare");
+}
+
+void update_book_ref(struct Book *book) {
+    book-&gt;id = 2;
+    strcpy(book-&gt;title, "Hamlet");
+    strcpy(book-&gt;author, "William Shakespeare");
+}
+
+void structs3() {
     struct Book book;
     book.id = 1;
-    strcpy(book.title, "Jaws");
-    strcpy(book.author, "Peter Benchley");
+    strcpy(book.title, "War and Peace");
+    strcpy(book.author, "Leo Tolstoy");
+    update_book_val(book);
+    printf("Book id/title/author: %d/%s/%s\n",
+           book.id, book.title, book.author);
+    update_book_ref(&amp;book);
     printf("Book id/title/author: %d/%s/%s\n",
            book.id, book.title, book.author);
 }

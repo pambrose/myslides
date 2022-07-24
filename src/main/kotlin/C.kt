@@ -68,6 +68,9 @@ object C {
             { +"Pointers and Arrays" },
             { +"Strings" },
             { +"Stack and Heap" },
+            { +"Avoiding Trouble with Memory" },
+            { +"Structs" },
+            { +"Function Pointers" },
             { a { +"Code Sources"; href = "https://github.com/pambrose/c-demo" } }
           ) {
             style = "font-size:30px; padding-left: 80px"
@@ -283,20 +286,6 @@ object C {
 
       dslSlide {
         content {
-          h2 { +"🧶 String Functions" }
-        }
-      }
-
-
-      dslSlide {
-        content {
-          h2 { +"🧶 String Functions" }
-          cSlide("string_funcs1.c")
-        }
-      }
-
-      dslSlide {
-        content {
           h2 { +"Stack and Heap" }
           image("Memory_model.png", 400)
         }
@@ -373,7 +362,7 @@ object C {
 
       dslSlide {
         content {
-          h2 { +"🏵 malloc() and calloc()" }
+          h2 { +"🏵 malloc(), calloc(), realloc() and free()" }
         }
       }
 
@@ -395,6 +384,13 @@ object C {
         content {
           h2 { +"⛰ Heap char Array" }
           cSlide("malloc2.c")
+        }
+      }
+
+      dslSlide {
+        content {
+          h2 { +"🧶 malloc() and String Functions" }
+          cSlide("string_funcs1.c")
         }
       }
 
@@ -430,6 +426,12 @@ object C {
 
       dslSlide {
         content {
+          h2 { +"⚠ Avoiding Trouble with Memory" }
+        }
+      }
+
+      dslSlide {
+        content {
           h2 { +"⚠ Return an Array" }
           cSlide("return_array1.c")
         }
@@ -439,6 +441,13 @@ object C {
         content {
           h2 { +"🦺 Return an Array" }
           cSlide("return_array2.c")
+        }
+      }
+
+      dslSlide {
+        content {
+          h2 { +"🦺 Not calling free()" }
+          cSlide("return_array3.c")
         }
       }
 

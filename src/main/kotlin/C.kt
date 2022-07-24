@@ -117,7 +117,7 @@ object C {
 
       dslSlide {
         content {
-          h2 { +"🚌 Basic Types in C" }
+          h2 { +"🚌 Basic Types" }
           div("smallText") {
             unorderedList(
               { +"char, int, float and double" },
@@ -160,7 +160,7 @@ object C {
 
       dslSlide {
         content {
-          h2 { +"🚌 Arrays in C (1)" }
+          h2 { +"🚌 Arrays (1)" }
           cSlide("arrays1.c")
         }
       }
@@ -174,7 +174,7 @@ object C {
 
       dslSlide {
         content {
-          h2 { +"🚌 Arrays in C (2)" }
+          h2 { +"🚌 Arrays (2)" }
           cSlide("arrays2.c")
         }
       }
@@ -194,7 +194,7 @@ object C {
 
       dslSlide {
         content {
-          h2 { +"☝ Pointers in C (1)" }
+          h2 { +"☝ Pointers (1)" }
           cSlide("pointers1.c")
         }
       }
@@ -208,7 +208,7 @@ object C {
 
       dslSlide {
         content {
-          h2 { +"☝ Pointers in C (2)" }
+          h2 { +"☝ Pointers (2)" }
           cSlide("pointers2.c")
         }
       }
@@ -249,7 +249,7 @@ object C {
 
       dslSlide {
         content {
-          h2 { +"🧶 Strings in C (1)" }
+          h2 { +"🧶 Strings (1)" }
           cSlide("strings1.c")
         }
       }
@@ -263,7 +263,7 @@ object C {
 
       dslSlide {
         content {
-          h2 { +"🧶 Strings in C (2)" }
+          h2 { +"🧶 Strings (2)" }
           cSlide("strings2.c")
         }
       }
@@ -277,14 +277,14 @@ object C {
 
       dslSlide {
         content {
-          h2 { +"🧶 Strings in C (3)" }
+          h2 { +"🧶 Strings (3)" }
           cSlide("strings3.c")
         }
       }
 
       dslSlide {
         content {
-          h2 { +"🧶 Strings in C (4)" }
+          h2 { +"🧶 Strings (4)" }
           cSlide("strings4.c")
         }
       }
@@ -298,7 +298,7 @@ object C {
 
       dslSlide {
         content {
-          h2 { +"🧶 Strings in C (5)" }
+          h2 { +"🧶 Strings (5)" }
           cSlide("strings5.c")
         }
       }
@@ -560,14 +560,14 @@ object C {
 
       dslSlide {
         content {
-          h2 { +"👉 Higher Order Functions in C (1)" }
+          h2 { +"👉 Higher Order Functions (1)" }
           cSlide("func_pointer2.c")
         }
       }
 
       dslSlide {
         content {
-          h2 { +"👉 Higher Order Functions in C (2)" }
+          h2 { +"👉 Higher Order Functions (2)" }
           cSlide("func_pointer3.c")
         }
       }

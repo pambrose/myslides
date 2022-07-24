@@ -23,22 +23,16 @@
   <body>
     <code class="playground-code" data-autocomplete="true" folded-button="false" lines="true" match-brackets="true" mode="c" theme="darcula">
 #include &lt;stdio.h&gt;
-#include &lt;strings.h&gt;
 #include "funcs.h"
 
-struct Book {
-    int id;
-    char title[50];
-    char author[50];
-};
-
-void structs1() {
-    struct Book book;
-    book.id = 1;
-    strcpy(book.title, "Jaws");
-    strcpy(book.author, "Peter Benchley");
-    printf("Book id/title/author: %d/%s/%s\n",
-           book.id, book.title, book.author);
+void arrays2() {
+    // Allocate and assign an array of 3 integers on the stack
+    int b[3] = {100, 200, 300};
+    printf("sizeof(b) = %li, sizeof(int) = %li\n",
+           sizeof(b), sizeof(int));
+    int len = sizeof(b) / sizeof(int);
+    for (int i = 0; i &lt; len; i++)
+        printf("b[%d] = %d\n", i, b[i]);
 }
 </code>
   </body>

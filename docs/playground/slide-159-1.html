@@ -23,30 +23,25 @@
   <body>
     <code class="playground-code" data-autocomplete="true" folded-button="false" lines="true" match-brackets="true" mode="c" theme="darcula">
 #include &lt;stdio.h&gt;
-#include &lt;stdlib.h&gt;
-#include &lt;libc.h&gt;
+#include &lt;string.h&gt;
 #include "funcs.h"
 
-void string_funcs1() {
-    char str1[20];
-    strcpy(str1, "hello world 1");
-    printf("str1 = %s\n", str1);
+void strings4() {
+    char vec[6];
+    char *str = vec;
 
-    char *str2 = malloc(20 * sizeof(char));
-    strcpy(str2, "hello world 2");
-    printf("str2 = %s\n", str2);
+    vec[0] = 'H';
+    vec[1] = 'e';
 
-    char *str3 = malloc(20 * sizeof(char));
-    strncpy(str3, "hello world 3", 8);
-    printf("str3 = %s\n", str3);
+    *(vec + 2) = 'l';
+    *(vec + 3) = 'l';
 
-    char *str4 = malloc(40 * sizeof(char));
-    sprintf(str4, "The sprintf string is: %s", str3);
-    printf("str4 = %s\n", str4);
+    *(str + 4) = 'o';
+    *(str + 5) = '\0';
 
-    free(str2);
-    free(str3);
-    free(str4);
+    printf("vec = %p, str = %p\n", vec, str);
+    printf("vec = %s, str = %s\n", vec, str);
+    printf("strlen() = %ld and %ld\n", strlen(vec), strlen(str));
 }
 </code>
   </body>

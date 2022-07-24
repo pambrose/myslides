@@ -154,6 +154,12 @@ object C {
 
       dslSlide {
         content {
+          h1 { +"🚌 Arrays" }
+        }
+      }
+
+      dslSlide {
+        content {
           h2 { +"🚌 Arrays in C (1)" }
           cSlide("arrays1.c")
         }
@@ -177,6 +183,12 @@ object C {
         content {
           h2 { +"🔬 Arrays in Memory" }
           image("arrays2.png")
+        }
+      }
+
+      dslSlide {
+        content {
+          h1 { +"☝ Pointers" }
         }
       }
 
@@ -226,6 +238,12 @@ object C {
         content {
           h2 { +"🔬 Pointers to Arrays in Memory" }
           image("pointers3.png")
+        }
+      }
+
+      dslSlide {
+        content {
+          h1 { +"🧶 Strings" }
         }
       }
 
@@ -287,7 +305,7 @@ object C {
 
       dslSlide {
         content {
-          h2 { +"Stack and Heap" }
+          h1 { +"Stack and Heap" }
           image("Memory_model.png", 400)
         }
       }
@@ -363,7 +381,7 @@ object C {
 
       dslSlide {
         content {
-          h2 { +"🏵 Heap Calls" }
+          h1 { +"⛰ Heap Calls" }
         }
       }
 
@@ -468,7 +486,7 @@ object C {
 
       dslSlide {
         content {
-          h2 { +"🧶 Arrays of Strings" }
+          h1 { +"🧶 Arrays of Strings" }
         }
       }
 
@@ -502,7 +520,7 @@ object C {
 
       dslSlide {
         content {
-          h2 { +"🎒 C structs" }
+          h1 { +"🎒 C structs" }
         }
       }
 
@@ -529,7 +547,7 @@ object C {
 
       dslSlide {
         content {
-          h2 { +"👉 C Function Pointers" }
+          h1 { +"👉 Function Pointers" }
         }
       }
 

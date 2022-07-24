@@ -26,15 +26,18 @@
 #include &lt;string.h&gt;
 #include "funcs.h"
 
-void strings5() {
-    char vec[7];
-    strcpy(vec, "AbBbCc");
-    printf("vec = %s\n", vec);
+void strings3() {
+    char *str = "Hello";
+    unsigned long len = strlen(str);
 
-    for (int i = 0; i &lt; 6; i++)  // Try with &lt;= 6
-        printf("char %d = %c\n", i, (vec[i])++);
+    for (int i = 0; i &lt; len; i++)
+        printf("char %d = %c\n", i, *(str++));
+    printf("str = %s\n", str);
+    for (int i = 0; i &lt; len; i++)
+        printf("char %d = %c\n", i, *(--str)); // Notice prefix decrement
+    printf("str = %s\n", str);
 
-    printf("vec = %s\n", vec);
+    //(*str)++;  // Not allowed
 }
 </code>
   </body>

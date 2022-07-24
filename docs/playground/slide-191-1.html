@@ -23,29 +23,30 @@
   <body>
     <code class="playground-code" data-autocomplete="true" folded-button="false" lines="true" match-brackets="true" mode="c" theme="darcula">
 #include &lt;stdio.h&gt;
-#include &lt;strings.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;libc.h&gt;
 #include "funcs.h"
 
-struct Book {
-    int id;
-    char title[50];
-    char author[50];
-};
+void string_funcs1() {
+    char str1[20];
+    strcpy(str1, "hello world 1");
+    printf("str1 = %s\n", str1);
 
-void structs2() {
-    struct Book books[2];
-    books[0].id = 1;
-    strcpy(books[0].title, "Don Quixote");
-    strcpy(books[0].author, "Miguel de Cervantes");
-    printf("Book id/title/author: %d/%s/%s\n",
-           books[0].id, books[0].title, books[0].author);
+    char *str2 = malloc(20 * sizeof(char));
+    strcpy(str2, "hello world 2");
+    printf("str2 = %s\n", str2);
 
-    struct Book *ptr = books;
-    (*(ptr + 1)).id = 2;
-    strcpy((*(ptr + 1)).title, "Ulysses");
-    strcpy((*(ptr + 1)).author, "James Joyce");
-    printf("Book id/title/author: %d/%s/%s\n",
-           (*(ptr + 1)).id, (*(ptr + 1)).title, (*(ptr + 1)).author);
+    char *str3 = malloc(20 * sizeof(char));
+    strncpy(str3, "hello world 3", 8);
+    printf("str3 = %s\n", str3);
+
+    char *str4 = malloc(40 * sizeof(char));
+    sprintf(str4, "The sprintf string is: %s", str3);
+    printf("str4 = %s\n", str4);
+
+    free(str2);
+    free(str3);
+    free(str4);
 }
 </code>
   </body>

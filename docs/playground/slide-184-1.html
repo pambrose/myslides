@@ -27,18 +27,14 @@
 #include &lt;strings.h&gt;
 #include "funcs.h"
 
-char *get_hello() {
+void free1() {
     const int SIZE = 7;
     char *a = malloc(SIZE * sizeof(char));
     strcpy(a, "hello");
+    char *b = a + 2;
+    printf("a = %s b = %s\n", a, b);
     free(a);
-    return a;
-}
-
-void free2() {
-    char *str = get_hello();
-    printf("str = %s\n", str);
-    free(str);
+    free(b);
 }
 </code>
   </body>

@@ -26,21 +26,16 @@
 #include &lt;string.h&gt;
 #include "funcs.h"
 
-void strings4() {
-    char vec[6];
-    vec[0] = 'H';
-    vec[1] = 'e';
+void strings1() {
+    char str[] = "Hello, World!";
+    printf("str address = %p\n", str);
+    printf("str = %s\n", str);
+    printf("strlen(str) = %ld\n", strlen(str));
 
-    *(vec + 2) = 'l';
-    *(vec + 3) = 'l';
+    for (int i = 0; str[i] != '\0'; i++)
+        printf("char %d = %c and %c\n", i, str[i], *(str + i));
 
-    char *str = vec;
-    *(str + 4) = 'o';
-    *(str + 5) = '\0';
-
-    printf("vec = %p, str = %p\n", vec, str);
-    printf("vec = %s, str = %s\n", vec, str);
-    printf("strlen() = %ld and %ld\n", strlen(vec), strlen(str));
+    // str++;  // Not allowed
 }
 </code>
   </body>

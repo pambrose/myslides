@@ -27,18 +27,18 @@
 #include &lt;strings.h&gt;
 #include "funcs.h"
 
-char *make_array3(int a) {
-    char *str = malloc(a * sizeof(char));
-    return str;
+char *get_hello() {
+    const int SIZE = 7;
+    char *a = malloc(SIZE * sizeof(char));
+    strcpy(a, "hello");
+    free(a);
+    return a;
 }
 
-void return_array3() {
-    for (long i = 0; i &lt;= INT64_MAX; i++) {
-        char *vec = make_array3(1000000);
-        strcpy(vec, "hello");
-        if (i % 1000000 == 0)
-            printf("%ld\n", i);
-    }
+void free2() {
+    char *str = get_hello();
+    printf("str = %s\n", str);
+    free(str);
 }
 </code>
   </body>

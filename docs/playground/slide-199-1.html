@@ -23,21 +23,38 @@
   <body>
     <code class="playground-code" data-autocomplete="true" folded-button="false" lines="true" match-brackets="true" mode="c" theme="darcula">
 #include &lt;stdio.h&gt;
-#include &lt;string.h&gt;
+#include &lt;strings.h&gt;
 #include "funcs.h"
 
-int triple_it(int x) {
-    return x * 3;
+struct Book {
+    int id;
+    char title[50];
+    char author[50];
+};
+
+void update_book_val(struct Book book) {
+    book.id = 2;
+    strcpy(book.title, "Hamlet");
+    strcpy(book.author, "William Shakespeare");
 }
 
-int hof(int (*func_ref)(int), int x, int y) {
-    return func_ref(x) + func_ref(y);
+void update_book_ref(struct Book *book) {
+    book-&gt;id = 2;
+    strcpy(book-&gt;title, "Hamlet");
+    strcpy(book-&gt;author, "William Shakespeare");
 }
 
-void func_pointer2() {
-    int (*func_ptr)(int) = triple_it;
-    int result = hof(func_ptr, 2, 3);
-    printf("hof() result is: %d\n", result);
+void structs3() {
+    struct Book book;
+    book.id = 1;
+    strcpy(book.title, "War and Peace");
+    strcpy(book.author, "Leo Tolstoy");
+    update_book_val(book);
+    printf("Book id/title/author: %d/%s/%s\n",
+           book.id, book.title, book.author);
+    update_book_ref(&amp;book);
+    printf("Book id/title/author: %d/%s/%s\n",
+           book.id, book.title, book.author);
 }
 </code>
   </body>

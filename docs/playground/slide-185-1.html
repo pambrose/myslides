@@ -24,20 +24,17 @@
     <code class="playground-code" data-autocomplete="true" folded-button="false" lines="true" match-brackets="true" mode="c" theme="darcula">
 #include &lt;stdio.h&gt;
 #include &lt;stdlib.h&gt;
+#include &lt;strings.h&gt;
 #include "funcs.h"
 
-int *make_array1(int a) {
-    int int_vec[a];
-    for (int i = 0; i &lt; a; i++)
-        int_vec[i] = i * 10;
-    return int_vec;
-}
-
-void return_array1() {
-    int *vec = make_array1(5);
-    for (int i = 0; i &lt; 5; i++)
-        printf("vec[%d] = %d\n", i, vec[i]);
-    free(vec);
+void free1() {
+    const int SIZE = 7;
+    char *a = malloc(SIZE * sizeof(char));
+    strcpy(a, "hello");
+    char *b = a + 2;
+    printf("a = %s b = %s\n", a, b);
+    free(a);
+    free(b);
 }
 </code>
   </body>

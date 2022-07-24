@@ -23,22 +23,18 @@
   <body>
     <code class="playground-code" data-autocomplete="true" folded-button="false" lines="true" match-brackets="true" mode="c" theme="darcula">
 #include &lt;stdio.h&gt;
-#include &lt;strings.h&gt;
+#include &lt;string.h&gt;
 #include "funcs.h"
 
-struct Book {
-    int id;
-    char title[50];
-    char author[50];
-};
+void strings5() {
+    char vec[7];
+    strcpy(vec, "AbBbCc");
+    printf("vec = %s\n", vec);
 
-void structs1() {
-    struct Book book;
-    book.id = 1;
-    strcpy(book.title, "Jaws");
-    strcpy(book.author, "Peter Benchley");
-    printf("Book id/title/author: %d/%s/%s\n",
-           book.id, book.title, book.author);
+    // Try this with a length of 7
+    for (int i = 0; i &lt; 6; i++)
+        printf("char %d = %c\n", i, (vec[i])++);
+    printf("vec = %s\n", vec);
 }
 </code>
   </body>

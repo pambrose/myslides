@@ -24,20 +24,21 @@
     <code class="playground-code" data-autocomplete="true" folded-button="false" lines="true" match-brackets="true" mode="c" theme="darcula">
 #include &lt;stdio.h&gt;
 #include &lt;stdlib.h&gt;
+#include &lt;strings.h&gt;
 #include "funcs.h"
 
-int *make_array3(int a) {
-    int *int_vec = malloc(a * sizeof(int));
-    return int_vec;
+char *get_hello() {
+    const int SIZE = 7;
+    char *a = malloc(SIZE * sizeof(char));
+    strcpy(a, "hello");
+    free(a);
+    return a;
 }
 
-void return_int_array3() {
-    for (long i = 0; i &lt;= INT64_MAX; i++) {
-        int *vec = make_array3(rand());
-        if (i % 1000000 == 0) {
-            printf("%ld\n", i);
-        }
-    }
+void free2() {
+    char *str = get_hello();
+    printf("str = %s\n", str);
+    free(str);
 }
 </code>
   </body>

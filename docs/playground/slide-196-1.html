@@ -23,33 +23,38 @@
   <body>
     <code class="playground-code" data-autocomplete="true" folded-button="false" lines="true" match-brackets="true" mode="c" theme="darcula">
 #include &lt;stdio.h&gt;
-#include &lt;string.h&gt;
+#include &lt;strings.h&gt;
 #include "funcs.h"
 
-typedef int (*func_ptr)(int);
+struct Book {
+    int id;
+    char title[50];
+    char author[50];
+};
 
-typedef func_ptr (*hof_ptr)();
-
-int quad_it(int x) {
-    return x * 4;
+void update_book_val(struct Book book) {
+    book.id = 2;
+    strcpy(book.title, "Hamlet");
+    strcpy(book.author, "William Shakespeare");
 }
 
-func_ptr hof_retval() {
-    return quad_it;
+void update_book_ref(struct Book *book) {
+    book-&gt;id = 2;
+    strcpy(book-&gt;title, "Hamlet");
+    strcpy(book-&gt;author, "William Shakespeare");
 }
 
-void func_pointer3() {
-    func_ptr g = hof_retval();
-    int x = g(5);
-    printf("hof_retval value is: %d\n", x);
-
-    int y = hof_retval()(6);
-    printf("hof_retval value is: %d\n", y);
-
-    hof_ptr hof = hof_retval;
-    func_ptr fp = hof();
-    int z = fp(7);
-    printf("hof_retval value is: %d\n", z);
+void structs3() {
+    struct Book book;
+    book.id = 1;
+    strcpy(book.title, "War and Peace");
+    strcpy(book.author, "Leo Tolstoy");
+    update_book_val(book);
+    printf("Book id/title/author: %d/%s/%s\n",
+           book.id, book.title, book.author);
+    update_book_ref(&amp;book);
+    printf("Book id/title/author: %d/%s/%s\n",
+           book.id, book.title, book.author);
 }
 </code>
   </body>

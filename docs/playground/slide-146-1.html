@@ -25,17 +25,19 @@
 #include &lt;stdio.h&gt;
 #include "funcs.h"
 
-void doubler(int a, int *b) {
-    a = a + a;
-    *b = *b + *b;
-    printf("In doubler() a = %d, *b = %d\n", a, *b);
-}
-
-void copy_by() {
-    int a = 10;
-    int b = 20;
-    doubler(a, &amp;b);
-    printf("In copy_by() a = %d, b = %d\n", a, b);
+void pointers2() {
+    int i = 200;
+    int *p = &amp;i;
+    int **q = &amp;p;
+    printf("&amp;p = %p, q = %p\n", &amp;p, q);
+    printf("&amp;i = %p, p = %p, *q = %p\n", &amp;i, p, *q);
+    printf("i = %d, *p = %d **q = %d\n", i, *p, **q);
+    i++;
+    printf("i = %d, *p = %d, **q = %d\n", i, *p, **q);
+    (*p)++;
+    printf("i = %d, *p = %d, **q = %d\n", i, *p, **q);
+    (**q)++;
+    printf("i = %d, *p = %d, **q = %d\n", i, *p, **q);
 }
 </code>
   </body>

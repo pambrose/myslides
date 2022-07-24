@@ -23,18 +23,24 @@
   <body>
     <code class="playground-code" data-autocomplete="true" folded-button="false" lines="true" match-brackets="true" mode="c" theme="darcula">
 #include &lt;stdio.h&gt;
-#include &lt;string.h&gt;
 #include "funcs.h"
 
-void strings1() {
-    char str[] = "Hello, World!";
-    printf("str address = %p\n", str);
-    printf("str = %s\n", str);
-    printf("strlen(str) = %ld\n", strlen(str));
+void pointers3() {
+    int v[] = {10, 20, 30};
+    int *p = v;
 
-    // Cannot do this: str++;
-    for (int i = 0; str[i] != '\0'; i++)
-        printf("char %d = %c and %c\n", i, str[i], *(str + i));
+    printf("v = %p, p = %p\n", v, p);
+    printf("v[0] = %d, *v = %d, *p = %d\n",
+           v[0], *v, *p);
+    printf("v[1] = %d, *(v + 1) = %d, *(p + 1) = %d\n",
+           v[1], *(v + 1), *(p + 1));
+    printf("sizeof(v) = %ld\n", sizeof(v));
+    printf("sizeof(int) = %ld\n", sizeof(int));
+    printf("sizeof(p) = %ld\n", sizeof(p));   // differs from v
+    printf("sizeof(*p) = %ld\n", sizeof(*p)); // same as sizeof(int)
+    for (int i = 0; i &lt; sizeof(v) / sizeof(int); i++)
+        printf("v[%d] = %d, *(v + %d) = %d, *(p + %d) = %d\n",
+               i, v[i], i, *(v + i), i, *(p + i));
 }
 </code>
   </body>

@@ -26,18 +26,18 @@
 #include &lt;stdlib.h&gt;
 #include "funcs.h"
 
-int *make_array3(int a) {
-    int *int_vec = malloc(a * sizeof(int));
+int *make_array1(int a) {
+    int int_vec[a];
+    for (int i = 0; i &lt; a; i++)
+        int_vec[i] = i * 10;
     return int_vec;
 }
 
-void return_int_array3() {
-    for (long i = 0; i &lt;= INT64_MAX; i++) {
-        int *vec = make_array3(rand());
-        if (i % 1000000 == 0) {
-            printf("%ld\n", i);
-        }
-    }
+void return_array1() {
+    int *vec = make_array1(5);
+    for (int i = 0; i &lt; 5; i++)
+        printf("vec[%d] = %d\n", i, vec[i]);
+    free(vec);
 }
 </code>
   </body>

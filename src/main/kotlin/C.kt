@@ -29,6 +29,7 @@ object C {
 
       fun DslSlide.cSlide(fileName: String, heightPx: Int = 500) {
         playground(githubRawUrl(owner, repoName, fileName)) {
+          //playground("c-basics/$fileName") {
           mode = PlaygroundMode.C
           height = "${heightPx}px"
           width = "100%"
@@ -181,7 +182,7 @@ object C {
 
       dslSlide {
         content {
-          h2 { +"☝ Pointers in C" }
+          h2 { +"☝ Pointers in C (1)" }
           cSlide("pointers1.c")
         }
       }
@@ -195,6 +196,20 @@ object C {
 
       dslSlide {
         content {
+          h2 { +"☝ Pointers in C (2)" }
+          cSlide("pointers2.c")
+        }
+      }
+
+      dslSlide {
+        content {
+          h2 { +"🔬 Pointers in Memory" }
+          image("pointers2.png")
+        }
+      }
+
+      dslSlide {
+        content {
           h2 { +"📱 Call by Value and Reference" }
           cSlide("copy_by.c")
         }
@@ -202,15 +217,15 @@ object C {
 
       dslSlide {
         content {
-          h2 { +"💺 Pointers and sizeof()" }
-          cSlide("pointers2.c", 600)
+          h2 { +"💺 Pointers to Arrays" }
+          cSlide("pointers3.c")
         }
       }
 
       dslSlide {
         content {
-          h2 { +"🔬 Pointers and Arrays in Memory" }
-          image("pointers2.png")
+          h2 { +"🔬 Pointers to Arrays in Memory" }
+          image("pointers3.png")
         }
       }
 
@@ -348,13 +363,13 @@ object C {
 
       dslSlide {
         content {
-          h2 { +"🏵 malloc(), calloc(), realloc() and free()" }
+          h2 { +"🏵 Heap Calls" }
         }
       }
 
       dslSlide {
         content {
-          h2 { +"⛰ Heap int Array" }
+          h2 { +"⛰ Heap Memory (1)" }
           cSlide("malloc1.c")
         }
       }
@@ -368,15 +383,8 @@ object C {
 
       dslSlide {
         content {
-          h2 { +"⛰ Heap char Array" }
+          h2 { +"⛰ Heap Memory (2)" }
           cSlide("malloc2.c")
-        }
-      }
-
-      dslSlide {
-        content {
-          h2 { +"🧶 malloc() and String Functions" }
-          cSlide("string_funcs1.c")
         }
       }
 
@@ -418,6 +426,20 @@ object C {
 
       dslSlide {
         content {
+          h2 { +"⚠ Calls to free() (1)" }
+          cSlide("free1.c")
+        }
+      }
+
+      dslSlide {
+        content {
+          h2 { +"⚠ Calls to free() (2)" }
+          cSlide("free2.c")
+        }
+      }
+
+      dslSlide {
+        content {
           h2 { +"⚠ Return an Array" }
           cSlide("return_array1.c")
         }
@@ -432,8 +454,15 @@ object C {
 
       dslSlide {
         content {
-          h2 { +"🦺 Not calling free()" }
+          h2 { +"🦺 Memory Leak" }
           cSlide("return_array3.c")
+        }
+      }
+
+      dslSlide {
+        content {
+          h2 { +"🧶 String Functions" }
+          cSlide("string_funcs1.c")
         }
       }
 

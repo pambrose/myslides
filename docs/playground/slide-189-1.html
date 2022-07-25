@@ -26,15 +26,15 @@
 #include &lt;stdlib.h&gt;
 #include "funcs.h"
 
-int *make_array2(int a) {
-    int *int_vec = malloc(a * sizeof(int));
+int *make_array1(int a) {
+    int int_vec[a];
     for (int i = 0; i &lt; a; i++)
         int_vec[i] = i * 10;
     return int_vec;
 }
 
-void return_array2() {
-    int *vec = make_array2(5);
+void return_array1() {
+    int *vec = make_array1(5);
     for (int i = 0; i &lt; 5; i++)
         printf("vec[%d] = %d\n", i, vec[i]);
     free(vec);

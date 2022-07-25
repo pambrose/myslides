@@ -1,6 +1,5 @@
 import com.kslides.KSlides
 import com.kslides.PlaygroundMode
-import com.kslides.githubRawUrl
 import com.kslides.playground
 import com.kslides.slide.DslSlide
 import com.kslides.unorderedList
@@ -28,8 +27,8 @@ object C {
       }
 
       fun DslSlide.cSlide(fileName: String, heightPx: Int = 500) {
-        playground(githubRawUrl(owner, repoName, fileName)) {
-          //playground("c-basics/$fileName") {
+        //playground(githubRawUrl(owner, repoName, fileName)) {
+        playground("c-basics/$fileName") {
           mode = PlaygroundMode.C
           height = "${heightPx}px"
           width = "100%"
@@ -209,7 +208,7 @@ object C {
       dslSlide {
         content {
           h2 { +"☝ Pointers (2)" }
-          cSlide("pointers2.c")
+          cSlide("pointers2.c", 550)
         }
       }
 
@@ -230,7 +229,7 @@ object C {
       dslSlide {
         content {
           h2 { +"💺 Pointers to Arrays" }
-          cSlide("pointers3.c")
+          cSlide("pointers3.c", 550)
         }
       }
 
@@ -238,6 +237,13 @@ object C {
         content {
           h2 { +"🔬 Pointers to Arrays in Memory" }
           image("pointers3.png")
+        }
+      }
+
+      dslSlide {
+        content {
+          h2 { +"💺 Pointers and sizeof()" }
+          cSlide("pointers4.c")
         }
       }
 
@@ -278,7 +284,7 @@ object C {
       dslSlide {
         content {
           h2 { +"🧶 Strings (3)" }
-          cSlide("strings3.c")
+          cSlide("strings3.c", 600)
         }
       }
 
@@ -306,7 +312,13 @@ object C {
       dslSlide {
         content {
           h1 { +"Stack and Heap" }
-          image("Memory_model.png", 400)
+          image("Memory_model.png", 350)
+          h5 {
+            a {
+              +"More info on Stack and Heap Memory";
+              href = "https://courses.engr.illinois.edu/cs225/sp2022/resources/stack-heap/"
+            }
+          }
         }
       }
 
@@ -409,14 +421,14 @@ object C {
       dslSlide {
         content {
           h2 { +"⛰ Initialized Heap Memory" }
-          cSlide("calloc1.c")
+          cSlide("calloc1.c", 550)
         }
       }
 
       dslSlide {
         content {
           h2 { +"🔁 Reallocating Heap Memory" }
-          cSlide("realloc1.c")
+          cSlide("realloc1.c", 550)
         }
       }
 
@@ -452,35 +464,35 @@ object C {
       dslSlide {
         content {
           h2 { +"⚠ Calls to free() (2)" }
-          cSlide("free2.c")
+          cSlide("free2.c", 600)
         }
       }
 
       dslSlide {
         content {
           h2 { +"⚠ Return an Array" }
-          cSlide("return_array1.c")
+          cSlide("return_array1.c", 600)
         }
       }
 
       dslSlide {
         content {
           h2 { +"🦺 Return an Array" }
-          cSlide("return_array2.c")
+          cSlide("return_array2.c", 600)
         }
       }
 
       dslSlide {
         content {
           h2 { +"🦺 Memory Leak" }
-          cSlide("return_array3.c")
+          cSlide("return_array3.c", 600)
         }
       }
 
       dslSlide {
         content {
           h2 { +"🧶 String Functions" }
-          cSlide("string_funcs1.c")
+          cSlide("string_funcs1.c", 550)
         }
       }
 
@@ -492,8 +504,8 @@ object C {
 
       dslSlide {
         content {
-          h2 { +"🧶 Arrays of Strings (1)" }
-          cSlide("cli_args1.c")
+          h3 { +"🧶 Arrays of Strings (1)" }
+          cSlide("cli_args1.c", 550)
         }
       }
 
@@ -527,21 +539,21 @@ object C {
       dslSlide {
         content {
           h2 { +"🎒 C structs" }
-          cSlide("structs1.c")
+          cSlide("structs1.c", 600)
         }
       }
 
       dslSlide {
         content {
-          h2 { +"🎒 C struct Arrays" }
-          cSlide("structs2.c")
+          h3 { +"🎒 C struct Arrays" }
+          cSlide("structs2.c", 600)
         }
       }
 
       dslSlide {
         content {
-          h2 { +"🎒 C struct Parameters" }
-          cSlide("structs3.c")
+          h3 { +"🎒 C struct Parameters" }
+          cSlide("structs3.c", 600)
         }
       }
 
@@ -554,21 +566,21 @@ object C {
       dslSlide {
         content {
           h2 { +"👉 Function Pointers" }
-          cSlide("func_pointer1.c")
+          cSlide("func_pointer1.c", 600)
         }
       }
 
       dslSlide {
         content {
           h2 { +"👉 Higher Order Functions (1)" }
-          cSlide("func_pointer2.c")
+          cSlide("func_pointer2.c", 600)
         }
       }
 
       dslSlide {
         content {
-          h2 { +"👉 Higher Order Functions (2)" }
-          cSlide("func_pointer3.c")
+          h3 { +"👉 Higher Order Functions (2)" }
+          cSlide("func_pointer3.c", 600)
         }
       }
 

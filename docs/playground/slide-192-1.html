@@ -23,25 +23,30 @@
   <body>
     <code class="playground-code" data-autocomplete="true" folded-button="false" lines="true" match-brackets="true" mode="c" theme="darcula">
 #include &lt;stdio.h&gt;
-#include &lt;string.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;libc.h&gt;
 #include "funcs.h"
 
-void cli_args1(int argc, char **argv) {
-    printf("The CLI args using []:\n");
-    for (int i = 0; i &lt; argc; i++) {
-        size_t len = strlen(argv[i]);
-        printf("Arg %d at %p =&gt; %p \"%s\" (len=%lu next loc: %p)\n",
-               i, &amp;argv[i], argv[i], argv[i], len,
-               argv[i] + len + 1);
-    }
+void string_funcs1() {
+    char str1[20];
+    strcpy(str1, "hello world 1");
+    printf("str1 = %s\n", str1);
 
-    printf("\nThe CLI args using *:\n");
-    for (int i = 0; i &lt; argc; i++) {
-        size_t len = strlen(*(argv + i));
-        printf("Arg %d at %p =&gt; %p \"%s\" (len=%lu next loc: %p)\n",
-               i, (argv + i), *(argv + i), *(argv + i), len,
-               *(argv + i) + len + 1);
-    }
+    char *str2 = malloc(20 * sizeof(char));
+    strcpy(str2, "hello world 2");
+    printf("str2 = %s\n", str2);
+
+    char *str3 = malloc(20 * sizeof(char));
+    strncpy(str3, "hello world 3", 8);
+    printf("str3 = %s\n", str3);
+
+    char *str4 = malloc(40 * sizeof(char));
+    sprintf(str4, "The sprintf string is: %s", str3);
+    printf("str4 = %s\n", str4);
+
+    free(str2);
+    free(str3);
+    free(str4);
 }
 </code>
   </body>

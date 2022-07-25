@@ -238,7 +238,7 @@ object C {
       verticalSlides {
         dslSlide {
           content {
-            h2 { +"💺 Pointers to Arrays" }
+            h2 { +"☝ Pointers to Arrays" }
             cSlide("pointers3.c", 550)
           }
         }
@@ -253,7 +253,7 @@ object C {
 
       dslSlide {
         content {
-          h2 { +"💺 Pointers and sizeof()" }
+          h2 { +"☝ Pointers and sizeof()" }
           cSlide("pointers4.c")
         }
       }

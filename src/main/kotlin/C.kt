@@ -1,5 +1,6 @@
 import com.kslides.KSlides
 import com.kslides.PlaygroundMode
+import com.kslides.githubRawUrl
 import com.kslides.playground
 import com.kslides.slide.DslSlide
 import com.kslides.unorderedList
@@ -27,8 +28,8 @@ object C {
       }
 
       fun DslSlide.cSlide(fileName: String, heightPx: Int = 500) {
-        //playground(githubRawUrl(owner, repoName, fileName)) {
-        playground("c-basics/$fileName") {
+        val useLocal = true
+        playground(if (useLocal) "c-basics/$fileName" else githubRawUrl(owner, repoName, fileName)) {
           mode = PlaygroundMode.C
           height = "${heightPx}px"
           width = "100%"
@@ -139,7 +140,7 @@ object C {
 
       dslSlide {
         content {
-          h2 { +"📮 Hex Addresses" }
+          h2 { +"📬 Hex Addresses" }
           image("hex_values.png", 700)
         }
       }

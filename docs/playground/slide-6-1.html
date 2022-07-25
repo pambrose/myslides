@@ -23,21 +23,21 @@
   <body>
     <code class="playground-code" data-autocomplete="true" folded-button="false" lines="true" match-brackets="true" mode="c" theme="darcula">
 #include &lt;stdio.h&gt;
-#include &lt;string.h&gt;
 #include "funcs.h"
 
-void strings3() {
-    char *str = "Hello";
-    unsigned long len = strlen(str);
-
-    for (int i = 0; i &lt; len; i++)
-        printf("char %d = %c\n", i, *(str++));
-    printf("str = %s\n", str);
-    for (int i = 0; i &lt; len; i++)
-        printf("char %d = %c\n", i, *(--str)); // Notice prefix dec
-    printf("str = %s\n", str);
-
-    //(*str)++;  // Not allowed
+void pointers2() {
+    int i = 200;
+    int *p = &amp;i;
+    int **q = &amp;p;
+    printf("&amp;p = %p, q = %p\n", &amp;p, q);
+    printf("&amp;i = %p, p = %p, *q = %p\n", &amp;i, p, *q);
+    printf("i = %d, *p = %d **q = %d\n", i, *p, **q);
+    i++;
+    printf("i = %d, *p = %d, **q = %d\n", i, *p, **q);
+    (*p)++;
+    printf("i = %d, *p = %d, **q = %d\n", i, *p, **q);
+    (**q)++;
+    printf("i = %d, *p = %d, **q = %d\n", i, *p, **q);
 }
 </code>
   </body>

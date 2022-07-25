@@ -26,16 +26,18 @@
 #include &lt;string.h&gt;
 #include "funcs.h"
 
-void strings1() {
-    char str[] = "Hello, World!";
-    printf("str address = %p\n", str);
+void strings3() {
+    char *str = "Hello";
+    unsigned long len = strlen(str);
+
+    for (int i = 0; i &lt; len; i++)
+        printf("char %d = %c\n", i, *(str++));
     printf("str = %s\n", str);
-    printf("strlen(str) = %ld\n", strlen(str));
+    for (int i = 0; i &lt; len; i++)
+        printf("char %d = %c\n", i, *(--str)); // Notice prefix dec
+    printf("str = %s\n", str);
 
-    for (int i = 0; str[i] != '\0'; i++)
-        printf("char %d = %c and %c\n", i, str[i], *(str + i));
-
-    // str++;  // Not allowed
+    //(*str)++;  // Not allowed
 }
 </code>
   </body>

@@ -158,31 +158,35 @@ object C {
         }
       }
 
-      dslSlide {
-        content {
-          h2 { +"🚌 Arrays (1)" }
-          cSlide("arrays1.c")
+      verticalSlides {
+        dslSlide {
+          content {
+            h2 { +"🚌 Arrays (1)" }
+            cSlide("arrays1.c")
+          }
+        }
+
+        dslSlide {
+          content {
+            h2 { +"🔬 Arrays in Memory" }
+            image("arrays1.png")
+          }
         }
       }
 
-      dslSlide {
-        content {
-          h2 { +"🔬 Arrays in Memory" }
-          image("arrays1.png")
+      verticalSlides {
+        dslSlide {
+          content {
+            h2 { +"🚌 Arrays (2)" }
+            cSlide("arrays2.c")
+          }
         }
-      }
 
-      dslSlide {
-        content {
-          h2 { +"🚌 Arrays (2)" }
-          cSlide("arrays2.c")
-        }
-      }
-
-      dslSlide {
-        content {
-          h2 { +"🔬 Arrays in Memory" }
-          image("arrays2.png")
+        dslSlide {
+          content {
+            h2 { +"🔬 Arrays in Memory" }
+            image("arrays2.png")
+          }
         }
       }
 
@@ -192,52 +196,58 @@ object C {
         }
       }
 
-      dslSlide {
-        content {
-          h2 { +"☝ Pointers (1)" }
-          cSlide("pointers1.c")
+      verticalSlides {
+        dslSlide {
+          content {
+            h2 { +"☝ Pointers (1)" }
+            cSlide("pointers1.c")
+          }
+        }
+
+        dslSlide {
+          content {
+            h2 { +"🔬 Pointers in Memory" }
+            image("pointers1.png")
+          }
         }
       }
 
-      dslSlide {
-        content {
-          h2 { +"🔬 Pointers in Memory" }
-          image("pointers1.png")
+      verticalSlides {
+        dslSlide {
+          content {
+            h2 { +"☝ Pointers (2)" }
+            cSlide("pointers2.c", 550)
+          }
         }
-      }
 
-      dslSlide {
-        content {
-          h2 { +"☝ Pointers (2)" }
-          cSlide("pointers2.c", 550)
-        }
-      }
-
-      dslSlide {
-        content {
-          h2 { +"🔬 Pointers in Memory" }
-          image("pointers2.png")
+        dslSlide {
+          content {
+            h2 { +"🔬 Pointers in Memory" }
+            image("pointers2.png")
+          }
         }
       }
 
       dslSlide {
         content {
           h2 { +"📱 Call by Value and Reference" }
-          cSlide("copy_by.c")
+          cSlide("call_by.c")
         }
       }
 
-      dslSlide {
-        content {
-          h2 { +"💺 Pointers to Arrays" }
-          cSlide("pointers3.c", 550)
+      verticalSlides {
+        dslSlide {
+          content {
+            h2 { +"💺 Pointers to Arrays" }
+            cSlide("pointers3.c", 550)
+          }
         }
-      }
 
-      dslSlide {
-        content {
-          h2 { +"🔬 Pointers to Arrays in Memory" }
-          image("pointers3.png")
+        dslSlide {
+          content {
+            h2 { +"🔬 Pointers to Arrays in Memory" }
+            image("pointers3.png")
+          }
         }
       }
 
@@ -254,31 +264,35 @@ object C {
         }
       }
 
-      dslSlide {
-        content {
-          h2 { +"🧶 Strings (1)" }
-          cSlide("strings1.c")
+      verticalSlides {
+        dslSlide {
+          content {
+            h2 { +"🧶 Strings (1)" }
+            cSlide("strings1.c")
+          }
+        }
+
+        dslSlide {
+          content {
+            h2 { +"🔬 Strings in Memory" }
+            image("strings1.png")
+          }
         }
       }
 
-      dslSlide {
-        content {
-          h2 { +"🔬 Strings in Memory" }
-          image("strings1.png")
+      verticalSlides {
+        dslSlide {
+          content {
+            h2 { +"🧶 Strings (2)" }
+            cSlide("strings2.c")
+          }
         }
-      }
 
-      dslSlide {
-        content {
-          h2 { +"🧶 Strings (2)" }
-          cSlide("strings2.c")
-        }
-      }
-
-      dslSlide {
-        content {
-          h2 { +"🔬 Strings in Memory" }
-          image("strings2.png")
+        dslSlide {
+          content {
+            h2 { +"🔬 Strings in Memory" }
+            image("strings2.png")
+          }
         }
       }
 
@@ -289,17 +303,19 @@ object C {
         }
       }
 
-      dslSlide {
-        content {
-          h2 { +"🧶 Strings (4)" }
-          cSlide("strings4.c")
+      verticalSlides {
+        dslSlide {
+          content {
+            h2 { +"🧶 Strings (4)" }
+            cSlide("strings4.c")
+          }
         }
-      }
 
-      dslSlide {
-        content {
-          h2 { +"🔬 Strings in Memory" }
-          image("strings4.png")
+        dslSlide {
+          content {
+            h2 { +"🔬 Strings in Memory" }
+            image("strings4.png")
+          }
         }
       }
 
@@ -426,17 +442,19 @@ object C {
         }
       }
 
-      dslSlide {
-        content {
-          h2 { +"⛰ Heap Calls (1)" }
-          cSlide("malloc1.c")
+      verticalSlides {
+        dslSlide {
+          content {
+            h2 { +"⛰ Heap Calls (1)" }
+            cSlide("malloc1.c")
+          }
         }
-      }
 
-      dslSlide {
-        content {
-          h2 { +"🔬 malloc() Memory" }
-          image("malloc1.png", 900)
+        dslSlide {
+          content {
+            h2 { +"🔬 malloc() Memory" }
+            image("malloc1.png", 900)
+          }
         }
       }
 
@@ -515,23 +533,25 @@ object C {
         }
       }
 
-      dslSlide {
-        content {
-          h3 { +"🧶 Arrays of Strings (1)" }
-          cSlide("cli_args1.c", 550)
-        }
-      }
-
-      dslSlide {
-        content {
-          h3 { +"🔬 String Array in Memory" }
-          img {
-            style = "margin: 0px;"
-            src = "images/c/cli_args1.png"; width = "770px"
+      verticalSlides {
+        dslSlide {
+          content {
+            h3 { +"🧶 Arrays of Strings (1)" }
+            cSlide("cli_args1.c", 550)
           }
-          img {
-            style = "margin: 0px;"
-            src = "images/c/cli_args2.png"; width = "370px"
+        }
+
+        dslSlide {
+          content {
+            h3 { +"🔬 String Array in Memory" }
+            img {
+              style = "margin: 0px;"
+              src = "images/c/cli_args1.png"; width = "770px"
+            }
+            img {
+              style = "margin: 0px;"
+              src = "images/c/cli_args2.png"; width = "370px"
+            }
           }
         }
       }
@@ -596,7 +616,6 @@ object C {
           cSlide("func_pointer3.c", 600)
         }
       }
-
     }
   }
 }

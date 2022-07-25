@@ -24,24 +24,29 @@
     <code class="playground-code" data-autocomplete="true" folded-button="false" lines="true" match-brackets="true" mode="c" theme="darcula">
 #include &lt;stdio.h&gt;
 #include &lt;stdlib.h&gt;
+#include &lt;libc.h&gt;
 #include "funcs.h"
 
-void malloc2() {
-    const int SIZE = 5;
-    // Allocate memory on the heap
-    char *a = malloc(SIZE * sizeof(char));
-    *a = 'w';
-    *(a + 1) = 'x';
-    a[2] = 'y';
+void string_funcs1() {
+    char str1[20];
+    strcpy(str1, "hello world 1");
+    printf("str1 = %s\n", str1);
 
-    char *b = a + 3;
-    *b = 'z';
-    b[1] = '\0';
+    char *str2 = malloc(20 * sizeof(char));
+    strcpy(str2, "hello world 2");
+    printf("str2 = %s\n", str2);
 
-    printf("a = %s a+2 = %s\n", a, a + 2);
-    printf("b = %s b-3 = %s\n", b, b - 3);
+    char *str3 = malloc(20 * sizeof(char));
+    strncpy(str3, "hello world 3", 8);
+    printf("str3 = %s\n", str3);
 
-    free(a); // Free memory allocated on the heap
+    char *str4 = malloc(40 * sizeof(char));
+    sprintf(str4, "The sprintf string is: %s", str3);
+    printf("str4 = %s\n", str4);
+
+    free(str2);
+    free(str3);
+    free(str4);
 }
 </code>
   </body>

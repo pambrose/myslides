@@ -23,26 +23,38 @@
   <body>
     <code class="playground-code" data-autocomplete="true" folded-button="false" lines="true" match-brackets="true" mode="c" theme="darcula">
 #include &lt;stdio.h&gt;
-#include &lt;string.h&gt;
+#include &lt;strings.h&gt;
 #include "funcs.h"
 
-void cli_args2() {
-    int argc = 4;
-    char *argv[argc];
-    argv[0] = "./cmake-build-debug/c_basics";
-    argv[1] = "a";
-    argv[2] = "bb";
-    argv[3] = "ccc";
+struct Book {
+    int id;
+    char title[50];
+    char author[50];
+};
 
-    // Declare and assign syntax
-    char *argv2[] = {"./cmake-build-debug/c_basics", "a", "bb", "ccc", NULL};
+void update_book_val(struct Book book) {
+    book.id = 2;
+    strcpy(book.title, "Hamlet");
+    strcpy(book.author, "William Shakespeare");
+}
 
-    for (int i = 0; i &lt; argc; i++) {
-        size_t len = strlen(argv[i]);
-        printf("Arg %d at %p =&gt; %p \"%s\" (len=%lu next loc: %p)\n",
-               i, &amp;argv[i], argv[i], argv[i], len,
-               argv[i] + len + 1);
-    }
+void update_book_ref(struct Book *book) {
+    book-&gt;id = 2;
+    strcpy(book-&gt;title, "Hamlet");
+    strcpy(book-&gt;author, "William Shakespeare");
+}
+
+void structs3() {
+    struct Book book;
+    book.id = 1;
+    strcpy(book.title, "War and Peace");
+    strcpy(book.author, "Leo Tolstoy");
+    update_book_val(book);
+    printf("Book id/title/author: %d/%s/%s\n",
+           book.id, book.title, book.author);
+    update_book_ref(&amp;book);
+    printf("Book id/title/author: %d/%s/%s\n",
+           book.id, book.title, book.author);
 }
 </code>
   </body>

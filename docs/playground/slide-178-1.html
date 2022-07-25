@@ -24,24 +24,20 @@
     <code class="playground-code" data-autocomplete="true" folded-button="false" lines="true" match-brackets="true" mode="c" theme="darcula">
 #include &lt;stdio.h&gt;
 #include &lt;stdlib.h&gt;
+#include &lt;libc.h&gt;
 #include "funcs.h"
 
-void malloc2() {
-    const int SIZE = 5;
-    // Allocate memory on the heap
-    char *a = malloc(SIZE * sizeof(char));
-    *a = 'w';
-    *(a + 1) = 'x';
-    a[2] = 'y';
+void realloc1() {
+    int *ptr1 = (int *) malloc(2 * sizeof(int));
+    *ptr1 = 10;
+    *(ptr1 + 1) = 20;
 
-    char *b = a + 3;
-    *b = 'z';
-    b[1] = '\0';
+    ptr1 = (int *) realloc(ptr1, 3 * sizeof(int));
+    *(ptr1 + 2) = 30;
+    for (int i = 0; i &lt; 3; i++)
+        printf("%d\n", *(ptr1 + i));
 
-    printf("a = %s a+2 = %s\n", a, a + 2);
-    printf("b = %s b-3 = %s\n", b, b - 3);
-
-    free(a); // Free memory allocated on the heap
+    free(ptr1);
 }
 </code>
   </body>

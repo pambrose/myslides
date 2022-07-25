@@ -23,22 +23,22 @@
   <body>
     <code class="playground-code" data-autocomplete="true" folded-button="false" lines="true" match-brackets="true" mode="c" theme="darcula">
 #include &lt;stdio.h&gt;
-#include &lt;stdlib.h&gt;
 #include &lt;strings.h&gt;
 #include "funcs.h"
 
-char *get_hello() {
-    const int SIZE = 7;
-    char *a = malloc(SIZE * sizeof(char));
-    strcpy(a, "hello");
-    free(a);
-    return a;
-}
+struct Book {
+    int id;
+    char title[50];
+    char author[50];
+};
 
-void free2() {
-    char *str = get_hello();
-    printf("str = %s\n", str);
-    free(str);
+void structs1() {
+    struct Book book;
+    book.id = 1;
+    strcpy(book.title, "Jaws");
+    strcpy(book.author, "Peter Benchley");
+    printf("Book id/title/author: %d/%s/%s\n",
+           book.id, book.title, book.author);
 }
 </code>
   </body>

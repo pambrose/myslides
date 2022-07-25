@@ -24,20 +24,17 @@
     <code class="playground-code" data-autocomplete="true" folded-button="false" lines="true" match-brackets="true" mode="c" theme="darcula">
 #include &lt;stdio.h&gt;
 #include &lt;stdlib.h&gt;
-#include &lt;libc.h&gt;
+#include &lt;strings.h&gt;
 #include "funcs.h"
 
-void realloc1() {
-    int *ptr1 = (int *) malloc(2 * sizeof(int));
-    *ptr1 = 10;
-    *(ptr1 + 1) = 20;
-
-    ptr1 = (int *) realloc(ptr1, 3 * sizeof(int));
-    *(ptr1 + 2) = 30;
-    for (int i = 0; i &lt; 3; i++)
-        printf("%d\n", *(ptr1 + i));
-
-    free(ptr1);
+void free1() {
+    const int SIZE = 7;
+    char *a = malloc(SIZE * sizeof(char));
+    strcpy(a, "hello");
+    char *b = a + 2;
+    printf("a = %s b = %s\n", a, b);
+    free(a);
+    free(b);
 }
 </code>
   </body>

@@ -26,18 +26,22 @@
 #include &lt;string.h&gt;
 #include "funcs.h"
 
-void strings3() {
-    char *str = "Hello";
-    unsigned long len = strlen(str);
+void cli_args1(int argc, char **argv) {
+    printf("The CLI args using []:\n");
+    for (int i = 0; i &lt; argc; i++) {
+        unsigned long len = strlen(argv[i]);
+        printf("Arg %d at %p =&gt; %p \"%s\" (len=%lu next loc: %p)\n",
+               i, &amp;argv[i], argv[i], argv[i], len,
+               argv[i] + len + 1);
+    }
 
-    for (int i = 0; i &lt; len; i++)
-        printf("char %d = %c\n", i, *(str++));
-    printf("str = %s\n", str);
-    for (int i = 0; i &lt; len; i++)
-        printf("char %d = %c\n", i, *(--str)); // Notice prefix dec
-    printf("str = %s\n", str);
-
-    //(*str)++;  // Not allowed
+    printf("\nThe CLI args using *:\n");
+    for (int i = 0; i &lt; argc; i++) {
+        unsigned long len = strlen(*(argv + i));
+        printf("Arg %d at %p =&gt; %p \"%s\" (len=%lu next loc: %p)\n",
+               i, (argv + i), *(argv + i), *(argv + i), len,
+               *(argv + i) + len + 1);
+    }
 }
 </code>
   </body>

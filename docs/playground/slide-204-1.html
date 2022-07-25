@@ -26,25 +26,19 @@
 #include &lt;string.h&gt;
 #include "funcs.h"
 
-typedef int (*func_ptr)(int);
-typedef func_ptr (*hof_ptr)();
+int double_it(int x) {
+    return x * 2;
+}
 
-int quad_it(int x) { return x * 4; }
+void func_pointer1() {
+    // &amp; and * are optional with function pointers.
+    int (*func_ptr1)(int) = &amp;double_it;
+    int v1 = (func_ptr1)(6);
+    printf("Value is: %d\n", v1);
 
-func_ptr hof_retval() { return quad_it; }
-
-void func_pointer3() {
-    func_ptr g = hof_retval();
-    int x = g(5);
-    printf("hof_retval value is: %d\n", x);
-
-    int y = hof_retval()(6);
-    printf("hof_retval value is: %d\n", y);
-
-    hof_ptr hof = hof_retval;
-    func_ptr fp = hof();
-    int z = fp(7);
-    printf("hof_retval value is: %d\n", z);
+    int (*func_ptr2)(int) = double_it;
+    int v2 = (*func_ptr2)(7);
+    printf("Value is: %d\n", v2);
 }
 </code>
   </body>

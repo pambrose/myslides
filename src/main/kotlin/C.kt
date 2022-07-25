@@ -311,7 +311,7 @@ object C {
 
       dslSlide {
         content {
-          h1 { +"Stack and Heap" }
+          h1 { +"The Stack and Heap" }
           image("Memory_model.png", 350)
           h5 {
             a {
@@ -325,7 +325,7 @@ object C {
       dslSlide {
         id = "callstacks1"
         content {
-          h2 { +"Call Stacks (1)" }
+          h2 { +"📚 Call Stacks (1)" }
           iframe {
             width = "560"
             height = "315"
@@ -341,7 +341,7 @@ object C {
       dslSlide {
         id = "callstacks2"
         content {
-          h2 { +"Call Stacks (2)" }
+          h2 { +"📚 Call Stacks (2)" }
           iframe {
             width = "560"
             height = "315"
@@ -357,7 +357,7 @@ object C {
       dslSlide {
         id = "callstacks3"
         content {
-          h2 { +"Call Stacks (3)" }
+          h2 { +"📚 Call Stacks (3)" }
           iframe {
             width = "560"
             height = "315"
@@ -371,6 +371,12 @@ object C {
       }
 
       // https://courses.engr.illinois.edu/cs225/sp2022/resources/stack-heap/
+
+      dslSlide {
+        content {
+          h2 { +"📚 The Stack" }
+        }
+      }
 
       val stackCaptions =
         listOf(
@@ -388,6 +394,28 @@ object C {
           content {
             img { src = "images/illinois.edu/stack_demo_$i.png"; width = "800px" }
             h6 { +stackCaptions[i - 1] }
+          }
+        }
+
+      dslSlide {
+        content {
+          h2 { +"⛰ The Heap" }
+        }
+      }
+
+      val heapCaptions =
+        listOf(
+          "Allocate an integer with default value 0 on the heap, allocate p on main's stack to store the address of the integer",
+          "Allocate a Cube with default width 20 on the heap, allocate c1 on main's stack to store the address of the Cube",
+          "Allocate c2 on main's stack and store a copy of c1",
+          "Call method setLength on c2, changes the width of the Cube pointed by both c1 and c2",
+          "Deallocate stack memory of main and return 0",
+        )
+      for (i in (1..5))
+        dslSlide {
+          content {
+            img { src = "images/illinois.edu/heap_demo_$i.png"; width = "800px" }
+            h6 { +heapCaptions[i - 1] }
           }
         }
 
@@ -432,22 +460,6 @@ object C {
         }
       }
 
-      val heapCaptions =
-        listOf(
-          "Allocate an integer with default value 0 on the heap, allocate p on main's stack to store the address of the integer",
-          "Allocate a Cube with default width 20 on the heap, allocate c1 on main's stack to store the address of the Cube",
-          "Allocate c2 on main's stack and store a copy of c1",
-          "Call method setLength on c2, changes the width of the Cube pointed by both c1 and c2",
-          "Deallocate stack memory of main and return 0",
-        )
-      for (i in (1..5))
-        dslSlide {
-          content {
-            img { src = "images/illinois.edu/heap_demo_$i.png"; width = "800px" }
-            h6 { +heapCaptions[i - 1] }
-          }
-        }
-
       dslSlide {
         content {
           h2 { +"⚠ Avoiding Trouble with Memory" }
@@ -484,7 +496,7 @@ object C {
 
       dslSlide {
         content {
-          h2 { +"🦺 Memory Leak" }
+          h2 { +"⚠ Memory Leak" }
           cSlide("return_array3.c", 600)
         }
       }

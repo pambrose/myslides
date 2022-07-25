@@ -24,17 +24,24 @@
     <code class="playground-code" data-autocomplete="true" folded-button="false" lines="true" match-brackets="true" mode="c" theme="darcula">
 #include &lt;stdio.h&gt;
 #include &lt;stdlib.h&gt;
-#include &lt;strings.h&gt;
 #include "funcs.h"
 
-void free1() {
-    const int SIZE = 7;
+void malloc2() {
+    const int SIZE = 5;
+    // Allocate memory on the heap
     char *a = malloc(SIZE * sizeof(char));
-    strcpy(a, "hello");
-    char *b = a + 2;
-    printf("a = %s b = %s\n", a, b);
-    free(a);
-    free(b);
+    *a = 'w';
+    *(a + 1) = 'x';
+    a[2] = 'y';
+
+    char *b = a + 3;
+    *b = 'z';
+    b[1] = '\0';
+
+    printf("a = %s a+2 = %s\n", a, a + 2);
+    printf("b = %s b-3 = %s\n", b, b - 3);
+
+    free(a); // Free memory allocated on the heap
 }
 </code>
   </body>

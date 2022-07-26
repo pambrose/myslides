@@ -28,16 +28,22 @@
 #include "funcs.h"
 
 void realloc1() {
-    int *ptr1 = (int *) malloc(2 * sizeof(int));
-    *ptr1 = 10;
-    *(ptr1 + 1) = 20;
+    int *ptr = malloc(2 * sizeof(int));
+    *ptr = 10;
+    *(ptr + 1) = 20;
 
-    ptr1 = (int *) realloc(ptr1, 3 * sizeof(int));
-    *(ptr1 + 2) = 30;
+    // Expand the memory allocated on the heap
+    ptr = realloc(ptr, 3 * sizeof(int));
+    *(ptr + 2) = 30;
     for (int i = 0; i &lt; 3; i++)
-        printf("%d\n", *(ptr1 + i));
+        printf("Expand: %d\n", *(ptr + i));
 
-    free(ptr1);
+    // Contract the memory allocated on the heap
+    ptr = realloc(ptr, 1 * sizeof(int));
+    for (int i = 0; i &lt; 1; i++)
+        printf("Contract: %d\n", *(ptr + i));
+
+    free(ptr);
 }
 </code>
   </body>

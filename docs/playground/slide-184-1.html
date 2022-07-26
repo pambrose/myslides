@@ -33,11 +33,13 @@ char *make_array3(int a) {
 }
 
 void return_array3() {
-    for (long i = 0; i &lt;= INT64_MAX; i++) {
+    long i = 0;
+    while (1) {
         char *vec = make_array3(1000000);
         strcpy(vec, "hello");
         if (i % 1000000 == 0)
             printf("%ld\n", i);
+        i++;
     }
 }
 </code>

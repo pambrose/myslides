@@ -71,7 +71,7 @@ object C {
             { +"Stack and Heap" },
             { +"Avoiding Trouble with Memory" },
             { +"Structs" },
-            { +"Function Pointers" },
+            { +"Function Pointers and Object-Oriented C" },
             { a { +"Code Sources"; href = "https://github.com/pambrose/c-demo" } }
           ) {
             style = "font-size:30px; padding-left: 80px"
@@ -616,6 +616,14 @@ object C {
           cSlide("func_pointer3.c", 600)
         }
       }
+
+      dslSlide {
+        content {
+          h3 { +"🌵Object-Oriented C" }
+          cSlide("objects1.c", 600)
+        }
+      }
+
     }
   }
 }

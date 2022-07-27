@@ -36,14 +36,14 @@ func_ptr hof_retval() { return quad_it; }
 void func_pointer3() {
     func_ptr g = hof_retval();
     int x = g(5);
-    printf("hof_retval value is: %d\n", x);
+    printf("hof_retval int_value is: %d\n", x);
 
     int y = hof_retval()(6);
-    printf("hof_retval value is: %d\n", y);
+    printf("hof_retval int_value is: %d\n", y);
 
     hof_ptr hof = hof_retval;
     int z = hof()(7);
-    printf("hof_retval value is: %d\n", z);
+    printf("hof_retval int_value is: %d\n", z);
 }
 </code>
   </body>

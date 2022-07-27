@@ -23,29 +23,52 @@
   <body>
     <code class="playground-code" data-autocomplete="true" folded-button="false" lines="true" match-brackets="true" mode="c" theme="darcula">
 #include &lt;stdio.h&gt;
-#include &lt;strings.h&gt;
+#include &lt;string.h&gt;
+#include &lt;stdlib.h&gt;
 #include "funcs.h"
 
-struct Book {
-    int id;
-    char title[50];
-    char author[50];
+typedef struct MyObj_struct MyObj;
+
+struct MyObj_struct {
+    int int_value;
+    char *str_value;
+    int (*mult)(MyObj *, int);
+    char *(*repeat)(MyObj *, int);
 };
 
-void structs2() {
-    struct Book books[2];
-    books[0].id = 1;
-    strcpy(books[0].title, "Don Quixote");
-    strcpy(books[0].author, "Miguel de Cervantes");
-    printf("Book id/title/author: %d/%s/%s\n",
-           books[0].id, books[0].title, books[0].author);
+int mult_impl(MyObj *this, int val) {
+    return this-&gt;int_value * val;
+}
 
-    struct Book *ptr = books;
-    (*(ptr + 1)).id = 2;
-    strcpy((*(ptr + 1)).title, "Ulysses");
-    strcpy((*(ptr + 1)).author, "James Joyce");
-    printf("Book id/title/author: %d/%s/%s\n",
-           (*(ptr + 1)).id, (*(ptr + 1)).title, (*(ptr + 1)).author);
+char *repeat_impl(MyObj *this, int copies) {
+    unsigned int len = strlen(this-&gt;str_value);
+    char *str = malloc((copies * len * sizeof(char)) + 1);
+    for (int i = 0; i &lt; copies; i++)
+        strcat((str + i), this-&gt;str_value);
+    str[copies * len] = '\0';
+    return str;
+}
+
+MyObj *new_MyObj(int int_val, char *str_val) {
+    MyObj *obj = malloc(sizeof(MyObj));
+    obj-&gt;int_value = int_val;
+    obj-&gt;str_value = str_val;
+    obj-&gt;mult = mult_impl;
+    obj-&gt;repeat = repeat_impl;
+    return obj;
+}
+
+void objects1() {
+    MyObj *obj1 = new_MyObj(5, "Hello");
+    printf("obj1-&gt;mult() result = %d\n", obj1-&gt;mult(obj1, 5));
+    printf("obj1-&gt;repeat() result = %s\n", obj1-&gt;repeat(obj1, 3));
+
+    MyObj *obj2 = new_MyObj(7, "World");
+    printf("obj2-&gt;mult() result = %d\n", obj2-&gt;mult(obj2, 4));
+    printf("obj2-&gt;repeat() result = %s\n", obj2-&gt;repeat(obj2, 2));
+
+    free(obj1);
+    free(obj2);
 }
 </code>
   </body>

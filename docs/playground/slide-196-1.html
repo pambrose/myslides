@@ -42,8 +42,7 @@ void func_pointer3() {
     printf("hof_retval value is: %d\n", y);
 
     hof_ptr hof = hof_retval;
-    func_ptr fp = hof();
-    int z = fp(7);
+    int z = hof()(7);
     printf("hof_retval value is: %d\n", z);
 }
 </code>

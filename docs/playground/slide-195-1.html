@@ -38,6 +38,9 @@ void func_pointer2() {
     int (*func_ptr)(int) = triple_it;
     int result = hof(func_ptr, 2, 3);
     printf("hof() result is: %d\n", result);
+
+    int result2 = hof(triple_it, 3, 4);
+    printf("hof() result is: %d\n", result2);
 }
 </code>
   </body>

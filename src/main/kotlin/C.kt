@@ -618,12 +618,12 @@ object C {
       }
 
       dslSlide {
+        id = "objC"
         content {
           h3 { +"🌵Object-Oriented C" }
           cSlide("objects1.c", 600)
         }
       }
-
     }
   }
 }

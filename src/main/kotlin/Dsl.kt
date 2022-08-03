@@ -287,7 +287,7 @@ object Dsl {
 
       dslSlide {
         content {
-          h2 { +"Person DSL" }
+          h2 { +"Final Person DSL" }
           kotlinSlide("dsl/PersonDsl.kt")
         }
       }

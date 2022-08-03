@@ -50,7 +50,7 @@ object Dsl {
       ) {
         val useLocal = true
         playground(
-          if (useLocal) "dsl-demo/src/main/kotlin/org/athenian/slides/$fileName" else githubRawUrl(
+          if (useLocal) "dsl-demo/src/main/kotlin/org/athenian/$fileName" else githubRawUrl(
             owner,
             repoName,
             fileName
@@ -160,28 +160,28 @@ object Dsl {
       dslSlide {
         content {
           h2 { +"Kotlin Data Objects" }
-          kotlinSlide("nonlambda/DataClasses.kt", fold = false, highlightOnly = true)
+          kotlinSlide("slides/nonlambda/DataClasses.kt", fold = false, highlightOnly = true)
         }
       }
 
       dslSlide {
         content {
           h2 { +"Kotlin Approach (1)" }
-          kotlinSlide("nonlambda/Person1.kt")
+          kotlinSlide("slides/nonlambda/Person1.kt")
         }
       }
 
       dslSlide {
         content {
           h2 { +"Kotlin Approach (2)" }
-          kotlinSlide("nonlambda/Person2.kt")
+          kotlinSlide("slides/nonlambda/Person2.kt")
         }
       }
 
       dslSlide {
         content {
           h2 { +"Kotlin Approach (3)" }
-          kotlinSlide("nonlambda/Person3.kt")
+          kotlinSlide("slides/nonlambda/Person3.kt")
         }
       }
 
@@ -194,14 +194,14 @@ object Dsl {
       dslSlide {
         content {
           h2 { +"Lambdas (1)" }
-          kotlinSlide("lambdas/BasicLambdas1.kt")
+          kotlinSlide("slides/lambdas/BasicLambdas1.kt")
         }
       }
 
       dslSlide {
         content {
           h2 { +"Lambdas (2)" }
-          kotlinSlide("lambdas/BasicLambdas2.kt")
+          kotlinSlide("slides/lambdas/BasicLambdas2.kt")
         }
       }
 
@@ -214,7 +214,7 @@ object Dsl {
       dslSlide {
         content {
           h2 { +"Lambdas with Receivers" }
-          kotlinSlide("lambdas/BasicLambdas3.kt")
+          kotlinSlide("slides/lambdas/BasicLambdas3.kt")
         }
       }
 
@@ -227,14 +227,14 @@ object Dsl {
       dslSlide {
         content {
           h2 { +"Lambda Function Arguments (1)" }
-          kotlinSlide("lambdas/BasicLambdas4.kt")
+          kotlinSlide("slides/lambdas/BasicLambdas4.kt")
         }
       }
 
       dslSlide {
         content {
           h2 { +"Lambda Function Arguments (2)" }
-          kotlinSlide("lambdas/BasicLambdas5.kt")
+          kotlinSlide("slides/lambdas/BasicLambdas5.kt")
         }
       }
 
@@ -247,14 +247,14 @@ object Dsl {
       dslSlide {
         content {
           h2 { +"Extension Functions (1)" }
-          kotlinSlide("lambdas/ExtensionFunc1.kt")
+          kotlinSlide("slides/lambdas/ExtensionFunc1.kt")
         }
       }
 
       dslSlide {
         content {
           h2 { +"Extension Functions (2)" }
-          kotlinSlide("lambdas/ExtensionFunc2.kt")
+          kotlinSlide("slides/lambdas/ExtensionFunc2.kt")
         }
       }
 
@@ -267,21 +267,28 @@ object Dsl {
       dslSlide {
         content {
           h2 { +"Person DSL without Receiver" }
-          kotlinSlide("receiver/ArgPerson.kt")
+          kotlinSlide("slides/receiver/ArgPerson.kt")
         }
       }
 
       dslSlide {
         content {
           h2 { +"Person DSL with Receiver" }
-          kotlinSlide("receiver/ReceiverPerson.kt")
+          kotlinSlide("slides/receiver/ReceiverPerson.kt")
         }
       }
 
       dslSlide {
         content {
           h2 { +"Address DSL with Receiver" }
-          kotlinSlide("receiver/ReceiverAddress.kt")
+          kotlinSlide("slides/receiver/ReceiverAddress.kt")
+        }
+      }
+
+      dslSlide {
+        content {
+          h2 { +"Person DSL" }
+          kotlinSlide("dsl/PersonDsl.kt")
         }
       }
 

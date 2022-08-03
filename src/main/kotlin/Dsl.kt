@@ -1,4 +1,5 @@
 import com.kslides.KSlides
+import com.kslides.PlaygroundMode
 import com.kslides.githubRawUrl
 import com.kslides.playground
 import com.kslides.slide.DslSlide
@@ -26,6 +27,21 @@ object Dsl {
         topRightHref = "#/dsl"
       }
 
+      fun DslSlide.javaSlide(fileName: String, heightPx: Int = 500) {
+        val useLocal = true
+        playground(
+          if (useLocal) "dsl-demo/src/main/java/org/athenian/$fileName" else githubRawUrl(
+            owner,
+            repoName,
+            fileName
+          )
+        ) {
+          mode = PlaygroundMode.JAVA
+          height = "${heightPx}px"
+          width = "100%"
+        }
+      }
+
       fun DslSlide.kotlinSlide(fileName: String, heightPx: Int = 500) {
         val useLocal = true
         playground(
@@ -35,9 +51,9 @@ object Dsl {
             fileName
           )
         ) {
-          //mode = PlaygroundMode.KOTLIN
           height = "${heightPx}px"
           width = "100%"
+          foldedButton = true
         }
       }
 
@@ -69,9 +85,10 @@ object Dsl {
             { +"What is a DSL?" },
             { +"Java's Approach" },
             { +"Kotlin's non-DSL Approach" },
-            { +"Lambda review" },
-            { +"Number Systems Review" },
-            { +"Variables in Memory" },
+            { +"Lambdas" },
+            { +"Lambdas with Receivers" },
+            { +"Lambda Function Arguments" },
+            { +"Extension Functions" },
             { a { +"Code Sources"; href = "https://github.com/pambrose/dsl-demo" } }
           ) {
             style = "font-size:30px; padding-left: 80px"
@@ -94,6 +111,19 @@ object Dsl {
         }
       }
 
+      dslSlide {
+        content {
+          h3 { +"🕯 Where do we use DSLs" }
+          unorderedList(
+            { +"Configurations Files" },
+            { +"Library Interface" },
+            { +"For casual programmers" },
+            { +"Code-generated Load Scripts" },
+          ) {
+            style = "font-size:30px; padding-left: 80px"
+          }
+        }
+      }
 
       dslSlide {
         content {
@@ -104,8 +134,49 @@ object Dsl {
 
       dslSlide {
         content {
-          h1 { +"Kotlin's Approach" }
+          h2 { +"Java's Approach" }
+          javaSlide("java/Main.java")
+        }
+      }
+
+      dslSlide {
+        content {
+          h1 { +"Kotlin's non-DSL Approach" }
           h2 { +"To Object Creation" }
+        }
+      }
+
+      dslSlide {
+        content {
+          h2 { +"Kotlin's Approach (1)" }
+          kotlinSlide("nonlambda/Person1.kt")
+        }
+      }
+
+      dslSlide {
+        content {
+          h2 { +"Kotlin's Approach (2)" }
+          kotlinSlide("nonlambda/Person2.kt")
+        }
+      }
+
+      dslSlide {
+        content {
+          h2 { +"Kotlin's Approach (3)" }
+          kotlinSlide("nonlambda/Person3.kt")
+        }
+      }
+
+      dslSlide {
+        content {
+          h2 { +"Kotlin's Approach (4)" }
+          kotlinSlide("nonlambda/Person4.kt")
+        }
+      }
+
+      dslSlide {
+        content {
+          h1 { +"Lambdas" }
         }
       }
 
@@ -125,8 +196,20 @@ object Dsl {
 
       dslSlide {
         content {
+          h1 { +"Lambdas with Receivers" }
+        }
+      }
+
+      dslSlide {
+        content {
           h2 { +"Lambdas with Receivers" }
           kotlinSlide("lambdas/BasicLambdas3.kt")
+        }
+      }
+
+      dslSlide {
+        content {
+          h1 { +"Lambda Function Arguments" }
         }
       }
 
@@ -141,6 +224,53 @@ object Dsl {
         content {
           h2 { +"Lambda Function Arguments (2)" }
           kotlinSlide("lambdas/BasicLambdas5.kt")
+        }
+      }
+
+      dslSlide {
+        content {
+          h1 { +"Extension Functions" }
+        }
+      }
+
+      dslSlide {
+        content {
+          h2 { +"Extension Functions (1)" }
+          kotlinSlide("lambdas/ExtensionFunc1.kt")
+        }
+      }
+
+      dslSlide {
+        content {
+          h2 { +"Extension Functions (2)" }
+          kotlinSlide("lambdas/ExtensionFunc2.kt")
+        }
+      }
+
+      dslSlide {
+        content {
+          h1 { +"Person DSL" }
+        }
+      }
+
+      dslSlide {
+        content {
+          h2 { +"Person DSL without Reciever" }
+          kotlinSlide("dsl/ArgPerson.kt")
+        }
+      }
+
+      dslSlide {
+        content {
+          h2 { +"Person DSL with Reciever" }
+          kotlinSlide("dsl/ReceiverPerson.kt")
+        }
+      }
+
+      dslSlide {
+        content {
+          h2 { +"Address DSL with Reciever" }
+          kotlinSlide("dsl/ReceiverAddress.kt")
         }
       }
 

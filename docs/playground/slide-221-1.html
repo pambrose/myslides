@@ -22,9 +22,9 @@
   </head>
   <body>
     <code class="playground-code" data-autocomplete="true" folded-button="true" lines="true" match-brackets="true" theme="darcula">
-package org.athenian.nonlambda
+package org.athenian.dsl
 
-object Person2 {
+object ArgPerson {
 
   data class Person(
     var name: String? = null,
@@ -32,19 +32,30 @@ object Person2 {
     var address: Address? = null
   )
 
-
   data class Address(
     var street: String? = null,
     var number: Int? = null,
     var city: String? = null
   )
 
-  @JvmStatic
+  // fun person(block: (Person) -&gt; Unit) = Person().apply { block(this) }
+
   //sampleStart
 
+  fun person(block: (Person) -&gt; Unit): Person {
+    val p = Person()
+    block(p)
+    return p
+  }
+
+  @JvmStatic
   fun main(args: Array&lt;String&gt;) {
-    val person = Person("John Doe", 30, Address("1st St", 23, "Tulsa"))
-    println(person)
+    val p =
+      person {
+        it.name = "John"
+        it.age = 30
+      }
+    println(p)
   }
   //sampleEnd
 }

@@ -24,14 +24,12 @@
     <code class="playground-code" data-autocomplete="true" folded-button="true" lines="true" match-brackets="true" theme="darcula">
 package org.athenian.nonlambda
 
-object Person2 {
-
+object Person4 {
   data class Person(
     var name: String? = null,
     var age: Int? = null,
     var address: Address? = null
   )
-
 
   data class Address(
     var street: String? = null,
@@ -43,7 +41,17 @@ object Person2 {
   //sampleStart
 
   fun main(args: Array&lt;String&gt;) {
-    val person = Person("John Doe", 30, Address("1st St", 23, "Tulsa"))
+    val person =
+      Person().apply {
+        name = "John Doe"
+        age = 30
+        address =
+          Address().apply {
+            street = "2nd St"
+            number = 23
+            city = "Tulsa"
+          }
+      }
     println(person)
   }
   //sampleEnd

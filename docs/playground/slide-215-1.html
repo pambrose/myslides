@@ -22,30 +22,21 @@
   </head>
   <body>
     <code class="playground-code" data-autocomplete="true" folded-button="true" lines="true" match-brackets="true" theme="darcula">
-package org.athenian.nonlambda
+package org.athenian.lambdas
 
-object Person2 {
-
-  data class Person(
-    var name: String? = null,
-    var age: Int? = null,
-    var address: Address? = null
-  )
-
-
-  data class Address(
-    var street: String? = null,
-    var number: Int? = null,
-    var city: String? = null
-  )
-
-  @JvmStatic
+fun main() {
   //sampleStart
 
-  fun main(args: Array&lt;String&gt;) {
-    val person = Person("John Doe", 30, Address("1st St", 23, "Tulsa"))
-    println(person)
+  fun intCall(i: Int, func: (Int) -&gt; Int): Int {
+    return func(i)
   }
+
+  val result1 = intCall(2) { it * it }
+
+  val result2 = intCall(3) { it * 5 }
+
+  println(result1)
+  println(result2)
   //sampleEnd
 }
 </code>

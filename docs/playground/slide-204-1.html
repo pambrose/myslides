@@ -21,23 +21,21 @@
     
   </head>
   <body>
-    <code class="playground-code" data-autocomplete="true" folded-button="false" lines="true" match-brackets="true" theme="darcula">
-package org.athenian.lambdas
+    <code class="playground-code" data-autocomplete="true" folded-button="true" lines="true" match-brackets="true" theme="darcula">
+package org.athenian.nonlambda
 
-fun main() {
-  //sampleStart
+//sampleStart
 
-  val returnHi: () -&gt; String = { "Hello" }
+data class Person(var name: String? = null,
+                  var age: Int? = null,
+                  var address: Address? = null)
 
-  val doubleIt: (String) -&gt; String = { value: String -&gt; value + value }
 
-  val upperIt: (String) -&gt; String = { it.uppercase() }
+data class Address(var street: String? = null,
+                   var number: Int? = null,
+                   var city: String? = null)
 
-  println(returnHi())
-  println(doubleIt("Hi"))
-  println(upperIt("World!"))
-  //sampleEnd
-}
+//sampleEnd
 </code>
   </body>
 </html>

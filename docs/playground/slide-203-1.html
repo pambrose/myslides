@@ -21,22 +21,23 @@
     
   </head>
   <body>
-    <code class="playground-code" data-autocomplete="true" folded-button="false" lines="true" match-brackets="true" theme="darcula">
-package org.athenian.lambdas
+    <code class="playground-code" data-autocomplete="true" folded-button="false" lines="true" match-brackets="true" mode="java" theme="darcula">
+package org.athenian.java;
 
-fun main() {
-  //sampleStart
+public class Main {
 
-  val return8: () -&gt; Int = { 8 }
-
-  val doubleIt: (Int) -&gt; Int = { value: Int -&gt; value * 2 }
-
-  val tripleIt: (Int) -&gt; Int = { it * 3 }
-
-  println(return8.invoke())
-  println(doubleIt(5))
-  println(tripleIt(6))
-  //sampleEnd
+    //sampleStart
+    public static void main(String[] args) {
+        Person person = new Person();
+        person.setName("John Doe");
+        person.setAge(30);
+        person.setAddress(new Address());
+        person.getAddress().setStreet("1st St");
+        person.getAddress().setNumber(23);
+        person.getAddress().setCity("Tulsa");
+        System.out.println(person);
+    }
+//sampleEnd
 }
 </code>
   </body>

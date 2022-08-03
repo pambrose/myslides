@@ -21,22 +21,26 @@
     
   </head>
   <body>
-    <code class="playground-code" data-autocomplete="true" folded-button="false" lines="true" match-brackets="true" theme="darcula">
-package org.athenian.lambdas
+    <code class="playground-code" data-autocomplete="true" folded-button="true" lines="true" match-brackets="true" theme="darcula">
+package org.athenian.nonlambda
 
-fun main() {
-  //sampleStart
+object Person1 {
+//sampleStart
 
-  val strLength: String.() -&gt; Int = { this.length }
+  data class Person(
+    var name: String? = null,
+    var age: Int? = null,
+    var address: Address? = null
+  )
 
-  val doubleStr: String.() -&gt; String = { "$this-$this" }
 
-  val nStr: String.(Int) -&gt; String = { List(it) { this }.joinToString("-") }
+  data class Address(
+    var street: String? = null,
+    var number: Int? = null,
+    var city: String? = null
+  )
 
-  println(strLength("Hello"))
-  println(doubleStr("World"))
-  println(nStr("Summer", 6))
-  //sampleEnd
+//sampleEnd
 }
 </code>
   </body>

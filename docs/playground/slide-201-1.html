@@ -21,23 +21,22 @@
     
   </head>
   <body>
-    <code class="playground-code" data-autocomplete="true" folded-button="false" lines="true" match-brackets="true" mode="c" theme="darcula">
-#include &lt;stdio.h&gt;
-#include &lt;string.h&gt;
-#include "funcs.h"
+    <code class="playground-code" data-autocomplete="true" folded-button="false" lines="true" match-brackets="true" theme="darcula">
+package org.athenian.lambdas
 
-int triple_it(int x) {
-    return x * 3;
-}
+fun main() {
+  //sampleStart
 
-int hof(int (*func_ref)(int), int x, int y) {
-    return func_ref(x) + func_ref(y);
-}
+  val return8: () -&gt; Int = { 8 }
 
-void func_pointer2() {
-    int (*func_ptr)(int) = triple_it;
-    int result = hof(func_ptr, 2, 3);
-    printf("hof() result is: %d\n", result);
+  val doubleIt: (Int) -&gt; Int = { value: Int -&gt; value * 2 }
+
+  val tripleIt: (Int) -&gt; Int = { it * 3 }
+
+  println(return8.invoke())
+  println(doubleIt(5))
+  println(tripleIt(6))
+  //sampleEnd
 }
 </code>
   </body>

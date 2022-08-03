@@ -21,30 +21,22 @@
     
   </head>
   <body>
-    <code class="playground-code" data-autocomplete="true" folded-button="false" lines="true" match-brackets="true" mode="c" theme="darcula">
-#include &lt;stdio.h&gt;
-#include &lt;string.h&gt;
-#include "funcs.h"
+    <code class="playground-code" data-autocomplete="true" folded-button="false" lines="true" match-brackets="true" theme="darcula">
+package org.athenian.lambdas
 
-typedef int (*func_ptr)(int);
-typedef func_ptr (*hof_ptr)();
+fun main() {
+  //sampleStart
 
-int quad_it(int x) { return x * 4; }
+  val strLength: String.() -&gt; Int = { this.length }
 
-func_ptr hof_retval() { return quad_it; }
+  val doubleStr: String.() -&gt; String = { "$this-$this" }
 
-void func_pointer3() {
-    func_ptr g = hof_retval();
-    int x = g(5);
-    printf("hof_retval value is: %d\n", x);
+  val nStr: String.(Int) -&gt; String = { List(it) { this }.joinToString("-") }
 
-    int y = hof_retval()(6);
-    printf("hof_retval value is: %d\n", y);
-
-    hof_ptr hof = hof_retval;
-    func_ptr fp = hof();
-    int z = fp(7);
-    printf("hof_retval value is: %d\n", z);
+  println(strLength("Hello"))
+  println(doubleStr("World"))
+  println(nStr("Summer", 6))
+  //sampleEnd
 }
 </code>
   </body>

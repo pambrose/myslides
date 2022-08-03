@@ -1,5 +1,6 @@
 import C.cPresentation
 import Docker.dockerPresentation
+import Dsl.dslPresentation
 import Functional.functionalPresentation
 import Http.httpPresentation
 import Unix.unixPresentation
@@ -86,6 +87,7 @@ fun main() {
           * [Unix Basics](unix.html)
           * [Docker Basics](docker.html)
           * [C Basics](c.html)
+          * [Kotlin DSL Basics](dsl.html)
           """
         }
       }
@@ -96,5 +98,6 @@ fun main() {
     unixPresentation()
     dockerPresentation()
     cPresentation()
+    dslPresentation()
   }
 }

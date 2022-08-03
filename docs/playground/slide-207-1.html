@@ -27,13 +27,13 @@ package org.athenian.lambdas
 fun main() {
   //sampleStart
 
-  fun intCall(i: Int, func: (Int) -&gt; Int): Int {
-    return func(i)
+  fun strCall(s: String, func: (String) -&gt; String): String {
+    return func(s)
   }
 
-  val result1 = intCall(2) { it * it }
+  val result1 = strCall("Hello") { it.substring(1, 3) }
 
-  val result2 = intCall(3) { it * 5 }
+  val result2 = strCall("World!") { it.drop(3) }
 
   println(result1)
   println(result2)

@@ -64,20 +64,11 @@ object Dsl {
         }
       }
 
-      fun FlowOrInteractiveOrPhrasingContent.image(fname: String, widthPx: Int = 500) {
-        img { src = "images/c/$fname"; width = "${widthPx}px" }
-      }
-
       dslSlide {
         content {
           id = "dsl"
           h2 { +"Kotlin DSL Basics" }
-          a {
-            href =
-              "https://www.amazon.com/Programming-Language-PROGRAMMING-LANG-p2-ebook-dp-B009ZUZ9FW/dp/B009ZUZ9FW/ref=mt_other"
-            target = "_blank"
-            img { width = "250px"; src = "images/c/CProgrammingLanguage.jpg" }
-          }
+          img { width = "250px"; src = "images/dsl/dslimage.png" }
           a {
             href = "https://pambrose.github.io/myslides/dsl.html"
             +"https://pambrose.github.io/myslides/dsl.html"
@@ -90,12 +81,12 @@ object Dsl {
           h3 { +"🕯 Overview of Slides" }
           unorderedList(
             { +"What is a DSL?" },
-            { +"Java's Approach" },
-            { +"Kotlin's non-DSL Approach" },
-            { +"Lambdas" },
-            { +"Lambdas with Receivers" },
-            { +"Lambda Function Arguments" },
+            { +"Java Object Creation" },
+            { +"Kotlin non-DSL Object Creation" },
+            { +"Review Lambdas" },
             { +"Extension Functions" },
+            { +"Person DSL" },
+            { +"DSL Examples" },
             { a { +"Code Sources"; href = "https://github.com/pambrose/dsl-demo" } }
           ) {
             style = "font-size:30px; padding-left: 80px"
@@ -135,21 +126,20 @@ object Dsl {
 
       dslSlide {
         content {
-          h1 { +"Java's Approach" }
-          h2 { +"To Object Creation" }
+          h1 { +"Java Object Creation" }
         }
       }
 
       dslSlide {
         content {
-          h2 { +"Java's Person" }
+          h2 { +"Java Person Object" }
           javaSlide("java/Person.java")
         }
       }
 
       dslSlide {
         content {
-          h2 { +"Java's Address" }
+          h2 { +"Java Address Object" }
           javaSlide("java/Address.java")
         }
       }
@@ -163,8 +153,7 @@ object Dsl {
 
       dslSlide {
         content {
-          h1 { +"Kotlin's non-DSL Approach" }
-          h2 { +"To Object Creation" }
+          h1 { +"Kotlin non-DSL Object Creation" }
         }
       }
 
@@ -277,21 +266,21 @@ object Dsl {
 
       dslSlide {
         content {
-          h2 { +"Person DSL without Reciever" }
+          h2 { +"Person DSL without Receiver" }
           kotlinSlide("receiver/ArgPerson.kt")
         }
       }
 
       dslSlide {
         content {
-          h2 { +"Person DSL with Reciever" }
+          h2 { +"Person DSL with Receiver" }
           kotlinSlide("receiver/ReceiverPerson.kt")
         }
       }
 
       dslSlide {
         content {
-          h2 { +"Address DSL with Reciever" }
+          h2 { +"Address DSL with Receiver" }
           kotlinSlide("receiver/ReceiverAddress.kt")
         }
       }

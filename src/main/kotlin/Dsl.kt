@@ -1,3 +1,4 @@
+import Utils.linkItem
 import com.kslides.KSlides
 import com.kslides.PlaygroundMode
 import com.kslides.githubRawUrl
@@ -8,7 +9,7 @@ import kotlinx.html.*
 
 object Dsl {
 
-  fun KSlides.dslPresentation() {
+  fun KSlides.dslPresentation(useLocal: Boolean) {
     presentation {
       path = "dsl.html"
 
@@ -28,13 +29,12 @@ object Dsl {
       }
 
       fun DslSlide.javaSlide(fileName: String, heightPx: Int = 500) {
-        val useLocal = true
+        val prefix = "main/java/org/athenian"
         playground(
-          if (useLocal) "dsl-demo/src/main/java/org/athenian/$fileName" else githubRawUrl(
-            owner,
-            repoName,
-            fileName
-          )
+          if (useLocal)
+            "dsl-demo/src/$prefix/$fileName"
+          else
+            githubRawUrl(owner, repoName, "src/$prefix/$fileName")
         ) {
           mode = PlaygroundMode.JAVA
           height = "${heightPx}px"
@@ -296,55 +296,13 @@ object Dsl {
         content {
           h3 { +"🕯 Kotlin DSL Examples" }
           unorderedList(
-            {
-              a {
-                +"Gradle build.gradle.kts DSL"
-                href = "https://docs.gradle.org/current/userguide/kotlin_dsl.html"
-                target = "_blank"
-              }
-            },
-            {
-              a {
-                +"Kotlin HTML DSL"
-                href = "https://kotlinlang.org/docs/typesafe-html-dsl.html"
-                target = "_blank"
-              }
-            },
-            {
-              a {
-                +"Kotlin CSS DSL"
-                href = "https://ktor.io/docs/css-dsl.html#use_css"
-                target = "_blank"
-              }
-            },
-            {
-              a {
-                +"Ktor Embedded Server DSL"
-                href = "https://ktor.io/docs/create-server.html#embedded"
-                target = "_blank"
-              }
-            },
-            {
-              a {
-                +"Ktor Routing DSL"
-                href = "https://ktor.io/docs/routing-in-ktor.html#group_by_verb"
-                target = "_blank"
-              }
-            },
-            {
-              a {
-                +"ReadingBat DSL"
-                href = "https://github.com/readingbat/readingbat-python-content/blob/master/src/Content.kt"
-                target = "_blank"
-              }
-            },
-            {
-              a {
-                +"KSlides DSL"
-                href = "https://github.com/pambrose/myslides/blob/master/src/main/kotlin/Dsl.kt"
-                target = "_blank"
-              }
-            },
+            linkItem("Gradle build.gradle.kts DSL", "https://docs.gradle.org/current/userguide/kotlin_dsl.html"),
+            linkItem("Kotlin HTML DSL", "https://kotlinlang.org/docs/typesafe-html-dsl.html"),
+            linkItem("Kotlin CSS DSL", "https://ktor.io/docs/css-dsl.html#use_css"),
+            linkItem("Ktor Embedded Server DSL", "https://ktor.io/docs/create-server.html#embedded"),
+            linkItem("Ktor Routing DSL", "https://ktor.io/docs/routing-in-ktor.html#group_by_verb"),
+            linkItem("ReadingBat DSL", "https://github.com/readingbat/readingbat-python-content/blob/master/src/Content.kt"),
+            linkItem("KSlides DSL", "https://github.com/pambrose/myslides/blob/master/src/main/kotlin/Dsl.kt"),
           ) {
             style = "font-size:30px; padding-left: 80px"
           }

@@ -97,7 +97,7 @@ fun main() {
     functionalPresentation()
     unixPresentation()
     dockerPresentation()
-    cPresentation()
-    dslPresentation()
+    cPresentation(false)
+    dslPresentation(false)
   }
 }

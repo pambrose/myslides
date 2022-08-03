@@ -1,3 +1,5 @@
+import Utils.linkItem
+import Utils.textItem
 import com.kslides.KSlides
 import com.kslides.PlaygroundMode
 import com.kslides.githubRawUrl
@@ -8,7 +10,7 @@ import kotlinx.html.*
 
 object C {
 
-  fun KSlides.cPresentation() {
+  fun KSlides.cPresentation(useLocal: Boolean) {
     presentation {
       path = "c.html"
 
@@ -28,7 +30,6 @@ object C {
       }
 
       fun DslSlide.cSlide(fileName: String, heightPx: Int = 500) {
-        val useLocal = true
         playground(if (useLocal) "c-basics/$fileName" else githubRawUrl(owner, repoName, fileName)) {
           mode = PlaygroundMode.C
           height = "${heightPx}px"
@@ -61,18 +62,18 @@ object C {
         content {
           h3 { +"🕯 Overview of Slides" }
           unorderedList(
-            { +"What is C?" },
-            { +"Syntax" },
-            { +"Type System" },
-            { +"Number Systems Review" },
-            { +"Variables in Memory" },
-            { +"Arrays and Pointers" },
-            { +"Strings" },
-            { +"Stack and Heap" },
-            { +"Avoiding Trouble with Memory" },
-            { +"Structs" },
-            { +"Function Pointers and Object-Oriented C" },
-            { a { +"Code Sources"; href = "https://github.com/pambrose/c-demo" } }
+            textItem("What is C?"),
+            textItem("Syntax"),
+            textItem("Type System"),
+            textItem("Number Systems Review"),
+            textItem("Variables in Memory"),
+            textItem("Arrays and Pointers"),
+            textItem("Strings"),
+            textItem("Stack and Heap"),
+            textItem("Avoiding Trouble with Memory"),
+            textItem("Structs"),
+            textItem("Function Pointers and Object-Oriented C"),
+            linkItem("Code Sources", "https://github.com/pambrose/c-demo")
           ) {
             style = "font-size:30px; padding-left: 80px"
           }

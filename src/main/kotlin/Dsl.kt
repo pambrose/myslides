@@ -326,6 +326,13 @@ object Dsl {
             },
             {
               a {
+                +"Ktor Routing DSL"
+                href = "https://ktor.io/docs/routing-in-ktor.html#group_by_verb"
+                target = "_blank"
+              }
+            },
+            {
+              a {
                 +"ReadingBat DSL"
                 href = "https://github.com/readingbat/readingbat-python-content/blob/master/src/Content.kt"
                 target = "_blank"

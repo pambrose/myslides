@@ -42,10 +42,15 @@ object Dsl {
         }
       }
 
-      fun DslSlide.kotlinSlide(fileName: String, heightPx: Int = 500) {
+      fun DslSlide.kotlinSlide(
+        fileName: String,
+        heightPx: Int = 500,
+        fold: Boolean = true,
+        highlightOnly: Boolean = false
+      ) {
         val useLocal = true
         playground(
-          if (useLocal) "dsl-demo/src/main/kotlin/org/athenian/$fileName" else githubRawUrl(
+          if (useLocal) "dsl-demo/src/main/kotlin/org/athenian/slides/$fileName" else githubRawUrl(
             owner,
             repoName,
             fileName
@@ -53,7 +58,9 @@ object Dsl {
         ) {
           height = "${heightPx}px"
           width = "100%"
-          foldedButton = true
+          foldedButton = fold
+          if (highlightOnly)
+            dataHighlightOnly = highlightOnly
         }
       }
 
@@ -117,8 +124,9 @@ object Dsl {
           unorderedList(
             { +"Configurations Files" },
             { +"Library Interface" },
-            { +"For casual programmers" },
             { +"Code-generated Load Scripts" },
+            { +"Manual Load Scripts" },
+            { +"Cleaning Up Other People's APIs" },
           ) {
             style = "font-size:30px; padding-left: 80px"
           }
@@ -134,7 +142,21 @@ object Dsl {
 
       dslSlide {
         content {
-          h2 { +"Java's Approach" }
+          h2 { +"Java's Person" }
+          javaSlide("java/Person.java")
+        }
+      }
+
+      dslSlide {
+        content {
+          h2 { +"Java's Address" }
+          javaSlide("java/Address.java")
+        }
+      }
+
+      dslSlide {
+        content {
+          h2 { +"Java Object Creation" }
           javaSlide("java/Main.java")
         }
       }
@@ -148,29 +170,29 @@ object Dsl {
 
       dslSlide {
         content {
-          h2 { +"Kotlin's Approach (1)" }
+          h2 { +"Kotlin Data Objects" }
+          kotlinSlide("nonlambda/DataClasses.kt", fold = false, highlightOnly = true)
+        }
+      }
+
+      dslSlide {
+        content {
+          h2 { +"Kotlin Approach (1)" }
           kotlinSlide("nonlambda/Person1.kt")
         }
       }
 
       dslSlide {
         content {
-          h2 { +"Kotlin's Approach (2)" }
+          h2 { +"Kotlin Approach (2)" }
           kotlinSlide("nonlambda/Person2.kt")
         }
       }
 
       dslSlide {
         content {
-          h2 { +"Kotlin's Approach (3)" }
+          h2 { +"Kotlin Approach (3)" }
           kotlinSlide("nonlambda/Person3.kt")
-        }
-      }
-
-      dslSlide {
-        content {
-          h2 { +"Kotlin's Approach (4)" }
-          kotlinSlide("nonlambda/Person4.kt")
         }
       }
 
@@ -256,21 +278,73 @@ object Dsl {
       dslSlide {
         content {
           h2 { +"Person DSL without Reciever" }
-          kotlinSlide("dsl/ArgPerson.kt")
+          kotlinSlide("receiver/ArgPerson.kt")
         }
       }
 
       dslSlide {
         content {
           h2 { +"Person DSL with Reciever" }
-          kotlinSlide("dsl/ReceiverPerson.kt")
+          kotlinSlide("receiver/ReceiverPerson.kt")
         }
       }
 
       dslSlide {
         content {
           h2 { +"Address DSL with Reciever" }
-          kotlinSlide("dsl/ReceiverAddress.kt")
+          kotlinSlide("receiver/ReceiverAddress.kt")
+        }
+      }
+
+      dslSlide {
+        content {
+          h3 { +"🕯 Kotlin DSL Examples" }
+          unorderedList(
+            {
+              a {
+                +"Gradle build.gradle.kts DSL"
+                href = "https://docs.gradle.org/current/userguide/kotlin_dsl.html"
+                target = "_blank"
+              }
+            },
+            {
+              a {
+                +"Kotlin HTML DSL"
+                href = "https://kotlinlang.org/docs/typesafe-html-dsl.html"
+                target = "_blank"
+              }
+            },
+            {
+              a {
+                +"Kotlin CSS DSL"
+                href = "https://ktor.io/docs/css-dsl.html#use_css"
+                target = "_blank"
+              }
+            },
+            {
+              a {
+                +"Ktor Embedded Server DSL"
+                href = "https://ktor.io/docs/create-server.html#embedded"
+                target = "_blank"
+              }
+            },
+            {
+              a {
+                +"ReadingBat DSL"
+                href = "https://github.com/readingbat/readingbat-python-content/blob/master/src/Content.kt"
+                target = "_blank"
+              }
+            },
+            {
+              a {
+                +"KSlides DSL"
+                href = "https://github.com/pambrose/myslides/blob/master/src/main/kotlin/Dsl.kt"
+                target = "_blank"
+              }
+            },
+          ) {
+            style = "font-size:30px; padding-left: 80px"
+          }
         }
       }
 

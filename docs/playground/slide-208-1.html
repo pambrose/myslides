@@ -22,14 +22,16 @@
   </head>
   <body>
     <code class="playground-code" data-autocomplete="true" folded-button="true" lines="true" match-brackets="true" theme="darcula">
-package org.athenian.nonlambda
+package org.athenian.slides.nonlambda
 
-object Person4 {
+object Person1 {
+
   data class Person(
     var name: String? = null,
     var age: Int? = null,
     var address: Address? = null
   )
+
 
   data class Address(
     var street: String? = null,
@@ -38,23 +40,14 @@ object Person4 {
   )
 
   @JvmStatic
-  //sampleStart
+//sampleStart
 
   fun main(args: Array&lt;String&gt;) {
-    val person =
-      Person().apply {
-        name = "John Doe"
-        age = 30
-        address =
-          Address().apply {
-            street = "2nd St"
-            number = 23
-            city = "Tulsa"
-          }
-      }
+    val person = Person("John Doe", 30, Address("1st St", 23, "Tulsa"))
     println(person)
   }
-  //sampleEnd
+
+//sampleEnd
 }
 </code>
   </body>

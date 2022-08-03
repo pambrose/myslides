@@ -27,15 +27,15 @@ package org.athenian.lambdas
 fun main() {
   //sampleStart
 
-  val strLength: String.() -&gt; Int = { this.length }
+  val returnHi: () -&gt; String = { "Hello" }
 
-  val doubleStr: String.() -&gt; String = { "$this-$this" }
+  val doubleIt: (String) -&gt; String = { value: String -&gt; value + value }
 
-  val nStr: String.(Int) -&gt; String = { List(it) { this }.joinToString("-") }
+  val upperIt: (String) -&gt; String = { it.uppercase() }
 
-  println(strLength("Hello"))
-  println(doubleStr("World"))
-  println(nStr("Summer", 6))
+  println(returnHi())
+  println(doubleIt("Hi"))
+  println(upperIt("World!"))
   //sampleEnd
 }
 </code>

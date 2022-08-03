@@ -22,21 +22,39 @@
   </head>
   <body>
     <code class="playground-code" data-autocomplete="true" folded-button="true" lines="true" match-brackets="true" theme="darcula">
-package org.athenian.lambdas
+package org.athenian.slides.nonlambda
 
-fun main() {
-  //sampleStart
+object Person2 {
+  data class Person(
+    var name: String? = null,
+    var age: Int? = null,
+    var address: Address? = null
+  )
 
-  val return8: () -&gt; Int = { 8 }
 
-  val doubleIt: (Int) -&gt; Int = { value: Int -&gt; value * 2 }
+  data class Address(
+    var street: String? = null,
+    var number: Int? = null,
+    var city: String? = null
+  )
 
-  val tripleIt: (Int) -&gt; Int = { it * 3 }
+  @JvmStatic
+//sampleStart
 
-  println(return8.invoke())
-  println(doubleIt(5))
-  println(tripleIt(6))
-  //sampleEnd
+  fun main(args: Array&lt;String&gt;) {
+    val person = Person(
+      name = "John Doe",
+      age = 30,
+      address = Address(
+        street = "1st St",
+        number = 23,
+        city = "Tulsa"
+      )
+    )
+    println(person)
+  }
+
+//sampleEnd
 }
 </code>
   </body>

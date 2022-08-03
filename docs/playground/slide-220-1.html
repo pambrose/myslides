@@ -22,41 +22,19 @@
   </head>
   <body>
     <code class="playground-code" data-autocomplete="true" folded-button="true" lines="true" match-brackets="true" theme="darcula">
-package org.athenian.dsl
+package org.athenian.lambdas
 
-object ArgPerson {
-
-  data class Person(
-    var name: String? = null,
-    var age: Int? = null,
-    var address: Address? = null
-  )
-
-  data class Address(
-    var street: String? = null,
-    var number: Int? = null,
-    var city: String? = null
-  )
-
-  // fun person(block: (Person) -&gt; Unit) = Person().apply { block(this) }
-
+fun main() {
   //sampleStart
 
-  fun person(block: (Person) -&gt; Unit): Person {
-    val p = Person()
-    block(p)
-    return p
+  fun String.firstLast(): String {
+    return "${this.first()}${this.last()}"
   }
 
-  @JvmStatic
-  fun main(args: Array&lt;String&gt;) {
-    val p =
-      person {
-        it.name = "John"
-        it.age = 30
-      }
-    println(p)
-  }
+  fun String.missingFirstLast() = this.substring(1, this.length - 1)
+
+  println("Hello World!".firstLast())
+  println("Hello World!".missingFirstLast())
   //sampleEnd
 }
 </code>

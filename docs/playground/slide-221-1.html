@@ -22,41 +22,22 @@
   </head>
   <body>
     <code class="playground-code" data-autocomplete="true" folded-button="true" lines="true" match-brackets="true" theme="darcula">
-package org.athenian.dsl
+package org.athenian.lambdas
 
-object ArgPerson {
-
-  data class Person(
-    var name: String? = null,
-    var age: Int? = null,
-    var address: Address? = null
-  )
-
-  data class Address(
-    var street: String? = null,
-    var number: Int? = null,
-    var city: String? = null
-  )
-
-  // fun person(block: (Person) -&gt; Unit) = Person().apply { block(this) }
-
+fun main() {
   //sampleStart
 
-  fun person(block: (Person) -&gt; Unit): Person {
-    val p = Person()
-    block(p)
-    return p
-  }
-
-  @JvmStatic
-  fun main(args: Array&lt;String&gt;) {
-    val p =
-      person {
-        it.name = "John"
-        it.age = 30
+  fun String.flipCase() =
+    this.map {
+      when (it) {
+        in 'a'..'z' -&gt; it.uppercase()
+        in 'A'..'Z' -&gt; it.lowercase()
+        else -&gt; it
       }
-    println(p)
-  }
+    }.joinToString("")
+
+  println("Hello World!".flipCase())
+  println("Go Owls!!".flipCase())
   //sampleEnd
 }
 </code>

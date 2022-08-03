@@ -27,14 +27,16 @@ package org.athenian.lambdas
 fun main() {
   //sampleStart
 
-  fun String.firstLast(): String {
-    return "${this.first()}${this.last()}"
+  fun strCall(s: String, func: (String) -&gt; String): String {
+    return func(s)
   }
 
-  fun String.missingFirstLast() = this.substring(1, this.length - 1)
+  val result1 = strCall("Hello") { it.substring(1, 3) }
 
-  println("Hello World!".firstLast())
-  println("Hello World!".missingFirstLast())
+  val result2 = strCall("World!") { it.drop(3) }
+
+  println(result1)
+  println(result2)
   //sampleEnd
 }
 </code>

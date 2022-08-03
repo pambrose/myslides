@@ -22,9 +22,9 @@
   </head>
   <body>
     <code class="playground-code" data-autocomplete="true" folded-button="true" lines="true" match-brackets="true" theme="darcula">
-package org.athenian.dsl
+package org.athenian.slides.receiver
 
-object ReceiverAddress {
+object ArgPerson {
 
   data class Person(
     var name: String? = null,
@@ -38,39 +38,26 @@ object ReceiverAddress {
     var city: String? = null
   )
 
-  //  fun person(block: Person.() -&gt; Unit) = Person().apply { block(this) }
-  //  fun Person.address(block: Address.() -&gt; Unit) {
-  //    address = Address().apply { block(this) }
-  //  }
+  // fun person(block: (Person) -&gt; Unit) = Person().apply { block(this) }
 
-  fun person(block: Person.() -&gt; Unit): Person {
+  //sampleStart
+
+  fun person(block: (Person) -&gt; Unit): Person {
     val p = Person()
     block(p)
     return p
-  }
-
-  //sampleStart
-  fun Person.address(block: Address.() -&gt; Unit) {
-    val a = Address()
-    block(a)
-    address = a
   }
 
   @JvmStatic
   fun main(args: Array&lt;String&gt;) {
     val p =
       person {
-        name = "John Doe"
-        age = 30
-        address {
-          street = "1st St"
-          number = 23
-          city = "Tulsa"
-        }
+        it.name = "John"
+        it.age = 30
       }
     println(p)
   }
-//sampleEnd
+  //sampleEnd
 }
 </code>
   </body>

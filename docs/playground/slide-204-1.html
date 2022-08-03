@@ -21,21 +21,47 @@
     
   </head>
   <body>
-    <code class="playground-code" data-autocomplete="true" folded-button="true" lines="true" match-brackets="true" theme="darcula">
-package org.athenian.nonlambda
+    <code class="playground-code" data-autocomplete="true" folded-button="false" lines="true" match-brackets="true" mode="java" theme="darcula">
+package org.athenian.java;
 
-//sampleStart
+public class Address {
+    private String street;
+    private int number;
+    private String city;
 
-data class Person(var name: String? = null,
-                  var age: Int? = null,
-                  var address: Address? = null)
+    public String getStreet() {
+        return street;
+    }
 
+    public void setStreet(String street) {
+        this.street = street;
+    }
 
-data class Address(var street: String? = null,
-                   var number: Int? = null,
-                   var city: String? = null)
+    public int getNumber() {
+        return number;
+    }
 
-//sampleEnd
+    public void setNumber(int number) {
+        this.number = number;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    @Override
+    public String toString() {
+        return "Address{" +
+                "street='" + street + '\'' +
+                ", number=" + number +
+                ", city='" + city + '\'' +
+                '}';
+    }
+}
 </code>
   </body>
 </html>

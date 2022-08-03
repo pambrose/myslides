@@ -27,16 +27,15 @@ package org.athenian.lambdas
 fun main() {
   //sampleStart
 
-  fun intCall(i: Int, func: (Int) -&gt; Int): Int {
-    return func(i)
-  }
+  val strLength: String.() -&gt; Int = { this.length }
 
-  val result1 = intCall(2) { it * it }
+  val doubleStr: String.() -&gt; String = { "$this-$this" }
 
-  val result2 = intCall(3) { it * 5 }
+  val nStr: String.(Int) -&gt; String = { List(it) { this }.joinToString("-") }
 
-  println(result1)
-  println(result2)
+  println(strLength("Hello"))
+  println(doubleStr("World"))
+  println(nStr("Summer", 6))
   //sampleEnd
 }
 </code>

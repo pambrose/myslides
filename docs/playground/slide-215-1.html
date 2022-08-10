@@ -33,10 +33,12 @@ fun main() {
 
   val nStr: String.(Int) -&gt; String = { List(it) { this }.joinToString("-") }
 
+  println("Hello".strLength())
   println(strLength("Hello"))
+  println("World".doubleStr())
   println(doubleStr("World"))
-  println(nStr("Summer", 6))
   println("Winter".nStr(4))
+  println(nStr("Summer", 6))
   //sampleEnd
 }
 </code>

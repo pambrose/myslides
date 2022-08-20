@@ -74,8 +74,10 @@ object Redis {
           unorderedList(
             textItem("What is Redis?"),
             textItem("Getting it up and running"),
+            textItem("Data Types"),
             linkItem("Commands", "https://redis.io/commands/"),
-            textItem("Kotlin"),
+            textItem("Programmatic Access"),
+            textItem("Commands in Action"),
           ) {
             style = "font-size:30px; padding-left: 80px"
           }
@@ -159,15 +161,40 @@ object Redis {
 
       dslSlide {
         content {
+          h2 { +"🧭 Redis DataTypes"; style = "margin-bottom:20px;" }
+          div("multiColumn2") {
+            val fmt = "font-size:30px; padding-top:10px;"
+            div("column2") {
+              unorderedList(
+                linkItem("Strings", "https://redis.io/docs/data-types/strings/"),
+                linkItem("Lists", "https://redis.io/docs/data-types/lists/"),
+                linkItem("Sets", "https://redis.io/docs/data-types/sets/"),
+                linkItem("Hashes", "https://redis.io/docs/data-types/hashes/"),
+                linkItem("Sorted Sets","https://redis.io/docs/data-types/sorted-sets/"),
+              ) { style = fmt }
+            }
+            div("column2") {
+              unorderedList(
+                linkItem("Streams", "https://redis.io/docs/data-types/streams/"),
+                linkItem("Geospatial", "https://redis.io/docs/data-types/geospatial/"),
+                linkItem("HyperLogLog", "https://redis.io/docs/data-types/hyperloglogs/"),
+                linkItem("Bitmaps", "https://redis.io/docs/data-types/bitmaps/"),
+                linkItem("Bitfields","https://redis.io/docs/data-types/bitfields/"),
+              ) { style = fmt }
+            }
+          }
+        }
+      }
+
+      dslSlide {
+        content {
           h2 { +"🚌 Redis Commands"; style = "margin-bottom:20px;" }
           div("multiColumn2") {
             val fmt = "font-size:30px; padding-top:10px;"
             div("column2") {
-              //p { +"Header 1"; style = "color: red;" }
-              unorderedList("SET/GET", "MSET/MGET", "Item 3", "Item 4") { style = fmt }
+              unorderedList("SET/GET", "MSET/MGET", "INCR/DECR", "Item 4") { style = fmt }
             }
             div("column2") {
-              //p { +"Header 2"; style = "color: red;" }
               unorderedList("Item 5", "Item 6", "Item 7", "Item 8") { style = fmt }
             }
           }
@@ -254,6 +281,8 @@ object Redis {
         }
       }
 
+
+      // Give an example in SET with rate limiting
     }
   }
 }

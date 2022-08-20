@@ -3,6 +3,7 @@ import Docker.dockerPresentation
 import Dsl.dslPresentation
 import Functional.functionalPresentation
 import Http.httpPresentation
+import Redis.redisPresentation
 import Unix.unixPresentation
 import com.kslides.PlaygroundTheme
 import com.kslides.PresentationTheme
@@ -88,16 +89,20 @@ fun main() {
           * [Docker Basics](docker.html)
           * [C Basics](c.html)
           * [Kotlin DSL Basics](dsl.html)
+          * [Redis Basics](redis.html)
           """
         }
       }
     }
 
+    val useLocal = true
+
     httpPresentation()
     functionalPresentation()
     unixPresentation()
     dockerPresentation()
-    cPresentation(false)
-    dslPresentation(false)
+    cPresentation(useLocal)
+    dslPresentation(useLocal)
+    redisPresentation(useLocal)
   }
 }

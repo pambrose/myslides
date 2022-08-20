@@ -1,0 +1,11 @@
+redis> SET key1 "Hello"
+OK
+redis> SET key2 "World"
+OK
+redis> GET key1
+"Hello"
+redis> GET key2
+"World"
+redis> GET nonexisting
+(nil)
+redis>

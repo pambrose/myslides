@@ -1,0 +1,11 @@
+redis> SET mykey "10"
+OK
+redis> DECR mykey
+(integer) 9
+redis> GET mykey
+"9"
+redis> DECRBY mykey 5
+(integer) 4
+redis> GET mykey
+"4"
+redis>

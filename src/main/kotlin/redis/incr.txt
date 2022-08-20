@@ -1,0 +1,11 @@
+redis> SET mykey "10"
+OK
+redis> INCR mykey
+(integer) 11
+redis> GET mykey
+"11"
+redis> INCRBY mykey 10
+(integer) 21
+redis> GET mykey
+"21"
+redis>

@@ -222,6 +222,38 @@ object Redis {
         }
       }
 
+      dslSlide {
+        content {
+          h2 {
+            alink("INCR", "https://redis.io/commands/incr/")
+            +"/"
+            alink("INCRBY", "https://redis.io/commands/incrby/")
+            +" Command"
+          }
+          codeSnippet {
+            language = "bash"
+            highlightPattern = "[|1-2|3|4|5-6|7|8|9-10|]"
+            +include("src/main/kotlin/redis/incr.txt")
+          }
+        }
+      }
+
+      dslSlide {
+        content {
+          h2 {
+            alink("DECR", "https://redis.io/commands/decr/")
+            +"/"
+            alink("DECRBY", "https://redis.io/commands/decrby/")
+            +" Command"
+          }
+          codeSnippet {
+            language = "bash"
+            highlightPattern = "[|1-2|3|4|5-6|7|8|9-10|]"
+            +include("src/main/kotlin/redis/decr.txt")
+          }
+        }
+      }
+
     }
   }
 }

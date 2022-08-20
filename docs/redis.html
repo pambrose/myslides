@@ -232,7 +232,7 @@ redis&gt;
         
         <section>
           <h2>
-            <a href="https://redis.io/commands/mset/" target="_blank">SET</a>/<a href="https://redis.io/commands/mget/" target="_blank">GET</a> Commands (2)
+            <a href="https://redis.io/commands/mset/" target="_blank">MSET</a>/<a href="https://redis.io/commands/mget/" target="_blank">MGET</a> Commands
           </h2>
           <pre><code class="bash" data-line-numbers="|1|2|3|4-6|" data-noescape="" data-trim="">
 redis&gt; MSET key1 "Hello" key2 "World"
@@ -241,6 +241,46 @@ redis&gt; MGET key1 key2 nonexisting
 1) "Hello"
 2) "World"
 3) (nil)
+redis&gt;
+</code>
+          </pre>
+        </section>
+        
+        <section>
+          <h2>
+            <a href="https://redis.io/commands/incr/" target="_blank">INCR</a>/<a href="https://redis.io/commands/incrby/" target="_blank">INCRBY</a> Command
+          </h2>
+          <pre><code class="bash" data-line-numbers="|1-2|3|4|5-6|7|8|9-10|" data-noescape="" data-trim="">
+redis&gt; SET mykey "10"
+OK
+redis&gt; INCR mykey
+(integer) 11
+redis&gt; GET mykey
+"11"
+redis&gt; INCRBY mykey 10
+(integer) 21
+redis&gt; GET mykey
+"21"
+redis&gt;
+</code>
+          </pre>
+        </section>
+        
+        <section>
+          <h2>
+            <a href="https://redis.io/commands/decr/" target="_blank">DECR</a>/<a href="https://redis.io/commands/decrby/" target="_blank">DECRBY</a> Command
+          </h2>
+          <pre><code class="bash" data-line-numbers="|1-2|3|4|5-6|7|8|9-10|" data-noescape="" data-trim="">
+redis&gt; SET mykey "10"
+OK
+redis&gt; DECR mykey
+(integer) 9
+redis&gt; GET mykey
+"9"
+redis&gt; DECRBY mykey 5
+(integer) 4
+redis&gt; GET mykey
+"4"
 redis&gt;
 </code>
           </pre>

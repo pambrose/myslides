@@ -1,0 +1,3 @@
+> SINTER user:123:favorites user:456:favorites
+1) "561"
+>

@@ -1,0 +1,3 @@
+> SCARD user:123:favorites
+(integer) 3
+>

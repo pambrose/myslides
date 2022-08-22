@@ -1,0 +1,13 @@
+> SADD user:123:favorites 347
+(integer) 1
+> SADD user:123:favorites 561
+(integer) 1
+> SADD user:123:favorites 742
+(integer) 1
+> SADD user:456:favorites 561
+(integer) 1
+> SMEMBERS user:123:favorites
+1) "347"
+2) "561"
+3) "742"
+>

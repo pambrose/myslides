@@ -112,7 +112,7 @@ object Redis {
             ```bash
             
             brew install redis  
-            
+            brew install iredis
             
             ```    
                   
@@ -154,7 +154,14 @@ object Redis {
             redis-cli      
             
             
-            ```                    
+            ```    
+            or
+            ```bash
+            
+            iredis      
+            
+            
+            ```                
           """
         }
       }
@@ -188,23 +195,25 @@ object Redis {
 
       dslSlide {
         content {
-          h2 { +"🚌 Redis Commands"; style = "margin-bottom:20px;" }
+          h2 {
+            +"🚌 "
+            alink("Redis Commands", "https://redis.io/commands/")
+            style = "margin-bottom:20px;"
+          }
           div("multiColumn2") {
             val fmt = "font-size:30px; padding-top:10px;"
             div("column2") {
-              unorderedList("SET/GET/DEL", "MSET/MGET", "INCR/DECR", "Item 4") { style = fmt }
+              unorderedList("SET/GET/DEL", "MSET/MGET", "INCR/DECR", "LPUSH/LPOP/RPOP/LLEN") { style = fmt }
             }
             div("column2") {
-              unorderedList("Item 5", "Item 6", "Item 7", "Item 8") { style = fmt }
+              unorderedList("LMOVE/LRANGE/BLPOP", "SADD/SMEMBERS/SISMEMBER", "SINTER/SCARD") { style = fmt }
             }
           }
         }
       }
 
       dslSlide {
-        content {
-          h2 { +"String Commands" }
-        }
+        content { h2 { +"String Commands" } }
       }
 
       dslSlide {
@@ -217,10 +226,11 @@ object Redis {
             alink("DEL", "https://redis.io/commands/del/")
             +" Commands"
           }
+          h4 { +"Set, get, and delete keys" }
           codeSnippet {
             language = "bash"
             copyButton = false
-            highlightPattern = "[|1|2|3|4|5|6|7|8|9|10|11|12|]"
+            highlightPattern = "[|1-2|3-4|5-6|7-8|9-10|11-12|]"
             +include("src/main/kotlin/redis/set-get1.txt")
           }
         }
@@ -233,10 +243,11 @@ object Redis {
             alink("SET", "https://redis.io/commands/set/")
             +" Commands"
           }
+          h4 { +"Expiring keys" }
           codeSnippet {
             language = "bash"
             copyButton = false
-            highlightPattern = "[|1|3|5|]"
+            highlightPattern = "[|1-2|3-4|5-6|]"
             +include("src/main/kotlin/redis/set-get2.txt")
           }
         }
@@ -250,10 +261,11 @@ object Redis {
             alink("MGET", "https://redis.io/commands/mget/")
             +" Commands"
           }
+          h4 { +"Set multiple values" }
           codeSnippet {
             language = "bash"
             copyButton = false
-            highlightPattern = "[|1|2|3|4-6|]"
+            highlightPattern = "[|1-2|3-6|]"
             +include("src/main/kotlin/redis/mset-mget1.txt")
           }
         }
@@ -267,10 +279,11 @@ object Redis {
             alink("INCRBY", "https://redis.io/commands/incrby/")
             +" Commands"
           }
+          h4 { +"Increment a value" }
           codeSnippet {
             language = "bash"
             copyButton = false
-            highlightPattern = "[|1-2|3|4|5-6|7|8|9-10|]"
+            highlightPattern = "[|1-2|3-4|5-6|7-8|9-10|]"
             +include("src/main/kotlin/redis/incr.txt")
           }
         }
@@ -284,19 +297,18 @@ object Redis {
             alink("DECRBY", "https://redis.io/commands/decrby/")
             +" Commands"
           }
+          h4 { +"Decrement a value" }
           codeSnippet {
             language = "bash"
             copyButton = false
-            highlightPattern = "[|1-2|3|4|5-6|7|8|9-10|]"
+            highlightPattern = "[|1-2|3-4|5-6|7-8|9-10|]"
             +include("src/main/kotlin/redis/decr.txt")
           }
         }
       }
 
       dslSlide {
-        content {
-          h2 { +"List Commands" }
-        }
+        content { h2 { +"List Commands" } }
       }
 
       dslSlide {
@@ -329,9 +341,7 @@ object Redis {
             alink("LPOP", "https://redis.io/commands/lpop/")
             +" Commands"
           }
-          h4 {
-            +"Implementing a stack (first in, last out)"
-          }
+          h4 { +"Implementing a stack (first in, last out)" }
           codeSnippet {
             language = "bash"
             copyButton = false
@@ -349,9 +359,7 @@ object Redis {
             alink("LRANGE", "https://redis.io/commands/lrange/")
             +" Commands"
           }
-          h4 {
-            +"Moving items between lists"
-          }
+          h4 { +"Moving items between lists" }
           codeSnippet {
             language = "bash"
             copyButton = false
@@ -367,15 +375,89 @@ object Redis {
             alink("BLPOP", "https://redis.io/commands/blpop/")
             +" Command"
           }
-          h4 {
-            +"Blocking list pop"
-          }
+          h4 { +"Blocking list pop" }
           codeSnippet {
             language = "bash"
             copyButton = false
             highlightPattern = "[|1|2-3|4|5-6|]"
             +include("src/main/kotlin/redis/list4.txt")
           }
+        }
+      }
+
+      dslSlide {
+        content {
+          h2 { +"Set Commands" }
+        }
+      }
+
+      dslSlide {
+        content {
+          h2 {
+            alink("SADD", "https://redis.io/commands/sadd/")
+            +"/"
+            alink("SMEMBERS", "https://redis.io/commands/smembers/")
+            +" Commands"
+          }
+          h4 { +"Set creation and membership" }
+          codeSnippet {
+            language = "bash"
+            copyButton = false
+            highlightPattern = "[|1-2|3-4|5-6|7-8|9-12|]"
+            +include("src/main/kotlin/redis/set1.txt")
+          }
+        }
+      }
+
+      dslSlide {
+        content {
+          h2 {
+            alink("SISMEMBER", "https://redis.io/commands/sismember/")
+            +" Command"
+          }
+          h4 { +"Set membership: does user 123 like books 742 and 299?" }
+          codeSnippet {
+            language = "bash"
+            copyButton = false
+            highlightPattern = "[|1-2|3-4|]"
+            +include("src/main/kotlin/redis/set2.txt")
+          }
+        }
+      }
+
+      dslSlide {
+        content {
+          h2 {
+            alink("SINTER", "https://redis.io/commands/sinter/")
+            +" Command"
+          }
+          h4 { +"Set intersection: do users 123 and 456 have any favorite books in common?" }
+          codeSnippet {
+            language = "bash"
+            copyButton = false
+            +include("src/main/kotlin/redis/set3.txt")
+          }
+        }
+      }
+
+      dslSlide {
+        content {
+          h2 {
+            alink("SCARD", "https://redis.io/commands/scard/")
+            +" Command"
+          }
+          h4 { +"Set size: how many books has user 123 favorited?" }
+          codeSnippet {
+            language = "bash"
+            copyButton = false
+            +include("src/main/kotlin/redis/set4.txt")
+          }
+        }
+      }
+
+      dslSlide {
+        content {
+          h2 { +"Redis Pub/Sub" }
         }
       }
 

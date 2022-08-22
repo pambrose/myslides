@@ -1,0 +1,5 @@
+> SISMEMBER user:123:favorites 742
+(integer) 1
+> SISMEMBER user:123:favorites 299
+(integer) 0
+>

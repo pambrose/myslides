@@ -132,7 +132,7 @@
 ```bash
 
 brew install redis  
-
+brew install iredis
 
 ```    
       
@@ -170,7 +170,14 @@ redis-server
 redis-cli      
 
 
-```                    
+```    
+or
+```bash
+
+iredis      
+
+
+```                
 </script>
         </section>
         
@@ -219,22 +226,23 @@ redis-cli
         </section>
         
         <section>
-          <h2 style="margin-bottom:20px;">&#128652; Redis Commands</h2>
+          <h2 style="margin-bottom:20px;">
+            &#128652; <a href="https://redis.io/commands/" target="_blank">Redis Commands</a>
+          </h2>
           <div class="multiColumn2">
             <div class="column2">
               <ul style="font-size:30px; padding-top:10px;">
                 <li>SET/GET/DEL</li>
                 <li>MSET/MGET</li>
                 <li>INCR/DECR</li>
-                <li>Item 4</li>
+                <li>LPUSH/LPOP/RPOP/LLEN</li>
               </ul>
             </div>
             <div class="column2">
               <ul style="font-size:30px; padding-top:10px;">
-                <li>Item 5</li>
-                <li>Item 6</li>
-                <li>Item 7</li>
-                <li>Item 8</li>
+                <li>LMOVE/LRANGE/BLPOP</li>
+                <li>SADD/SMEMBERS/SISMEMBER</li>
+                <li>SINTER/SCARD</li>
               </ul>
             </div>
           </div>
@@ -248,7 +256,8 @@ redis-cli
           <h2>
             <a href="https://redis.io/commands/set/" target="_blank">SET</a>/<a href="https://redis.io/commands/get/" target="_blank">GET</a>/<a href="https://redis.io/commands/del/" target="_blank">DEL</a> Commands
           </h2>
-          <pre data-cc="false"><code class="bash" data-line-numbers="|1|2|3|4|5|6|7|8|9|10|11|12|" data-noescape="" data-trim="">
+          <h4>Set, get, and delete keys</h4>
+          <pre data-cc="false"><code class="bash" data-line-numbers="|1-2|3-4|5-6|7-8|9-10|11-12|" data-noescape="" data-trim="">
 &gt; SET key1 "Hello"
 OK
 &gt; SET key2 "World"
@@ -270,7 +279,8 @@ OK
           <h2>
             Timed <a href="https://redis.io/commands/set/" target="_blank">SET</a> Commands
           </h2>
-          <pre data-cc="false"><code class="bash" data-line-numbers="|1|3|5|" data-noescape="" data-trim="">
+          <h4>Expiring keys</h4>
+          <pre data-cc="false"><code class="bash" data-line-numbers="|1-2|3-4|5-6|" data-noescape="" data-trim="">
 &gt; SET tempkey "Temp val with 10 secs of life" EX 10
 OK
 &gt; SET cond1key "Set only if key does not exist" EX 10 NX
@@ -286,7 +296,8 @@ OK
           <h2>
             <a href="https://redis.io/commands/mset/" target="_blank">MSET</a>/<a href="https://redis.io/commands/mget/" target="_blank">MGET</a> Commands
           </h2>
-          <pre data-cc="false"><code class="bash" data-line-numbers="|1|2|3|4-6|" data-noescape="" data-trim="">
+          <h4>Set multiple values</h4>
+          <pre data-cc="false"><code class="bash" data-line-numbers="|1-2|3-6|" data-noescape="" data-trim="">
 &gt; MSET key1 "Hello" key2 "World"
 OK
 &gt; MGET key1 key2 nonexisting
@@ -302,7 +313,8 @@ OK
           <h2>
             <a href="https://redis.io/commands/incr/" target="_blank">INCR</a>/<a href="https://redis.io/commands/incrby/" target="_blank">INCRBY</a> Commands
           </h2>
-          <pre data-cc="false"><code class="bash" data-line-numbers="|1-2|3|4|5-6|7|8|9-10|" data-noescape="" data-trim="">
+          <h4>Increment a value</h4>
+          <pre data-cc="false"><code class="bash" data-line-numbers="|1-2|3-4|5-6|7-8|9-10|" data-noescape="" data-trim="">
 &gt; SET mykey "10"
 OK
 &gt; INCR mykey
@@ -322,7 +334,8 @@ OK
           <h2>
             <a href="https://redis.io/commands/decr/" target="_blank">DECR</a>/<a href="https://redis.io/commands/decrby/" target="_blank">DECRBY</a> Commands
           </h2>
-          <pre data-cc="false"><code class="bash" data-line-numbers="|1-2|3|4|5-6|7|8|9-10|" data-noescape="" data-trim="">
+          <h4>Decrement a value</h4>
+          <pre data-cc="false"><code class="bash" data-line-numbers="|1-2|3-4|5-6|7-8|9-10|" data-noescape="" data-trim="">
 &gt; SET mykey "10"
 OK
 &gt; DECR mykey
@@ -420,6 +433,78 @@ OK
 &gt;
 </code>
           </pre>
+        </section>
+        
+        <section>
+          <h2>Set Commands</h2>
+        </section>
+        
+        <section>
+          <h2>
+            <a href="https://redis.io/commands/sadd/" target="_blank">SADD</a>/<a href="https://redis.io/commands/smembers/" target="_blank">SMEMBERS</a> Commands
+          </h2>
+          <h4>Set creation and membership</h4>
+          <pre data-cc="false"><code class="bash" data-line-numbers="|1-2|3-4|5-6|7-8|9-12|" data-noescape="" data-trim="">
+&gt; SADD user:123:favorites 347
+(integer) 1
+&gt; SADD user:123:favorites 561
+(integer) 1
+&gt; SADD user:123:favorites 742
+(integer) 1
+&gt; SADD user:456:favorites 561
+(integer) 1
+&gt; SMEMBERS user:123:favorites
+1) "347"
+2) "561"
+3) "742"
+&gt;
+</code>
+          </pre>
+        </section>
+        
+        <section>
+          <h2>
+            <a href="https://redis.io/commands/sismember/" target="_blank">SISMEMBER</a> Command
+          </h2>
+          <h4>Set membership: does user 123 like books 742 and 299?</h4>
+          <pre data-cc="false"><code class="bash" data-line-numbers="|1-2|3-4|" data-noescape="" data-trim="">
+&gt; SISMEMBER user:123:favorites 742
+(integer) 1
+&gt; SISMEMBER user:123:favorites 299
+(integer) 0
+&gt;
+</code>
+          </pre>
+        </section>
+        
+        <section>
+          <h2>
+            <a href="https://redis.io/commands/sinter/" target="_blank">SINTER</a> Command
+          </h2>
+          <h4>Set intersection: do users 123 and 456 have any favorite books in common?</h4>
+          <pre data-cc="false"><code class="bash" data-line-numbers="" data-noescape="" data-trim="">
+&gt; SINTER user:123:favorites user:456:favorites
+1) "561"
+&gt;
+</code>
+          </pre>
+        </section>
+        
+        <section>
+          <h2>
+            <a href="https://redis.io/commands/scard/" target="_blank">SCARD</a> Command
+          </h2>
+          <h4>Set size: how many books has user 123 favorited?</h4>
+          <pre data-cc="false"><code class="bash" data-line-numbers="" data-noescape="" data-trim="">
+&gt; SCARD user:123:favorites
+(integer) 3
+&gt;
+</code>
+          </pre>
+        </section>
+        
+        <section>
+          <h2>Redis Pub/Sub</h2>
         </section>
         
       </div>

@@ -344,6 +344,26 @@ object Redis {
       dslSlide {
         content {
           h2 {
+            alink("LMOVE", "https://redis.io/commands/lmove/")
+            +"/"
+            alink("LRANGE", "https://redis.io/commands/lrange/")
+            +" Commands"
+          }
+          h4 {
+            +"Moving items between lists"
+          }
+          codeSnippet {
+            language = "bash"
+            copyButton = false
+            highlightPattern = "[|1-2|3-4|5-6|7-8|9-10|]"
+            +include("src/main/kotlin/redis/list3.txt")
+          }
+        }
+      }
+
+      dslSlide {
+        content {
+          h2 {
             alink("BLPOP", "https://redis.io/commands/blpop/")
             +" Command"
           }

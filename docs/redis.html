@@ -386,6 +386,27 @@ OK
         
         <section>
           <h2>
+            <a href="https://redis.io/commands/lmove/" target="_blank">LMOVE</a>/<a href="https://redis.io/commands/lrange/" target="_blank">LRANGE</a> Commands
+          </h2>
+          <h4>Moving items between lists</h4>
+          <pre data-cc="false"><code class="bash" data-line-numbers="|1-2|3-4|5-6|7-8|9-10|" data-noescape="" data-trim="">
+&gt; LPUSH board:todo:ids 101
+(integer) 1
+&gt; LPUSH board:todo:ids 273
+(integer) 2
+&gt; LMOVE board:todo:ids board:in-progress:ids LEFT LEFT
+"273"
+&gt; LRANGE board:todo:ids 0 -1
+1) "101"
+&gt; LRANGE board:in-progress:ids 0 -1
+1) "273"
+&gt;
+</code>
+          </pre>
+        </section>
+        
+        <section>
+          <h2>
             <a href="https://redis.io/commands/blpop/" target="_blank">BLPOP</a> Command
           </h2>
           <h4>Blocking list pop</h4>

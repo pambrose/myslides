@@ -1,0 +1,9 @@
+> PSUBSCRIBE weather.*
+psubscribe from weather.*: 1
+pmessage  from weather.*:weather.94528: 88
+pmessage  from weather.*:weather.94513: 70
+> PUBLISH weather.94528 88
+(integer) 1
+> PUBLISH weather.94513 70
+(integer) 1
+>

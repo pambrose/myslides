@@ -243,6 +243,7 @@ iredis
                 <li>LMOVE/LRANGE/BLPOP</li>
                 <li>SADD/SMEMBERS/SISMEMBER</li>
                 <li>SINTER/SCARD</li>
+                <li>SUBSCRIBE/UNSUBSCRIBE/PUBLISH</li>
               </ul>
             </div>
           </div>
@@ -505,6 +506,42 @@ OK
         
         <section>
           <h2>Redis Pub/Sub</h2>
+        </section>
+        
+        <section>
+          <h3>
+            <a href="https://redis.io/commands/subscribe/" target="_blank">SUBSCRIBE</a>/<a href="https://redis.io/commands/unsubscribe/" target="_blank">UNSUBSCRIBE</a>/<a href="https://redis.io/commands/publish/" target="_blank">PUBLISH</a> Commands
+          </h3>
+          <h4>Publish/Subscribe</h4>
+          <pre data-cc="false"><code class="bash" data-line-numbers="|1-3|5-6|4|" data-noescape="" data-trim="">
+&gt; SUBSCRIBE topic1 topic2
+subscribe from topic1: 1
+subscribe from topic2: 2
+message   from topic1: Hello
+&gt; PUBLISH topic1 "Hello"
+(integer) 1
+&gt;
+</code>
+          </pre>
+        </section>
+        
+        <section>
+          <h3>
+            <a href="https://redis.io/commands/psubscribe/" target="_blank">PSUBSCRIBE</a>/<a href="https://redis.io/commands/punsubscribe/" target="_blank">PUNSUBSCRIBE</a> Commands
+          </h3>
+          <h4>Pattern-matching subscriptions</h4>
+          <pre data-cc="false"><code class="bash" data-line-numbers="|1-2|5-6|3|7-8|4|" data-noescape="" data-trim="">
+&gt; PSUBSCRIBE weather.*
+psubscribe from weather.*: 1
+pmessage  from weather.*:weather.94528: 88
+pmessage  from weather.*:weather.94513: 70
+&gt; PUBLISH weather.94528 88
+(integer) 1
+&gt; PUBLISH weather.94513 70
+(integer) 1
+&gt;
+</code>
+          </pre>
         </section>
         
       </div>

@@ -4,6 +4,7 @@ import Utils.textItem
 import com.kslides.KSlides
 import com.kslides.codeSnippet
 import com.kslides.include
+import com.kslides.slide.DslSlide
 import com.kslides.unorderedList
 import kotlinx.css.*
 import kotlinx.css.Float
@@ -48,9 +49,14 @@ object Redis {
         topRightHref = "#/redis"
       }
 
-      fun FlowOrInteractiveOrPhrasingContent.image(fname: String, widthPx: Int = 500) {
-        img { src = "images/redis/$fname"; width = "${widthPx}px" }
-      }
+      fun SECTION.redisSlide(dslSlide: DslSlide, fileName: String, highlight: String = "") =
+        codeSnippet {
+          language = "bash"
+          copyButton = false
+          if (highlight.isNotEmpty())
+            highlightPattern = highlight
+          +dslSlide.include("src/main/kotlin/redis/$fileName")
+        }
 
       dslSlide {
         content {
@@ -203,10 +209,20 @@ object Redis {
           div("multiColumn2") {
             val fmt = "font-size:30px; padding-top:10px;"
             div("column2") {
-              unorderedList("SET/GET/DEL", "MSET/MGET", "INCR/DECR", "LPUSH/LPOP/RPOP/LLEN") { style = fmt }
+              unorderedList(
+                "SET/GET/DEL",
+                "MSET/MGET",
+                "INCR/DECR",
+                "LPUSH/LPOP/RPOP/LLEN",
+              ) { style = fmt }
             }
             div("column2") {
-              unorderedList("LMOVE/LRANGE/BLPOP", "SADD/SMEMBERS/SISMEMBER", "SINTER/SCARD") { style = fmt }
+              unorderedList(
+                "LMOVE/LRANGE/BLPOP",
+                "SADD/SMEMBERS/SISMEMBER",
+                "SINTER/SCARD",
+                "SUBSCRIBE/UNSUBSCRIBE/PUBLISH",
+              ) { style = fmt }
             }
           }
         }
@@ -227,12 +243,7 @@ object Redis {
             +" Commands"
           }
           h4 { +"Set, get, and delete keys" }
-          codeSnippet {
-            language = "bash"
-            copyButton = false
-            highlightPattern = "[|1-2|3-4|5-6|7-8|9-10|11-12|]"
-            +include("src/main/kotlin/redis/set-get1.txt")
-          }
+          redisSlide(this@dslSlide,"set-get1.txt", "[|1-2|3-4|5-6|7-8|9-10|11-12|]")
         }
       }
 
@@ -244,12 +255,7 @@ object Redis {
             +" Commands"
           }
           h4 { +"Expiring keys" }
-          codeSnippet {
-            language = "bash"
-            copyButton = false
-            highlightPattern = "[|1-2|3-4|5-6|]"
-            +include("src/main/kotlin/redis/set-get2.txt")
-          }
+          redisSlide(this@dslSlide,"set-get2.txt", "[|1-2|3-4|5-6|]")
         }
       }
 
@@ -262,12 +268,7 @@ object Redis {
             +" Commands"
           }
           h4 { +"Set multiple values" }
-          codeSnippet {
-            language = "bash"
-            copyButton = false
-            highlightPattern = "[|1-2|3-6|]"
-            +include("src/main/kotlin/redis/mset-mget1.txt")
-          }
+          redisSlide(this@dslSlide,"mset-mget1.txt", "[|1-2|3-6|]")
         }
       }
 
@@ -280,12 +281,7 @@ object Redis {
             +" Commands"
           }
           h4 { +"Increment a value" }
-          codeSnippet {
-            language = "bash"
-            copyButton = false
-            highlightPattern = "[|1-2|3-4|5-6|7-8|9-10|]"
-            +include("src/main/kotlin/redis/incr.txt")
-          }
+          redisSlide(this@dslSlide,"incr.txt", "[|1-2|3-4|5-6|7-8|9-10|]")
         }
       }
 
@@ -298,12 +294,7 @@ object Redis {
             +" Commands"
           }
           h4 { +"Decrement a value" }
-          codeSnippet {
-            language = "bash"
-            copyButton = false
-            highlightPattern = "[|1-2|3-4|5-6|7-8|9-10|]"
-            +include("src/main/kotlin/redis/decr.txt")
-          }
+          redisSlide(this@dslSlide,"decr.txt", "[|1-2|3-4|5-6|7-8|9-10|]")
         }
       }
 
@@ -324,12 +315,7 @@ object Redis {
           h4 {
             +"Implementing a queue (first in, first out)"
           }
-          codeSnippet {
-            language = "bash"
-            copyButton = false
-            highlightPattern = "[|1-2|3-4|5-6|7-8|9-10|11-12|]"
-            +include("src/main/kotlin/redis/list1.txt")
-          }
+          redisSlide(this@dslSlide,"list1.txt", "[|1-2|3-4|5-6|7-8|9-10|11-12|]")
         }
       }
 
@@ -342,12 +328,7 @@ object Redis {
             +" Commands"
           }
           h4 { +"Implementing a stack (first in, last out)" }
-          codeSnippet {
-            language = "bash"
-            copyButton = false
-            highlightPattern = "[|1-2|3-4|5-6|7-8|]"
-            +include("src/main/kotlin/redis/list2.txt")
-          }
+          redisSlide(this@dslSlide,"list2.txt", "[|1-2|3-4|5-6|7-8|]")
         }
       }
 
@@ -360,12 +341,7 @@ object Redis {
             +" Commands"
           }
           h4 { +"Moving items between lists" }
-          codeSnippet {
-            language = "bash"
-            copyButton = false
-            highlightPattern = "[|1-2|3-4|5-6|7-8|9-10|]"
-            +include("src/main/kotlin/redis/list3.txt")
-          }
+          redisSlide(this@dslSlide,"list3.txt", "[|1-2|3-4|5-6|7-8|9-10|]")
         }
       }
 
@@ -376,12 +352,7 @@ object Redis {
             +" Command"
           }
           h4 { +"Blocking list pop" }
-          codeSnippet {
-            language = "bash"
-            copyButton = false
-            highlightPattern = "[|1|2-3|4|5-6|]"
-            +include("src/main/kotlin/redis/list4.txt")
-          }
+          redisSlide(this@dslSlide,"list4.txt", "[|1|2-3|4|5-6|]")
         }
       }
 
@@ -400,12 +371,7 @@ object Redis {
             +" Commands"
           }
           h4 { +"Set creation and membership" }
-          codeSnippet {
-            language = "bash"
-            copyButton = false
-            highlightPattern = "[|1-2|3-4|5-6|7-8|9-12|]"
-            +include("src/main/kotlin/redis/set1.txt")
-          }
+          redisSlide(this@dslSlide,"set1.txt", "[|1-2|3-4|5-6|7-8|9-12|]")
         }
       }
 
@@ -416,12 +382,7 @@ object Redis {
             +" Command"
           }
           h4 { +"Set membership: does user 123 like books 742 and 299?" }
-          codeSnippet {
-            language = "bash"
-            copyButton = false
-            highlightPattern = "[|1-2|3-4|]"
-            +include("src/main/kotlin/redis/set2.txt")
-          }
+          redisSlide(this@dslSlide,"set2.txt", "[|1-2|3-4|]")
         }
       }
 
@@ -432,11 +393,7 @@ object Redis {
             +" Command"
           }
           h4 { +"Set intersection: do users 123 and 456 have any favorite books in common?" }
-          codeSnippet {
-            language = "bash"
-            copyButton = false
-            +include("src/main/kotlin/redis/set3.txt")
-          }
+          redisSlide(this@dslSlide,"set3.txt")
         }
       }
 
@@ -447,11 +404,7 @@ object Redis {
             +" Command"
           }
           h4 { +"Set size: how many books has user 123 favorited?" }
-          codeSnippet {
-            language = "bash"
-            copyButton = false
-            +include("src/main/kotlin/redis/set4.txt")
-          }
+          redisSlide(this@dslSlide,"set4.txt")
         }
       }
 
@@ -461,6 +414,33 @@ object Redis {
         }
       }
 
+      dslSlide {
+        content {
+          h3 {
+            alink("SUBSCRIBE", "https://redis.io/commands/subscribe/")
+            +"/"
+            alink("UNSUBSCRIBE", "https://redis.io/commands/unsubscribe/")
+            +"/"
+            alink("PUBLISH", "https://redis.io/commands/publish/")
+            +" Commands"
+          }
+          h4 { +"Publish/Subscribe" }
+          redisSlide(this@dslSlide,"pubsub1.txt", "[|1-3|5-6|4|]")
+        }
+      }
+
+      dslSlide {
+        content {
+          h3 {
+            alink("PSUBSCRIBE", "https://redis.io/commands/psubscribe/")
+            +"/"
+            alink("PUNSUBSCRIBE", "https://redis.io/commands/punsubscribe/")
+            +" Commands"
+          }
+          h4 { +"Pattern-matching subscriptions" }
+          redisSlide(this@dslSlide,"pubsub2.txt", "|1-2|5-6|3|7-8|4|")
+        }
+      }
 
       // Give an example in SET with rate limiting
     }

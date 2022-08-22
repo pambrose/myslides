@@ -29,17 +29,15 @@ object C {
         topRightHref = "#/c"
       }
 
-      fun DslSlide.cSlide(fileName: String, heightPx: Int = 500) {
+      fun DslSlide.cSlide(fileName: String, heightPx: Int = 500) =
         playground(if (useLocal) "c-basics/$fileName" else githubRawUrl(owner, repoName, fileName)) {
           mode = PlaygroundMode.C
           height = "${heightPx}px"
           width = "100%"
         }
-      }
 
-      fun FlowOrInteractiveOrPhrasingContent.image(fname: String, widthPx: Int = 500) {
+      fun FlowOrInteractiveOrPhrasingContent.image(fname: String, widthPx: Int = 500) =
         img { src = "images/c/$fname"; width = "${widthPx}px" }
-      }
 
       dslSlide {
         content {

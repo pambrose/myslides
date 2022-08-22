@@ -1,0 +1,7 @@
+> SUBSCRIBE topic1 topic2
+subscribe from topic1: 1
+subscribe from topic2: 2
+message   from topic1: Hello
+> PUBLISH topic1 "Hello"
+(integer) 1
+>

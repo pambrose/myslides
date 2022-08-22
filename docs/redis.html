@@ -223,7 +223,7 @@ redis-cli
           <div class="multiColumn2">
             <div class="column2">
               <ul style="font-size:30px; padding-top:10px;">
-                <li>SET/GET</li>
+                <li>SET/GET/DEL</li>
                 <li>MSET/MGET</li>
                 <li>INCR/DECR</li>
                 <li>Item 4</li>
@@ -241,37 +241,43 @@ redis-cli
         </section>
         
         <section>
+          <h2>String Commands</h2>
+        </section>
+        
+        <section>
           <h2>
-            <a href="https://redis.io/commands/set/" target="_blank">SET</a>/<a href="https://redis.io/commands/get/" target="_blank">GET</a> Commands (1)
+            <a href="https://redis.io/commands/set/" target="_blank">SET</a>/<a href="https://redis.io/commands/get/" target="_blank">GET</a>/<a href="https://redis.io/commands/del/" target="_blank">DEL</a> Commands
           </h2>
-          <pre><code class="bash" data-line-numbers="|1|2|3|4|5|6|7|8|9|10|" data-noescape="" data-trim="">
-redis&gt; SET key1 "Hello"
+          <pre data-cc="false"><code class="bash" data-line-numbers="|1|2|3|4|5|6|7|8|9|10|11|12|" data-noescape="" data-trim="">
+&gt; SET key1 "Hello"
 OK
-redis&gt; SET key2 "World"
+&gt; SET key2 "World"
 OK
-redis&gt; GET key1
+&gt; GET key1
 "Hello"
-redis&gt; GET key2
+&gt; GET key2
 "World"
-redis&gt; GET nonexisting
+&gt; DEL key1 key2
+(integer) 2
+&gt; GET key1
 (nil)
-redis&gt;
+&gt;
 </code>
           </pre>
         </section>
         
         <section>
           <h2>
-            <a href="https://redis.io/commands/set/" target="_blank">SET</a>/<a href="https://redis.io/commands/get/" target="_blank">GET</a> Commands (2)
+            Timed <a href="https://redis.io/commands/set/" target="_blank">SET</a> Commands
           </h2>
-          <pre><code class="bash" data-line-numbers="|1|3|5|" data-noescape="" data-trim="">
-redis&gt; SET tempkey "Temp val with 10 secs of life" EX 10
+          <pre data-cc="false"><code class="bash" data-line-numbers="|1|3|5|" data-noescape="" data-trim="">
+&gt; SET tempkey "Temp val with 10 secs of life" EX 10
 OK
-redis&gt; SET cond1key "Set only if key does not exist" EX 10 NX
+&gt; SET cond1key "Set only if key does not exist" EX 10 NX
 OK
-redis&gt; SET cond2key "Set only if key does exist" EX 10 XX
+&gt; SET cond2key "Set only if key does exist" EX 10 XX
 OK
-redis&gt;
+&gt;
 </code>
           </pre>
         </section>
@@ -280,54 +286,117 @@ redis&gt;
           <h2>
             <a href="https://redis.io/commands/mset/" target="_blank">MSET</a>/<a href="https://redis.io/commands/mget/" target="_blank">MGET</a> Commands
           </h2>
-          <pre><code class="bash" data-line-numbers="|1|2|3|4-6|" data-noescape="" data-trim="">
-redis&gt; MSET key1 "Hello" key2 "World"
+          <pre data-cc="false"><code class="bash" data-line-numbers="|1|2|3|4-6|" data-noescape="" data-trim="">
+&gt; MSET key1 "Hello" key2 "World"
 OK
-redis&gt; MGET key1 key2 nonexisting
+&gt; MGET key1 key2 nonexisting
 1) "Hello"
 2) "World"
 3) (nil)
-redis&gt;
+&gt;
 </code>
           </pre>
         </section>
         
         <section>
           <h2>
-            <a href="https://redis.io/commands/incr/" target="_blank">INCR</a>/<a href="https://redis.io/commands/incrby/" target="_blank">INCRBY</a> Command
+            <a href="https://redis.io/commands/incr/" target="_blank">INCR</a>/<a href="https://redis.io/commands/incrby/" target="_blank">INCRBY</a> Commands
           </h2>
-          <pre><code class="bash" data-line-numbers="|1-2|3|4|5-6|7|8|9-10|" data-noescape="" data-trim="">
-redis&gt; SET mykey "10"
+          <pre data-cc="false"><code class="bash" data-line-numbers="|1-2|3|4|5-6|7|8|9-10|" data-noescape="" data-trim="">
+&gt; SET mykey "10"
 OK
-redis&gt; INCR mykey
+&gt; INCR mykey
 (integer) 11
-redis&gt; GET mykey
+&gt; GET mykey
 "11"
-redis&gt; INCRBY mykey 10
+&gt; INCRBY mykey 10
 (integer) 21
-redis&gt; GET mykey
+&gt; GET mykey
 "21"
-redis&gt;
+&gt;
 </code>
           </pre>
         </section>
         
         <section>
           <h2>
-            <a href="https://redis.io/commands/decr/" target="_blank">DECR</a>/<a href="https://redis.io/commands/decrby/" target="_blank">DECRBY</a> Command
+            <a href="https://redis.io/commands/decr/" target="_blank">DECR</a>/<a href="https://redis.io/commands/decrby/" target="_blank">DECRBY</a> Commands
           </h2>
-          <pre><code class="bash" data-line-numbers="|1-2|3|4|5-6|7|8|9-10|" data-noescape="" data-trim="">
-redis&gt; SET mykey "10"
+          <pre data-cc="false"><code class="bash" data-line-numbers="|1-2|3|4|5-6|7|8|9-10|" data-noescape="" data-trim="">
+&gt; SET mykey "10"
 OK
-redis&gt; DECR mykey
+&gt; DECR mykey
 (integer) 9
-redis&gt; GET mykey
+&gt; GET mykey
 "9"
-redis&gt; DECRBY mykey 5
+&gt; DECRBY mykey 5
 (integer) 4
-redis&gt; GET mykey
+&gt; GET mykey
 "4"
-redis&gt;
+&gt;
+</code>
+          </pre>
+        </section>
+        
+        <section>
+          <h2>List Commands</h2>
+        </section>
+        
+        <section>
+          <h2>
+            <a href="https://redis.io/commands/lpush/" target="_blank">LPUSH</a>/<a href="https://redis.io/commands/rpop/" target="_blank">RPOP</a>/<a href="https://redis.io/commands/llen/" target="_blank">LLEN</a> Commands
+          </h2>
+          <h4>Implementing a queue (first in, first out)</h4>
+          <pre data-cc="false"><code class="bash" data-line-numbers="|1-2|3-4|5-6|7-8|9-10|11-12|" data-noescape="" data-trim="">
+&gt; LPUSH work:queue:ids 101
+(integer) 1
+&gt; LPUSH work:queue:ids 237
+(integer) 2
+&gt; LLEN work:queue:ids
+(integer) 2
+&gt; RPOP work:queue:ids
+"101"
+&gt; RPOP work:queue:ids
+"237"
+&gt; LLEN work:queue:ids
+(integer) 0
+&gt;
+</code>
+          </pre>
+        </section>
+        
+        <section>
+          <h2>
+            <a href="https://redis.io/commands/lpush/" target="_blank">LPUSH</a>/<a href="https://redis.io/commands/lpop/" target="_blank">LPOP</a> Commands
+          </h2>
+          <h4>Implementing a stack (first in, last out)</h4>
+          <pre data-cc="false"><code class="bash" data-line-numbers="|1-2|3-4|5-6|7-8|" data-noescape="" data-trim="">
+&gt; LPUSH work:queue:ids 101
+(integer) 1
+&gt; LPUSH work:queue:ids 237
+(integer) 2
+&gt; LPOP work:queue:ids
+"237"
+&gt; LPOP work:queue:ids
+"101"
+&gt;
+</code>
+          </pre>
+        </section>
+        
+        <section>
+          <h2>
+            <a href="https://redis.io/commands/blpop/" target="_blank">BLPOP</a> Command
+          </h2>
+          <h4>Blocking list pop</h4>
+          <pre data-cc="false"><code class="bash" data-line-numbers="|1|2-3|4|5-6|" data-noescape="" data-trim="">
+&gt; BLPOP work:ids 0
+1) "work:ids"
+2) "444"
+&gt; BLPOP work:ids 5
+(nil)
+(5.03s)
+&gt;
 </code>
           </pre>
         </section>

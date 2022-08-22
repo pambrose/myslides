@@ -1,0 +1,11 @@
+> LPUSH board:todo:ids 101
+(integer) 1
+> LPUSH board:todo:ids 273
+(integer) 2
+> LMOVE board:todo:ids board:in-progress:ids LEFT LEFT
+"273"
+> LRANGE board:todo:ids 0 -1
+1) "101"
+> LRANGE board:in-progress:ids 0 -1
+1) "273"
+>

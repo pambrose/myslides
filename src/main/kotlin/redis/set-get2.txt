@@ -1,7 +1,7 @@
-redis> SET tempkey "Temp val with 10 secs of life" EX 10
+> SET tempkey "Temp val with 10 secs of life" EX 10
 OK
-redis> SET cond1key "Set only if key does not exist" EX 10 NX
+> SET cond1key "Set only if key does not exist" EX 10 NX
 OK
-redis> SET cond2key "Set only if key does exist" EX 10 XX
+> SET cond2key "Set only if key does exist" EX 10 XX
 OK
-redis>
+>

@@ -1,7 +1,7 @@
-redis> MSET key1 "Hello" key2 "World"
+> MSET key1 "Hello" key2 "World"
 OK
-redis> MGET key1 key2 nonexisting
+> MGET key1 key2 nonexisting
 1) "Hello"
 2) "World"
 3) (nil)
-redis>
+>

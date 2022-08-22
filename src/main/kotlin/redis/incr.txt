@@ -1,11 +1,11 @@
-redis> SET mykey "10"
+> SET mykey "10"
 OK
-redis> INCR mykey
+> INCR mykey
 (integer) 11
-redis> GET mykey
+> GET mykey
 "11"
-redis> INCRBY mykey 10
+> INCRBY mykey 10
 (integer) 21
-redis> GET mykey
+> GET mykey
 "21"
-redis>
+>

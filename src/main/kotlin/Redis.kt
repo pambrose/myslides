@@ -170,7 +170,7 @@ object Redis {
                 linkItem("Lists", "https://redis.io/docs/data-types/lists/"),
                 linkItem("Sets", "https://redis.io/docs/data-types/sets/"),
                 linkItem("Hashes", "https://redis.io/docs/data-types/hashes/"),
-                linkItem("Sorted Sets","https://redis.io/docs/data-types/sorted-sets/"),
+                linkItem("Sorted Sets", "https://redis.io/docs/data-types/sorted-sets/"),
               ) { style = fmt }
             }
             div("column2") {
@@ -179,7 +179,7 @@ object Redis {
                 linkItem("Geospatial", "https://redis.io/docs/data-types/geospatial/"),
                 linkItem("HyperLogLog", "https://redis.io/docs/data-types/hyperloglogs/"),
                 linkItem("Bitmaps", "https://redis.io/docs/data-types/bitmaps/"),
-                linkItem("Bitfields","https://redis.io/docs/data-types/bitfields/"),
+                linkItem("Bitfields", "https://redis.io/docs/data-types/bitfields/"),
               ) { style = fmt }
             }
           }
@@ -192,7 +192,7 @@ object Redis {
           div("multiColumn2") {
             val fmt = "font-size:30px; padding-top:10px;"
             div("column2") {
-              unorderedList("SET/GET", "MSET/MGET", "INCR/DECR", "Item 4") { style = fmt }
+              unorderedList("SET/GET/DEL", "MSET/MGET", "INCR/DECR", "Item 4") { style = fmt }
             }
             div("column2") {
               unorderedList("Item 5", "Item 6", "Item 7", "Item 8") { style = fmt }
@@ -203,17 +203,7 @@ object Redis {
 
       dslSlide {
         content {
-          h2 {
-            alink("SET", "https://redis.io/commands/set/")
-            +"/"
-            alink("GET", "https://redis.io/commands/get/")
-            +" Commands (1)"
-          }
-          codeSnippet {
-            language = "bash"
-            highlightPattern = "[|1|2|3|4|5|6|7|8|9|10|]"
-            +include("src/main/kotlin/redis/set-get1.txt")
-          }
+          h2 { +"String Commands" }
         }
       }
 
@@ -223,10 +213,29 @@ object Redis {
             alink("SET", "https://redis.io/commands/set/")
             +"/"
             alink("GET", "https://redis.io/commands/get/")
-            +" Commands (2)"
+            +"/"
+            alink("DEL", "https://redis.io/commands/del/")
+            +" Commands"
           }
           codeSnippet {
             language = "bash"
+            copyButton = false
+            highlightPattern = "[|1|2|3|4|5|6|7|8|9|10|11|12|]"
+            +include("src/main/kotlin/redis/set-get1.txt")
+          }
+        }
+      }
+
+      dslSlide {
+        content {
+          h2 {
+            +"Timed "
+            alink("SET", "https://redis.io/commands/set/")
+            +" Commands"
+          }
+          codeSnippet {
+            language = "bash"
+            copyButton = false
             highlightPattern = "[|1|3|5|]"
             +include("src/main/kotlin/redis/set-get2.txt")
           }
@@ -243,6 +252,7 @@ object Redis {
           }
           codeSnippet {
             language = "bash"
+            copyButton = false
             highlightPattern = "[|1|2|3|4-6|]"
             +include("src/main/kotlin/redis/mset-mget1.txt")
           }
@@ -255,10 +265,11 @@ object Redis {
             alink("INCR", "https://redis.io/commands/incr/")
             +"/"
             alink("INCRBY", "https://redis.io/commands/incrby/")
-            +" Command"
+            +" Commands"
           }
           codeSnippet {
             language = "bash"
+            copyButton = false
             highlightPattern = "[|1-2|3|4|5-6|7|8|9-10|]"
             +include("src/main/kotlin/redis/incr.txt")
           }
@@ -271,12 +282,79 @@ object Redis {
             alink("DECR", "https://redis.io/commands/decr/")
             +"/"
             alink("DECRBY", "https://redis.io/commands/decrby/")
-            +" Command"
+            +" Commands"
           }
           codeSnippet {
             language = "bash"
+            copyButton = false
             highlightPattern = "[|1-2|3|4|5-6|7|8|9-10|]"
             +include("src/main/kotlin/redis/decr.txt")
+          }
+        }
+      }
+
+      dslSlide {
+        content {
+          h2 { +"List Commands" }
+        }
+      }
+
+      dslSlide {
+        content {
+          h2 {
+            alink("LPUSH", "https://redis.io/commands/lpush/")
+            +"/"
+            alink("RPOP", "https://redis.io/commands/rpop/")
+            +"/"
+            alink("LLEN", "https://redis.io/commands/llen/")
+            +" Commands"
+          }
+          h4 {
+            +"Implementing a queue (first in, first out)"
+          }
+          codeSnippet {
+            language = "bash"
+            copyButton = false
+            highlightPattern = "[|1-2|3-4|5-6|7-8|9-10|11-12|]"
+            +include("src/main/kotlin/redis/list1.txt")
+          }
+        }
+      }
+
+      dslSlide {
+        content {
+          h2 {
+            alink("LPUSH", "https://redis.io/commands/lpush/")
+            +"/"
+            alink("LPOP", "https://redis.io/commands/lpop/")
+            +" Commands"
+          }
+          h4 {
+            +"Implementing a stack (first in, last out)"
+          }
+          codeSnippet {
+            language = "bash"
+            copyButton = false
+            highlightPattern = "[|1-2|3-4|5-6|7-8|]"
+            +include("src/main/kotlin/redis/list2.txt")
+          }
+        }
+      }
+
+      dslSlide {
+        content {
+          h2 {
+            alink("BLPOP", "https://redis.io/commands/blpop/")
+            +" Command"
+          }
+          h4 {
+            +"Blocking list pop"
+          }
+          codeSnippet {
+            language = "bash"
+            copyButton = false
+            highlightPattern = "[|1|2-3|4|5-6|]"
+            +include("src/main/kotlin/redis/list4.txt")
           }
         }
       }

@@ -1,11 +1,13 @@
-redis> SET key1 "Hello"
+> SET key1 "Hello"
 OK
-redis> SET key2 "World"
+> SET key2 "World"
 OK
-redis> GET key1
+> GET key1
 "Hello"
-redis> GET key2
+> GET key2
 "World"
-redis> GET nonexisting
+> DEL key1 key2
+(integer) 2
+> GET key1
 (nil)
-redis>
+>

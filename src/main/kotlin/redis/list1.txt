@@ -1,0 +1,13 @@
+> LPUSH work:queue:ids 101
+(integer) 1
+> LPUSH work:queue:ids 237
+(integer) 2
+> LLEN work:queue:ids
+(integer) 2
+> RPOP work:queue:ids
+"101"
+> RPOP work:queue:ids
+"237"
+> LLEN work:queue:ids
+(integer) 0
+>

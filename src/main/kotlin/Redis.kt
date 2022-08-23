@@ -471,13 +471,9 @@ object Redis {
           mermaid(
             """
                 flowchart TD
-                    A[Load Balancer]
-                    A --> B[Server 1]
-                    A --> C[Server 2]
-                    A --> D[Server 3]
-                    B --> E[Redis]
-                    C --> E
-                    D --> E
+                    WC[Web Clients] --> LB[Load Balancer]
+                    LB --> S1[HTTP Server 1] & S2[HTTP Server 2] & S3[HTTP Server 3]
+                    S1 & S2 & S3 --> R[Redis]
               """
           )
           h4 {
@@ -492,16 +488,13 @@ object Redis {
           mermaid(
             """
                 flowchart TD
-                    A[Work Submitter]
-                    A --> B[Redis]
-                    B <--> C[Server 1]
-                    B <--> D[Server 2]
-                    B <--> E[Server 3]
+                    WS[Work Submitter] --> R[Redis]
+                    R --> S1[Server 1] & S2[Server 2] & S3[Server 3]
               """
           )
-//          h4 {
-//            +"Compute intensive jobs"
-//          }
+          h4 {
+            +"Compute intensive jobs"
+          }
         }
       }
 

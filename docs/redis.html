@@ -578,24 +578,18 @@ pmessage  from weather.*:weather.94513: 70
         <section>
           <h2>Session Cache</h2>
           <div class="mermaid">flowchart TD
-A[Load Balancer]
-A --&gt; B[Server 1]
-A --&gt; C[Server 2]
-A --&gt; D[Server 3]
-B --&gt; E[Redis]
-C --&gt; E
-D --&gt; E</div>
+WC[Web Clients] --&gt; LB[Load Balancer]
+LB --&gt; S1[HTTP Server 1] &amp; S2[HTTP Server 2] &amp; S3[HTTP Server 3]
+S1 &amp; S2 &amp; S3 --&gt; R[Redis]</div>
           <h4>Profiles, high scores, page hits, shopping cart items</h4>
         </section>
         
         <section>
           <h2>Work Distribution</h2>
           <div class="mermaid">flowchart TD
-A[Work Submitter]
-A --&gt; B[Redis]
-B &lt;--&gt; C[Server 1]
-B &lt;--&gt; D[Server 2]
-B &lt;--&gt; E[Server 3]</div>
+WS[Work Submitter] --&gt; R[Redis]
+R --&gt; S1[Server 1] &amp; S2[Server 2] &amp; S3[Server 3]</div>
+          <h4>Compute intensive jobs</h4>
         </section>
         
       </div>

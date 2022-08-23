@@ -106,8 +106,8 @@
             <li>
               <a href="https://redis.io/commands/" target="_blank">Commands</a>
             </li>
+            <li>Use Cases</li>
             <li>Programmatic Access</li>
-            <li>Commands in Action</li>
           </ul>
         </section>
         
@@ -133,6 +133,7 @@
 
 brew install redis  
 brew install iredis
+
 
 ```    
       
@@ -243,6 +244,7 @@ iredis
                 <li>LMOVE/LRANGE/BLPOP</li>
                 <li>SADD/SMEMBERS/SISMEMBER</li>
                 <li>SINTER/SCARD</li>
+                <li>HSET/HGET/HGETALL</li>
                 <li>SUBSCRIBE/UNSUBSCRIBE/PUBLISH</li>
               </ul>
             </div>
@@ -250,7 +252,7 @@ iredis
         </section>
         
         <section>
-          <h2>String Commands</h2>
+          <h1>String Commands</h1>
         </section>
         
         <section>
@@ -353,7 +355,7 @@ OK
         </section>
         
         <section>
-          <h2>List Commands</h2>
+          <h1>List Commands</h1>
         </section>
         
         <section>
@@ -437,7 +439,7 @@ OK
         </section>
         
         <section>
-          <h2>Set Commands</h2>
+          <h1>Set Commands</h1>
         </section>
         
         <section>
@@ -505,7 +507,32 @@ OK
         </section>
         
         <section>
-          <h2>Redis Pub/Sub</h2>
+          <h1>Hashes</h1>
+        </section>
+        
+        <section>
+          <h2>
+            <a href="https://redis.io/commands/hset/" target="_blank">HSET</a>/<a href="https://redis.io/commands/hget/" target="_blank">HGET</a>/<a href="https://redis.io/commands/hgetall/" target="_blank">HGETALL</a> Commands
+          </h2>
+          <h4>Save a basic user profile as a hash</h4>
+          <pre data-cc="false"><code class="bash" data-line-numbers="|1-2|3-4|5-11|" data-noescape="" data-trim="">
+&gt; HSET user:123 username martina firstName Martina lastName Elisa
+(integer) 4
+&gt; HGET user:123 username
+"martina"
+&gt; HGETALL user:123
+1) "username"
+2) "martina"
+3) "firstName"
+4) "Martina"
+5) "lastName"
+6) "Elisa"
+</code>
+          </pre>
+        </section>
+        
+        <section>
+          <h1>Publish/Subscribe</h1>
         </section>
         
         <section>
@@ -544,6 +571,33 @@ pmessage  from weather.*:weather.94513: 70
           </pre>
         </section>
         
+        <section>
+          <h1>Use Cases</h1>
+        </section>
+        
+        <section>
+          <h2>Session Cache</h2>
+          <div class="mermaid">flowchart TD
+A[Load Balancer]
+A --&gt; B[Server 1]
+A --&gt; C[Server 2]
+A --&gt; D[Server 3]
+B --&gt; E[Redis]
+C --&gt; E
+D --&gt; E</div>
+          <h4>Profiles, high scores, page hits, shopping cart items</h4>
+        </section>
+        
+        <section>
+          <h2>Work Distribution</h2>
+          <div class="mermaid">flowchart TD
+A[Work Submitter]
+A --&gt; B[Redis]
+B &lt;--&gt; C[Server 1]
+B &lt;--&gt; D[Server 2]
+B &lt;--&gt; E[Server 3]</div>
+        </section>
+        
       </div>
     </div>
     	
@@ -555,6 +609,7 @@ pmessage  from weather.*:weather.94513: 70
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.11/clipboard.min.js"></script>
 	<script src="revealjs/plugin/copycode/copycode.js"></script>
 	<script src="revealjs/plugin/menu/menu.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
 
 	<script>
 		Reveal.initialize({
@@ -566,6 +621,9 @@ pmessage  from weather.*:weather.94513: 70
 
 			plugins: [ RevealZoom, RevealSearch, RevealMarkdown, RevealHighlight, RevealMenu, CopyCode ]
 		});
+
+
+		mermaid.initialize({startOnLoad:true});
 
 </script>
   </body>

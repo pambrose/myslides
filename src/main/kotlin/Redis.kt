@@ -82,10 +82,10 @@ object Redis {
           h3 { +"🕯 Overview of Slides" }
           unorderedList(
             textItem("What is Redis?"),
-            textItem("Getting Redis up and running"),
-            textItem("Data Types"),
+            linkItem("Getting Redis up and running", "https://redis.io/docs/getting-started/"),
+            linkItem("Data Types", "https://redis.io/docs/data-types/"),
             linkItem("Redis Commands", "https://redis.io/commands/"),
-            textItem("Programmatic API"),
+            linkItem("Programmatic APIs", "https://redis.io/docs/clients/"),
             textItem("Use Cases"),
           ) {
             style = "font-size:30px; padding-left: 80px"
@@ -235,7 +235,7 @@ object Redis {
       }
 
       dslSlide {
-        content { h1 { +"String Commands" } }
+        content { h1 { atag("Redis Strings","https://redis.io/docs/data-types/strings/") } }
       }
 
       dslSlide {
@@ -268,9 +268,7 @@ object Redis {
 
       dslSlide {
         content {
-          h2 {
-            +"TTL Commands"
-          }
+          h2 { +"TTL Commands" }
           h4 { +"Expiring keys (2)" }
           redisSlide(this@dslSlide, "string3.txt", "[|1-2|3-4|5-6|]")
         }
@@ -316,7 +314,7 @@ object Redis {
       }
 
       dslSlide {
-        content { h1 { +"List Commands" } }
+        content { h1 { atag("Redis Lists","https://redis.io/docs/data-types/lists/") } }
       }
 
       dslSlide {
@@ -374,7 +372,7 @@ object Redis {
       }
 
       dslSlide {
-        content { h1 { +"Set Commands" } }
+        content { h1 { atag("Redis Sets","https://redis.io/docs/data-types/sets/") } }
       }
 
       dslSlide {
@@ -424,7 +422,7 @@ object Redis {
       }
 
       dslSlide {
-        content { h1 { +"Hashes" } }
+        content { h1 { atag("Redis Hashes","https://redis.io/docs/data-types/hashes/") } }
       }
 
       dslSlide {
@@ -443,7 +441,7 @@ object Redis {
       }
 
       dslSlide {
-        content { h1 { +"Pub/Sub Commands" } }
+        content { h1 { atag("Redis Pub/Sub","https://redis.io/docs/manual/pubsub/") } }
       }
 
       dslSlide {
@@ -475,7 +473,7 @@ object Redis {
       }
 
       dslSlide {
-        content { h1 { +"Programmatic API" } }
+        content { h1 { atag("Programmatic APIs", "https://redis.io/docs/clients/") } }
       }
 
       dslSlide {

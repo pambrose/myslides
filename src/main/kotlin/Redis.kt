@@ -105,7 +105,7 @@ object Redis {
             "All access is via a key",
             "Meant to be run as a network-atached server",
             "Simple TCP protocol, which is implmented in many languages",
-            "Can act as a cache, database, pub-sub, and message broker",
+            "Can act as a cache, database, message broker, and pub-sub",
           ) {
             style = "font-size:30px; padding-left: 80px"
           }
@@ -214,6 +214,7 @@ object Redis {
             div("column2") {
               unorderedList(
                 "SET/GET/DEL",
+                "EXPIRE/PERSIST",
                 "MSET/MGET",
                 "INCR/DECR",
                 "LPUSH/LPOP/RPOP/LLEN",
@@ -247,7 +248,20 @@ object Redis {
             +" Commands"
           }
           h4 { +"Set, get, and delete keys" }
-          redisSlide(this@dslSlide, "set-get1.txt", "[|1-2|3-4|5-6|7-8|9-10|11-12|]")
+          redisSlide(this@dslSlide, "string1.txt", "[|1-2|3-4|5-6|7-8|9-10|11-12|]")
+        }
+      }
+
+      dslSlide {
+        content {
+          h2 {
+            atag("EXPIRE", "https://redis.io/commands/expire/")
+            +"/"
+            atag("PERSIST", "https://redis.io/commands/persist/")
+            +" Commands"
+          }
+          h4 { +"Expiring keys (1)" }
+          redisSlide(this@dslSlide, "string2.txt", "[|1-2|3-4|5-6|7-8|]")
         }
       }
 
@@ -258,8 +272,8 @@ object Redis {
             atag("SET", "https://redis.io/commands/set/")
             +" Commands"
           }
-          h4 { +"Expiring keys" }
-          redisSlide(this@dslSlide, "set-get2.txt", "[|1-2|3-4|5-6|]")
+          h4 { +"Expiring keys (2)" }
+          redisSlide(this@dslSlide, "string3.txt", "[|1-2|3-4|5-6|]")
         }
       }
 
@@ -471,14 +485,23 @@ object Redis {
           mermaid(
             """
                 flowchart TD
-                    WC[Web Clients] --> LB[Load Balancer]
-                    LB --> S1[HTTP Server 1] & S2[HTTP Server 2] & S3[HTTP Server 3]
-                    S1 & S2 & S3 --> R[Redis]
+                    WC[Web Clients] <--> LB[Load Balancer]
+                    LB <--> S1[HTTP Server 1] & S2[HTTP Server 2] & S3[HTTP Server 3]
+                    S1 & S2 & S3 <--> R[Redis]
               """
           )
           h4 {
-            +"Profiles, high scores, page hits, shopping cart items"
+            +"Cache user profiles, high scores, page hits, shopping cart items, last 10 user posts"
           }
+        }
+      }
+
+      // https://redis.io/commands/incr/
+      dslSlide {
+        content {
+          h2 { +"Naive Rate Limiter"}
+          redisSlide(this@dslSlide, "ratelimit1.txt", "|1|2|3|4-7|8|9-13|")
+          h4 { +"Limit each IP to 10 requests/sec" }
         }
       }
 
@@ -489,18 +512,28 @@ object Redis {
             """
                 flowchart TD
                     WS[Work Submitter] --> R[Redis]
-                    R --> S1[Server 1] & S2[Server 2] & S3[Server 3]
+                    R <--> S1[Server 1] & S2[Server 2] & S3[Server 3]
               """
           )
-          h4 {
-            +"Compute intensive jobs"
-          }
+          h4 { +"Distributing compute-intensive jobs" }
         }
       }
 
+      dslSlide {
+        content {
+          h2 { +"Stock Ticker Prices" }
+          mermaid(
+            """
+                flowchart TB
+                    WC1[Web Client 1] & WC2[Web Client 2] & WC3[Web Client 3] <--> WS[Web Server]
+                    WS <--> R[Redis] 
+                    R <--> PS1[Price Source 1] & PS2[Price Source 2] & PS3[Price Source 3]
+              """
+          )
+          h4 { +"Distributing ticker prices" }
+        }
+      }
 
-      // Cache
-      // Give an example in SET with rate limiting
       // https://architecturenotes.co/redis/
     }
   }

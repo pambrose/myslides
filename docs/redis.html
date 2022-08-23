@@ -121,7 +121,7 @@
             <li>All access is via a key</li>
             <li>Meant to be run as a network-atached server</li>
             <li>Simple TCP protocol, which is implmented in many languages</li>
-            <li>Can act as a cache, database, pub-sub, and message broker</li>
+            <li>Can act as a cache, database, message broker, and pub-sub</li>
           </ul>
         </section>
         
@@ -234,6 +234,7 @@ iredis
             <div class="column2">
               <ul style="font-size:30px; padding-top:10px;">
                 <li>SET/GET/DEL</li>
+                <li>EXPIRE/PERSIST</li>
                 <li>MSET/MGET</li>
                 <li>INCR/DECR</li>
                 <li>LPUSH/LPOP/RPOP/LLEN</li>
@@ -280,9 +281,28 @@ OK
         
         <section>
           <h2>
+            <a href="https://redis.io/commands/expire/" target="_blank">EXPIRE</a>/<a href="https://redis.io/commands/persist/" target="_blank">PERSIST</a> Commands
+          </h2>
+          <h4>Expiring keys (1)</h4>
+          <pre data-cc="false"><code class="bash" data-line-numbers="|1-2|3-4|5-6|7-8|" data-noescape="" data-trim="">
+&gt; set key some-value
+OK
+&gt; expire key 5
+(integer) 1
+&gt; get key (immediately)
+"some-value"
+&gt; get key (after some time)
+(nil)
+&gt;
+</code>
+          </pre>
+        </section>
+        
+        <section>
+          <h2>
             Timed <a href="https://redis.io/commands/set/" target="_blank">SET</a> Commands
           </h2>
-          <h4>Expiring keys</h4>
+          <h4>Expiring keys (2)</h4>
           <pre data-cc="false"><code class="bash" data-line-numbers="|1-2|3-4|5-6|" data-noescape="" data-trim="">
 &gt; SET tempkey "Temp val with 10 secs of life" EX 10
 OK
@@ -578,18 +598,48 @@ pmessage  from weather.*:weather.94513: 70
         <section>
           <h2>Session Cache</h2>
           <div class="mermaid">flowchart TD
-WC[Web Clients] --&gt; LB[Load Balancer]
-LB --&gt; S1[HTTP Server 1] &amp; S2[HTTP Server 2] &amp; S3[HTTP Server 3]
-S1 &amp; S2 &amp; S3 --&gt; R[Redis]</div>
-          <h4>Profiles, high scores, page hits, shopping cart items</h4>
+WC[Web Clients] &lt;--&gt; LB[Load Balancer]
+LB &lt;--&gt; S1[HTTP Server 1] &amp; S2[HTTP Server 2] &amp; S3[HTTP Server 3]
+S1 &amp; S2 &amp; S3 &lt;--&gt; R[Redis]</div>
+          <h4>Cache user profiles, high scores, page hits, shopping cart items, last 10 user posts</h4>
+        </section>
+        
+        <section>
+          <h2>Naive Rate Limiter</h2>
+          <pre data-cc="false"><code class="bash" data-line-numbers="|1|2|3|4-7|8|9-13|" data-noescape="" data-trim="">
+FUNCTION LIMIT_API_CALL(ip)
+ts = CURRENT_UNIX_TIME() // second resolution
+keyname = ip+":"+ts
+MULTI
+    INCR(keyname)
+    EXPIRE(keyname, 10)
+EXEC
+current = RESPONSE_OF_INCR_WITHIN_MULTI
+IF current &gt; 10 THEN
+    ERROR "too many requests per second"
+ELSE
+    PERFORM_API_CALL()
+END
+</code>
+          </pre>
+          <h4>Limit each IP to 10 requests/sec</h4>
         </section>
         
         <section>
           <h2>Work Distribution</h2>
           <div class="mermaid">flowchart TD
 WS[Work Submitter] --&gt; R[Redis]
-R --&gt; S1[Server 1] &amp; S2[Server 2] &amp; S3[Server 3]</div>
-          <h4>Compute intensive jobs</h4>
+R &lt;--&gt; S1[Server 1] &amp; S2[Server 2] &amp; S3[Server 3]</div>
+          <h4>Distributing compute-intensive jobs</h4>
+        </section>
+        
+        <section>
+          <h2>Stock Ticker Prices</h2>
+          <div class="mermaid">flowchart TB
+WC1[Web Client 1] &amp; WC2[Web Client 2] &amp; WC3[Web Client 3] &lt;--&gt; WS[Web Server]
+WS &lt;--&gt; R[Redis] 
+R &lt;--&gt; PS1[Price Source 1] &amp; PS2[Price Source 2] &amp; PS3[Price Source 3]</div>
+          <h4>Distributing ticker prices</h4>
         </section>
         
       </div>

@@ -86,7 +86,7 @@ object Redis {
             textItem("Data Types"),
             linkItem("Redis Commands", "https://redis.io/commands/"),
             textItem("Programmatic API"),
-            textItem("Redis Use Cases"),
+            textItem("Use Cases"),
           ) {
             style = "font-size:30px; padding-left: 80px"
           }
@@ -500,7 +500,7 @@ object Redis {
       }
 
       dslSlide {
-        content { h1 { +"Redis Use Cases" } }
+        content { h1 { +"Use Cases" } }
       }
 
       dslSlide {

@@ -1,0 +1,2 @@
+FUNCTION SUBMIT_WORK_TO_QUEUE(work_desc)
+LPUSH("work_queue:render", work_desc)

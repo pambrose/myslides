@@ -1,0 +1,5 @@
+FUNCTION REMOVE_WORK_FROM_QUEUE()
+WHILE true
+  work_desc = BRPOP("work_queue:render")
+  EXECUTE_WORK(word_desc)
+END

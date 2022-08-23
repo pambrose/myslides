@@ -1,0 +1,15 @@
+FUNCTION LIMIT_API_CALL(ip)
+current = LLEN(ip)
+IF current > 10 THEN
+    ERROR "Too many requests per second"
+ELSE
+    IF EXISTS(ip) == FALSE
+        MULTI
+            RPUSH(ip,ip)
+            EXPIRE(ip,1)
+        EXEC
+    ELSE
+        RPUSHX(ip,ip)
+    END
+    PERFORM_API_CALL()
+END

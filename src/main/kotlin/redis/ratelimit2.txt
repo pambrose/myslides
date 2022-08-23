@@ -1,0 +1,11 @@
+FUNCTION LIMIT_API_CALL(ip):
+current = GET(ip)
+IF current != NULL AND current > 10 THEN
+    ERROR "Too many requests per second"
+ELSE
+    value = INCR(ip)
+    IF value == 1 THEN
+        EXPIRE(ip, 1)
+    END
+    PERFORM_API_CALL()
+END

@@ -7,7 +7,7 @@ MULTI
 EXEC
 current = RESPONSE_OF_INCR_WITHIN_MULTI
 IF current > 10 THEN
-    ERROR "too many requests per second"
+    ERROR "Too many requests per second"
 ELSE
     PERFORM_API_CALL()
 END

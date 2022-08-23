@@ -3,6 +3,7 @@ import Utils.textItem
 import com.kslides.KSlides
 import com.kslides.atag
 import com.kslides.codeSnippet
+import com.kslides.githubRawUrl
 import com.kslides.include
 import com.kslides.slide.DslSlide
 import com.kslides.unorderedList
@@ -81,11 +82,11 @@ object Redis {
           h3 { +"🕯 Overview of Slides" }
           unorderedList(
             textItem("What is Redis?"),
-            textItem("Getting it up and running"),
+            textItem("Getting Redis up and running"),
             textItem("Data Types"),
-            linkItem("Commands", "https://redis.io/commands/"),
-            textItem("Use Cases"),
-            textItem("Programmatic Access"),
+            linkItem("Redis Commands", "https://redis.io/commands/"),
+            textItem("Programmatic API"),
+            textItem("Redis Use Cases"),
           ) {
             style = "font-size:30px; padding-left: 80px"
           }
@@ -268,9 +269,7 @@ object Redis {
       dslSlide {
         content {
           h2 {
-            +"Timed "
-            atag("SET", "https://redis.io/commands/set/")
-            +" Commands"
+            +"TTL Commands"
           }
           h4 { +"Expiring keys (2)" }
           redisSlide(this@dslSlide, "string3.txt", "[|1-2|3-4|5-6|]")
@@ -285,7 +284,7 @@ object Redis {
             atag("MGET", "https://redis.io/commands/mget/")
             +" Commands"
           }
-          h4 { +"Set multiple values" }
+          h4 { +"Set/Get multiple values" }
           redisSlide(this@dslSlide, "mset-mget1.txt", "[|1-2|3-6|]")
         }
       }
@@ -444,7 +443,7 @@ object Redis {
       }
 
       dslSlide {
-        content { h1 { +"Publish/Subscribe" } }
+        content { h1 { +"Pub/Sub Commands" } }
       }
 
       dslSlide {
@@ -457,7 +456,7 @@ object Redis {
             atag("PUBLISH", "https://redis.io/commands/publish/")
             +" Commands"
           }
-          h4 { +"Publish/Subscribe" }
+          h4 { +"Event-based programming" }
           redisSlide(this@dslSlide, "pubsub1.txt", "[|1-3|5-6|4|]")
         }
       }
@@ -476,7 +475,32 @@ object Redis {
       }
 
       dslSlide {
-        content { h1 { +"Use Cases" } }
+        content { h1 { +"Programmatic API" } }
+      }
+
+      dslSlide {
+        content {
+          h2 {
+            atag("Jedis", "https://github.com/redis/jedis")
+            +" Example"
+          }
+          codeSnippet {
+            language = "bash"
+            copyButton = false
+            highlightPattern = "|4|6|8|10|12|"
+            val fileName = "Set.kt"
+            +include(
+              if (useLocal)
+                "redis-demo/src/main/kotlin/$fileName"
+              else
+                githubRawUrl(owner, repoName, "src/main/kotlin/$fileName")
+            )
+          }
+        }
+      }
+
+      dslSlide {
+        content { h1 { +"Redis Use Cases" } }
       }
 
       dslSlide {
@@ -488,7 +512,7 @@ object Redis {
                     WC[Web Clients] <--> LB[Load Balancer]
                     LB <--> S1[HTTP Server 1] & S2[HTTP Server 2] & S3[HTTP Server 3]
                     S1 & S2 & S3 <--> R[Redis]
-              """
+            """
           )
           h4 {
             +"Cache user profiles, high scores, page hits, shopping cart items, last 10 user posts"
@@ -499,8 +523,24 @@ object Redis {
       // https://redis.io/commands/incr/
       dslSlide {
         content {
-          h2 { +"Naive Rate Limiter"}
+          h2 { +"Naive Rate Limiter using INCR (1)" }
           redisSlide(this@dslSlide, "ratelimit1.txt", "|1|2|3|4-7|8|9-13|")
+          h4 { +"Limit each IP to 10 requests/sec" }
+        }
+      }
+
+      dslSlide {
+        content {
+          h2 { +"Naive Rate Limiter using INCR (2)" }
+          redisSlide(this@dslSlide, "ratelimit2.txt", "|1|2|3-5|6|7-9|10|")
+          h4 { +"Limit each IP to 10 requests/sec" }
+        }
+      }
+
+      dslSlide {
+        content {
+          h2 { +"Naive Rate Limiter using a List" }
+          redisSlide(this@dslSlide, "ratelimit3.txt", "|1|2|3-4|5|6|7-10|11-13|14|")
           h4 { +"Limit each IP to 10 requests/sec" }
         }
       }
@@ -512,10 +552,25 @@ object Redis {
             """
                 flowchart TD
                     WS[Work Submitter] --> R[Redis]
-                    R <--> S1[Server 1] & S2[Server 2] & S3[Server 3]
-              """
+                    R <--> S1[Work Executor 1] & S2[Work Executor 2] & S3[Work Executor 3]
+            """
           )
-          h4 { +"Distributing compute-intensive jobs" }
+          h4 { +"Distribute compute-intensive jobs" }
+        }
+      }
+
+      dslSlide {
+        content {
+          h2 { +"Submit Work" }
+          redisSlide(this@dslSlide, "worksubmit.txt", "|1|2|")
+        }
+      }
+
+
+      dslSlide {
+        content {
+          h2 { +"Execute Work" }
+          redisSlide(this@dslSlide, "workperform.txt", "|1|2|3|4|")
         }
       }
 
@@ -527,10 +582,10 @@ object Redis {
                 flowchart TB
                     WC1[Web Client 1] & WC2[Web Client 2] & WC3[Web Client 3] <--> WS[Web Server]
                     WS <--> R[Redis] 
-                    R <--> PS1[Price Source 1] & PS2[Price Source 2] & PS3[Price Source 3]
-              """
+                    R <--> PS1[NYSE\nPrice Source] & PS2[NASDAQ\nPrice Source] & PS3[CBOT\nPrice Source]
+            """
           )
-          h4 { +"Distributing ticker prices" }
+          h4 { +"Distributing stock ticker prices" }
         }
       }
 

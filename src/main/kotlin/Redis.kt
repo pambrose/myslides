@@ -63,7 +63,7 @@ object Redis {
 
       dslSlide {
         content {
-          id = "c"
+          id = "redis"
           h2 { +"Redis Basics" }
           a {
             href = "https://redis.io"

@@ -1,7 +1,8 @@
 > MSET key1 "Hello" key2 "World"
 OK
-> MGET key1 key2 nonexisting
+> MGET key1 key2 key3 key4
 1) "Hello"
 2) "World"
 3) (nil)
+4) (nil)
 >

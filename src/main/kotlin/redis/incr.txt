@@ -1,11 +1,13 @@
 > SET mykey "10"
 OK
-> INCR mykey
+> INCR key1
 (integer) 11
-> GET mykey
+> GET key1
 "11"
-> INCRBY mykey 10
+> INCRBY key1 10
 (integer) 21
-> GET mykey
+> GET key1
 "21"
+> INCR key2
+(integer) 1
 >

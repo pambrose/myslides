@@ -1,9 +1,9 @@
-> set key some-value
+> set key1 "Hello"
 OK
-> expire key 5
+> expire key1 5
 (integer) 1
-> get key (immediately)
-"some-value"
-> get key (after some time)
+> get key1 (immediately)
+"Hello"
+> get key1 (after some time)
 (nil)
 >

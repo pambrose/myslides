@@ -104,9 +104,9 @@ object Redis {
             "An in-memory database -- all data is stored in RAM",
             "Based on the key-value model",
             "All access is via a key",
-            "Meant to be run as a network-atached server",
-            "Simple TCP protocol, which is implmented in many languages",
-            "Can act as a cache, database, message broker, and pub-sub",
+            "Meant to be run as a network-attached server",
+            "Simple TCP protocol, which is implemented in many languages",
+            "Can act as a cache, database, message broker, and pub-sub engine",
           ) {
             style = "font-size:30px; padding-left: 80px"
           }
@@ -223,7 +223,7 @@ object Redis {
             }
             div("column2") {
               unorderedList(
-                "LMOVE/LRANGE/BLPOP",
+                //"LMOVE/LRANGE/BLPOP",
                 "SADD/SMEMBERS/SISMEMBER",
                 "SINTER/SCARD",
                 "HSET/HGET/HGETALL",
@@ -283,7 +283,7 @@ object Redis {
             +" Commands"
           }
           h4 { +"Set/Get multiple values" }
-          redisSlide(this@dslSlide, "mset-mget1.txt", "[|1-2|3-6|]")
+          redisSlide(this@dslSlide, "mset-mget1.txt", "[|1-2|3-7|]")
         }
       }
 
@@ -296,7 +296,7 @@ object Redis {
             +" Commands"
           }
           h4 { +"Increment a value" }
-          redisSlide(this@dslSlide, "incr.txt", "[|1-2|3-4|5-6|7-8|9-10|]")
+          redisSlide(this@dslSlide, "incr.txt", "[|1-2|3-4|5-6|7-8|9-10|11-12|]")
         }
       }
 
@@ -309,7 +309,7 @@ object Redis {
             +" Commands"
           }
           h4 { +"Decrement a value" }
-          redisSlide(this@dslSlide, "decr.txt", "[|1-2|3-4|5-6|7-8|9-10|]")
+          redisSlide(this@dslSlide, "decr.txt", "[|1-2|3-4|5-6|7-8|9-10|11-12|]")
         }
       }
 
@@ -347,18 +347,18 @@ object Redis {
         }
       }
 
-      dslSlide {
-        content {
-          h2 {
-            atag("LMOVE", "https://redis.io/commands/lmove/")
-            +"/"
-            atag("LRANGE", "https://redis.io/commands/lrange/")
-            +" Commands"
-          }
-          h4 { +"Moving items between lists" }
-          redisSlide(this@dslSlide, "list3.txt", "[|1-2|3-4|5-6|7-8|9-10|]")
-        }
-      }
+//      dslSlide {
+//        content {
+//          h2 {
+//            atag("LMOVE", "https://redis.io/commands/lmove/")
+//            +"/"
+//            atag("LRANGE", "https://redis.io/commands/lrange/")
+//            +" Commands"
+//          }
+//          h4 { +"Moving items between lists" }
+//          redisSlide(this@dslSlide, "list3.txt", "[|1-2|3-4|5-6|7-8|9-10|]")
+//        }
+//      }
 
       dslSlide {
         content {
@@ -367,7 +367,7 @@ object Redis {
             +" Command"
           }
           h4 { +"Blocking list pop" }
-          redisSlide(this@dslSlide, "list4.txt", "[|1|2-3|4|5-6|]")
+          redisSlide(this@dslSlide, "list4.txt", "[|1|2-3|4|5-6|7|8-9|]")
         }
       }
 
@@ -416,7 +416,7 @@ object Redis {
             atag("SCARD", "https://redis.io/commands/scard/")
             +" Command"
           }
-          h4 { +"Set size: how many books has user 123 favorited?" }
+          h4 { +"Set size: how many books has user 123 marked as favorite?" }
           redisSlide(this@dslSlide, "set4.txt")
         }
       }

@@ -4,4 +4,7 @@
 > BLPOP work:ids 5
 (nil)
 (5.03s)
+> BLPOP work:ids1 work:ids2 0
+1) "work:ids2"
+2) "555"
 >

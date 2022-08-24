@@ -1,11 +1,13 @@
-> SET mykey "10"
+> SET key1 "10"
 OK
-> DECR mykey
+> DECR key1
 (integer) 9
-> GET mykey
+> GET key1
 "9"
-> DECRBY mykey 5
+> DECRBY key1 5
 (integer) 4
-> GET mykey
+> GET key1
 "4"
+> DECR key2
+(integer) -1
 >

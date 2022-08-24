@@ -114,7 +114,7 @@ object Redis {
 
       dslSlide {
         content {
-          h3 { +"❓What Problems Are We Trying To Solve" }
+          h3 { +"❓What Problems Are We Trying To Solve?" }
           unorderedList(
             "Anyone with a credit card buy 100 servers",
             "How do we orchestrate them?",
@@ -123,7 +123,7 @@ object Redis {
             "How do we collect results?",
             "How do we count things?",
             "How do we elect leaders?",
-            "How do we improve availability?",
+            "How do we ensure availability?",
           ) {
             style = "font-size:30px; padding-left: 80px"
           }

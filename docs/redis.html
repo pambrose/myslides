@@ -100,6 +100,7 @@
         <section>
           <h3>&#128367; Overview of Slides</h3>
           <ul style="font-size:30px; padding-left: 80px">
+            <li>Problem Statement</li>
             <li>What is Redis?</li>
             <li>
               <a href="https://redis.io/docs/getting-started/" target="_blank">Getting Redis up and running</a>
@@ -114,6 +115,20 @@
               <a href="https://redis.io/docs/clients/" target="_blank">Programmatic APIs</a>
             </li>
             <li>Use Cases</li>
+          </ul>
+        </section>
+        
+        <section>
+          <h3>❓What Problems Are We Trying To Solve</h3>
+          <ul style="font-size:30px; padding-left: 80px">
+            <li>Anyone with a credit card buy 100 servers</li>
+            <li>How do we orchestrate them?</li>
+            <li>How do we share data among them?</li>
+            <li>How do we distribute work?</li>
+            <li>How do we collect results?</li>
+            <li>How do we count things?</li>
+            <li>How do we elect leaders?</li>
+            <li>How do we improve availability?</li>
           </ul>
         </section>
         
@@ -133,10 +148,13 @@
         
         <section>
           <h2>High Level Architecture</h2>
-          <div class="mermaid">flowchart TD
-subgraph "" 
-S1[Server/Client 1] &amp; S2[Server/Client 2] &amp; S3[Server/Client 3] --&gt; R[Redis]
-end</div>
+          <div class="mermaid">flowchart TB
+S1("Server 1&amp;nbsp;") --&gt; R["Redis&amp;nbsp;"]
+S2("Server 2&amp;nbsp;") --&gt; R
+S3("Server 3&amp;nbsp;") --&gt; R 
+S4("Server 4&amp;nbsp;") --&gt; R 
+S5("Server 5&amp;nbsp;") --&gt; R 
+style R fill:#f66,stroke:#000,stroke-width:1px</div>
         </section>
         
         <section data-markdown="">
@@ -350,7 +368,7 @@ OK
           <h2>
             <a href="https://redis.io/commands/incr/" target="_blank">INCR</a>/<a href="https://redis.io/commands/incrby/" target="_blank">INCRBY</a> Commands
           </h2>
-          <h4>Increment a value</h4>
+          <h4>Increment a value (atomically)</h4>
           <pre data-cc="false"><code class="bash" data-line-numbers="|1-2|3-4|5-6|7-8|9-10|11-12|" data-noescape="" data-trim="">
 &gt; SET mykey "10"
 OK
@@ -373,7 +391,7 @@ OK
           <h2>
             <a href="https://redis.io/commands/decr/" target="_blank">DECR</a>/<a href="https://redis.io/commands/decrby/" target="_blank">DECRBY</a> Commands
           </h2>
-          <h4>Decrement a value</h4>
+          <h4>Decrement a value (atomically)</h4>
           <pre data-cc="false"><code class="bash" data-line-numbers="|1-2|3-4|5-6|7-8|9-10|11-12|" data-noescape="" data-trim="">
 &gt; SET key1 "10"
 OK
@@ -541,7 +559,7 @@ OK
           <h4>Save a basic user profile as a hash</h4>
           <pre data-cc="false"><code class="bash" data-line-numbers="|1-2|3-4|5-11|" data-noescape="" data-trim="">
 &gt; HSET user:123 username martina firstName Martina lastName Elisa
-(integer) 4
+(integer) 3
 &gt; HGET user:123 username
 "martina"
 &gt; HGETALL user:123
@@ -652,10 +670,14 @@ println("user:123=$valMap")
         <section>
           <h2>Session Cache</h2>
           <div class="mermaid">flowchart TD
-WC[Web Clients] &lt;--&gt; LB[Load Balancer]
-LB &lt;--&gt; S1[HTTP Server 1] &amp; S2[HTTP Server 2] &amp; S3[HTTP Server 3]
-S1 &amp; S2 &amp; S3 &lt;--&gt; R[Redis]</div>
+WC1("Web Client 1&amp;nbsp;") &lt;--&gt; LB("Load Balancer&amp;nbsp;")
+WC2("Web Client 2&amp;nbsp;") &lt;--&gt; LB
+WC3("Web Client 3&amp;nbsp;") &lt;--&gt; LB
+LB &lt;--&gt; S1("HTTP Server 1&amp;nbsp;") &amp; S2("HTTP Server 2&amp;nbsp;") &amp; S3("HTTP Server 3&amp;nbsp;")
+S1 &amp; S2 &amp; S3 &lt;--&gt; R("Redis&amp;nbsp;")
+style R fill:#f66,stroke:#000,stroke-width:1px</div>
           <h4>Cache user profiles, high scores, page hits, shopping cart items, last 10 user posts</h4>
+          <h4>Rate Limiter</h4>
         </section>
         
         <section>
@@ -769,8 +791,9 @@ END
         <section>
           <h2>Work Distribution</h2>
           <div class="mermaid">flowchart TD
-WS[Work Submitter] --&gt; R[Redis]
-R &lt;--&gt; S1[Work Executor 1] &amp; S2[Work Executor 2] &amp; S3[Work Executor 3]</div>
+WS["Work Submitter&amp;nbsp;"] --&gt; R["Redis&amp;nbsp;"]
+R &lt;--&gt; S1["Work Executor 1&amp;nbsp;"] &amp; S2["Work Executor 2&amp;nbsp;"] &amp; S3["Work Executor 3&amp;nbsp;"]
+style R fill:#f66,stroke:#000,stroke-width:1px</div>
           <h4>Distribute compute-intensive jobs</h4>
         </section>
         
@@ -798,9 +821,10 @@ END
         <section>
           <h2>Stock Ticker Prices</h2>
           <div class="mermaid">flowchart TB
-WC1[Web Client 1] &amp; WC2[Web Client 2] &amp; WC3[Web Client 3] &lt;--&gt; WS[Web Server]
-WS &lt;--&gt; R[Redis] 
-R &lt;--&gt; PS1[NYSE\nPrice Source] &amp; PS2[NASDAQ\nPrice Source] &amp; PS3[CBOT\nPrice Source]</div>
+WC1("Web Client 1&amp;nbsp;") &amp; WC2("Web Client 2&amp;nbsp;") &amp; WC3("Web Client 3&amp;nbsp;") &lt;--&gt; WS("Web Server&amp;nbsp;")
+WS &lt;--&gt; R("Redis&amp;nbsp;")
+R &lt;--&gt; PS1("NYSE\nPrice Source&amp;nbsp;") &amp; PS2("NASDAQ\nPrice Source&amp;nbsp;") &amp; PS3("CBOT\nPrice Source&amp;nbsp;")
+style R fill:#f66,stroke:#000,stroke-width:1px</div>
           <h4>Distributing stock ticker prices</h4>
         </section>
         

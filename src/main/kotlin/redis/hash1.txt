@@ -1,5 +1,5 @@
 > HSET user:123 username martina firstName Martina lastName Elisa
-(integer) 4
+(integer) 3
 > HGET user:123 username
 "martina"
 > HGETALL user:123

@@ -47,6 +47,7 @@ object Redis {
       val owner = "pambrose"
       val repoName = "redis-demo"
       val base = "src/main/kotlin"
+      val SP = "&nbsp;"
 
       presentationConfig {
         topRightHref = "#/redis"
@@ -96,6 +97,7 @@ object Redis {
         content {
           h3 { +"🕯 Overview of Slides" }
           unorderedList(
+            textItem("Problem Statement"),
             textItem("What is Redis?"),
             linkItem("Getting Redis up and running", "https://redis.io/docs/getting-started/"),
             linkItem("Data Types", "https://redis.io/docs/data-types/"),
@@ -109,6 +111,24 @@ object Redis {
       }
 
       // https://collabnix.com/how-to-setup-and-run-redis-in-a-docker-container/
+
+      dslSlide {
+        content {
+          h3 { +"❓What Problems Are We Trying To Solve" }
+          unorderedList(
+            "Anyone with a credit card buy 100 servers",
+            "How do we orchestrate them?",
+            "How do we share data among them?",
+            "How do we distribute work?",
+            "How do we collect results?",
+            "How do we count things?",
+            "How do we elect leaders?",
+            "How do we improve availability?",
+          ) {
+            style = "font-size:30px; padding-left: 80px"
+          }
+        }
+      }
 
       dslSlide {
         content {
@@ -133,10 +153,13 @@ object Redis {
           h2 { +"High Level Architecture" }
           mermaid(
             """
-                flowchart TD
-                    subgraph "" 
-                      S1[Server/Client 1] & S2[Server/Client 2] & S3[Server/Client 3] --> R[Redis]
-                    end
+              flowchart TB
+                  S1("Server 1$SP") --> R["Redis$SP"]
+                  S2("Server 2$SP") --> R
+                  S3("Server 3$SP") --> R 
+                  S4("Server 4$SP") --> R 
+                  S5("Server 5$SP") --> R 
+                  style R fill:#f66,stroke:#000,stroke-width:1px
             """
           )
         }
@@ -324,7 +347,7 @@ object Redis {
             atag("INCRBY", "https://redis.io/commands/incrby/")
             +" Commands"
           }
-          h4 { +"Increment a value" }
+          h4 { +"Increment a value (atomically)" }
           redisCode(this@dslSlide, "incr.txt", "[|1-2|3-4|5-6|7-8|9-10|11-12|]")
         }
       }
@@ -337,7 +360,7 @@ object Redis {
             atag("DECRBY", "https://redis.io/commands/decrby/")
             +" Commands"
           }
-          h4 { +"Decrement a value" }
+          h4 { +"Decrement a value (atomically)" }
           redisCode(this@dslSlide, "decr.txt", "[|1-2|3-4|5-6|7-8|9-10|11-12|]")
         }
       }
@@ -511,7 +534,7 @@ object Redis {
             atag("Jedis", "https://github.com/redis/jedis")
             +" Example (SET/GET/DEL)"
           }
-          jedisCode(this@dslSlide,"Set1.kt",  "|1|3|5-6|8|10-11|", "Set1")
+          jedisCode(this@dslSlide, "Set1.kt", "|1|3|5-6|8|10-11|", "Set1")
         }
       }
 
@@ -521,7 +544,7 @@ object Redis {
             atag("Jedis", "https://github.com/redis/jedis")
             +" Example (HSET/HGETALL)"
           }
-          jedisCode(this@dslSlide,"HSet1.kt",  "|1|3-10|12-13|", "HSet1")
+          jedisCode(this@dslSlide, "HSet1.kt", "|1|3-10|12-13|", "HSet1")
         }
       }
 
@@ -535,28 +558,30 @@ object Redis {
           mermaid(
             """
                 flowchart TD
-                    WC[Web Clients] <--> LB[Load Balancer]
-                    LB <--> S1[HTTP Server 1] & S2[HTTP Server 2] & S3[HTTP Server 3]
-                    S1 & S2 & S3 <--> R[Redis]
-            """
+                    WC1("Web Client 1$SP") <--> LB("Load Balancer$SP")
+                    WC2("Web Client 2$SP") <--> LB
+                    WC3("Web Client 3$SP") <--> LB
+                    LB <--> S1("HTTP Server 1$SP") & S2("HTTP Server 2$SP") & S3("HTTP Server 3$SP")
+                    S1 & S2 & S3 <--> R("Redis$SP")
+                    style R fill:#f66,stroke:#000,stroke-width:1px
+           """
           )
-          h4 {
-            +"Cache user profiles, high scores, page hits, shopping cart items, last 10 user posts"
-          }
+          h4 { +"Cache user profiles, high scores, page hits, shopping cart items, last 10 user posts" }
+          h4 { +"Rate Limiter" }
         }
       }
 
       dslSlide {
         content {
           h2 { +"Saving User Profile using HSET" }
-          jedisCode(this@dslSlide,"HSet2.kt",  "|1-5|7-11|12|13|15|16|17|", "HSet2")
+          jedisCode(this@dslSlide, "HSet2.kt", "|1-5|7-11|12|13|15|16|17|", "HSet2")
         }
       }
 
       dslSlide {
         content {
           h2 { +"Saving User Profile using SET" }
-          jedisCode(this@dslSlide,"Set2.kt",  "|1-6|8|9|10|12|13|14|", "Set2")
+          jedisCode(this@dslSlide, "Set2.kt", "|1-6|8|9|10|12|13|14|", "Set2")
         }
       }
 
@@ -591,10 +616,11 @@ object Redis {
           h2 { +"Work Distribution" }
           mermaid(
             """
-                flowchart TD
-                    WS[Work Submitter] --> R[Redis]
-                    R <--> S1[Work Executor 1] & S2[Work Executor 2] & S3[Work Executor 3]
-            """
+              flowchart TD
+                  WS["Work Submitter$SP"] --> R["Redis$SP"]
+                  R <--> S1["Work Executor 1$SP"] & S2["Work Executor 2$SP"] & S3["Work Executor 3$SP"]
+                  style R fill:#f66,stroke:#000,stroke-width:1px
+           """
           )
           h4 { +"Distribute compute-intensive jobs" }
         }
@@ -620,10 +646,11 @@ object Redis {
           mermaid(
             """
                 flowchart TB
-                    WC1[Web Client 1] & WC2[Web Client 2] & WC3[Web Client 3] <--> WS[Web Server]
-                    WS <--> R[Redis] 
-                    R <--> PS1[NYSE\nPrice Source] & PS2[NASDAQ\nPrice Source] & PS3[CBOT\nPrice Source]
-            """
+                    WC1("Web Client 1$SP") & WC2("Web Client 2$SP") & WC3("Web Client 3$SP") <--> WS("Web Server$SP")
+                    WS <--> R("Redis$SP")
+                    R <--> PS1("NYSE\nPrice Source$SP") & PS2("NASDAQ\nPrice Source$SP") & PS3("CBOT\nPrice Source$SP")
+                    style R fill:#f66,stroke:#000,stroke-width:1px
+           """
           )
           h4 { +"Distributing stock ticker prices" }
         }

@@ -113,6 +113,20 @@ object Redis {
         }
       }
 
+      dslSlide {
+        content {
+          h2 { +"High Level Architecture" }
+          mermaid(
+            """
+                flowchart TD
+                    subgraph "" 
+                      S1[Server/Client 1] & S2[Server/Client 2] & S3[Server/Client 3] --> R[Redis]
+                    end
+            """
+          )
+        }
+      }
+
       markdownSlide {
         content {
           """

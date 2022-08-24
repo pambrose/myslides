@@ -616,18 +616,20 @@ pmessage  from weather.*:weather.94513: 70
             <a href="https://github.com/redis/jedis" target="_blank">Jedis</a> Example
           </h2>
           <pre data-cc="false"><code class="bash" data-line-numbers="|4|6|8|10|12|" data-noescape="" data-trim="">
-import redis.clients.jedis.JedisPooled
+val jedis = JedisPooled("localhost", 6379)
 
-fun main() {
-  val jedis = JedisPooled("localhost", 6379)
+repeat(5) { jedis.set("foo:$it", "Hello-$it"); }
 
-  repeat(5) { jedis.set("foo:$it", "Hello-$it"); }
+repeat(5) {
+  val v = jedis.get("foo:$it")
+  println("foo:$it=$v")
+}
 
-  repeat(5) { println("foo:$it=${jedis.get("foo:$it")}") }
+repeat(5) { jedis.del("foo:$it"); }
 
-  repeat(5) { jedis.del("foo:$it"); }
-
-  repeat(5) { println("foo:$it=${jedis.get("foo:$it")}") }
+repeat(5) {
+  val v = jedis.get("foo:$it")
+  println("foo:$it=$v")
 }
 </code>
           </pre>

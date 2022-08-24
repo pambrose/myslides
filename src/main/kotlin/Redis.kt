@@ -235,7 +235,7 @@ object Redis {
       }
 
       dslSlide {
-        content { h1 { atag("Redis Strings","https://redis.io/docs/data-types/strings/") } }
+        content { h1 { atag("Redis Strings", "https://redis.io/docs/data-types/strings/") } }
       }
 
       dslSlide {
@@ -314,7 +314,7 @@ object Redis {
       }
 
       dslSlide {
-        content { h1 { atag("Redis Lists","https://redis.io/docs/data-types/lists/") } }
+        content { h1 { atag("Redis Lists", "https://redis.io/docs/data-types/lists/") } }
       }
 
       dslSlide {
@@ -372,7 +372,7 @@ object Redis {
       }
 
       dslSlide {
-        content { h1 { atag("Redis Sets","https://redis.io/docs/data-types/sets/") } }
+        content { h1 { atag("Redis Sets", "https://redis.io/docs/data-types/sets/") } }
       }
 
       dslSlide {
@@ -422,7 +422,7 @@ object Redis {
       }
 
       dslSlide {
-        content { h1 { atag("Redis Hashes","https://redis.io/docs/data-types/hashes/") } }
+        content { h1 { atag("Redis Hashes", "https://redis.io/docs/data-types/hashes/") } }
       }
 
       dslSlide {
@@ -441,7 +441,7 @@ object Redis {
       }
 
       dslSlide {
-        content { h1 { atag("Redis Pub/Sub","https://redis.io/docs/manual/pubsub/") } }
+        content { h1 { atag("Redis Pub/Sub", "https://redis.io/docs/manual/pubsub/") } }
       }
 
       dslSlide {
@@ -487,11 +487,11 @@ object Redis {
             copyButton = false
             highlightPattern = "|4|6|8|10|12|"
             val fileName = "Set.kt"
+            val base = "src/main/kotlin"
             +include(
-              if (useLocal)
-                "redis-demo/src/main/kotlin/$fileName"
-              else
-                githubRawUrl(owner, repoName, "src/main/kotlin/$fileName")
+              if (useLocal) "redis-demo/$base/$fileName" else githubRawUrl(owner, repoName, "$base/$fileName"),
+              beginToken = "// Set begin",
+              endToken = "// Set end",
             )
           }
         }

@@ -46,20 +46,35 @@ object Redis {
 
       val owner = "pambrose"
       val repoName = "redis-demo"
+      val base = "src/main/kotlin"
 
       presentationConfig {
         topRightHref = "#/redis"
         enableMermaid = true
       }
 
-      fun SECTION.redisSlide(dslSlide: DslSlide, fileName: String, highlight: String = "") =
+      fun SECTION.redisCode(dslSlide: DslSlide, fileName: String, highlight: String = "") =
         codeSnippet {
           language = "bash"
           copyButton = false
           if (highlight.isNotEmpty())
             highlightPattern = highlight
-          +dslSlide.include("src/main/kotlin/redis/$fileName")
+          +dslSlide.include("$base/redis/$fileName")
         }
+
+      fun SECTION.jedisCode(dslSlide: DslSlide, fileName: String, highlight: String, tokenName: String) =
+        codeSnippet {
+          language = "kotlin"
+          copyButton = false
+          if (highlight.isNotEmpty())
+            highlightPattern = highlight
+          +dslSlide.include(
+            if (useLocal) "redis-demo/$base/$fileName" else githubRawUrl(owner, repoName, "$base/$fileName"),
+            beginToken = "// $tokenName begin",
+            endToken = "// $tokenName end",
+          )
+        }
+
 
       dslSlide {
         content {
@@ -263,7 +278,7 @@ object Redis {
             +" Commands"
           }
           h4 { +"Set, get, and delete keys" }
-          redisSlide(this@dslSlide, "string1.txt", "[|1-2|3-4|5-6|7-8|9-10|11-12|]")
+          redisCode(this@dslSlide, "string1.txt", "[|1-2|3-4|5-6|7-8|9-10|11-12|]")
         }
       }
 
@@ -276,7 +291,7 @@ object Redis {
             +" Commands"
           }
           h4 { +"Expiring keys (1)" }
-          redisSlide(this@dslSlide, "string2.txt", "[|1-2|3-4|5-6|7-8|]")
+          redisCode(this@dslSlide, "string2.txt", "[|1-2|3-4|5-6|7-8|]")
         }
       }
 
@@ -284,7 +299,7 @@ object Redis {
         content {
           h2 { +"TTL Commands" }
           h4 { +"Expiring keys (2)" }
-          redisSlide(this@dslSlide, "string3.txt", "[|1-2|3-4|5-6|]")
+          redisCode(this@dslSlide, "string3.txt", "[|1-2|3-4|5-6|]")
         }
       }
 
@@ -297,7 +312,7 @@ object Redis {
             +" Commands"
           }
           h4 { +"Set/Get multiple values" }
-          redisSlide(this@dslSlide, "mset-mget1.txt", "[|1-2|3-7|]")
+          redisCode(this@dslSlide, "mset-mget1.txt", "[|1-2|3-7|]")
         }
       }
 
@@ -310,7 +325,7 @@ object Redis {
             +" Commands"
           }
           h4 { +"Increment a value" }
-          redisSlide(this@dslSlide, "incr.txt", "[|1-2|3-4|5-6|7-8|9-10|11-12|]")
+          redisCode(this@dslSlide, "incr.txt", "[|1-2|3-4|5-6|7-8|9-10|11-12|]")
         }
       }
 
@@ -323,7 +338,7 @@ object Redis {
             +" Commands"
           }
           h4 { +"Decrement a value" }
-          redisSlide(this@dslSlide, "decr.txt", "[|1-2|3-4|5-6|7-8|9-10|11-12|]")
+          redisCode(this@dslSlide, "decr.txt", "[|1-2|3-4|5-6|7-8|9-10|11-12|]")
         }
       }
 
@@ -344,7 +359,7 @@ object Redis {
           h4 {
             +"Implementing a queue (first in, first out)"
           }
-          redisSlide(this@dslSlide, "list1.txt", "[|1-2|3-4|5-6|7-8|9-10|11-12|]")
+          redisCode(this@dslSlide, "list1.txt", "[|1-2|3-4|5-6|7-8|9-10|11-12|]")
         }
       }
 
@@ -357,7 +372,7 @@ object Redis {
             +" Commands"
           }
           h4 { +"Implementing a stack (first in, last out)" }
-          redisSlide(this@dslSlide, "list2.txt", "[|1-2|3-4|5-6|7-8|]")
+          redisCode(this@dslSlide, "list2.txt", "[|1-2|3-4|5-6|7-8|]")
         }
       }
 
@@ -381,7 +396,7 @@ object Redis {
             +" Command"
           }
           h4 { +"Blocking list pop" }
-          redisSlide(this@dslSlide, "list4.txt", "[|1|2-3|4|5-6|7|8-9|]")
+          redisCode(this@dslSlide, "list4.txt", "[|1|2-3|4|5-6|7|8-9|]")
         }
       }
 
@@ -398,7 +413,7 @@ object Redis {
             +" Commands"
           }
           h4 { +"Set creation and membership" }
-          redisSlide(this@dslSlide, "set1.txt", "[|1-2|3-4|5-6|7-8|9-12|]")
+          redisCode(this@dslSlide, "set1.txt", "[|1-2|3-4|5-6|7-10|]")
         }
       }
 
@@ -409,7 +424,7 @@ object Redis {
             +" Command"
           }
           h4 { +"Set membership: does user 123 like books 742 and 299?" }
-          redisSlide(this@dslSlide, "set2.txt", "[|1-2|3-4|]")
+          redisCode(this@dslSlide, "set2.txt", "[|1-2|3-4|]")
         }
       }
 
@@ -420,7 +435,7 @@ object Redis {
             +" Command"
           }
           h4 { +"Set intersection: do users 123 and 456 have any favorite books in common?" }
-          redisSlide(this@dslSlide, "set3.txt")
+          redisCode(this@dslSlide, "set3.txt")
         }
       }
 
@@ -431,7 +446,7 @@ object Redis {
             +" Command"
           }
           h4 { +"Set size: how many books has user 123 marked as favorite?" }
-          redisSlide(this@dslSlide, "set4.txt")
+          redisCode(this@dslSlide, "set4.txt")
         }
       }
 
@@ -450,7 +465,7 @@ object Redis {
             +" Commands"
           }
           h4 { +"Save a basic user profile as a hash" }
-          redisSlide(this@dslSlide, "hash1.txt", "|1-2|3-4|5-11|")
+          redisCode(this@dslSlide, "hash1.txt", "|1-2|3-4|5-11|")
         }
       }
 
@@ -469,7 +484,7 @@ object Redis {
             +" Commands"
           }
           h4 { +"Event-based programming" }
-          redisSlide(this@dslSlide, "pubsub1.txt", "[|1-3|5-6|4|]")
+          redisCode(this@dslSlide, "pubsub1.txt", "[|1-3|5-6|4|]")
         }
       }
 
@@ -482,7 +497,7 @@ object Redis {
             +" Commands"
           }
           h4 { +"Pattern-matching subscriptions" }
-          redisSlide(this@dslSlide, "pubsub2.txt", "|1-2|5-6|3|7-8|4|")
+          redisCode(this@dslSlide, "pubsub2.txt", "|1-2|5-6|3|7-8|4|")
         }
       }
 
@@ -494,20 +509,19 @@ object Redis {
         content {
           h2 {
             atag("Jedis", "https://github.com/redis/jedis")
-            +" Example"
+            +" Example (SET/GET/DEL)"
           }
-          codeSnippet {
-            language = "bash"
-            copyButton = false
-            highlightPattern = "|4|6|8|10|12|"
-            val fileName = "Set.kt"
-            val base = "src/main/kotlin"
-            +include(
-              if (useLocal) "redis-demo/$base/$fileName" else githubRawUrl(owner, repoName, "$base/$fileName"),
-              beginToken = "// Set begin",
-              endToken = "// Set end",
-            )
+          jedisCode(this@dslSlide,"Set1.kt",  "|1|3|5-6|8|10-11|", "Set1")
+        }
+      }
+
+      dslSlide {
+        content {
+          h2 {
+            atag("Jedis", "https://github.com/redis/jedis")
+            +" Example (HSET/HGETALL)"
           }
+          jedisCode(this@dslSlide,"HSet1.kt",  "|1|3-10|12-13|", "HSet1")
         }
       }
 
@@ -532,11 +546,26 @@ object Redis {
         }
       }
 
+      dslSlide {
+        content {
+          h2 { +"Saving User Profile using HSET" }
+          jedisCode(this@dslSlide,"HSet2.kt",  "|1-5|7-11|12|13|15|16|17|", "HSet2")
+        }
+      }
+
+      dslSlide {
+        content {
+          h2 { +"Saving User Profile using SET" }
+          jedisCode(this@dslSlide,"Set2.kt",  "|1-6|8|9|10|12|13|14|", "Set2")
+        }
+      }
+
+
       // https://redis.io/commands/incr/
       dslSlide {
         content {
           h2 { +"Naive Rate Limiter using INCR (1)" }
-          redisSlide(this@dslSlide, "ratelimit1.txt", "|1|2|3|4-7|8|9-13|")
+          redisCode(this@dslSlide, "ratelimit1.txt", "|1|2|3|4-7|8|9-13|")
           h4 { +"Limit each IP to 10 requests/sec" }
         }
       }
@@ -544,7 +573,7 @@ object Redis {
       dslSlide {
         content {
           h2 { +"Naive Rate Limiter using INCR (2)" }
-          redisSlide(this@dslSlide, "ratelimit2.txt", "|1|2|3-5|6|7-9|10|")
+          redisCode(this@dslSlide, "ratelimit2.txt", "|1|2|3-5|6|7-9|10|")
           h4 { +"Limit each IP to 10 requests/sec" }
         }
       }
@@ -552,7 +581,7 @@ object Redis {
       dslSlide {
         content {
           h2 { +"Naive Rate Limiter using a List" }
-          redisSlide(this@dslSlide, "ratelimit3.txt", "|1|2|3-4|5|6|7-10|11-13|14|")
+          redisCode(this@dslSlide, "ratelimit3.txt", "|1|2|3-4|5|6|7-10|11-13|14|")
           h4 { +"Limit each IP to 10 requests/sec" }
         }
       }
@@ -574,15 +603,14 @@ object Redis {
       dslSlide {
         content {
           h2 { +"Submit Work" }
-          redisSlide(this@dslSlide, "worksubmit.txt", "|1|2|")
+          redisCode(this@dslSlide, "worksubmit.txt", "|1|2|")
         }
       }
-
 
       dslSlide {
         content {
           h2 { +"Execute Work" }
-          redisSlide(this@dslSlide, "workperform.txt", "|1|2|3|4|")
+          redisCode(this@dslSlide, "workperform.txt", "|1|2|3|4|")
         }
       }
 

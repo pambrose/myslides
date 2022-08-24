@@ -471,13 +471,11 @@ OK
             <a href="https://redis.io/commands/sadd/" target="_blank">SADD</a>/<a href="https://redis.io/commands/smembers/" target="_blank">SMEMBERS</a> Commands
           </h2>
           <h4>Set creation and membership</h4>
-          <pre data-cc="false"><code class="bash" data-line-numbers="|1-2|3-4|5-6|7-8|9-12|" data-noescape="" data-trim="">
+          <pre data-cc="false"><code class="bash" data-line-numbers="|1-2|3-4|5-6|7-10|" data-noescape="" data-trim="">
 &gt; SADD user:123:favorites 347
 (integer) 1
-&gt; SADD user:123:favorites 561
-(integer) 1
-&gt; SADD user:123:favorites 742
-(integer) 1
+&gt; SADD user:123:favorites 561 742
+(integer) 2
 &gt; SADD user:456:favorites 561
 (integer) 1
 &gt; SMEMBERS user:123:favorites
@@ -607,24 +605,42 @@ pmessage  from weather.*:weather.94513: 70
         
         <section>
           <h2>
-            <a href="https://github.com/redis/jedis" target="_blank">Jedis</a> Example
+            <a href="https://github.com/redis/jedis" target="_blank">Jedis</a> Example (SET/GET/DEL)
           </h2>
-          <pre data-cc="false"><code class="bash" data-line-numbers="|4|6|8|10|12|" data-noescape="" data-trim="">
+          <pre data-cc="false"><code class="kotlin" data-line-numbers="|1|3|5-6|8|10-11|" data-noescape="" data-trim="">
 val jedis = JedisPooled("localhost", 6379)
 
-repeat(5) { jedis.set("foo:$it", "Hello-$it"); }
+jedis.set("key1", "Hello");
 
-repeat(5) {
-  val v = jedis.get("foo:$it")
-  println("foo:$it=$v")
-}
+val v1 = jedis.get("key1")
+println("key1=$v1")
 
-repeat(5) { jedis.del("foo:$it"); }
+jedis.del("key1")
 
-repeat(5) {
-  val v = jedis.get("foo:$it")
-  println("foo:$it=$v")
-}
+val v2 = jedis.get("key1")
+println("key1=$v2")
+</code>
+          </pre>
+        </section>
+        
+        <section>
+          <h2>
+            <a href="https://github.com/redis/jedis" target="_blank">Jedis</a> Example (HSET/HGETALL)
+          </h2>
+          <pre data-cc="false"><code class="kotlin" data-line-numbers="|1|3-10|12-13|" data-noescape="" data-trim="">
+val jedis = JedisPooled("localhost", 6379)
+
+jedis.hset(
+  "user:123",
+  mapOf(
+    "username" to "martina",
+    "firstName" to "Martina",
+    "lastName" to "Elisa",
+  )
+)
+
+val valMap: Map&lt;String, String&gt; = jedis.hgetAll("user:123")
+println("user:123=$valMap")
 </code>
           </pre>
         </section>
@@ -640,6 +656,51 @@ WC[Web Clients] &lt;--&gt; LB[Load Balancer]
 LB &lt;--&gt; S1[HTTP Server 1] &amp; S2[HTTP Server 2] &amp; S3[HTTP Server 3]
 S1 &amp; S2 &amp; S3 &lt;--&gt; R[Redis]</div>
           <h4>Cache user profiles, high scores, page hits, shopping cart items, last 10 user posts</h4>
+        </section>
+        
+        <section>
+          <h2>Saving User Profile using HSET</h2>
+          <pre data-cc="false"><code class="kotlin" data-line-numbers="|1-5|7-11|12|13|15|16|17|" data-noescape="" data-trim="">
+data class User(val map: Map&lt;String, String&gt;) {
+  val username: String by map
+  val firstName: String by map
+  val lastName: String by map
+}
+
+val map1 = mapOf(
+  "username" to "martina",
+  "firstName" to "Martina",
+  "lastName" to "Elisa",
+)
+val user1 = User(map1)
+jedis.hset("user:123", user1.map)
+
+val map2 = jedis.hgetAll("user:123")
+val user2 = User(map2)
+println("user2=$user2")
+</code>
+          </pre>
+        </section>
+        
+        <section>
+          <h2>Saving User Profile using SET</h2>
+          <pre data-cc="false"><code class="kotlin" data-line-numbers="|1-6|8|9|10|12|13|14|" data-noescape="" data-trim="">
+@Serializable
+data class User(
+  val username: String,
+  val firstName: String,
+  val lastName: String
+)
+
+val user1 = User("martina", "Martina", "Elisa")
+val json1 = Json.encodeToString(user1)
+jedis.set("user:123", json1)
+
+val json2 = jedis.get("user:123")
+val user2 = Json.decodeFromString&lt;User&gt;(json2)
+println("user2=$user2")
+</code>
+          </pre>
         </section>
         
         <section>

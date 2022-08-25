@@ -377,6 +377,7 @@ object Redis {
         }
       }
 
+      /*
       dslSlide {
         content { h1 { atag("Redis Sets", "https://redis.io/docs/data-types/sets/") } }
       }
@@ -404,7 +405,7 @@ object Redis {
           redisCode(this@dslSlide, "set3.txt")
         }
       }
-
+      */
       dslSlide {
         content { h1 { atag("Redis Hashes", "https://redis.io/docs/data-types/hashes/") } }
       }

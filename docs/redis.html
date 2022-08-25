@@ -484,63 +484,6 @@ OK
         
         <section>
           <h1>
-            <a href="https://redis.io/docs/data-types/sets/" target="_blank">Redis Sets</a>
-          </h1>
-        </section>
-        
-        <section>
-          <h2>
-            <a href="https://redis.io/commands/sadd/" target="_blank">SADD</a>/<a href="https://redis.io/commands/smembers/" target="_blank">SMEMBERS</a>/<a href="https://redis.io/commands/scard/" target="_blank">SCARD</a> Commands
-          </h2>
-          <h4>Set creation and membership</h4>
-          <pre data-cc="false"><code class="bash" data-line-numbers="|1-2|3-4|5-6|7-10|11-12" data-noescape="" data-trim="">
-&gt; SADD user:123:favorites 347
-(integer) 1
-&gt; SADD user:123:favorites 561 742
-(integer) 2
-&gt; SADD user:456:favorites 561
-(integer) 1
-&gt; SMEMBERS user:123:favorites
-1) "347"
-2) "561"
-3) "742"
-&gt; SCARD user:123:favorites
-(integer) 3
-&gt;&gt;
-</code>
-          </pre>
-        </section>
-        
-        <section>
-          <h2>
-            <a href="https://redis.io/commands/sismember/" target="_blank">SISMEMBER</a> Command
-          </h2>
-          <h4>Set membership: does user 123 like books 742 and 299?</h4>
-          <pre data-cc="false"><code class="bash" data-line-numbers="|1-2|3-4" data-noescape="" data-trim="">
-&gt; SISMEMBER user:123:favorites 742
-(integer) 1
-&gt; SISMEMBER user:123:favorites 299
-(integer) 0
-&gt;
-</code>
-          </pre>
-        </section>
-        
-        <section>
-          <h2>
-            <a href="https://redis.io/commands/sinter/" target="_blank">SINTER</a> Command
-          </h2>
-          <h4>Set intersection: do users 123 and 456 have any favorite books in common?</h4>
-          <pre data-cc="false"><code class="bash" data-line-numbers="" data-noescape="" data-trim="">
-&gt; SINTER user:123:favorites user:456:favorites
-1) "561"
-&gt;
-</code>
-          </pre>
-        </section>
-        
-        <section>
-          <h1>
             <a href="https://redis.io/docs/data-types/hashes/" target="_blank">Redis Hashes</a>
           </h1>
         </section>

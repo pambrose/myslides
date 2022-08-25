@@ -100,11 +100,11 @@
         <section>
           <h3>&#128367; Overview of Slides</h3>
           <ul style="font-size:30px; padding-left: 80px">
-            <li>Problem Statement</li>
-            <li>What is Redis?</li>
             <li>
               <a href="https://redis.io/docs/getting-started/" target="_blank">Getting Redis up and running</a>
             </li>
+            <li>Problem Statement</li>
+            <li>What is Redis?</li>
             <li>
               <a href="https://redis.io/docs/data-types/" target="_blank">Data Types</a>
             </li>
@@ -115,7 +115,66 @@
               <a href="https://redis.io/docs/clients/" target="_blank">Programmatic APIs</a>
             </li>
             <li>Use Cases</li>
+            <li>
+              <a href="https://redis.io/docs/manual/pubsub/" target="_blank">Pub/Sub</a>
+            </li>
           </ul>
+        </section>
+        
+        <section data-markdown="">
+          <script type="text/template">
+## OSX Install for Redis Client and Server
+
+```bash
+
+$ brew install redis iredis    
+         
+
+```    
+      
+#### [Other Platforms](https://redis.io/docs/getting-started/installation/)      
+</script>
+        </section>
+        
+        <section data-markdown="">
+          <script type="text/template">
+## Start a Redis Server
+
+```bash
+
+$ docker run -d -p 6379:6379 --name myredis redis
+
+
+``` 
+or   
+     
+```bash
+
+$ redis-server      
+
+
+```                    
+</script>
+        </section>
+        
+        <section data-markdown="">
+          <script type="text/template">
+## Start a Redis Client
+                 
+```bash
+
+$ redis-cli      
+
+
+```    
+or
+```bash
+
+$ iredis      
+
+
+```                
+</script>
         </section>
         
         <section>
@@ -142,7 +201,8 @@
             <li>All access is via a key</li>
             <li>Meant to be run as a network-attached server</li>
             <li>Simple TCP protocol, which is implemented in many languages</li>
-            <li>Can act as a cache, database, message broker, and pub-sub engine</li>
+            <li>Can act as a cache, database, message broker, and pub/sub engine</li>
+            <li>One of many possible solutions in this space</li>
           </ul>
         </section>
         
@@ -155,63 +215,6 @@ S3("Server 3&amp;nbsp;") --&gt; R
 S4("Server 4&amp;nbsp;") --&gt; R 
 S5("Server 5&amp;nbsp;") --&gt; R 
 style R fill:#f66,stroke:#000,stroke-width:1px</div>
-        </section>
-        
-        <section data-markdown="">
-          <script type="text/template">
-## OSX Install for Redis Client and Server
-
-```bash
-
-brew install redis  
-brew install iredis
-
-
-```    
-      
-#### [Other Platforms](https://redis.io/docs/getting-started/installation/)      
-</script>
-        </section>
-        
-        <section data-markdown="">
-          <script type="text/template">
-## Start a Redis Server
-
-```bash
-
-docker run -d -p 6379:6379 --name myredis redis
-
-
-``` 
-or   
-     
-```bash
-
-redis-server      
-
-
-```                    
-</script>
-        </section>
-        
-        <section data-markdown="">
-          <script type="text/template">
-## Start a Redis Client
-                 
-```bash
-
-redis-cli      
-
-
-```    
-or
-```bash
-
-iredis      
-
-
-```                
-</script>
         </section>
         
         <section>
@@ -269,15 +272,14 @@ iredis
                 <li>EXPIRE/PERSIST</li>
                 <li>MSET/MGET</li>
                 <li>INCR/DECR</li>
-                <li>LPUSH/LPOP/RPOP/LLEN</li>
               </ul>
             </div>
             <div class="column2">
               <ul style="font-size:30px; padding-top:10px;">
+                <li>LPUSH/LPOP/RPOP/LLEN</li>
                 <li>SADD/SMEMBERS/SISMEMBER</li>
                 <li>SINTER/SCARD</li>
                 <li>HSET/HGET/HGETALL</li>
-                <li>SUBSCRIBE/UNSUBSCRIBE/PUBLISH</li>
               </ul>
             </div>
           </div>
@@ -294,7 +296,7 @@ iredis
             <a href="https://redis.io/commands/set/" target="_blank">SET</a>/<a href="https://redis.io/commands/get/" target="_blank">GET</a>/<a href="https://redis.io/commands/del/" target="_blank">DEL</a> Commands
           </h2>
           <h4>Set, get, and delete keys</h4>
-          <pre data-cc="false"><code class="bash" data-line-numbers="|1-2|3-4|5-6|7-8|9-10|11-12|" data-noescape="" data-trim="">
+          <pre data-cc="false"><code class="bash" data-line-numbers="|1-2|3-4|5-6|7-8|9-10|11-12" data-noescape="" data-trim="">
 &gt; SET key1 "Hello"
 OK
 &gt; SET key2 "World"
@@ -317,7 +319,7 @@ OK
             <a href="https://redis.io/commands/expire/" target="_blank">EXPIRE</a>/<a href="https://redis.io/commands/persist/" target="_blank">PERSIST</a> Commands
           </h2>
           <h4>Expiring keys (1)</h4>
-          <pre data-cc="false"><code class="bash" data-line-numbers="|1-2|3-4|5-6|7-8|" data-noescape="" data-trim="">
+          <pre data-cc="false"><code class="bash" data-line-numbers="|1-2|3-4|5-6|7-8" data-noescape="" data-trim="">
 &gt; set key1 "Hello"
 OK
 &gt; expire key1 5
@@ -332,9 +334,11 @@ OK
         </section>
         
         <section>
-          <h2>TTL Commands</h2>
+          <h2>
+            <a href="https://redis.io/commands/set/" target="_blank">SET</a> Command Options
+          </h2>
           <h4>Expiring keys (2)</h4>
-          <pre data-cc="false"><code class="bash" data-line-numbers="|1-2|3-4|5-6|" data-noescape="" data-trim="">
+          <pre data-cc="false"><code class="bash" data-line-numbers="|1-2|3-4|5-6" data-noescape="" data-trim="">
 &gt; SET tempkey "Temp val with 10 secs of life" EX 10
 OK
 &gt; SET cond1key "Set only if key does not exist" EX 10 NX
@@ -351,7 +355,7 @@ OK
             <a href="https://redis.io/commands/mset/" target="_blank">MSET</a>/<a href="https://redis.io/commands/mget/" target="_blank">MGET</a> Commands
           </h2>
           <h4>Set/Get multiple values</h4>
-          <pre data-cc="false"><code class="bash" data-line-numbers="|1-2|3-7|" data-noescape="" data-trim="">
+          <pre data-cc="false"><code class="bash" data-line-numbers="|1-2|3-7" data-noescape="" data-trim="">
 &gt; MSET key1 "Hello" key2 "World"
 OK
 &gt; MGET key1 key2 key3 key4
@@ -369,7 +373,7 @@ OK
             <a href="https://redis.io/commands/incr/" target="_blank">INCR</a>/<a href="https://redis.io/commands/incrby/" target="_blank">INCRBY</a> Commands
           </h2>
           <h4>Increment a value (atomically)</h4>
-          <pre data-cc="false"><code class="bash" data-line-numbers="|1-2|3-4|5-6|7-8|9-10|11-12|" data-noescape="" data-trim="">
+          <pre data-cc="false"><code class="bash" data-line-numbers="|1-2|3-4|5-6|7-8|9-10|11-12" data-noescape="" data-trim="">
 &gt; SET mykey "10"
 OK
 &gt; INCR key1
@@ -392,7 +396,7 @@ OK
             <a href="https://redis.io/commands/decr/" target="_blank">DECR</a>/<a href="https://redis.io/commands/decrby/" target="_blank">DECRBY</a> Commands
           </h2>
           <h4>Decrement a value (atomically)</h4>
-          <pre data-cc="false"><code class="bash" data-line-numbers="|1-2|3-4|5-6|7-8|9-10|11-12|" data-noescape="" data-trim="">
+          <pre data-cc="false"><code class="bash" data-line-numbers="|1-2|3-4|5-6|7-8|9-10|11-12" data-noescape="" data-trim="">
 &gt; SET key1 "10"
 OK
 &gt; DECR key1
@@ -421,7 +425,7 @@ OK
             <a href="https://redis.io/commands/lpush/" target="_blank">LPUSH</a>/<a href="https://redis.io/commands/rpop/" target="_blank">RPOP</a>/<a href="https://redis.io/commands/llen/" target="_blank">LLEN</a> Commands
           </h2>
           <h4>Implementing a queue (first in, first out)</h4>
-          <pre data-cc="false"><code class="bash" data-line-numbers="|1-2|3-4|5-6|7-8|9-10|11-12|" data-noescape="" data-trim="">
+          <pre data-cc="false"><code class="bash" data-line-numbers="|1-2|3-4|5-6|7-8|9-10|11-12" data-noescape="" data-trim="">
 &gt; LPUSH work:queue:ids 101
 (integer) 1
 &gt; LPUSH work:queue:ids 237
@@ -444,7 +448,7 @@ OK
             <a href="https://redis.io/commands/lpush/" target="_blank">LPUSH</a>/<a href="https://redis.io/commands/lpop/" target="_blank">LPOP</a> Commands
           </h2>
           <h4>Implementing a stack (first in, last out)</h4>
-          <pre data-cc="false"><code class="bash" data-line-numbers="|1-2|3-4|5-6|7-8|" data-noescape="" data-trim="">
+          <pre data-cc="false"><code class="bash" data-line-numbers="|1-2|3-4|5-6|7-8" data-noescape="" data-trim="">
 &gt; LPUSH work:queue:ids 101
 (integer) 1
 &gt; LPUSH work:queue:ids 237
@@ -486,10 +490,10 @@ OK
         
         <section>
           <h2>
-            <a href="https://redis.io/commands/sadd/" target="_blank">SADD</a>/<a href="https://redis.io/commands/smembers/" target="_blank">SMEMBERS</a> Commands
+            <a href="https://redis.io/commands/sadd/" target="_blank">SADD</a>/<a href="https://redis.io/commands/smembers/" target="_blank">SMEMBERS</a>/<a href="https://redis.io/commands/scard/" target="_blank">SCARD</a> Commands
           </h2>
           <h4>Set creation and membership</h4>
-          <pre data-cc="false"><code class="bash" data-line-numbers="|1-2|3-4|5-6|7-10|" data-noescape="" data-trim="">
+          <pre data-cc="false"><code class="bash" data-line-numbers="|1-2|3-4|5-6|7-10|11-12" data-noescape="" data-trim="">
 &gt; SADD user:123:favorites 347
 (integer) 1
 &gt; SADD user:123:favorites 561 742
@@ -500,7 +504,9 @@ OK
 1) "347"
 2) "561"
 3) "742"
-&gt;
+&gt; SCARD user:123:favorites
+(integer) 3
+&gt;&gt;
 </code>
           </pre>
         </section>
@@ -510,7 +516,7 @@ OK
             <a href="https://redis.io/commands/sismember/" target="_blank">SISMEMBER</a> Command
           </h2>
           <h4>Set membership: does user 123 like books 742 and 299?</h4>
-          <pre data-cc="false"><code class="bash" data-line-numbers="|1-2|3-4|" data-noescape="" data-trim="">
+          <pre data-cc="false"><code class="bash" data-line-numbers="|1-2|3-4" data-noescape="" data-trim="">
 &gt; SISMEMBER user:123:favorites 742
 (integer) 1
 &gt; SISMEMBER user:123:favorites 299
@@ -534,19 +540,6 @@ OK
         </section>
         
         <section>
-          <h2>
-            <a href="https://redis.io/commands/scard/" target="_blank">SCARD</a> Command
-          </h2>
-          <h4>Set size: how many books has user 123 marked as favorite?</h4>
-          <pre data-cc="false"><code class="bash" data-line-numbers="" data-noescape="" data-trim="">
-&gt; SCARD user:123:favorites
-(integer) 3
-&gt;
-</code>
-          </pre>
-        </section>
-        
-        <section>
           <h1>
             <a href="https://redis.io/docs/data-types/hashes/" target="_blank">Redis Hashes</a>
           </h1>
@@ -557,7 +550,7 @@ OK
             <a href="https://redis.io/commands/hset/" target="_blank">HSET</a>/<a href="https://redis.io/commands/hget/" target="_blank">HGET</a>/<a href="https://redis.io/commands/hgetall/" target="_blank">HGETALL</a> Commands
           </h2>
           <h4>Save a basic user profile as a hash</h4>
-          <pre data-cc="false"><code class="bash" data-line-numbers="|1-2|3-4|5-11|" data-noescape="" data-trim="">
+          <pre data-cc="false"><code class="bash" data-line-numbers="|1-2|3-4|5-11" data-noescape="" data-trim="">
 &gt; HSET user:123 username martina firstName Martina lastName Elisa
 (integer) 3
 &gt; HGET user:123 username
@@ -575,48 +568,6 @@ OK
         
         <section>
           <h1>
-            <a href="https://redis.io/docs/manual/pubsub/" target="_blank">Redis Pub/Sub</a>
-          </h1>
-        </section>
-        
-        <section>
-          <h3>
-            <a href="https://redis.io/commands/subscribe/" target="_blank">SUBSCRIBE</a>/<a href="https://redis.io/commands/unsubscribe/" target="_blank">UNSUBSCRIBE</a>/<a href="https://redis.io/commands/publish/" target="_blank">PUBLISH</a> Commands
-          </h3>
-          <h4>Event-based programming</h4>
-          <pre data-cc="false"><code class="bash" data-line-numbers="|1-3|5-6|4|" data-noescape="" data-trim="">
-&gt; SUBSCRIBE topic1 topic2
-subscribe from topic1: 1
-subscribe from topic2: 2
-message   from topic1: Hello
-&gt; PUBLISH topic1 "Hello"
-(integer) 1
-&gt;
-</code>
-          </pre>
-        </section>
-        
-        <section>
-          <h3>
-            <a href="https://redis.io/commands/psubscribe/" target="_blank">PSUBSCRIBE</a>/<a href="https://redis.io/commands/punsubscribe/" target="_blank">PUNSUBSCRIBE</a> Commands
-          </h3>
-          <h4>Pattern-matching subscriptions</h4>
-          <pre data-cc="false"><code class="bash" data-line-numbers="|1-2|5-6|3|7-8|4|" data-noescape="" data-trim="">
-&gt; PSUBSCRIBE weather.*
-psubscribe from weather.*: 1
-pmessage  from weather.*:weather.94528: 88
-pmessage  from weather.*:weather.94513: 70
-&gt; PUBLISH weather.94528 88
-(integer) 1
-&gt; PUBLISH weather.94513 70
-(integer) 1
-&gt;
-</code>
-          </pre>
-        </section>
-        
-        <section>
-          <h1>
             <a href="https://redis.io/docs/clients/" target="_blank">Programmatic APIs</a>
           </h1>
         </section>
@@ -625,7 +576,7 @@ pmessage  from weather.*:weather.94513: 70
           <h2>
             <a href="https://github.com/redis/jedis" target="_blank">Jedis</a> Example (SET/GET/DEL)
           </h2>
-          <pre data-cc="false"><code class="kotlin" data-line-numbers="|1|3|5-6|8|10-11|" data-noescape="" data-trim="">
+          <pre data-cc="false"><code class="kotlin" data-line-numbers="|1|3|5-6|8|10-11" data-noescape="" data-trim="">
 val jedis = JedisPooled("localhost", 6379)
 
 jedis.set("key1", "Hello");
@@ -645,7 +596,7 @@ println("key1=$v2")
           <h2>
             <a href="https://github.com/redis/jedis" target="_blank">Jedis</a> Example (HSET/HGETALL)
           </h2>
-          <pre data-cc="false"><code class="kotlin" data-line-numbers="|1|3-10|12-13|" data-noescape="" data-trim="">
+          <pre data-cc="false"><code class="kotlin" data-line-numbers="|1|3-10|12-13" data-noescape="" data-trim="">
 val jedis = JedisPooled("localhost", 6379)
 
 jedis.hset(
@@ -682,7 +633,7 @@ style R fill:#f66,stroke:#000,stroke-width:1px</div>
         
         <section>
           <h2>Saving User Profile using HSET</h2>
-          <pre data-cc="false"><code class="kotlin" data-line-numbers="|1-5|7-11|12|13|15|16|17|" data-noescape="" data-trim="">
+          <pre data-cc="false"><code class="kotlin" data-line-numbers="|1-5|7-11|12|13|15|16|17" data-noescape="" data-trim="">
 data class User(val map: Map&lt;String, String&gt;) {
   val username: String by map
   val firstName: String by map
@@ -706,7 +657,7 @@ println("user2=$user2")
         
         <section>
           <h2>Saving User Profile using SET</h2>
-          <pre data-cc="false"><code class="kotlin" data-line-numbers="|1-6|8|9|10|12|13|14|" data-noescape="" data-trim="">
+          <pre data-cc="false"><code class="kotlin" data-line-numbers="|1-6|8|9|10|12|13|14" data-noescape="" data-trim="">
 @Serializable
 data class User(
   val username: String,
@@ -727,7 +678,7 @@ println("user2=$user2")
         
         <section>
           <h2>Naive Rate Limiter using INCR (1)</h2>
-          <pre data-cc="false"><code class="bash" data-line-numbers="|1|2|3|4-7|8|9-13|" data-noescape="" data-trim="">
+          <pre data-cc="false"><code class="bash" data-line-numbers="|1|2|3|4-7|8|9-10|11-13" data-noescape="" data-trim="">
 FUNCTION LIMIT_API_CALL(ip)
 ts = CURRENT_UNIX_TIME() // second resolution
 keyname = ip+":"+ts
@@ -748,7 +699,7 @@ END
         
         <section>
           <h2>Naive Rate Limiter using INCR (2)</h2>
-          <pre data-cc="false"><code class="bash" data-line-numbers="|1|2|3-5|6|7-9|10|" data-noescape="" data-trim="">
+          <pre data-cc="false"><code class="bash" data-line-numbers="|1|2|3-4|5|6-9|10|11" data-noescape="" data-trim="">
 FUNCTION LIMIT_API_CALL(ip):
 current = GET(ip)
 IF current != NULL AND current &gt; 10 THEN
@@ -767,7 +718,7 @@ END
         
         <section>
           <h2>Naive Rate Limiter using a List</h2>
-          <pre data-cc="false"><code class="bash" data-line-numbers="|1|2|3-4|5|6|7-10|11-13|14|" data-noescape="" data-trim="">
+          <pre data-cc="false"><code class="bash" data-line-numbers="|1|2|3-4|5|6|7-10|11-13|14|15" data-noescape="" data-trim="">
 FUNCTION LIMIT_API_CALL(ip)
 current = LLEN(ip)
 IF current &gt; 10 THEN
@@ -799,7 +750,7 @@ style R fill:#f66,stroke:#000,stroke-width:1px</div>
         
         <section>
           <h2>Submit Work</h2>
-          <pre data-cc="false"><code class="bash" data-line-numbers="|1|2|" data-noescape="" data-trim="">
+          <pre data-cc="false"><code class="bash" data-line-numbers="|1|2" data-noescape="" data-trim="">
 FUNCTION SUBMIT_WORK_TO_QUEUE(work_desc)
 LPUSH("work_queue:render", work_desc)
 </code>
@@ -808,12 +759,98 @@ LPUSH("work_queue:render", work_desc)
         
         <section>
           <h2>Execute Work</h2>
-          <pre data-cc="false"><code class="bash" data-line-numbers="|1|2|3|4|" data-noescape="" data-trim="">
+          <pre data-cc="false"><code class="bash" data-line-numbers="|1|2,5|3|4" data-noescape="" data-trim="">
 FUNCTION REMOVE_WORK_FROM_QUEUE()
 WHILE true
   work_desc = BRPOP("work_queue:render")
   EXECUTE_WORK(word_desc)
 END
+</code>
+          </pre>
+        </section>
+        
+        <section>
+          <h2>WorkDesc Class</h2>
+          <pre data-cc="false"><code class="kotlin" data-line-numbers="|1,15|2-6|8-9|11-12|14" data-noescape="" data-trim="">
+@Serializable
+data class WorkDesc(
+  val jobId: Int,
+  val timeRequired: Int
+)
+</code>
+          </pre>
+        </section>
+        
+        <section>
+          <h2>Submit Work</h2>
+          <pre data-cc="false"><code class="kotlin" data-line-numbers="|1,15|2-6|8-9|11-12|14" data-noescape="" data-trim="">
+repeat(10000) {
+  val workDesc = WorkDesc(cnt++, Random.nextInt(1, 15))
+  println("Submitting work item that takes ${workDesc.timeRequired} secs")
+  val json = Json.encodeToString(workDesc)
+  jedis.lpush("work_queue:render", json)
+  Thread.sleep(1000)
+}
+</code>
+          </pre>
+        </section>
+        
+        <section>
+          <h2>Execute Work</h2>
+          <pre data-cc="false"><code class="kotlin" data-line-numbers="|1,15|2-6|8-9|11-12|14" data-noescape="" data-trim="">
+val workerCount = 5
+val executor = Executors.newCachedThreadPool()
+val workers = List(workerCount) { Worker(it) }
+workers.forEach { worker -&gt;
+  executor.submit {
+    while (true) {
+      val workDesc = worker.removeWorkFromQueue("work_queue:render")
+      worker.executeWork(workDesc)
+    }
+  }
+}
+</code>
+          </pre>
+        </section>
+        
+        <section>
+          <h1>
+            <a href="https://redis.io/docs/manual/pubsub/" target="_blank">Redis Pub/Sub</a>
+          </h1>
+        </section>
+        
+        <section>
+          <h3>
+            <a href="https://redis.io/commands/subscribe/" target="_blank">SUBSCRIBE</a>/<a href="https://redis.io/commands/unsubscribe/" target="_blank">UNSUBSCRIBE</a>/<a href="https://redis.io/commands/publish/" target="_blank">PUBLISH</a> Commands
+          </h3>
+          <h4>Event-based programming</h4>
+          <pre data-cc="false"><code class="bash" data-line-numbers="|1-3|5-6|4" data-noescape="" data-trim="">
+&gt; SUBSCRIBE topic1 topic2
+subscribe from topic1: 1
+subscribe from topic2: 2
+message   from topic1: Hello
+&gt; PUBLISH topic1 "Hello"
+(integer) 1
+&gt;
+</code>
+          </pre>
+        </section>
+        
+        <section>
+          <h3>
+            <a href="https://redis.io/commands/psubscribe/" target="_blank">PSUBSCRIBE</a>/<a href="https://redis.io/commands/punsubscribe/" target="_blank">PUNSUBSCRIBE</a> Commands
+          </h3>
+          <h4>Pattern-matching subscriptions</h4>
+          <pre data-cc="false"><code class="bash" data-line-numbers="|1-2|5-6|3|7-8|4" data-noescape="" data-trim="">
+&gt; PSUBSCRIBE weather.*
+psubscribe from weather.*: 1
+pmessage  from weather.*:weather.94528: 88
+pmessage  from weather.*:weather.94513: 70
+&gt; PUBLISH weather.94528 88
+(integer) 1
+&gt; PUBLISH weather.94513 70
+(integer) 1
+&gt;
 </code>
           </pre>
         </section>
@@ -826,6 +863,56 @@ WS &lt;--&gt; R("Redis&amp;nbsp;")
 R &lt;--&gt; PS1("NYSE\nPrice Source&amp;nbsp;") &amp; PS2("NASDAQ\nPrice Source&amp;nbsp;") &amp; PS3("CBOT\nPrice Source&amp;nbsp;")
 style R fill:#f66,stroke:#000,stroke-width:1px</div>
           <h4>Distributing stock ticker prices</h4>
+        </section>
+        
+        <section>
+          <h2>Publish Stock Prices</h2>
+          <pre data-cc="false"><code class="kotlin" data-line-numbers="|1,15|2-6|8-9|11-12|14" data-noescape="" data-trim="">
+repeat(200) {
+  val stock = Stocks.values()[Random.nextInt(size)].name
+  val priceChannel = "stocks:price:$stock"
+  val volumeChannel = "stocks:volume:$stock"
+  val price = Random.nextInt(32, 100)
+  val volume = Random.nextInt(1000, 2000)
+
+  println("Publishing $priceChannel price $price")
+  jedis.publish(priceChannel, price.toString())
+
+  println("Publishing $volumeChannel volume $volume")
+  jedis.publish(volumeChannel, volume.toString())
+
+  Thread.sleep(500)
+}
+</code>
+          </pre>
+        </section>
+        
+        <section>
+          <h2>Subscribe to a Stock Price</h2>
+          <pre data-cc="false"><code class="kotlin" data-line-numbers="|1-11|2-4|13-15|17-19|21" data-noescape="" data-trim="">
+class MyListener : JedisPubSub() {
+  override fun onMessage(channel: String, msg: String) {
+    println("Received a message for channel $channel: $msg")
+  }
+
+  override fun onSubscribe(channel: String, count: Int) {}
+  override fun onUnsubscribe(channel: String, count: Int) {}
+  override fun onPSubscribe(pattern: String, count: Int) {}
+  override fun onPUnsubscribe(pattern: String, count: Int) {}
+  override fun onPMessage(pattern: String, channel: String, msg: String) {}
+}
+
+executor.submit {
+  jedis.subscribe(MyListener(), "stocks:price:AAPL")
+}
+
+executor.submit {
+  jedis.subscribe(MyListener(), "stocks:volume:GOOG")
+}
+
+Thread.sleep(100000)
+</code>
+          </pre>
         </section>
         
       </div>

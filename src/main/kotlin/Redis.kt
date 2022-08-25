@@ -63,7 +63,7 @@ object Redis {
           +dslSlide.include("$base/redis/$fileName")
         }
 
-      fun SECTION.jedisCode(dslSlide: DslSlide, fileName: String, highlight: String, tokenName: String) =
+      fun SECTION.jedisCode(dslSlide: DslSlide, fileName: String, highlight: String, tokenName: String = "slide") =
         codeSnippet {
           language = "kotlin"
           copyButton = false
@@ -76,6 +76,8 @@ object Redis {
           )
         }
 
+      fun FlowOrInteractiveOrPhrasingContent.rc(name: String) =
+        atag(name.uppercase(), "https://redis.io/commands/${name.lowercase()}/")
 
       dslSlide {
         content {
@@ -97,16 +99,79 @@ object Redis {
         content {
           h3 { +"🕯 Overview of Slides" }
           unorderedList(
+            linkItem("Getting Redis up and running", "https://redis.io/docs/getting-started/"),
             textItem("Problem Statement"),
             textItem("What is Redis?"),
-            linkItem("Getting Redis up and running", "https://redis.io/docs/getting-started/"),
             linkItem("Data Types", "https://redis.io/docs/data-types/"),
             linkItem("Redis Commands", "https://redis.io/commands/"),
             linkItem("Programmatic APIs", "https://redis.io/docs/clients/"),
             textItem("Use Cases"),
+            linkItem("Pub/Sub", "https://redis.io/docs/manual/pubsub/"),
           ) {
             style = "font-size:30px; padding-left: 80px"
           }
+        }
+      }
+
+      markdownSlide {
+        content {
+          """
+            ## OSX Install for Redis Client and Server
+            
+            ```bash
+            
+            $ brew install redis iredis    
+                     
+            
+            ```    
+                  
+            #### [Other Platforms](https://redis.io/docs/getting-started/installation/)      
+          """
+        }
+      }
+
+      markdownSlide {
+        content {
+          """
+            ## Start a Redis Server
+            
+            ```bash
+            
+            $ docker run -d -p 6379:6379 --name myredis redis
+            
+            
+            ``` 
+            or   
+                 
+            ```bash
+            
+            $ redis-server      
+            
+            
+            ```                    
+          """
+        }
+      }
+
+      markdownSlide {
+        content {
+          """
+            ## Start a Redis Client
+                             
+            ```bash
+            
+            $ redis-cli      
+            
+            
+            ```    
+            or
+            ```bash
+            
+            $ iredis      
+            
+            
+            ```                
+          """
         }
       }
 
@@ -141,7 +206,8 @@ object Redis {
             "All access is via a key",
             "Meant to be run as a network-attached server",
             "Simple TCP protocol, which is implemented in many languages",
-            "Can act as a cache, database, message broker, and pub-sub engine",
+            "Can act as a cache, database, message broker, and pub/sub engine",
+            "One of many possible solutions in this space",
           ) {
             style = "font-size:30px; padding-left: 80px"
           }
@@ -162,69 +228,6 @@ object Redis {
                   style R fill:#f66,stroke:#000,stroke-width:1px
             """
           )
-        }
-      }
-
-      markdownSlide {
-        content {
-          """
-            ## OSX Install for Redis Client and Server
-            
-            ```bash
-            
-            brew install redis  
-            brew install iredis
-            
-            
-            ```    
-                  
-            #### [Other Platforms](https://redis.io/docs/getting-started/installation/)      
-          """
-        }
-      }
-
-      markdownSlide {
-        content {
-          """
-            ## Start a Redis Server
-            
-            ```bash
-            
-            docker run -d -p 6379:6379 --name myredis redis
-            
-            
-            ``` 
-            or   
-                 
-            ```bash
-            
-            redis-server      
-            
-            
-            ```                    
-          """
-        }
-      }
-
-      markdownSlide {
-        content {
-          """
-            ## Start a Redis Client
-                             
-            ```bash
-            
-            redis-cli      
-            
-            
-            ```    
-            or
-            ```bash
-            
-            iredis      
-            
-            
-            ```                
-          """
         }
       }
 
@@ -270,16 +273,16 @@ object Redis {
                 "EXPIRE/PERSIST",
                 "MSET/MGET",
                 "INCR/DECR",
-                "LPUSH/LPOP/RPOP/LLEN",
               ) { style = fmt }
             }
             div("column2") {
               unorderedList(
                 //"LMOVE/LRANGE/BLPOP",
+                "LPUSH/LPOP/RPOP/LLEN",
                 "SADD/SMEMBERS/SISMEMBER",
                 "SINTER/SCARD",
                 "HSET/HGET/HGETALL",
-                "SUBSCRIBE/UNSUBSCRIBE/PUBLISH",
+                //"SUBSCRIBE/UNSUBSCRIBE/PUBLISH",
               ) { style = fmt }
             }
           }
@@ -292,76 +295,49 @@ object Redis {
 
       dslSlide {
         content {
-          h2 {
-            atag("SET", "https://redis.io/commands/set/")
-            +"/"
-            atag("GET", "https://redis.io/commands/get/")
-            +"/"
-            atag("DEL", "https://redis.io/commands/del/")
-            +" Commands"
-          }
+          h2 { rc("SET"); +"/"; rc("GET"); +"/"; rc("DEL"); +" Commands" }
           h4 { +"Set, get, and delete keys" }
-          redisCode(this@dslSlide, "string1.txt", "[|1-2|3-4|5-6|7-8|9-10|11-12|]")
+          redisCode(this@dslSlide, "string1.txt", "|1-2|3-4|5-6|7-8|9-10|11-12")
         }
       }
 
       dslSlide {
         content {
-          h2 {
-            atag("EXPIRE", "https://redis.io/commands/expire/")
-            +"/"
-            atag("PERSIST", "https://redis.io/commands/persist/")
-            +" Commands"
-          }
+          h2 { rc("EXPIRE"); +"/"; rc("PERSIST"); +" Commands" }
           h4 { +"Expiring keys (1)" }
-          redisCode(this@dslSlide, "string2.txt", "[|1-2|3-4|5-6|7-8|]")
+          redisCode(this@dslSlide, "string2.txt", "|1-2|3-4|5-6|7-8")
         }
       }
 
       dslSlide {
         content {
-          h2 { +"TTL Commands" }
+          h2 { rc("SET"); +" Command Options" }
           h4 { +"Expiring keys (2)" }
-          redisCode(this@dslSlide, "string3.txt", "[|1-2|3-4|5-6|]")
+          redisCode(this@dslSlide, "string3.txt", "|1-2|3-4|5-6")
         }
       }
 
       dslSlide {
         content {
-          h2 {
-            atag("MSET", "https://redis.io/commands/mset/")
-            +"/"
-            atag("MGET", "https://redis.io/commands/mget/")
-            +" Commands"
-          }
+          h2 { rc("MSET"); +"/"; rc("MGET"); +" Commands" }
           h4 { +"Set/Get multiple values" }
-          redisCode(this@dslSlide, "mset-mget1.txt", "[|1-2|3-7|]")
+          redisCode(this@dslSlide, "mset-mget1.txt", "|1-2|3-7")
         }
       }
 
       dslSlide {
         content {
-          h2 {
-            atag("INCR", "https://redis.io/commands/incr/")
-            +"/"
-            atag("INCRBY", "https://redis.io/commands/incrby/")
-            +" Commands"
-          }
+          h2 { rc("INCR"); +"/"; rc("INCRBY"); +" Commands" }
           h4 { +"Increment a value (atomically)" }
-          redisCode(this@dslSlide, "incr.txt", "[|1-2|3-4|5-6|7-8|9-10|11-12|]")
+          redisCode(this@dslSlide, "incr.txt", "|1-2|3-4|5-6|7-8|9-10|11-12")
         }
       }
 
       dslSlide {
         content {
-          h2 {
-            atag("DECR", "https://redis.io/commands/decr/")
-            +"/"
-            atag("DECRBY", "https://redis.io/commands/decrby/")
-            +" Commands"
-          }
+          h2 { rc("DECR"); +"/"; rc("DECRBY"); +" Commands" }
           h4 { +"Decrement a value (atomically)" }
-          redisCode(this@dslSlide, "decr.txt", "[|1-2|3-4|5-6|7-8|9-10|11-12|]")
+          redisCode(this@dslSlide, "decr.txt", "|1-2|3-4|5-6|7-8|9-10|11-12")
         }
       }
 
@@ -371,55 +347,33 @@ object Redis {
 
       dslSlide {
         content {
-          h2 {
-            atag("LPUSH", "https://redis.io/commands/lpush/")
-            +"/"
-            atag("RPOP", "https://redis.io/commands/rpop/")
-            +"/"
-            atag("LLEN", "https://redis.io/commands/llen/")
-            +" Commands"
-          }
-          h4 {
-            +"Implementing a queue (first in, first out)"
-          }
-          redisCode(this@dslSlide, "list1.txt", "[|1-2|3-4|5-6|7-8|9-10|11-12|]")
+          h2 { rc("LPUSH"); +"/"; rc("RPOP"); +"/"; rc("LLEN"); +" Commands" }
+          h4 { +"Implementing a queue (first in, first out)" }
+          redisCode(this@dslSlide, "list1.txt", "|1-2|3-4|5-6|7-8|9-10|11-12")
         }
       }
 
       dslSlide {
         content {
-          h2 {
-            atag("LPUSH", "https://redis.io/commands/lpush/")
-            +"/"
-            atag("LPOP", "https://redis.io/commands/lpop/")
-            +" Commands"
-          }
+          h2 { rc("LPUSH"); +"/"; rc("LPOP"); +" Commands" }
           h4 { +"Implementing a stack (first in, last out)" }
-          redisCode(this@dslSlide, "list2.txt", "[|1-2|3-4|5-6|7-8|]")
+          redisCode(this@dslSlide, "list2.txt", "|1-2|3-4|5-6|7-8")
         }
       }
 
 //      dslSlide {
 //        content {
-//          h2 {
-//            atag("LMOVE", "https://redis.io/commands/lmove/")
-//            +"/"
-//            atag("LRANGE", "https://redis.io/commands/lrange/")
-//            +" Commands"
-//          }
+//          h2 { command("LMOVE"); +"/"; command("LRANGE"); +" Commands" }
 //          h4 { +"Moving items between lists" }
-//          redisSlide(this@dslSlide, "list3.txt", "[|1-2|3-4|5-6|7-8|9-10|]")
+//          redisCode(this@dslSlide, "list3.txt", "[|1-2|3-4|5-6|7-8|9-10|]")
 //        }
 //      }
 
       dslSlide {
         content {
-          h2 {
-            atag("BLPOP", "https://redis.io/commands/blpop/")
-            +" Command"
-          }
+          h2 { rc("BLPOP"); +" Command" }
           h4 { +"Blocking list pop" }
-          redisCode(this@dslSlide, "list4.txt", "[|1|2-3|4|5-6|7|8-9|]")
+          redisCode(this@dslSlide, "list4.txt", "|1|2-3|4|5-6|7|8-9|")
         }
       }
 
@@ -429,47 +383,25 @@ object Redis {
 
       dslSlide {
         content {
-          h2 {
-            atag("SADD", "https://redis.io/commands/sadd/")
-            +"/"
-            atag("SMEMBERS", "https://redis.io/commands/smembers/")
-            +" Commands"
-          }
+          h2 { rc("SADD"); +"/"; rc("SMEMBERS"); +"/"; rc("SCARD"); +" Commands" }
           h4 { +"Set creation and membership" }
-          redisCode(this@dslSlide, "set1.txt", "[|1-2|3-4|5-6|7-10|]")
+          redisCode(this@dslSlide, "set1.txt", "|1-2|3-4|5-6|7-10|11-12")
         }
       }
 
       dslSlide {
         content {
-          h2 {
-            atag("SISMEMBER", "https://redis.io/commands/sismember/")
-            +" Command"
-          }
+          h2 { rc("SISMEMBER"); +" Command" }
           h4 { +"Set membership: does user 123 like books 742 and 299?" }
-          redisCode(this@dslSlide, "set2.txt", "[|1-2|3-4|]")
+          redisCode(this@dslSlide, "set2.txt", "|1-2|3-4")
         }
       }
 
       dslSlide {
         content {
-          h2 {
-            atag("SINTER", "https://redis.io/commands/sinter/")
-            +" Command"
-          }
+          h2 { rc("SINTER"); +" Command" }
           h4 { +"Set intersection: do users 123 and 456 have any favorite books in common?" }
           redisCode(this@dslSlide, "set3.txt")
-        }
-      }
-
-      dslSlide {
-        content {
-          h2 {
-            atag("SCARD", "https://redis.io/commands/scard/")
-            +" Command"
-          }
-          h4 { +"Set size: how many books has user 123 marked as favorite?" }
-          redisCode(this@dslSlide, "set4.txt")
         }
       }
 
@@ -479,48 +411,9 @@ object Redis {
 
       dslSlide {
         content {
-          h2 {
-            atag("HSET", "https://redis.io/commands/hset/")
-            +"/"
-            atag("HGET", "https://redis.io/commands/hget/")
-            +"/"
-            atag("HGETALL", "https://redis.io/commands/hgetall/")
-            +" Commands"
-          }
+          h2 { rc("HSET"); +"/"; rc("HGET"); +"/"; rc("HGETALL"); +" Commands" }
           h4 { +"Save a basic user profile as a hash" }
-          redisCode(this@dslSlide, "hash1.txt", "|1-2|3-4|5-11|")
-        }
-      }
-
-      dslSlide {
-        content { h1 { atag("Redis Pub/Sub", "https://redis.io/docs/manual/pubsub/") } }
-      }
-
-      dslSlide {
-        content {
-          h3 {
-            atag("SUBSCRIBE", "https://redis.io/commands/subscribe/")
-            +"/"
-            atag("UNSUBSCRIBE", "https://redis.io/commands/unsubscribe/")
-            +"/"
-            atag("PUBLISH", "https://redis.io/commands/publish/")
-            +" Commands"
-          }
-          h4 { +"Event-based programming" }
-          redisCode(this@dslSlide, "pubsub1.txt", "[|1-3|5-6|4|]")
-        }
-      }
-
-      dslSlide {
-        content {
-          h3 {
-            atag("PSUBSCRIBE", "https://redis.io/commands/psubscribe/")
-            +"/"
-            atag("PUNSUBSCRIBE", "https://redis.io/commands/punsubscribe/")
-            +" Commands"
-          }
-          h4 { +"Pattern-matching subscriptions" }
-          redisCode(this@dslSlide, "pubsub2.txt", "|1-2|5-6|3|7-8|4|")
+          redisCode(this@dslSlide, "hash1.txt", "|1-2|3-4|5-11")
         }
       }
 
@@ -534,7 +427,7 @@ object Redis {
             atag("Jedis", "https://github.com/redis/jedis")
             +" Example (SET/GET/DEL)"
           }
-          jedisCode(this@dslSlide, "Set1.kt", "|1|3|5-6|8|10-11|", "Set1")
+          jedisCode(this@dslSlide, "strings/Set.kt", "|1|3|5-6|8|10-11")
         }
       }
 
@@ -544,7 +437,7 @@ object Redis {
             atag("Jedis", "https://github.com/redis/jedis")
             +" Example (HSET/HGETALL)"
           }
-          jedisCode(this@dslSlide, "HSet1.kt", "|1|3-10|12-13|", "HSet1")
+          jedisCode(this@dslSlide, "strings/HSet.kt", "|1|3-10|12-13")
         }
       }
 
@@ -574,14 +467,14 @@ object Redis {
       dslSlide {
         content {
           h2 { +"Saving User Profile using HSET" }
-          jedisCode(this@dslSlide, "HSet2.kt", "|1-5|7-11|12|13|15|16|17|", "HSet2")
+          jedisCode(this@dslSlide, "cache/MapValues.kt", "|1-5|7-11|12|13|15|16|17")
         }
       }
 
       dslSlide {
         content {
           h2 { +"Saving User Profile using SET" }
-          jedisCode(this@dslSlide, "Set2.kt", "|1-6|8|9|10|12|13|14|", "Set2")
+          jedisCode(this@dslSlide, "cache/JsonValues.kt", "|1-6|8|9|10|12|13|14")
         }
       }
 
@@ -590,7 +483,7 @@ object Redis {
       dslSlide {
         content {
           h2 { +"Naive Rate Limiter using INCR (1)" }
-          redisCode(this@dslSlide, "ratelimit1.txt", "|1|2|3|4-7|8|9-13|")
+          redisCode(this@dslSlide, "ratelimit1.txt", "|1|2|3|4-7|8|9-10|11-13")
           h4 { +"Limit each IP to 10 requests/sec" }
         }
       }
@@ -598,7 +491,7 @@ object Redis {
       dslSlide {
         content {
           h2 { +"Naive Rate Limiter using INCR (2)" }
-          redisCode(this@dslSlide, "ratelimit2.txt", "|1|2|3-5|6|7-9|10|")
+          redisCode(this@dslSlide, "ratelimit2.txt", "|1|2|3-4|5|6-9|10|11")
           h4 { +"Limit each IP to 10 requests/sec" }
         }
       }
@@ -606,7 +499,7 @@ object Redis {
       dslSlide {
         content {
           h2 { +"Naive Rate Limiter using a List" }
-          redisCode(this@dslSlide, "ratelimit3.txt", "|1|2|3-4|5|6|7-10|11-13|14|")
+          redisCode(this@dslSlide, "ratelimit3.txt", "|1|2|3-4|5|6|7-10|11-13|14|15")
           h4 { +"Limit each IP to 10 requests/sec" }
         }
       }
@@ -629,14 +522,56 @@ object Redis {
       dslSlide {
         content {
           h2 { +"Submit Work" }
-          redisCode(this@dslSlide, "worksubmit.txt", "|1|2|")
+          redisCode(this@dslSlide, "worksubmit.txt", "|1|2")
         }
       }
 
       dslSlide {
         content {
           h2 { +"Execute Work" }
-          redisCode(this@dslSlide, "workperform.txt", "|1|2|3|4|")
+          redisCode(this@dslSlide, "workperform.txt", "|1|2,5|3|4")
+        }
+      }
+
+      dslSlide {
+        content {
+          h2 { +"WorkDesc Class" }
+          jedisCode(this@dslSlide, "workers/WorkDesc.kt", "|1,15|2-6|8-9|11-12|14")
+        }
+      }
+
+      dslSlide {
+        content {
+          h2 { +"Submit Work" }
+          jedisCode(this@dslSlide, "workers/SubmitWork.kt", "|1,15|2-6|8-9|11-12|14")
+        }
+      }
+
+      dslSlide {
+        content {
+          h2 { +"Execute Work" }
+          jedisCode(this@dslSlide, "workers/ExecuteWork.kt", "|1,15|2-6|8-9|11-12|14")
+        }
+      }
+
+
+      dslSlide {
+        content { h1 { atag("Redis Pub/Sub", "https://redis.io/docs/manual/pubsub/") } }
+      }
+
+      dslSlide {
+        content {
+          h3 { rc("SUBSCRIBE"); +"/"; rc("UNSUBSCRIBE"); +"/"; rc("PUBLISH"); +" Commands" }
+          h4 { +"Event-based programming" }
+          redisCode(this@dslSlide, "pubsub1.txt", "|1-3|5-6|4")
+        }
+      }
+
+      dslSlide {
+        content {
+          h3 { rc("PSUBSCRIBE"); +"/"; rc("PUNSUBSCRIBE"); +" Commands" }
+          h4 { +"Pattern-matching subscriptions" }
+          redisCode(this@dslSlide, "pubsub2.txt", "|1-2|5-6|3|7-8|4")
         }
       }
 
@@ -653,6 +588,20 @@ object Redis {
            """
           )
           h4 { +"Distributing stock ticker prices" }
+        }
+      }
+
+      dslSlide {
+        content {
+          h2 { +"Publish Stock Prices" }
+          jedisCode(this@dslSlide, "pubsub/Publish.kt", "|1,15|2-6|8-9|11-12|14")
+        }
+      }
+
+      dslSlide {
+        content {
+          h2 { +"Subscribe to a Stock Price" }
+          jedisCode(this@dslSlide, "pubsub/Subscribe.kt", "|1-11|2-4|13-15|17-19|21")
         }
       }
 

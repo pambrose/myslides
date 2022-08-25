@@ -8,4 +8,6 @@
 1) "347"
 2) "561"
 3) "742"
->
+> SCARD user:123:favorites
+(integer) 3
+>>

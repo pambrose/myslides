@@ -786,7 +786,7 @@ data class WorkDesc(
           <pre data-cc="false"><code class="kotlin" data-line-numbers="|1,15|2-6|8-9|11-12|14" data-noescape="" data-trim="">
 repeat(10000) {
   val workDesc = WorkDesc(cnt++, Random.nextInt(1, 15))
-  println("Submitting work item that takes ${workDesc.timeRequired} secs")
+  println("Submitting work item: $workDesc")
   val json = Json.encodeToString(workDesc)
   jedis.lpush("work_queue:render", json)
   Thread.sleep(1000)

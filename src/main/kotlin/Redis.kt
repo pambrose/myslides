@@ -240,8 +240,8 @@ object Redis {
               unorderedList(
                 linkItem("Strings", "https://redis.io/docs/data-types/strings/"),
                 linkItem("Lists", "https://redis.io/docs/data-types/lists/"),
-                linkItem("Sets", "https://redis.io/docs/data-types/sets/"),
                 linkItem("Hashes", "https://redis.io/docs/data-types/hashes/"),
+                linkItem("Sets", "https://redis.io/docs/data-types/sets/"),
                 linkItem("Sorted Sets", "https://redis.io/docs/data-types/sorted-sets/"),
               ) { style = fmt }
             }

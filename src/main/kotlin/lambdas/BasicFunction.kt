@@ -7,6 +7,5 @@ fun main() {
     return a + b
   }
 
-
- //sampleEnd
+  //sampleEnd
 }

@@ -478,7 +478,6 @@ object Redis {
         }
       }
 
-
       // https://redis.io/commands/incr/
       dslSlide {
         content {
@@ -553,7 +552,6 @@ object Redis {
           jedisCode(this@dslSlide, "workers/ExecuteWork.kt", "|1,15|2-6|8-9|11-12|14")
         }
       }
-
 
       dslSlide {
         content { h1 { atag("Redis Pub/Sub", "https://redis.io/docs/manual/pubsub/") } }

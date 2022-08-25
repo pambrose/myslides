@@ -177,7 +177,7 @@ object Functional {
                 copyButton = false
                 trim = false
                 highlightPattern = "none"
-                +include("$lambdas/BasicFunction.kt", "5-10")
+                +include("$lambdas/BasicFunction.kt", beginToken = "//sampleStart", endToken = "//sampleEnd")
               }
               unorderedList(*items.toTypedArray())
             }

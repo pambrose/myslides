@@ -14,9 +14,7 @@ import kotlinx.css.*
 import kotlinx.css.properties.*
 
 fun main() {
-
   kslides {
-
     val blue = "#258BD2;"
 
     output {
@@ -95,7 +93,7 @@ fun main() {
       }
     }
 
-    val useLocal = true
+    val useLocal = false
 
     httpPresentation()
     functionalPresentation()

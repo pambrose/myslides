@@ -48,12 +48,11 @@ object Dsl {
         fold: Boolean = true,
         highlightOnly: Boolean = false
       ) {
-        val useLocal = true
         playground(
           if (useLocal) "dsl-demo/src/main/kotlin/org/athenian/$fileName" else githubRawUrl(
             owner,
             repoName,
-            fileName
+            "src/main/kotlin/org/athenian/$fileName"
           )
         ) {
           height = "${heightPx}px"
@@ -308,7 +307,6 @@ object Dsl {
           }
         }
       }
-
     }
   }
 }

@@ -798,9 +798,9 @@ repeat(10000) {
         <section>
           <h2>Execute Work</h2>
           <pre data-cc="false"><code class="kotlin" data-line-numbers="|1,15|2-6|8-9|11-12|14" data-noescape="" data-trim="">
-val workerCount = 5
 val executor = Executors.newCachedThreadPool()
-val workers = List(workerCount) { Worker(it) }
+// Initialize Workers
+val workers = List(5) { Worker(it) }
 workers.forEach { worker -&gt;
   executor.submit {
     while (true) {

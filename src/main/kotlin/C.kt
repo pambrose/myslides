@@ -331,7 +331,7 @@ object C {
           image("Memory_model.png", 350)
           h5 {
             a {
-              +"More info on Stack and Heap Memory";
+              +"More info on Stack and Heap Memory"
               href = "https://courses.engr.illinois.edu/cs225/sp2022/resources/stack-heap/"
             }
           }

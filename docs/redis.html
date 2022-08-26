@@ -208,13 +208,7 @@ $ iredis
         
         <section>
           <h2>High Level Architecture</h2>
-          <div class="mermaid">flowchart TB
-S1("Server 1&amp;nbsp;") --&gt; R["Redis&amp;nbsp;"]
-S2("Server 2&amp;nbsp;") --&gt; R
-S3("Server 3&amp;nbsp;") --&gt; R 
-S4("Server 4&amp;nbsp;") --&gt; R 
-S5("Server 5&amp;nbsp;") --&gt; R 
-style R fill:#f66,stroke:#000,stroke-width:1px</div>
+          <img src="images/redis/high-level.png" width="800px">
         </section>
         
         <section>
@@ -561,13 +555,7 @@ println("user:123=$valMap")
         
         <section>
           <h2>Session Cache</h2>
-          <div class="mermaid">flowchart TD
-WC1("Web Client 1&amp;nbsp;") &lt;--&gt; LB("Load Balancer&amp;nbsp;")
-WC2("Web Client 2&amp;nbsp;") &lt;--&gt; LB
-WC3("Web Client 3&amp;nbsp;") &lt;--&gt; LB
-LB &lt;--&gt; S1("HTTP Server 1&amp;nbsp;") &amp; S2("HTTP Server 2&amp;nbsp;") &amp; S3("HTTP Server 3&amp;nbsp;")
-S1 &amp; S2 &amp; S3 &lt;--&gt; R("Redis&amp;nbsp;")
-style R fill:#f66,stroke:#000,stroke-width:1px</div>
+          <img src="images/redis/session-cache.png" width="500px">
           <h4>Cache user profiles, high scores, page hits, shopping cart items, last 10 user posts</h4>
           <h4>Rate Limiter</h4>
         </section>
@@ -682,10 +670,7 @@ END
         
         <section>
           <h2>Work Distribution</h2>
-          <div class="mermaid">flowchart TD
-WS["Work Submitter&amp;nbsp;"] --&gt; R["Redis&amp;nbsp;"]
-R &lt;--&gt; S1["Work Executor 1&amp;nbsp;"] &amp; S2["Work Executor 2&amp;nbsp;"] &amp; S3["Work Executor 3&amp;nbsp;"]
-style R fill:#f66,stroke:#000,stroke-width:1px</div>
+          <img src="images/redis/work-distribution.png" width="500px">
           <h4>Distribute compute-intensive jobs</h4>
         </section>
         
@@ -798,11 +783,7 @@ pmessage  from weather.*:weather.94513: 70
         
         <section>
           <h2>Stock Ticker Prices</h2>
-          <div class="mermaid">flowchart TB
-WC1("Web Client 1&amp;nbsp;") &amp; WC2("Web Client 2&amp;nbsp;") &amp; WC3("Web Client 3&amp;nbsp;") &lt;--&gt; WS("Web Server&amp;nbsp;")
-WS &lt;--&gt; R("Redis&amp;nbsp;")
-R &lt;--&gt; PS1("NYSE\nPrice Source&amp;nbsp;") &amp; PS2("NASDAQ\nPrice Source&amp;nbsp;") &amp; PS3("CBOT\nPrice Source&amp;nbsp;")
-style R fill:#f66,stroke:#000,stroke-width:1px</div>
+          <img src="images/redis/stock-ticker.png" width="500px">
           <h4>Distributing stock ticker prices</h4>
         </section>
         

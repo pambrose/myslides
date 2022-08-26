@@ -15,8 +15,6 @@ import kotlinx.css.properties.*
 
 fun main() {
   kslides {
-    val blue = "#258BD2;"
-
     output {
       // Write the presentation html files to /docs for Github Pages or netlify.com
       enableFileSystem = true
@@ -93,7 +91,7 @@ fun main() {
       }
     }
 
-    val useLocal = true
+    val useLocal = System.getenv("PORT").orEmpty().isEmpty()
 
     httpPresentation()
     functionalPresentation()

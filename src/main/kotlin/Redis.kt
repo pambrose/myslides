@@ -279,8 +279,8 @@ object Redis {
               unorderedList(
                 //"LMOVE/LRANGE/BLPOP",
                 "LPUSH/LPOP/RPOP/LLEN",
-                "SADD/SMEMBERS/SISMEMBER",
-                "SINTER/SCARD",
+                //"SADD/SMEMBERS/SISMEMBER",
+                //"SINTER/SCARD",
                 "HSET/HGET/HGETALL",
                 //"SUBSCRIBE/UNSUBSCRIBE/PUBLISH",
               ) { style = fmt }
@@ -536,21 +536,21 @@ object Redis {
       dslSlide {
         content {
           h2 { +"WorkDesc Class" }
-          jedisCode(this@dslSlide, "workers/WorkDesc.kt", "|1,15|2-6|8-9|11-12|14")
+          jedisCode(this@dslSlide, "workers/WorkDesc.kt", "")
         }
       }
 
       dslSlide {
         content {
           h2 { +"Submit Work" }
-          jedisCode(this@dslSlide, "workers/SubmitWork.kt", "|1,15|2-6|8-9|11-12|14")
+          jedisCode(this@dslSlide, "workers/SubmitWork.kt", "|1,7|2|3|4|5|6")
         }
       }
 
       dslSlide {
         content {
           h2 { +"Execute Work" }
-          jedisCode(this@dslSlide, "workers/ExecuteWork.kt", "|1,15|2-6|8-9|11-12|14")
+          jedisCode(this@dslSlide, "workers/ExecuteWork.kt", "|1|3|4,11|5,10|6,9|7|8")
         }
       }
 

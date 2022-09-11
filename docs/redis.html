@@ -208,7 +208,7 @@ $ iredis
         
         <section>
           <h2>High Level Architecture</h2>
-          <img src="images/redis/high-level.png" width="800px">
+          <iframe height="500px" src="mermaid/slide-235-1.html" width="100%"></iframe>
         </section>
         
         <section>
@@ -555,7 +555,7 @@ println("user:123=$valMap")
         
         <section>
           <h2>Session Cache</h2>
-          <img src="images/redis/session-cache.png" width="500px">
+          <iframe height="500px" src="mermaid/slide-255-1.html" width="100%"></iframe>
           <h4>Cache user profiles, high scores, page hits, shopping cart items, last 10 user posts</h4>
           <h4>Rate Limiter</h4>
         </section>
@@ -670,7 +670,7 @@ END
         
         <section>
           <h2>Work Distribution</h2>
-          <img src="images/redis/work-distribution.png" width="500px">
+          <iframe height="275px" src="mermaid/slide-261-1.html" width="100%"></iframe>
           <h4>Distribute compute-intensive jobs</h4>
         </section>
         
@@ -783,7 +783,7 @@ pmessage  from weather.*:weather.94513: 70
         
         <section>
           <h2>Stock Ticker Prices</h2>
-          <img src="images/redis/stock-ticker.png" width="500px">
+          <iframe height="375px" src="mermaid/slide-270-1.html" width="100%"></iframe>
           <h4>Distributing stock ticker prices</h4>
         </section>
         
@@ -848,7 +848,6 @@ Thread.sleep(100000)
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.11/clipboard.min.js"></script>
 	<script src="revealjs/plugin/copycode/copycode.js"></script>
 	<script src="revealjs/plugin/menu/menu.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
 
 	<script>
 		Reveal.initialize({
@@ -860,9 +859,6 @@ Thread.sleep(100000)
 
 			plugins: [ RevealZoom, RevealSearch, RevealMarkdown, RevealHighlight, RevealMenu, CopyCode ]
 		});
-
-
-		mermaid.initialize({startOnLoad:true});
 
 </script>
   </body>

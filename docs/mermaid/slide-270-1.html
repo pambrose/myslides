@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js" type="text/javascript"></script>
+  </head>
+  <body>
+    <div class="mermaid" style="text-align: center;">flowchart TB
+WC1("Web Client 1&amp;nbsp;") &amp; WC2("Web Client 2&amp;nbsp;") &amp; WC3("Web Client 3&amp;nbsp;") &lt;--&gt; WS("Web Server&amp;nbsp;")
+WS &lt;--&gt; R("Redis&amp;nbsp;")
+R &lt;--&gt; PS1("NYSE\nPrice Source&amp;nbsp;") &amp; PS2("NASDAQ\nPrice Source&amp;nbsp;") &amp; PS3("CBOT\nPrice Source&amp;nbsp;")
+style R fill:#f66,stroke:#000,stroke-width:1px</div>
+    <script>
+		mermaid.initialize({startOnLoad:true});
+		</script>
+  </body>
+</html>

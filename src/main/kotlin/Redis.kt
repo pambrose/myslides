@@ -3,8 +3,10 @@ import Utils.textItem
 import com.kslides.KSlides
 import com.kslides.atag
 import com.kslides.codeSnippet
+import com.kslides.config.MermaidIframeConfig
 import com.kslides.githubRawUrl
 import com.kslides.include
+import com.kslides.mermaid
 import com.kslides.slide.DslSlide
 import com.kslides.unorderedList
 import kotlinx.css.*
@@ -51,7 +53,6 @@ object Redis {
 
       presentationConfig {
         topRightHref = "#/redis"
-        enableMermaid = true
       }
 
       fun SECTION.redisCode(dslSlide: DslSlide, fileName: String, highlight: String = "") =
@@ -217,18 +218,17 @@ object Redis {
       dslSlide {
         content {
           h2 { +"High Level Architecture" }
-          img { src = "images/redis/high-level.png"; width = "800px" }
-//          mermaid(
-//            """
-//              flowchart TB
-//                  S1("Server 1$SP") --> R["Redis$SP"]
-//                  S2("Server 2$SP") --> R
-//                  S3("Server 3$SP") --> R
-//                  S4("Server 4$SP") --> R
-//                  S5("Server 5$SP") --> R
-//                  style R fill:#f66,stroke:#000,stroke-width:1px
-//            """
-//          )
+          mermaid {
+            """
+            flowchart TB
+                S1("Server 1$SP") --> R["Redis$SP"]
+                S2("Server 2$SP") --> R
+                S3("Server 3$SP") --> R
+                S4("Server 4$SP") --> R
+                S5("Server 5$SP") --> R
+                style R fill:#f66,stroke:#000,stroke-width:1px
+            """
+          }
         }
       }
 
@@ -450,18 +450,17 @@ object Redis {
       dslSlide {
         content {
           h2 { +"Session Cache" }
-          img { src = "images/redis/session-cache.png"; width = "500px" }
-//          mermaid(
-//            """
-//                flowchart TD
-//                    WC1("Web Client 1$SP") <--> LB("Load Balancer$SP")
-//                    WC2("Web Client 2$SP") <--> LB
-//                    WC3("Web Client 3$SP") <--> LB
-//                    LB <--> S1("HTTP Server 1$SP") & S2("HTTP Server 2$SP") & S3("HTTP Server 3$SP")
-//                    S1 & S2 & S3 <--> R("Redis$SP")
-//                    style R fill:#f66,stroke:#000,stroke-width:1px
-//           """
-//          )
+          mermaid {
+            """
+            flowchart TD
+                WC1("Web Client 1$SP") <--> LB("Load Balancer$SP")
+                WC2("Web Client 2$SP") <--> LB
+                WC3("Web Client 3$SP") <--> LB
+                LB <--> S1("HTTP Server 1$SP") & S2("HTTP Server 2$SP") & S3("HTTP Server 3$SP")
+                S1 & S2 & S3 <--> R("Redis$SP")
+                style R fill:#f66,stroke:#000,stroke-width:1px
+           """
+          }
           h4 { +"Cache user profiles, high scores, page hits, shopping cart items, last 10 user posts" }
           h4 { +"Rate Limiter" }
         }
@@ -509,15 +508,14 @@ object Redis {
       dslSlide {
         content {
           h2 { +"Work Distribution" }
-          img { src = "images/redis/work-distribution.png"; width = "500px" }
-//          mermaid(
-//            """
-//              flowchart TD
-//                  WS["Work Submitter$SP"] --> R["Redis$SP"]
-//                  R <--> S1["Work Executor 1$SP"] & S2["Work Executor 2$SP"] & S3["Work Executor 3$SP"]
-//                  style R fill:#f66,stroke:#000,stroke-width:1px
-//           """
-//          )
+          mermaid(MermaidIframeConfig { height = "275px" }) {
+            """
+            flowchart TD
+                WS["Work Submitter$SP"] --> R["Redis$SP"]
+                R <--> S1["Work Executor 1$SP"] & S2["Work Executor 2$SP"] & S3["Work Executor 3$SP"]
+                style R fill:#f66,stroke:#000,stroke-width:1px
+           """
+          }
           h4 { +"Distribute compute-intensive jobs" }
         }
       }
@@ -580,16 +578,15 @@ object Redis {
       dslSlide {
         content {
           h2 { +"Stock Ticker Prices" }
-          img { src = "images/redis/stock-ticker.png"; width = "500px" }
-//          mermaid(
-//            """
-//                flowchart TB
-//                    WC1("Web Client 1$SP") & WC2("Web Client 2$SP") & WC3("Web Client 3$SP") <--> WS("Web Server$SP")
-//                    WS <--> R("Redis$SP")
-//                    R <--> PS1("NYSE\nPrice Source$SP") & PS2("NASDAQ\nPrice Source$SP") & PS3("CBOT\nPrice Source$SP")
-//                    style R fill:#f66,stroke:#000,stroke-width:1px
-//           """
-//          )
+          mermaid(MermaidIframeConfig { height = "375px" }) {
+            """
+            flowchart TB
+                WC1("Web Client 1$SP") & WC2("Web Client 2$SP") & WC3("Web Client 3$SP") <--> WS("Web Server$SP")
+                WS <--> R("Redis$SP")
+                R <--> PS1("NYSE\nPrice Source$SP") & PS2("NASDAQ\nPrice Source$SP") & PS3("CBOT\nPrice Source$SP")
+                style R fill:#f66,stroke:#000,stroke-width:1px
+           """
+          }
           h4 { +"Distributing stock ticker prices" }
         }
       }

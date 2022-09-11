@@ -6,11 +6,11 @@
   </head>
   <body>
     <div class="mermaid" style="text-align: center;">flowchart TD
-WC1("Web Client 1&amp;nbsp;") &lt;--&gt; LB("Load Balancer&amp;nbsp;")
-WC2("Web Client 2&amp;nbsp;") &lt;--&gt; LB
-WC3("Web Client 3&amp;nbsp;") &lt;--&gt; LB
-LB &lt;--&gt; S1("HTTP Server 1&amp;nbsp;") &amp; S2("HTTP Server 2&amp;nbsp;") &amp; S3("HTTP Server 3&amp;nbsp;")
-S1 &amp; S2 &amp; S3 &lt;--&gt; R("Redis&amp;nbsp;")
+WC1("Web Client 1") &lt;--&gt; LB("Load Balancer")
+WC2("Web Client 2") &lt;--&gt; LB
+WC3("Web Client 3") &lt;--&gt; LB
+LB &lt;--&gt; S1("HTTP Server 1") &amp; S2("HTTP Server 2") &amp; S3("HTTP Server 3")
+S1 &amp; S2 &amp; S3 &lt;--&gt; R("Redis")
 style R fill:#f66,stroke:#000,stroke-width:1px</div>
     <script>
 		mermaid.initialize({startOnLoad:true});

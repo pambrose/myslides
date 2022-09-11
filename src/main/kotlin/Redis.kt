@@ -217,15 +217,19 @@ object Redis {
 
       dslSlide {
         content {
+          br { }
+          br { }
           h2 { +"High Level Architecture" }
-          mermaid {
+          br { }
+          br { }
+          mermaid(MermaidIframeConfig { height = "300px" }) {
             """
             flowchart TB
-                S1("Server 1$SP") --> R["Redis$SP"]
-                S2("Server 2$SP") --> R
-                S3("Server 3$SP") --> R
-                S4("Server 4$SP") --> R
-                S5("Server 5$SP") --> R
+                S1("Server 1") --> R["Redis"]
+                S2("Server 2") --> R
+                S3("Server 3") --> R
+                S4("Server 4") --> R
+                S5("Server 5") --> R
                 style R fill:#f66,stroke:#000,stroke-width:1px
             """
           }
@@ -450,14 +454,14 @@ object Redis {
       dslSlide {
         content {
           h2 { +"Session Cache" }
-          mermaid {
+          mermaid(MermaidIframeConfig { height = "375px" }) {
             """
             flowchart TD
-                WC1("Web Client 1$SP") <--> LB("Load Balancer$SP")
-                WC2("Web Client 2$SP") <--> LB
-                WC3("Web Client 3$SP") <--> LB
-                LB <--> S1("HTTP Server 1$SP") & S2("HTTP Server 2$SP") & S3("HTTP Server 3$SP")
-                S1 & S2 & S3 <--> R("Redis$SP")
+                WC1("Web Client 1") <--> LB("Load Balancer")
+                WC2("Web Client 2") <--> LB
+                WC3("Web Client 3") <--> LB
+                LB <--> S1("HTTP Server 1") & S2("HTTP Server 2") & S3("HTTP Server 3")
+                S1 & S2 & S3 <--> R("Redis")
                 style R fill:#f66,stroke:#000,stroke-width:1px
            """
           }
@@ -511,8 +515,8 @@ object Redis {
           mermaid(MermaidIframeConfig { height = "275px" }) {
             """
             flowchart TD
-                WS["Work Submitter$SP"] --> R["Redis$SP"]
-                R <--> S1["Work Executor 1$SP"] & S2["Work Executor 2$SP"] & S3["Work Executor 3$SP"]
+                WS["Work Submitter"] --> R["Redis"]
+                R <--> S1["Work Executor 1"] & S2["Work Executor 2"] & S3["Work Executor 3"]
                 style R fill:#f66,stroke:#000,stroke-width:1px
            """
           }
@@ -581,9 +585,9 @@ object Redis {
           mermaid(MermaidIframeConfig { height = "375px" }) {
             """
             flowchart TB
-                WC1("Web Client 1$SP") & WC2("Web Client 2$SP") & WC3("Web Client 3$SP") <--> WS("Web Server$SP")
-                WS <--> R("Redis$SP")
-                R <--> PS1("NYSE\nPrice Source$SP") & PS2("NASDAQ\nPrice Source$SP") & PS3("CBOT\nPrice Source$SP")
+                WC1("Web Client 1") & WC2("Web Client 2") & WC3("Web Client 3") <--> WS("Web Server")
+                WS <--> R("Redis")
+                R <--> PS1("NYSE\nPrice Source") & PS2("NASDAQ\nPrice Source") & PS3("CBOT\nPrice Source")
                 style R fill:#f66,stroke:#000,stroke-width:1px
            """
           }

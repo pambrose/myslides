@@ -24,41 +24,41 @@
     <code class="playground-code" data-autocomplete="true" folded-button="false" lines="true" match-brackets="true" mode="java" theme="darcula">
 package org.athenian.java;
 
-public class Address {
-    private String street;
-    private int number;
-    private String city;
+public class Person {
+    private String name;
+    private int age;
+    private Address address;
 
-    public String getStreet() {
-        return street;
+    public String getName() {
+        return name;
     }
 
-    public void setStreet(String street) {
-        this.street = street;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public int getNumber() {
-        return number;
+    public int getAge() {
+        return age;
     }
 
-    public void setNumber(int number) {
-        this.number = number;
+    public void setAge(int age) {
+        this.age = age;
     }
 
-    public String getCity() {
-        return city;
+    public Address getAddress() {
+        return address;
     }
 
-    public void setCity(String city) {
-        this.city = city;
+    public void setAddress(Address address) {
+        this.address = address;
     }
 
     @Override
     public String toString() {
-        return "Address{" +
-                "street='" + street + '\'' +
-                ", number=" + number +
-                ", city='" + city + '\'' +
+        return "Person{" +
+                "name='" + name + '\'' +
+                ", age=" + age +
+                ", address=" + address +
                 '}';
     }
 }

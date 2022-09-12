@@ -27,15 +27,18 @@ package org.athenian.lambdas
 fun main() {
   //sampleStart
 
-  val return8: () -&gt; Int = { 8 }
+  val strLength: String.() -&gt; Int = { this.length }
 
-  val doubleIt: (Int) -&gt; Int = { value: Int -&gt; value * 2 }
+  val doubleStr: String.() -&gt; String = { "$this-$this" }
 
-  val tripleIt: (Int) -&gt; Int = { it * 3 }
+  val nStr: String.(Int) -&gt; String = { List(it) { this }.joinToString("-") }
 
-  println(return8.invoke())
-  println(doubleIt(5))
-  println(tripleIt(6))
+  println("Hello".strLength())
+  println(strLength("Hello"))
+  println("World".doubleStr())
+  println(doubleStr("World"))
+  println("Winter".nStr(4))
+  println(nStr("Summer", 6))
   //sampleEnd
 }
 </code>

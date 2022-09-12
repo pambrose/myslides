@@ -24,12 +24,13 @@
     <code class="playground-code" data-autocomplete="true" folded-button="true" lines="true" match-brackets="true" theme="darcula">
 package org.athenian.slides.nonlambda
 
-object Person3 {
+object Person2 {
   data class Person(
     var name: String? = null,
     var age: Int? = null,
     var address: Address? = null
   )
+
 
   data class Address(
     var street: String? = null,
@@ -41,17 +42,15 @@ object Person3 {
 //sampleStart
 
   fun main(args: Array&lt;String&gt;) {
-    val person =
-      Person().apply {
-        name = "John Doe"
-        age = 30
-        address =
-          Address().apply {
-            street = "2nd St"
-            number = 23
-            city = "Tulsa"
-          }
-      }
+    val person = Person(
+      name = "John Doe",
+      age = 30,
+      address = Address(
+        street = "1st St",
+        number = 23,
+        city = "Tulsa"
+      )
+    )
     println(person)
   }
 

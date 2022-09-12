@@ -623,6 +623,21 @@ object C {
           cSlide("objects1.c", 600)
         }
       }
+
+      dslSlide {
+        content {
+          h2 { +"🏦 Understanding Exploits" }
+          iframe {
+            width = "560"
+            height = "315"
+            src = "https://www.youtube.com/embed/1S0aBV-Waeo"
+            title = "YouTube video player"
+            attributes["frameborder"] = "0"
+            attributes["allow"] = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope"
+            attributes["allowfullscreen"] = "true"
+          }
+        }
+      }
     }
   }
 }

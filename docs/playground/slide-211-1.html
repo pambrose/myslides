@@ -22,10 +22,9 @@
   </head>
   <body>
     <code class="playground-code" data-autocomplete="true" folded-button="true" lines="true" match-brackets="true" theme="darcula">
-package org.athenian.slides.receiver
+package org.athenian.slides.nonlambda
 
-object ArgPerson {
-
+object Person3 {
   data class Person(
     var name: String? = null,
     var age: Int? = null,
@@ -38,26 +37,25 @@ object ArgPerson {
     var city: String? = null
   )
 
-  // fun person(block: (Person) -&gt; Unit) = Person().apply { block() }
-
-  //sampleStart
-
-  fun person(block: (Person) -&gt; Unit): Person {
-    val p = Person()
-    block(p)
-    return p
-  }
-
   @JvmStatic
+//sampleStart
+
   fun main(args: Array&lt;String&gt;) {
-    val p =
-      person {
-        it.name = "John"
-        it.age = 30
+    val person =
+      Person().apply {
+        name = "John Doe"
+        age = 30
+        address =
+          Address().apply {
+            street = "2nd St"
+            number = 23
+            city = "Tulsa"
+          }
       }
-    println(p)
+    println(person)
   }
-  //sampleEnd
+
+//sampleEnd
 }
 </code>
   </body>

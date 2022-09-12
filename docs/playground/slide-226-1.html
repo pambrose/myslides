@@ -22,41 +22,55 @@
   </head>
   <body>
     <code class="playground-code" data-autocomplete="true" folded-button="true" lines="true" match-brackets="true" theme="darcula">
-data class Person(
-  var name: String? = null,
-  var age: Int? = null,
-  var address: Address? = null
-)
+package org.athenian.slides.receiver
 
-data class Address(
-  var street: String? = null,
-  var number: Int? = null,
-  var city: String? = null
-)
+object ReceiverAddress {
 
-@DslMarker
-annotation class PersonDslMarker
+  data class Person(
+    var name: String? = null,
+    var age: Int? = null,
+    var address: Address? = null
+  )
 
-@PersonDslMarker
-inline fun person(block: Person.() -&gt; Unit) = Person().apply { block() }
+  data class Address(
+    var street: String? = null,
+    var number: Int? = null,
+    var city: String? = null
+  )
 
-@PersonDslMarker
-inline fun Person.address(block: Address.() -&gt; Unit) {
-  address = Address().apply { block() }
-}
+  //  fun person(block: Person.() -&gt; Unit) = Person().apply { block() }
+  //  fun Person.address(block: Address.() -&gt; Unit) {
+  //    address = Address().apply { block() }
+  //  }
 
-fun main(args: Array&lt;String&gt;) {
-  val p =
-    person {
-      name = "John Doe"
-      age = 30
-      address {
-        street = "1st St"
-        number = 23
-        city = "Tulsa"
+  fun person(block: Person.() -&gt; Unit): Person {
+    val p = Person()
+    p.block()
+    return p
+  }
+
+  //sampleStart
+  fun Person.address(block: Address.() -&gt; Unit) {
+    val a = Address()
+    a.block()
+    address = a
+  }
+
+  @JvmStatic
+  fun main(args: Array&lt;String&gt;) {
+    val p =
+      person {
+        name = "John Doe"
+        age = 30
+        address {
+          street = "1st St"
+          number = 23
+          city = "Tulsa"
+        }
       }
-    }
-  println(p)
+    println(p)
+  }
+//sampleEnd
 }
 </code>
   </body>

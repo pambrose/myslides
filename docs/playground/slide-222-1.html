@@ -27,15 +27,17 @@ package org.athenian.lambdas
 fun main() {
   //sampleStart
 
-  val return8: () -&gt; Int = { 8 }
+  fun String.flipCase() =
+    this.map {
+      when (it) {
+        in 'a'..'z' -&gt; it.uppercase()
+        in 'A'..'Z' -&gt; it.lowercase()
+        else -&gt; it
+      }
+    }.joinToString("")
 
-  val doubleIt: (Int) -&gt; Int = { value: Int -&gt; value * 2 }
-
-  val tripleIt: (Int) -&gt; Int = { it * 3 }
-
-  println(return8.invoke())
-  println(doubleIt(5))
-  println(tripleIt(6))
+  println("Hello World!".flipCase())
+  println("Go Owls!!".flipCase())
   //sampleEnd
 }
 </code>

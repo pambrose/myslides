@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <script data-selector=".playground-code" src="https://unpkg.com/kotlin-playground@1"></script>
+
+    <style media="screen" type="text/css">
+			.CodeMirror pre {
+			line-height: 25px;
+			}
+			.CodeMirror {
+			font-size: 20px;
+			}
+			.code-output {
+			line-height: 25px;
+			font-size: 20px;
+			}
+			
+			
+		</style>
+    
+  </head>
+  <body>
+    <code class="playground-code" data-autocomplete="true" folded-button="false" lines="true" match-brackets="true" mode="java" theme="darcula">
+package org.athenian.java;
+
+public class Main {
+
+    //sampleStart
+    public static void main(String[] args) {
+        Person person = new Person();
+        person.setName("John Doe");
+        person.setAge(30);
+        person.setAddress(new Address());
+        person.getAddress().setStreet("1st St");
+        person.getAddress().setNumber(23);
+        person.getAddress().setCity("Tulsa");
+        System.out.println(person);
+    }
+//sampleEnd
+}
+</code>
+  </body>
+</html>

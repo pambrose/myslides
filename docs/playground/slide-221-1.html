@@ -27,17 +27,14 @@ package org.athenian.lambdas
 fun main() {
   //sampleStart
 
-  fun String.flipCase() =
-    this.map {
-      when (it) {
-        in 'a'..'z' -&gt; it.uppercase()
-        in 'A'..'Z' -&gt; it.lowercase()
-        else -&gt; it
-      }
-    }.joinToString("")
+  fun String.firstLast(): String {
+    return "${this.first()}${this.last()}"
+  }
 
-  println("Hello World!".flipCase())
-  println("Go Owls!!".flipCase())
+  fun String.missingFirstLast() = this.substring(1, this.length - 1)
+
+  println("Hello World!".firstLast())
+  println("Hello World!".missingFirstLast())
   //sampleEnd
 }
 </code>

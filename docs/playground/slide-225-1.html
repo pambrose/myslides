@@ -24,7 +24,7 @@
     <code class="playground-code" data-autocomplete="true" folded-button="true" lines="true" match-brackets="true" theme="darcula">
 package org.athenian.slides.receiver
 
-object ReceiverAddress {
+object ReceiverPerson {
 
   data class Person(
     var name: String? = null,
@@ -38,35 +38,21 @@ object ReceiverAddress {
     var city: String? = null
   )
 
-  //  fun person(block: Person.() -&gt; Unit) = Person().apply { block() }
-  //  fun Person.address(block: Address.() -&gt; Unit) {
-  //    address = Address().apply { block() }
-  //  }
+  //fun person(block: Person.() -&gt; Unit) = Person().apply { block() }
 
+  //sampleStart
   fun person(block: Person.() -&gt; Unit): Person {
     val p = Person()
     p.block()
     return p
   }
 
-  //sampleStart
-  fun Person.address(block: Address.() -&gt; Unit) {
-    val a = Address()
-    a.block()
-    address = a
-  }
-
   @JvmStatic
   fun main(args: Array&lt;String&gt;) {
     val p =
       person {
-        name = "John Doe"
+        name = "John"
         age = 30
-        address {
-          street = "1st St"
-          number = 23
-          city = "Tulsa"
-        }
       }
     println(p)
   }

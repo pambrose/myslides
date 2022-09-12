@@ -21,10 +21,11 @@
     
   </head>
   <body>
-    <code class="playground-code" data-autocomplete="true" folded-button="true" lines="true" match-brackets="true" theme="darcula">
+    <code class="playground-code" data-autocomplete="true" data-highlight-only="true" folded-button="false" lines="true" match-brackets="true" theme="darcula">
 package org.athenian.slides.nonlambda
 
-object Person1 {
+object DataClasses {
+//sampleStart
 
   data class Person(
     var name: String? = null,
@@ -38,14 +39,6 @@ object Person1 {
     var number: Int? = null,
     var city: String? = null
   )
-
-  @JvmStatic
-//sampleStart
-
-  fun main(args: Array&lt;String&gt;) {
-    val person = Person("John Doe", 30, Address("1st St", 23, "Tulsa"))
-    println(person)
-  }
 
 //sampleEnd
 }

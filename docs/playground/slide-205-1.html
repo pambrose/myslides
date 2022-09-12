@@ -24,20 +24,43 @@
     <code class="playground-code" data-autocomplete="true" folded-button="false" lines="true" match-brackets="true" mode="java" theme="darcula">
 package org.athenian.java;
 
-public class Main {
+public class Address {
+    private String street;
+    private int number;
+    private String city;
 
-    //sampleStart
-    public static void main(String[] args) {
-        Person person = new Person();
-        person.setName("John Doe");
-        person.setAge(30);
-        person.setAddress(new Address());
-        person.getAddress().setStreet("1st St");
-        person.getAddress().setNumber(23);
-        person.getAddress().setCity("Tulsa");
-        System.out.println(person);
+    public String getStreet() {
+        return street;
     }
-//sampleEnd
+
+    public void setStreet(String street) {
+        this.street = street;
+    }
+
+    public int getNumber() {
+        return number;
+    }
+
+    public void setNumber(int number) {
+        this.number = number;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    @Override
+    public String toString() {
+        return "Address{" +
+                "street='" + street + '\'' +
+                ", number=" + number +
+                ", city='" + city + '\'' +
+                '}';
+    }
 }
 </code>
   </body>

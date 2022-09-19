@@ -223,7 +223,7 @@ object Redis {
           br { }
           diagram("mermaid") {
             height = "300px"
-            content =
+            source =
               """
             flowchart TB
                 S1("Server 1") --> R["Redis"]
@@ -457,7 +457,7 @@ object Redis {
           h2 { +"Session Cache" }
           diagram("mermaid") {
             height = "375px"
-            content =
+            source =
               """
                 flowchart TD
                     WC1("Web Client 1") <--> LB("Load Balancer")
@@ -517,7 +517,7 @@ object Redis {
           h2 { +"Work Distribution" }
           diagram("mermaid") {
             height = "275px"
-            content =
+            source =
               """
               flowchart TD
                   WS["Work Submitter"] --> R["Redis"]
@@ -589,7 +589,7 @@ object Redis {
           h2 { +"Stock Ticker Prices" }
           diagram("mermaid") {
             height = "375px"
-            content =
+            source =
               """
               flowchart TB
                   WC1("Web Client 1") & WC2("Web Client 2") & WC3("Web Client 3") <--> WS("Web Server")

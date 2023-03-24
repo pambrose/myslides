@@ -1,7 +1,7 @@
 package lambdas
 
 fun main() {
-  fun func1(): Unit {
+  fun func1() {
     println("Hello")
   }
 

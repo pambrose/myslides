@@ -1,10 +1,10 @@
 plugins {
     id 'java'
     id 'application'
-    id 'org.jetbrains.kotlin.jvm' version '1.8.0'
-    id "com.github.ben-manes.versions" version '0.44.0'
+    id 'org.jetbrains.kotlin.jvm' version '1.8.10'
+    id "com.github.ben-manes.versions" version '0.46.0'
     id 'com.github.johnrengelman.shadow' version '7.1.2'
-    id 'org.jmailen.kotlinter' version "3.13.0"
+    id 'org.jmailen.kotlinter' version "3.12.0"
 }
 
 // mainName matters only if you are hosting your slides via HTTP
@@ -57,7 +57,7 @@ task uberjar(type: Jar, dependsOn: shadowJar) {
 
 compileKotlin {
     kotlinOptions {
-        jvmTarget = '11'
+        jvmTarget = '17'
         freeCompilerArgs += ['-Xbackend-threads=8',
                              //'-Xcontext-receivers',
                              //'-Xskip-prerelease-check',
@@ -67,7 +67,7 @@ compileKotlin {
 
 compileTestKotlin {
     kotlinOptions {
-        jvmTarget = '11'
+        jvmTarget = '17'
         freeCompilerArgs += ['-Xbackend-threads=8',
                              //'-Xcontext-receivers',
                              //'-Xskip-prerelease-check',

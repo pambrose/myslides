@@ -1,10 +1,6 @@
 import Utils.linkItem
-import com.kslides.KSlides
-import com.kslides.PlaygroundMode
-import com.kslides.githubRawUrl
-import com.kslides.playground
+import com.kslides.*
 import com.kslides.slide.DslSlide
-import com.kslides.unorderedList
 import kotlinx.html.*
 
 object Dsl {
@@ -97,9 +93,9 @@ object Dsl {
         content {
           h2 { +"🔦 What is a DSL?" }
           +"""
-            Domain specific language (DSL) is a computer language that’s targeted to a 
-            particular kind of problem, rather than a general purpose language that’s 
-            aimed at any kind of software problem. 
+            Domain specific language (DSL) is a computer language that’s targeted to a
+            particular kind of problem, rather than a general purpose language that’s
+            aimed at any kind of software problem.
           """
           a {
             +" (source: Martin Fowler)"
@@ -295,13 +291,34 @@ object Dsl {
         content {
           h3 { +"🕯 Kotlin DSL Examples" }
           unorderedList(
-            linkItem("Gradle build.gradle.kts DSL", "https://docs.gradle.org/current/userguide/kotlin_dsl.html"),
-            linkItem("Kotlin HTML DSL", "https://kotlinlang.org/docs/typesafe-html-dsl.html"),
-            linkItem("Kotlin CSS DSL", "https://ktor.io/docs/css-dsl.html#use_css"),
-            linkItem("Ktor Embedded Server DSL", "https://ktor.io/docs/create-server.html#embedded"),
-            linkItem("Ktor Routing DSL", "https://ktor.io/docs/routing-in-ktor.html#group_by_verb"),
-            linkItem("ReadingBat DSL", "https://github.com/readingbat/readingbat-python-content/blob/master/src/Content.kt"),
-            linkItem("KSlides DSL", "https://github.com/pambrose/myslides/blob/master/src/main/kotlin/Dsl.kt"),
+            linkItem(
+              title = "Gradle build.gradle.kts DSL",
+              url = "https://docs.gradle.org/current/userguide/kotlin_dsl.html"
+            ),
+            linkItem(
+              title = "Kotlin HTML DSL",
+              url = "https://kotlinlang.org/docs/typesafe-html-dsl.html"
+            ),
+            linkItem(
+              title = "Kotlin CSS DSL",
+              url = "https://ktor.io/docs/css-dsl.html#use_css"
+            ),
+            linkItem(
+              title = "Ktor Embedded Server DSL",
+              url = "https://ktor.io/docs/create-server.html#embedded"
+            ),
+            linkItem(
+              title = "Ktor Routing DSL",
+              url = "https://ktor.io/docs/routing-in-ktor.html#group_by_verb"
+            ),
+            linkItem(
+              title = "ReadingBat DSL",
+              url = "https://github.com/readingbat/readingbat-python-content/blob/master/src/Content.kt"
+            ),
+            linkItem(
+              title = "KSlides DSL",
+              url = "https://github.com/pambrose/myslides/blob/master/src/main/kotlin/Dsl.kt"
+            ),
           ) {
             style = "font-size:30px; padding-left: 80px"
           }

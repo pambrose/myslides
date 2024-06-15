@@ -4,12 +4,15 @@ import com.kslides.include
 import com.kslides.listHref
 import com.kslides.toLinePatterns
 import com.kslides.unorderedList
-import kotlinx.css.*
 import kotlinx.css.Color.Companion.blue
-import kotlinx.html.*
+import kotlinx.css.LinearDimension
+import kotlinx.css.fontSize
+import kotlinx.html.div
+import kotlinx.html.h2
+import kotlinx.html.p
+import kotlinx.html.style
 
 object Http {
-
   fun KSlides.httpPresentation() {
     presentation {
       path = "http.html"
@@ -18,24 +21,24 @@ object Http {
         .reveal h2 {
           color: red;
         }
-        
-        img[alt=upload-image] { 
-          width: 300px; 
+
+        img[alt=upload-image] {
+          width: 300px;
         }
-        
-        img[alt=cloud-image] { 
-          width: 500px; 
+
+        img[alt=cloud-image] {
+          width: 500px;
         }
-        
+
         .column2 {
           float: left;
           width: 50%;
         }
-        
+
         .column2 li {
           margin-bottom:10px;
         }
-        
+
         /* Clear floats after the columns */
         .multiColumn2:after {
           content: "";
@@ -47,11 +50,11 @@ object Http {
           float: left;
           width: 33%;
         }
-        
+
         .column3 li {
           margin-bottom:10px;
         }
-        
+
         /* Clear floats after the columns */
         .multiColumn3:after {
           content: "";
@@ -77,8 +80,8 @@ object Http {
           """
           ![upload-image](https://img.ifunny.co/images/0b6a5f5a9dbc19563eb13dcd7ae3e984547fe2a80fd9ce736119fc21f95d96d3_1.jpg)
 
-          ## HTTP and REST Basics  
-          https://pambrose.github.io/myslides          
+          ## HTTP and REST Basics
+          https://pambrose.github.io/myslides
           """
         }
       }
@@ -86,12 +89,12 @@ object Http {
       markdownSlide {
         content {
           """
-          ## What are we talking about today?  
+          ## What are we talking about today?
 
-          * The Internet is a huge part of our lives 
-          
-          * At the heart of everything we want to build 
-          
+          * The Internet is a huge part of our lives
+
+          * At the heart of everything we want to build
+
           * Bird's eye view
           """
         }
@@ -100,7 +103,7 @@ object Http {
       markdownSlide {
         content {
           """
-          ## How did we get here?  
+          ## How did we get here?
 
           ![history-image](images/http/timeline.jpeg)
           """
@@ -126,7 +129,7 @@ object Http {
         content {
           """
           ## Cloud Computing Universe
-          
+
           ![cloud-image](https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Cloud_computing.svg/1920px-Cloud_computing.svg.png)
           """
         }
@@ -136,7 +139,7 @@ object Http {
         content {
           """
           ## Cloud Endpoints
-          
+
           * [Google Vision API](https://cloud.google.com/vision)
           * [Google Translation API](https://cloud.google.com/translate)
           * [Google Speech to Text API](https://cloud.google.com/speech-to-text)
@@ -151,9 +154,9 @@ object Http {
 
       markdownSlide {
         content {
-          """          
+          """
           ## HTTP Toolkit Demo
-          
+
           ![history-image](https://www.drupal.org/files/project-images/proxy.png)
           """
         }
@@ -162,34 +165,43 @@ object Http {
       markdownSlide {
         content {
           """
-          ## Connecting to a Network   
-          
-          * IP Address: 230.168.123.12 
-          
+          ## Connecting to a Network
+
+          * IP Address: 230.168.123.12
+
           * 4,294,967,296 possible addresses -- Subnets
-          
+
           * Domain name: www<span>&#46;</span>example<span>&#46;</span>com
-          
-          * Port: 80, 22, 8080 
-                             
-          * Network packets: TCP, UDP   
+
+          * Port: 80, 22, 8080
+
+          * Network packets: TCP, UDP
           """
         }
       }
 
       dslSlide {
         content {
-          h2 { style = "margin-bottom:20px;"; +"Network Protocols" }
+          h2 {
+            style = "margin-bottom:20px;"
+            +"Network Protocols"
+          }
           div("multiColumn2") {
             val fmt = "font-size:30px; padding-top:10px; list-style-type:circle;"
             div("column2") {
-              p { style = "color: red;"; +"TCP" }
+              p {
+                style = "color: red;"
+                +"TCP"
+              }
               unorderedList("Transmission Control Protocol", "Connection-oriented", "Reliable", "Slow") {
                 style = fmt
               }
             }
             div("column2") {
-              p { style = "color: red;"; +"UDP" }
+              p {
+                style = "color: red;"
+                +"UDP"
+              }
               unorderedList("User Datagram Protocol", "Connectionless", "Not guaranteed", "Fast") {
                 style = fmt
               }
@@ -201,14 +213,14 @@ object Http {
       markdownSlide {
         content {
           """
-          ## Protocols using UDP  
-                    
+          ## Protocols using UDP
+
           * Media streaming (lost frames are ok)
-          
-          * VOIP 
-          
+
+          * VOIP
+
           * Games that don't care if you get every update
-          
+
           * Local broadcast mechanisms (different machines "discovering" each other)
 
           """
@@ -218,14 +230,14 @@ object Http {
       markdownSlide {
         content {
           """
-          ## Protocols using TCP  
-          
+          ## Protocols using TCP
+
           * SSH (22), FTP (21), telnet (23)
-          
+
           * SMTP (25) -- sending mail
-          
+
           * IMAP (143), POP (110) -- receiving mail
-          
+
           * HTTP (80), HTTPS (443)
           """
         }
@@ -234,8 +246,8 @@ object Http {
       markdownSlide {
         content {
           """
-          ## HTTP Protocol 
-          
+          ## HTTP Protocol
+
           ![cs-image](images/http/client-server-transparent.png)
 
           * Asymmetric client/server
@@ -249,8 +261,8 @@ object Http {
       markdownSlide {
         content {
           """
-          ## HTTP Methods  
-          
+          ## HTTP Methods
+
           * ✅ GET
           * ✅ POST
           * PUT
@@ -267,12 +279,12 @@ object Http {
       markdownSlide {
         content {
           """
-          ## URL Components  
-          
+          ## URL Components
+
           <span style="font-size:60%;color:#016638;">
           https://www.example.co.uk:443/blog/article/search?docid=720<span>&#38;</span>hl=en#dayone
           </span>
-          
+
           ![url-image](images/http/url-parts.png)
           """
         }
@@ -335,7 +347,7 @@ object Http {
                 "501 Not Implemented",
                 "502 Bad Gateway",
                 "503 Service Unavailable",
-                "504 Gateway Timeout"
+                "504 Gateway Timeout",
               ) { style = fmt }
             }
           }
@@ -362,7 +374,7 @@ object Http {
                 "JPG/PNG/GIF",
                 "Audio",
                 "Video",
-                "Other"
+                "Other",
               )
             }
           }
@@ -372,7 +384,7 @@ object Http {
         content {
           """
           ## HTML Response
-          
+
           ```html [1-10 | 1,10 | 2-5 | 7-9 | ]
           ${include("src/main/resources/html-example.html")}
           ```
@@ -400,9 +412,9 @@ object Http {
         content {
           """
           ## HTTP Clients
-                    
+
           * Browser: Chrome, Safari, IE
-          
+
           * CLI: httpie, curl, wget
 
           * Code: Kotlin, Java, JS, Python
@@ -414,9 +426,9 @@ object Http {
         content {
           """
           ## HTTP Servers
-            
+
           * Static Servers: Apache, IIS, Nginx
-          
+
           * Dynamic Servers: Ktor, Spring, Express, Flask
           """
         }

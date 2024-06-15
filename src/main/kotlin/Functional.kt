@@ -5,7 +5,19 @@ import com.kslides.orderedList
 import com.kslides.permuteBy
 import com.kslides.playground
 import com.kslides.unorderedList
-import kotlinx.html.*
+import kotlinx.html.Dir
+import kotlinx.html.a
+import kotlinx.html.blockQuote
+import kotlinx.html.dir
+import kotlinx.html.div
+import kotlinx.html.h2
+import kotlinx.html.h3
+import kotlinx.html.id
+import kotlinx.html.img
+import kotlinx.html.lang
+import kotlinx.html.p
+import kotlinx.html.script
+import kotlinx.html.style
 
 object Functional {
 
@@ -36,7 +48,10 @@ object Functional {
           id = "functional"
           h2 { +"Lambdas and Higher-Order Functions" }
           //img { src = "images/functional/lambda.png" }
-          img { src = "images/functional/machine-functional.png"; width = "100%" }
+          img {
+            src = "images/functional/machine-functional.png"
+            width = "100%"
+          }
           a {
             href = "https://pambrose.github.io/myslides/functional.html"
             +"https://pambrose.github.io/myslides/functional.html"
@@ -155,7 +170,7 @@ object Functional {
         "Return Type (Int)",
         "Body (return a + b)",
         "Parameters (Int, Int)",
-        "(Int, Int) -> Int"
+        "(Int, Int) -> Int",
       )
         .permuteBy(
           listOf(),
@@ -228,14 +243,23 @@ object Functional {
       dslSlide {
         content {
           h2 { +"Break Through Moment #1 of 4" }
-          img { width = "400px"; src = "images/functional/breakthrough1.jpg" }
-          h3 { style = "color: red;"; +"We understand that functions are 1st class types!!" }
+          img {
+            width = "400px"
+            src = "images/functional/breakthrough1.jpg"
+          }
+          h3 {
+            style = "color: red;"
+            +"We understand that functions are 1st class types!!"
+          }
         }
       }
 
       dslSlide {
         content {
-          h2 { style = "color: red;"; +"Lambdas" }
+          h2 {
+            style = "color: red;"
+            +"Lambdas"
+          }
           p {
             +"Lambdas are nameless functions that can be passed around as values. "
             +"They are also called closures."
@@ -309,10 +333,13 @@ object Functional {
 
       dslSlide {
         content {
-          h2 { style = "color: red;"; +"Higher-Order Functions" }
+          h2 {
+            style = "color: red;"
+            +"Higher-Order Functions"
+          }
           p {
             +"""
-              A function that takes another function as an argument, 
+              A function that takes another function as an argument,
               or returns a function as a result.
             """.trimIndent()
           }
@@ -401,14 +428,23 @@ object Functional {
       dslSlide {
         content {
           h2 { +"Break Through Moment #3 of 4" }
-          img { width = "400px"; src = "images/functional/breakthrough3.jpg" }
-          h3 { style = "color: red;"; +"We can work with higher-order functions!!" }
+          img {
+            src = "images/functional/breakthrough3.jpg"
+            width = "400px"
+          }
+          h3 {
+            style = "color: red;"
+            +"We can work with higher-order functions!!"
+          }
         }
       }
 
       dslSlide {
         content {
-          h2 { style = "color: red;"; +"Collection-based Operations" }
+          h2 {
+            style = "color: red;"
+            +"Collection-based Operations"
+          }
           div("cbo") {
             unorderedList(
               "Filtering",
@@ -600,8 +636,14 @@ object Functional {
       dslSlide {
         content {
           h2 { +"Break Through Moment #4 of 4" }
-          img { width = "400px"; src = "images/functional/breakthrough4.jpg" }
-          h3 { style = "color: red;"; +"We can use lambdas in collection operations!!" }
+          img {
+            width = "400px"
+            src = "images/functional/breakthrough4.jpg"
+          }
+          h3 {
+            style = "color: red;"
+            +"We can use lambdas in collection operations!!"
+          }
         }
       }
 

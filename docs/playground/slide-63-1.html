@@ -26,7 +26,11 @@ package lambdas
 
 fun main() {
   //sampleStart
-  fun argHof(a: Int, b: Int, ops: List&lt;(Int, Int) -&gt; Int&gt;): List&lt;Int&gt; {
+  fun argHof(
+    a: Int,
+    b: Int,
+    ops: List&lt;(Int, Int) -&gt; Int&gt;,
+  ): List&lt;Int&gt; {
     val result = mutableListOf&lt;Int&gt;()
     for (op in ops) {
       result.add(op.invoke(a, b))
@@ -34,7 +38,10 @@ fun main() {
     return result
   }
 
-  fun addIt(a: Int, b: Int): Int {
+  fun addIt(
+    a: Int,
+    b: Int,
+  ): Int {
     return a + b
   }
 

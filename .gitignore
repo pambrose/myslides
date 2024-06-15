@@ -4,6 +4,7 @@ redis-demo
 
 .gradle
 .idea
+.kotlin
 build
 
 ### Java template

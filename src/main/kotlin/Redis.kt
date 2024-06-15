@@ -8,9 +8,29 @@ import com.kslides.githubRawUrl
 import com.kslides.include
 import com.kslides.slide.DslSlide
 import com.kslides.unorderedList
-import kotlinx.css.*
+import kotlinx.css.Clear
+import kotlinx.css.Display
 import kotlinx.css.Float
-import kotlinx.html.*
+import kotlinx.css.LinearDimension
+import kotlinx.css.QuotedString
+import kotlinx.css.clear
+import kotlinx.css.content
+import kotlinx.css.display
+import kotlinx.css.float
+import kotlinx.css.marginBottom
+import kotlinx.css.width
+import kotlinx.html.FlowOrInteractiveOrPhrasingContent
+import kotlinx.html.SECTION
+import kotlinx.html.a
+import kotlinx.html.br
+import kotlinx.html.div
+import kotlinx.html.h1
+import kotlinx.html.h2
+import kotlinx.html.h3
+import kotlinx.html.h4
+import kotlinx.html.id
+import kotlinx.html.img
+import kotlinx.html.style
 
 object Redis {
 
@@ -54,7 +74,11 @@ object Redis {
         topRightHref = "#/redis"
       }
 
-      fun SECTION.redisCode(dslSlide: DslSlide, fileName: String, highlight: String = "") =
+      fun SECTION.redisCode(
+        dslSlide: DslSlide,
+        fileName: String,
+        highlight: String = "",
+      ) =
         codeSnippet {
           language = "bash"
           copyButton = false
@@ -63,7 +87,12 @@ object Redis {
           +dslSlide.include("$base/redis/$fileName")
         }
 
-      fun SECTION.jedisCode(dslSlide: DslSlide, fileName: String, highlight: String, tokenName: String = "slide") =
+      fun SECTION.jedisCode(
+        dslSlide: DslSlide,
+        fileName: String,
+        highlight: String,
+        tokenName: String = "slide",
+      ) =
         codeSnippet {
           language = "kotlin"
           copyButton = false
@@ -117,15 +146,15 @@ object Redis {
         content {
           """
             ## OSX Install for Redis Client and Server
-            
+
             ```bash
-            
-            $ brew install redis iredis    
-                     
-            
-            ```    
-                  
-            #### [Other Platforms](https://redis.io/docs/getting-started/installation/)      
+
+            $ brew install redis iredis
+
+
+            ```
+
+            #### [Other Platforms](https://redis.io/docs/getting-started/installation/)
           """
         }
       }
@@ -134,21 +163,21 @@ object Redis {
         content {
           """
             ## Start a Redis Server
-            
+
             ```bash
-            
+
             $ docker run -d -p 6379:6379 --name myredis redis
-            
-            
-            ``` 
-            or   
-                 
+
+
+            ```
+            or
+
             ```bash
-            
-            $ redis-server      
-            
-            
-            ```                    
+
+            $ redis-server
+
+
+            ```
           """
         }
       }
@@ -157,20 +186,20 @@ object Redis {
         content {
           """
             ## Start a Redis Client
-                             
+
             ```bash
-            
-            $ redis-cli      
-            
-            
-            ```    
+
+            $ redis-cli
+
+
+            ```
             or
             ```bash
-            
-            $ iredis      
-            
-            
-            ```                
+
+            $ iredis
+
+
+            ```
           """
         }
       }
@@ -325,7 +354,10 @@ object Redis {
 
       dslSlide {
         content {
-          h2 { rc("MSET"); +"/"; rc("MGET"); +" Commands" }
+          h2 {
+            rc("MSET"); +"/"
+            rc("MGET"); +" Commands"
+          }
           h4 { +"Set/Get multiple values" }
           redisCode(this@dslSlide, "mset-mget1.txt", "|1-2|3-7")
         }
@@ -333,7 +365,10 @@ object Redis {
 
       dslSlide {
         content {
-          h2 { rc("INCR"); +"/"; rc("INCRBY"); +" Commands" }
+          h2 {
+            rc("INCR"); +"/"
+            rc("INCRBY"); +" Commands"
+          }
           h4 { +"Increment a value (atomically)" }
           redisCode(this@dslSlide, "incr.txt", "|1-2|3-4|5-6|7-8|9-10|11-12")
         }
@@ -341,7 +376,10 @@ object Redis {
 
       dslSlide {
         content {
-          h2 { rc("DECR"); +"/"; rc("DECRBY"); +" Commands" }
+          h2 {
+            rc("DECR"); +"/"
+            rc("DECRBY"); +" Commands"
+          }
           h4 { +"Decrement a value (atomically)" }
           redisCode(this@dslSlide, "decr.txt", "|1-2|3-4|5-6|7-8|9-10|11-12")
         }

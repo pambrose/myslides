@@ -1,7 +1,15 @@
 import com.kslides.KSlides
 import com.kslides.codeSnippet
 import com.kslides.unorderedList
-import kotlinx.html.*
+import kotlinx.html.a
+import kotlinx.html.br
+import kotlinx.html.div
+import kotlinx.html.h2
+import kotlinx.html.h3
+import kotlinx.html.h4
+import kotlinx.html.id
+import kotlinx.html.img
+import kotlinx.html.style
 
 object Unix {
 
@@ -217,28 +225,40 @@ object Unix {
               style = "font-size:30px; padding-left: 20px"
             }
           }
-          img { width = "800px"; src = "images/unix/diagram-shell-keyboard-terminal.png" }
+          img {
+            width = "800px"
+            src = "images/unix/diagram-shell-keyboard-terminal.png"
+          }
         }
       }
 
       dslSlide {
         content {
           h2 { +"📥 Common Patterns - Standard Input" }
-          img { width = "1000px"; src = "images/unix/diagram-input-examples.png" }
+          img {
+            width = "1000px"
+            src = "images/unix/diagram-input-examples.png"
+          }
         }
       }
 
       dslSlide {
         content {
           h2 { +"📤 Common Patterns - Standard Output" }
-          img { width = "1000px"; src = "images/unix/diagram-output-examples.png" }
+          img {
+            width = "1000px"
+            src = "images/unix/diagram-output-examples.png"
+          }
         }
       }
 
       dslSlide {
         content {
           h2 { +"🚿 Pipes" }
-          img { width = "1000px"; src = "images/unix/diagram-cat-sort-uniq-pipeline.png" }
+          img {
+            width = "1000px"
+            src = "images/unix/diagram-cat-sort-uniq-pipeline.png"
+          }
         }
       }
 
@@ -270,9 +290,9 @@ object Unix {
             ## tr examples
             ```bash
             head -n 1 ~/samples/data/top100.csv | tr ',' '\n'
-            
+
             head -n 1 ~/samples/data/top100.csv | tr ',' '\n' | tr -d '"'
-            
+
             echo "Welcome to the shell" | tr 'shell' 'machine'
             ```
             """
@@ -285,11 +305,11 @@ object Unix {
             ## cut examples
             ```bash
             cut -d',' -f 3 ~/samples/data/top100.csv | head
-            
+
             cut -d',' -f 1,3 ~/samples/data/top100.csv | head
-            
+
             tail -n 5 ~/samples/logs/web-server-logs.txt | cut -c 12-19
-            
+
             ps -e | cut -c 26-500
             ```
             """
@@ -303,17 +323,17 @@ object Unix {
           ## 🔎 Searching with find
           ```bash
             find
-            
+
             find . -type f
-            
+
             find . -type d
-            
+
             find . -name Utils.java
-            
+
             find . -name "*.java"
-            
+
             find . -name "*.java" -exec wc {} \;
-          ```  
+          ```
           """
         }
       }

@@ -10,8 +10,10 @@ import com.kslides.PresentationTheme
 import com.kslides.Speed
 import com.kslides.Transition
 import com.kslides.kslides
-import kotlinx.css.*
-import kotlinx.css.properties.*
+import kotlinx.css.LinearDimension
+import kotlinx.css.fontSize
+import kotlinx.css.lineHeight
+import kotlinx.css.properties.LineHeight
 
 fun main() {
   kslides {
@@ -78,7 +80,7 @@ fun main() {
         content {
           """
           # Paul's Slides
-          
+
           * [HTTP and REST Basics](http.html)
           * [Functional Programming](functional.html)
           * [Unix Basics](unix.html)

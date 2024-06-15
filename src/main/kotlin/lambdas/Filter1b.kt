@@ -2,7 +2,10 @@ package lambdas
 
 fun main() {
   //sampleStart
-  fun filter(list: List<Int>, predicate: (Int) -> Boolean): List<Int> {
+  fun filter(
+    list: List<Int>,
+    predicate: (Int) -> Boolean,
+  ): List<Int> {
     val result = mutableListOf<Int>()
     for (element in list) {
       if (predicate(element)) result.add(element)

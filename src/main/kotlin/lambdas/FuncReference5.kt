@@ -3,10 +3,10 @@ package lambdas
 fun main() {
   //sampleStart
 
-  fun greeting(name: String): Unit {
+  fun greeting(name: String) {
     println("Hello, $name")
   }
 
   val x: (String) -> Unit = ::greeting
- //sampleEnd
+  //sampleEnd
 }

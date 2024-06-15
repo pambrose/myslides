@@ -26,31 +26,32 @@
 			.reveal h4,
 			.reveal h5,
 			.reveal h6 {
-			    text-transform: none;
+			  text-transform: none;
 			}
 		
 			a.top-left {
-			    position: absolute;
-			    z-index: 1;
-			    width: clamp(50px, 8vmax, 80px);
-			    line-height: 0;
-			    color: rgba(255, 255, 255, 0.5);
+			  position: absolute;
+			  z-index: 1;
+			  width: clamp(50px, 8vmax, 80px);
+			  line-height: 0;
+			  color: rgba(255, 255, 255, 0.5);
 			}
 		
 			a.top-left path {
-			    fill: #258bd2;
+			  fill: #258bd2;
 			}
 		
 			a.top-left:hover {
-			    color: white;
+			  color: white;
 			}
 		
 			a.top-right {
-			    position: absolute;
-			    top: 15px;
-			    right: 15px;
-			    z-index: 1;
+			  position: absolute;
+			  top: 15px;
+			  right: 15px;
+			  z-index: 1;
 			}
+		
 		</style>
     
     <style media="screen" type="text/css">
@@ -127,12 +128,12 @@
 
 ```bash
 
-$ brew install redis iredis    
-         
+$ brew install redis iredis
 
-```    
-      
-#### [Other Platforms](https://redis.io/docs/getting-started/installation/)      
+
+```
+
+#### [Other Platforms](https://redis.io/docs/getting-started/installation/)
 </script>
         </section>
         
@@ -145,35 +146,35 @@ $ brew install redis iredis
 $ docker run -d -p 6379:6379 --name myredis redis
 
 
-``` 
-or   
-     
+```
+or
+
 ```bash
 
-$ redis-server      
+$ redis-server
 
 
-```                    
+```
 </script>
         </section>
         
         <section data-markdown="">
           <script type="text/template">
 ## Start a Redis Client
-                 
+
 ```bash
 
-$ redis-cli      
+$ redis-cli
 
 
-```    
+```
 or
 ```bash
 
-$ iredis      
+$ iredis
 
 
-```                
+```
 </script>
         </section>
         

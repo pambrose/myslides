@@ -1,10 +1,14 @@
 import com.kslides.KSlides
 import com.kslides.codeSnippet
 import com.kslides.unorderedList
-import kotlinx.html.*
+import kotlinx.html.a
+import kotlinx.html.br
+import kotlinx.html.h2
+import kotlinx.html.h5
+import kotlinx.html.id
+import kotlinx.html.img
 
 object Docker {
-
   fun KSlides.dockerPresentation() {
     presentation {
       path = "docker.html"
@@ -23,7 +27,10 @@ object Docker {
         content {
           id = "docker"
           h2 { +"📚 Docker Basics" }
-          img { width = "300px"; src = "images/docker/docker.png" }
+          img {
+            width = "300px"
+            src = "images/docker/docker.png"
+          }
           a {
             href = "https://pambrose.github.io/myslides/docker.html"
             +"https://pambrose.github.io/myslides/docker.html"
@@ -38,13 +45,13 @@ object Docker {
             trim = false
             copyButton = false
             code = """
-              
+
               docker pull postgres
               docker pull bitnami/redis
               docker pull quay.io/coreos/etcd
-              
+
               docker run -t -p 8080:80 docker/getting-started
-              
+
               docker run -d -p 8082:80 wordpress:latest
 
 
@@ -83,9 +90,9 @@ object Docker {
           h2 { +"🔬 Images and Containers" }
           h5 {
             +"""
-            A Docker image is a lightweight, standalone, executable package of software 
-            that includes everything needed to run an application: code, runtime, system tools, 
-            system libraries and settings. 
+            A Docker image is a lightweight, standalone, executable package of software
+            that includes everything needed to run an application: code, runtime, system tools,
+            system libraries and settings.
            """
           }
           h5 { +"Images become containers when they are run." }
@@ -95,7 +102,10 @@ object Docker {
         content {
           h2 { +"🥊 Containers vs VMs" }
           +"Containers are isolated, but share OS and bins/libraries (where appropriate)"
-          img { width = "1000px"; src = "images/docker/docker-containers-and-vm.png" }
+          img {
+            width = "1000px"
+            src = "images/docker/docker-containers-and-vm.png"
+          }
         }
       }
 
@@ -133,16 +143,16 @@ object Docker {
             copyButton = false
             trim = false
             code = """
-              
+
               docker run hello-world
-              
+
               docker run -it ubuntu bash
               docker ps
               docker images
-              
+
               docker run -it --rm debian bash
-              
-              
+
+
              """.trimIndent()
           }
         }
@@ -151,7 +161,10 @@ object Docker {
       dslSlide {
         content {
           h2 { +"🧬 Container Lifecycle" }
-          img { width = "1000px"; src = "images/docker/container_life_cycle.png" }
+          img {
+            width = "1000px"
+            src = "images/docker/container_life_cycle.png"
+          }
         }
       }
 
@@ -163,16 +176,16 @@ object Docker {
             trim = false
             copyButton = false
             code = """
-              
+
               git clone https://github.com/pambrose/docker-demo.git
-              
+
               docker run -it --rm pambrose/asciiquarium
-              
+
               docker run -p 8080:8888 -it --rm pambrose/nginx-demo
-              
-              docker run --rm -p 8080:8080 pambrose/ktor-demo    
-              
-              
+
+              docker run --rm -p 8080:8080 pambrose/ktor-demo
+
+
             """.trimIndent()
           }
           a {

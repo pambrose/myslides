@@ -27,12 +27,15 @@ package lambdas
 fun main() {
   //sampleStart
 
-  fun add(a: Int, b: Int): Int {
+  fun add(
+    a: Int,
+    b: Int,
+  ): Int {
     return a + b
   }
 
   val x: (Int, Int) -&gt; Int = ::add
- //sampleEnd
+  //sampleEnd
 }
 </code>
   </body>

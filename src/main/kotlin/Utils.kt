@@ -1,5 +1,5 @@
 import com.kslides.atag
-import kotlinx.html.*
+import kotlinx.html.LI
 
 object Utils {
 
@@ -7,5 +7,9 @@ object Utils {
     +title
   }
 
-  fun linkItem(title: String, url: String, newTab: Boolean = true): LI.() -> Unit = { atag(title, url, newTab) }
+  fun linkItem(
+    title: String,
+    url: String,
+    newTab: Boolean = true,
+  ): LI.() -> Unit = { atag(title, url, newTab) }
 }

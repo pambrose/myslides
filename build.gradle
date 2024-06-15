@@ -1,10 +1,10 @@
 plugins {
-    id 'java'
-    id 'application'
-    id 'org.jetbrains.kotlin.jvm' version '1.9.20'
-    id "com.github.ben-manes.versions" version '0.49.0'
-    id 'com.github.johnrengelman.shadow' version '8.1.1'
-    id 'org.jmailen.kotlinter' version "3.13.0"
+  id 'java'
+  id 'application'
+  id 'org.jetbrains.kotlin.jvm' version '2.0.0'
+  id "com.github.ben-manes.versions" version '0.51.0'
+  id 'com.github.johnrengelman.shadow' version '8.1.1'
+  id 'org.jmailen.kotlinter' version "4.3.0"
 }
 
 // mainName matters only if you are hosting your slides via HTTP
@@ -12,85 +12,76 @@ plugins {
 def mainName = "SlidesKt"
 
 application {
-    mainClassName = mainName
+  mainClassName = mainName
 }
 
 group 'com.github.pambrose'
 version '1.2.0'
 
 repositories {
-    google()
-    mavenCentral()
-    maven { url = 'https://jitpack.io' }
+  google()
+  mavenCentral()
+  maven { url = 'https://jitpack.io' }
 }
 
-sourceCompatibility = JavaVersion.VERSION_17
-targetCompatibility = JavaVersion.VERSION_17
+//sourceCompatibility = JavaVersion.VERSION_17
+//targetCompatibility = JavaVersion.VERSION_17
 
 dependencies {
-    implementation "com.github.kslides.kslides:kslides-core:$kslides_version"
-    implementation "io.ktor:ktor-server-html-builder:$ktor_version"
-    implementation "org.jetbrains.kotlin-wrappers:kotlin-css:$css_version"
+  implementation "com.github.kslides.kslides:kslides-core:$kslides_version"
+  implementation "io.ktor:ktor-server-html-builder:$ktor_version"
+  implementation "org.jetbrains.kotlin-wrappers:kotlin-css:$css_version"
 }
 
 tasks.register('stage') { dependsOn 'uberjar', 'build', 'clean' }
 build.mustRunAfter clean
 
 shadowJar {
-    zip64 true
-    mergeServiceFiles()
-    exclude "META-INF/*.SF"
-    exclude 'META-INF/*.DSA'
-    exclude 'META-INF/*.RSA'
-    exclude "LICENSE*"
+  zip64 true
+  mergeServiceFiles()
+  exclude "META-INF/*.SF"
+  exclude 'META-INF/*.DSA'
+  exclude 'META-INF/*.RSA'
+  exclude "LICENSE*"
 }
 
 tasks.register('uberjar', Jar) {
-    dependsOn shadowJar
-    zip64 true
-    archiveFileName = 'kslides.jar'
-    manifest {
-        attributes('Implementation-Title': 'kslides')
-        attributes('Implementation-Version': version)
-        attributes('Built-Date': new Date())
-        attributes('Built-JDK': System.getProperty('java.version'))
-        attributes('Main-Class': mainName)
-    }
-    from zipTree(shadowJar.archiveFile)
+  dependsOn shadowJar
+  zip64 true
+  archiveFileName = 'kslides.jar'
+  manifest {
+    attributes('Implementation-Title': 'kslides')
+    attributes('Implementation-Version': version)
+    attributes('Built-Date': new Date())
+    attributes('Built-JDK': System.getProperty('java.version'))
+    attributes('Main-Class': mainName)
+  }
+  from zipTree(shadowJar.archiveFile)
 }
 
 kotlin {
-    jvmToolchain(17)
+  jvmToolchain(17)
 }
 
 compileKotlin {
-    kotlinOptions.freeCompilerArgs += ['-Xbackend-threads=8',
-                                       //'-Xcontext-receivers',
-                                       //'-Xskip-prerelease-check',
+  kotlinOptions {
+    freeCompilerArgs += ['-Xbackend-threads=8',
+                         //'-Xcontext-receivers',
+                         //'-Xskip-prerelease-check',
     ]
+  }
 }
 
 compileTestKotlin {
-    kotlinOptions.freeCompilerArgs += ['-Xbackend-threads=8',
-                                       //'-Xcontext-receivers',
-                                       //'-Xskip-prerelease-check',
+  kotlinOptions {
+    freeCompilerArgs += ['-Xbackend-threads=8',
+                         //'-Xcontext-receivers',
+                         //'-Xskip-prerelease-check',
     ]
+  }
 }
 
 kotlinter {
-    ignoreFailures = false
-    //indentSize = 2
-    reporters = ['checkstyle', 'plain']
-    experimentalRules = false
-    disabledRules = ["no-wildcard-imports",
-                     "indent",
-                     "final-newline",
-                     "comment-spacing",
-                     "max-line-length",
-                     "no-multi-spaces",
-                     "no-trailing-spaces",
-                     "wrapping",
-                     "no-unit-return",
-                     "filename",
-                     "multiline-if-else",]
+  ignoreFailures = false
+  reporters = ['checkstyle', 'plain']
 }

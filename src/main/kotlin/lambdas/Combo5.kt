@@ -15,7 +15,7 @@ fun main() {
     .filter { it.isNotEmpty() }
     .also { println(it) }
     .mapIndexed { i, s -> if (i % 2 == 0) s.uppercase() else s }
-    .filterIndexed { i, s ->  i >= 2 }
+    .filterIndexed { i, s -> i >= 2 }
     .also { println(it) }
   //sampleEnd
 }

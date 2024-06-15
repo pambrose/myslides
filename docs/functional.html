@@ -26,31 +26,32 @@
 			.reveal h4,
 			.reveal h5,
 			.reveal h6 {
-			    text-transform: none;
+			  text-transform: none;
 			}
 		
 			a.top-left {
-			    position: absolute;
-			    z-index: 1;
-			    width: clamp(50px, 8vmax, 80px);
-			    line-height: 0;
-			    color: rgba(255, 255, 255, 0.5);
+			  position: absolute;
+			  z-index: 1;
+			  width: clamp(50px, 8vmax, 80px);
+			  line-height: 0;
+			  color: rgba(255, 255, 255, 0.5);
 			}
 		
 			a.top-left path {
-			    fill: #258bd2;
+			  fill: #258bd2;
 			}
 		
 			a.top-left:hover {
-			    color: white;
+			  color: white;
 			}
 		
 			a.top-right {
-			    position: absolute;
-			    top: 15px;
-			    right: 15px;
-			    z-index: 1;
+			  position: absolute;
+			  top: 15px;
+			  right: 15px;
+			  z-index: 1;
 			}
+		
 		</style>
     
     <style media="screen" type="text/css">
@@ -146,7 +147,10 @@
         <section data-auto-animate="">
           <h2>Elements of a Function</h2>
           <pre data-cc="false"><code class="kotlin" data-noescape="">
-fun sum(a: Int, b: Int): Int {
+fun sum(
+  a: Int,
+  b: Int,
+): Int {
   return a + b
 }
 </code>
@@ -157,7 +161,10 @@ fun sum(a: Int, b: Int): Int {
         <section data-auto-animate="">
           <h2>Elements of a Function</h2>
           <pre data-cc="false"><code class="kotlin" data-noescape="">
-fun sum(a: Int, b: Int): Int {
+fun sum(
+  a: Int,
+  b: Int,
+): Int {
   return a + b
 }
 </code>
@@ -170,21 +177,10 @@ fun sum(a: Int, b: Int): Int {
         <section data-auto-animate="">
           <h2>Elements of a Function</h2>
           <pre data-cc="false"><code class="kotlin" data-noescape="">
-fun sum(a: Int, b: Int): Int {
-  return a + b
-}
-</code>
-          </pre>
-          <ul>
-            <li>Name (sum)</li>
-            <li>Parameters (a: Int, b: Int)</li>
-          </ul>
-        </section>
-        
-        <section data-auto-animate="">
-          <h2>Elements of a Function</h2>
-          <pre data-cc="false"><code class="kotlin" data-noescape="">
-fun sum(a: Int, b: Int): Int {
+fun sum(
+  a: Int,
+  b: Int,
+): Int {
   return a + b
 }
 </code>
@@ -192,14 +188,16 @@ fun sum(a: Int, b: Int): Int {
           <ul>
             <li>Name (sum)</li>
             <li>Parameters (a: Int, b: Int)</li>
-            <li>Return Type (Int)</li>
           </ul>
         </section>
         
         <section data-auto-animate="">
           <h2>Elements of a Function</h2>
           <pre data-cc="false"><code class="kotlin" data-noescape="">
-fun sum(a: Int, b: Int): Int {
+fun sum(
+  a: Int,
+  b: Int,
+): Int {
   return a + b
 }
 </code>
@@ -208,19 +206,22 @@ fun sum(a: Int, b: Int): Int {
             <li>Name (sum)</li>
             <li>Parameters (a: Int, b: Int)</li>
             <li>Return Type (Int)</li>
-            <li>Body (return a + b)</li>
           </ul>
         </section>
         
         <section data-auto-animate="">
           <h2>Elements of a Function</h2>
           <pre data-cc="false"><code class="kotlin" data-noescape="">
-fun sum(a: Int, b: Int): Int {
+fun sum(
+  a: Int,
+  b: Int,
+): Int {
   return a + b
 }
 </code>
           </pre>
           <ul>
+            <li>Name (sum)</li>
             <li>Parameters (a: Int, b: Int)</li>
             <li>Return Type (Int)</li>
             <li>Body (return a + b)</li>
@@ -230,7 +231,28 @@ fun sum(a: Int, b: Int): Int {
         <section data-auto-animate="">
           <h2>Elements of a Function</h2>
           <pre data-cc="false"><code class="kotlin" data-noescape="">
-fun sum(a: Int, b: Int): Int {
+fun sum(
+  a: Int,
+  b: Int,
+): Int {
+  return a + b
+}
+</code>
+          </pre>
+          <ul>
+            <li>Parameters (a: Int, b: Int)</li>
+            <li>Return Type (Int)</li>
+            <li>Body (return a + b)</li>
+          </ul>
+        </section>
+        
+        <section data-auto-animate="">
+          <h2>Elements of a Function</h2>
+          <pre data-cc="false"><code class="kotlin" data-noescape="">
+fun sum(
+  a: Int,
+  b: Int,
+): Int {
   return a + b
 }
 </code>
@@ -244,7 +266,10 @@ fun sum(a: Int, b: Int): Int {
         <section data-auto-animate="">
           <h2>Elements of a Function</h2>
           <pre data-cc="false"><code class="kotlin" data-noescape="">
-fun sum(a: Int, b: Int): Int {
+fun sum(
+  a: Int,
+  b: Int,
+): Int {
   return a + b
 }
 </code>
@@ -258,7 +283,10 @@ fun sum(a: Int, b: Int): Int {
         <section data-auto-animate="">
           <h2>Elements of a Function</h2>
           <pre data-cc="false"><code class="kotlin" data-noescape="">
-fun sum(a: Int, b: Int): Int {
+fun sum(
+  a: Int,
+  b: Int,
+): Int {
   return a + b
 }
 </code>
@@ -339,7 +367,7 @@ fun sum(a: Int, b: Int): Int {
         
         <section>
           <h2 style="color: red;">Higher-Order Functions</h2>
-          <p>A function that takes another function as an argument, 
+          <p>A function that takes another function as an argument,
 or returns a function as a result.</p>
           <p>
             <a href="https://en.wikipedia.org/wiki/Higher-order_function">(Languages with Higher-Order Functions)</a>

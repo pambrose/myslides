@@ -39,7 +39,7 @@ fun main() {
     .filter { it.isNotEmpty() }
     .also { println(it) }
     .mapIndexed { i, s -&gt; if (i % 2 == 0) s.uppercase() else s }
-    .filterIndexed { i, s -&gt;  i &gt;= 2 }
+    .filterIndexed { i, s -&gt; i &gt;= 2 }
     .also { println(it) }
   //sampleEnd
 }

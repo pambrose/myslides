@@ -26,31 +26,32 @@
 			.reveal h4,
 			.reveal h5,
 			.reveal h6 {
-			    text-transform: none;
+			  text-transform: none;
 			}
 		
 			a.top-left {
-			    position: absolute;
-			    z-index: 1;
-			    width: clamp(50px, 8vmax, 80px);
-			    line-height: 0;
-			    color: rgba(255, 255, 255, 0.5);
+			  position: absolute;
+			  z-index: 1;
+			  width: clamp(50px, 8vmax, 80px);
+			  line-height: 0;
+			  color: rgba(255, 255, 255, 0.5);
 			}
 		
 			a.top-left path {
-			    fill: #258bd2;
+			  fill: #258bd2;
 			}
 		
 			a.top-left:hover {
-			    color: white;
+			  color: white;
 			}
 		
 			a.top-right {
-			    position: absolute;
-			    top: 15px;
-			    right: 15px;
-			    z-index: 1;
+			  position: absolute;
+			  top: 15px;
+			  right: 15px;
+			  z-index: 1;
 			}
+		
 		</style>
     
     <style media="screen" type="text/css">
@@ -120,9 +121,9 @@ docker run -d -p 8082:80 wordpress:latest
         <section>
           <h2>&#128300; Images and Containers</h2>
           <h5>
-            A Docker image is a lightweight, standalone, executable package of software 
-            that includes everything needed to run an application: code, runtime, system tools, 
-            system libraries and settings. 
+            A Docker image is a lightweight, standalone, executable package of software
+            that includes everything needed to run an application: code, runtime, system tools,
+            system libraries and settings.
            </h5>
           <h5>Images become containers when they are run.</h5>
         </section>
@@ -185,7 +186,7 @@ docker run -it --rm pambrose/asciiquarium
 
 docker run -p 8080:8888 -it --rm pambrose/nginx-demo
 
-docker run --rm -p 8080:8080 pambrose/ktor-demo    
+docker run --rm -p 8080:8080 pambrose/ktor-demo
 
 </code>
           </pre>

@@ -6,7 +6,19 @@ import com.kslides.githubRawUrl
 import com.kslides.playground
 import com.kslides.slide.DslSlide
 import com.kslides.unorderedList
-import kotlinx.html.*
+import kotlinx.html.FlowOrInteractiveOrPhrasingContent
+import kotlinx.html.a
+import kotlinx.html.div
+import kotlinx.html.h1
+import kotlinx.html.h2
+import kotlinx.html.h3
+import kotlinx.html.h5
+import kotlinx.html.h6
+import kotlinx.html.id
+import kotlinx.html.iframe
+import kotlinx.html.img
+import kotlinx.html.style
+import kotlinx.html.title
 
 object C {
 
@@ -29,15 +41,24 @@ object C {
         topRightHref = "#/c"
       }
 
-      fun DslSlide.cSlide(fileName: String, heightPx: Int = 500) =
+      fun DslSlide.cSlide(
+        fileName: String,
+        heightPx: Int = 500,
+      ) =
         playground(if (useLocal) "c-basics/$fileName" else githubRawUrl(owner, repoName, fileName)) {
           mode = PlaygroundMode.C
           height = "${heightPx}px"
           width = "100%"
         }
 
-      fun FlowOrInteractiveOrPhrasingContent.image(fname: String, widthPx: Int = 500) =
-        img { src = "images/c/$fname"; width = "${widthPx}px" }
+      fun FlowOrInteractiveOrPhrasingContent.image(
+        fname: String,
+        widthPx: Int = 500,
+      ) =
+        img {
+          src = "images/c/$fname"
+          width = "${widthPx}px"
+        }
 
       dslSlide {
         content {
@@ -408,7 +429,10 @@ object C {
       for (i in (1..8))
         dslSlide {
           content {
-            img { src = "images/illinois.edu/stack_demo_$i.png"; width = "800px" }
+            img {
+              src = "images/illinois.edu/stack_demo_$i.png"
+              width = "800px"
+            }
             h6 { +stackCaptions[i - 1] }
           }
         }
@@ -430,7 +454,10 @@ object C {
       for (i in (1..5))
         dslSlide {
           content {
-            img { src = "images/illinois.edu/heap_demo_$i.png"; width = "800px" }
+            img {
+              src = "images/illinois.edu/heap_demo_$i.png"
+              width = "800px"
+            }
             h6 { +heapCaptions[i - 1] }
           }
         }
@@ -545,11 +572,13 @@ object C {
             h3 { +"🔬 String Array in Memory" }
             img {
               style = "margin: 0px;"
-              src = "images/c/cli_args1.png"; width = "770px"
+              src = "images/c/cli_args1.png"
+              width = "770px"
             }
             img {
               style = "margin: 0px;"
-              src = "images/c/cli_args2.png"; width = "370px"
+              src = "images/c/cli_args2.png"
+              width = "370px"
             }
           }
         }

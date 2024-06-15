@@ -8,5 +8,5 @@ fun main() {
   }
 
   val x: () -> String = ::greeting
- //sampleEnd
+  //sampleEnd
 }

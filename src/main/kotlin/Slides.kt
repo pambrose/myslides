@@ -17,6 +17,12 @@ import kotlinx.css.properties.LineHeight
 
 fun main() {
   kslides {
+    kslidesConfig {
+      // kslides configuration options
+      // Use the local kroki server running with docker-compose
+      krokiUrl = "http://localhost:8000"
+    }
+
     output {
       // Write the presentation html files to /docs for Github Pages or netlify.com
       enableFileSystem = true

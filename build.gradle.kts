@@ -5,7 +5,6 @@ plugins {
   alias(libs.plugins.kotlin.jvm)
   alias(libs.plugins.ben.manes.versions)
   alias(libs.plugins.shadow)
-//  id("org.jmailen.kotlinter") version "4.5.0"
 }
 
 // mainName matters only if you are hosting your slides via HTTP
@@ -17,7 +16,7 @@ application {
 }
 
 group = "com.github.pambrose"
-version = "1.3.0"
+version = "1.4.0"
 
 dependencies {
   implementation(libs.kslides.core)

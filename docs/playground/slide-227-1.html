@@ -22,25 +22,25 @@
   </head>
   <body>
     <code class="playground-code" data-autocomplete="true" folded-button="true" lines="true" match-brackets="true" theme="darcula">
+@DslMarker
+annotation class PersonDslMarker
+
+@PersonDslMarker
 data class Person(
   var name: String? = null,
   var age: Int? = null,
   var address: Address? = null
 )
 
+@PersonDslMarker
 data class Address(
   var street: String? = null,
   var number: Int? = null,
   var city: String? = null
 )
 
-@DslMarker
-annotation class PersonDslMarker
-
-@PersonDslMarker
 inline fun person(block: Person.() -&gt; Unit) = Person().apply { block() }
 
-@PersonDslMarker
 inline fun Person.address(block: Address.() -&gt; Unit) {
   address = Address().apply { block() }
 }

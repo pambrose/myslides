@@ -1,4 +1,4 @@
-import java.util.Date
+import java.util.*
 
 plugins {
   application
@@ -42,8 +42,30 @@ kotlin {
   jvmToolchain(17)
 }
 
-tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile>().configureEach {
-  compilerOptions {
-    freeCompilerArgs.add("-Xbackend-threads=8")
+// Unpack reveal.js assets from the kslides-core JAR into docs/revealjs/.
+// Single source of truth lives in the kslides-core JAR (it ships them at
+// classpath path revealjs/**); this task mirrors them onto disk so the
+// generated docs/*.html have working JS/CSS references when published to
+// Netlify / GitHub Pages.
+tasks.register<Sync>("syncRevealJs") {
+  group = "kslides"
+  description = "Unpacks reveal.js assets from the kslides-core JAR into docs/revealjs/."
+
+  val coreJar = configurations.runtimeClasspath.map { rc ->
+    rc.files.single { it.name.startsWith("kslides-core-") }
+  }
+
+  from(coreJar.map { zipTree(it) }) {
+    include("revealjs/**")
+    eachFile { relativePath = RelativePath(true, *relativePath.segments.drop(1).toTypedArray()) }
+    includeEmptyDirs = false
+  }
+  into(layout.projectDirectory.dir("docs/revealjs"))
+}
+
+// Single source of truth for images assets: docs/images/ (committed for GitHub Pages).
+tasks.processResources {
+  from(rootProject.layout.projectDirectory.dir("docs/images")) {
+    into("public/images")
   }
 }

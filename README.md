@@ -41,6 +41,42 @@ also serves it over HTTP (`enableHttp = true`). For local kroki diagram
 rendering, run a kroki container at `http://localhost:8000` (the URL is wired
 in `Slides.kt`).
 
+## reveal.js assets (`docs/revealjs/`)
+
+The reveal.js JS/CSS bundle lives inside the `kslides-core` JAR at the
+classpath path `revealjs/**`. The generated `docs/*.html` files reference
+those assets at `revealjs/...`, so for the static site (GitHub Pages /
+Netlify) to load them they have to exist on disk under `docs/revealjs/`.
+
+The `syncRevealJs` Gradle task (defined in `build.gradle.kts`) unpacks them
+out of the JAR into `docs/revealjs/`. Run it after upgrading `kslides-core`
+or any time the `docs/revealjs/` tree gets out of sync:
+
+```sh
+./gradlew syncRevealJs
+# or:
+make sync-revealjs
+```
+
+The contents of `docs/revealjs/` are committed so GitHub Pages can serve them
+without a build step.
+
+## Images (`docs/images/` is the single source of truth)
+
+Both the published static site and the HTTP-served presentations need access
+to the same image assets. Rather than maintain two copies, `docs/images/` is
+the single source of truth — it is committed and served directly by GitHub
+Pages / Netlify.
+
+When the project is built, `tasks.processResources` (in `build.gradle.kts`)
+copies `docs/images/` into the runtime classpath at `public/images/`, so the
+embedded HTTP server (which reads from `src/main/resources/public/`) sees the
+exact same assets the static site does. The `src/main/resources/public/images/`
+directory is **not** committed and exists only as a build artifact.
+
+To add or update an image: drop it under `docs/images/<topic>/` and commit.
+Both delivery paths pick it up on the next build.
+
 ## Tooling
 
 - Gradle 9.5.0 (Kotlin DSL).

@@ -15,11 +15,8 @@ application {
   mainClass.set(mainName)
 }
 
-group = "com.github.pambrose"
-version = "1.4.0"
-
 dependencies {
-  implementation(libs.kslides.core)
+  implementation(libs.bundles.kslides)
 }
 
 tasks.shadowJar {
@@ -27,6 +24,7 @@ tasks.shadowJar {
   archiveFileName.set("kslides.jar")
   mergeServiceFiles()
   exclude("META-INF/*.SF", "META-INF/*.DSA", "META-INF/*.RSA", "LICENSE*")
+  mustRunAfter("clean")
   manifest {
     attributes(
       "Implementation-Title" to "kslides",
@@ -39,25 +37,13 @@ tasks.shadowJar {
 }
 
 tasks.register("stage") { dependsOn("clean", "shadowJar") }
-tasks.shadowJar { mustRunAfter("clean") }
 
 kotlin {
   jvmToolchain(17)
 }
 
-tasks.compileKotlin {
+tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile>().configureEach {
   compilerOptions {
     freeCompilerArgs.add("-Xbackend-threads=8")
   }
 }
-
-tasks.compileTestKotlin {
-  compilerOptions {
-    freeCompilerArgs.add("-Xbackend-threads=8")
-  }
-}
-
-//kotlinter {
-//  ignoreFailures = false
-//  reporters = arrayOf("checkstyle", "plain")
-//}

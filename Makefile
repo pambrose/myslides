@@ -16,9 +16,10 @@ build:
 uberjar:
 	./gradlew shadowJar
 
-uber: uberjar
-	java -jar build/libs/kslides.jar
+uber: stage
+	java -jar build/libs/kslides.jar $(ARGS)
 
+# Produces a runnable distribution under build/install/ via the application plugin.
 dist:
 	./gradlew installDist
 

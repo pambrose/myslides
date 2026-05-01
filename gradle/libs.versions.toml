@@ -7,6 +7,9 @@ shadow = "9.4.1"
 [libraries]
 kslides-core = { module = "com.kslides:kslides-core", version.ref = "kslides" }
 
+[bundles]
+kslides = ["kslides-core"]
+
 [plugins]
 kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
 ben-manes-versions = { id = "com.github.ben-manes.versions", version.ref = "ben-manes-versions" }

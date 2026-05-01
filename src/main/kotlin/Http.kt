@@ -1,9 +1,4 @@
-import com.kslides.KSlides
-import com.kslides.codeSnippet
-import com.kslides.include
-import com.kslides.listHref
-import com.kslides.toLinePatterns
-import com.kslides.unorderedList
+import com.kslides.*
 import kotlinx.css.Color.Companion.blue
 import kotlinx.css.LinearDimension
 import kotlinx.css.fontSize
@@ -78,7 +73,7 @@ object Http {
         classes = "title-slide"
         content {
           """
-          ![upload-image](https://img.ifunny.co/images/0b6a5f5a9dbc19563eb13dcd7ae3e984547fe2a80fd9ce736119fc21f95d96d3_1.jpg)
+          ![upload-image](images/http/rest-http.png)
 
           ## HTTP and REST Basics
           https://pambrose.github.io/myslides

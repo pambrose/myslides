@@ -1,0 +1,49 @@
+import java.util.Date
+
+plugins {
+  application
+  alias(libs.plugins.kotlin.jvm)
+  alias(libs.plugins.ben.manes.versions)
+  alias(libs.plugins.shadow)
+}
+
+// mainName matters only if you are hosting your slides via HTTP
+// Change mainName to the name of Kotlin file that has the presentation you want to serve
+val mainName = "SlidesKt"
+
+application {
+  mainClass.set(mainName)
+}
+
+dependencies {
+  implementation(libs.bundles.kslides)
+}
+
+tasks.shadowJar {
+  isZip64 = true
+  archiveFileName.set("kslides.jar")
+  mergeServiceFiles()
+  exclude("META-INF/*.SF", "META-INF/*.DSA", "META-INF/*.RSA", "LICENSE*")
+  mustRunAfter("clean")
+  manifest {
+    attributes(
+      "Implementation-Title" to "kslides",
+      "Implementation-Version" to version,
+      "Built-Date" to Date(),
+      "Built-JDK" to System.getProperty("java.version"),
+      "Main-Class" to mainName,
+    )
+  }
+}
+
+tasks.register("stage") { dependsOn("clean", "shadowJar") }
+
+kotlin {
+  jvmToolchain(17)
+}
+
+tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile>().configureEach {
+  compilerOptions {
+    freeCompilerArgs.add("-Xbackend-threads=8")
+  }
+}

@@ -4,12 +4,17 @@ plugins {
   application
   alias(libs.plugins.kotlin.jvm)
   alias(libs.plugins.ben.manes.versions)
+  alias(libs.plugins.detekt)
   alias(libs.plugins.shadow)
 }
 
 // mainName matters only if you are hosting your slides via HTTP
 // Change mainName to the name of Kotlin file that has the presentation you want to serve
 val mainName = "SlidesKt"
+
+val projectName = "kslides"
+val cleanTask = "clean"
+val revealJsDir = "docs/revealjs"
 
 application {
   mainClass.set(mainName)
@@ -21,13 +26,13 @@ dependencies {
 
 tasks.shadowJar {
   isZip64 = true
-  archiveFileName.set("kslides.jar")
+  archiveFileName.set("$projectName.jar")
   mergeServiceFiles()
   exclude("META-INF/*.SF", "META-INF/*.DSA", "META-INF/*.RSA", "LICENSE*")
-  mustRunAfter("clean")
+  mustRunAfter(cleanTask)
   manifest {
     attributes(
-      "Implementation-Title" to "kslides",
+      "Implementation-Title" to projectName,
       "Implementation-Version" to version,
       "Built-Date" to Date(),
       "Built-JDK" to System.getProperty("java.version"),
@@ -36,10 +41,10 @@ tasks.shadowJar {
   }
 }
 
-tasks.register("stage") { dependsOn("clean", "shadowJar") }
+tasks.register("stage") { dependsOn(cleanTask, "shadowJar") }
 
 kotlin {
-  jvmToolchain(17)
+  jvmToolchain(libs.versions.jvm.get().toInt())
 }
 
 // Unpack reveal.js assets from the kslides-core JAR into docs/revealjs/.
@@ -48,8 +53,8 @@ kotlin {
 // generated docs/*.html have working JS/CSS references when published to
 // Netlify / GitHub Pages.
 tasks.register<Sync>("syncRevealJs") {
-  group = "kslides"
-  description = "Unpacks reveal.js assets from the kslides-core JAR into docs/revealjs/."
+  group = projectName
+  description = "Unpacks reveal.js assets from the kslides-core JAR into $revealJsDir/."
 
   val coreJar = configurations.runtimeClasspath.map { rc ->
     rc.files.single { it.name.startsWith("kslides-core-") }
@@ -60,7 +65,7 @@ tasks.register<Sync>("syncRevealJs") {
     eachFile { relativePath = RelativePath(true, *relativePath.segments.drop(1).toTypedArray()) }
     includeEmptyDirs = false
   }
-  into(layout.projectDirectory.dir("docs/revealjs"))
+  into(layout.projectDirectory.dir(revealJsDir))
 }
 
 // Single source of truth for images assets: docs/images/ (committed for GitHub Pages).

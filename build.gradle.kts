@@ -4,6 +4,7 @@ plugins {
   application
   alias(libs.plugins.kotlin.jvm)
   alias(libs.plugins.ben.manes.versions)
+  alias(libs.plugins.detekt)
   alias(libs.plugins.shadow)
 }
 

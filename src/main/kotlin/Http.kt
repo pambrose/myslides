@@ -1,4 +1,9 @@
-import com.kslides.*
+import com.kslides.KSlides
+import com.kslides.codeSnippet
+import com.kslides.include
+import com.kslides.listHref
+import com.kslides.toLinePatterns
+import com.kslides.unorderedList
 import kotlinx.css.Color.Companion.blue
 import kotlinx.css.LinearDimension
 import kotlinx.css.fontSize
@@ -396,7 +401,7 @@ object Http {
             codeSnippet {
               dataId = "code-animation"
               language = "json"
-              lineOffSet = lines.second
+              lineOffset = lines.second
               +include(file, linePattern = lines.first)
             }
           }

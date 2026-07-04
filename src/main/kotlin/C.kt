@@ -7,6 +7,7 @@ import com.kslides.playground
 import com.kslides.slide.DslSlide
 import com.kslides.unorderedList
 import kotlinx.html.FlowOrInteractiveOrPhrasingContent
+import kotlinx.html.SECTION
 import kotlinx.html.a
 import kotlinx.html.div
 import kotlinx.html.h1
@@ -41,6 +42,7 @@ object C {
         topRightHref = "#/c"
       }
 
+      context(section: SECTION)
       fun DslSlide.cSlide(
         fileName: String,
         heightPx: Int = 500,

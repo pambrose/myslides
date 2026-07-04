@@ -12,6 +12,7 @@
     <link href="revealjs/dist/theme/solarized.css" id="theme" rel="stylesheet">
     <link href="revealjs/plugin/highlight/monokai.css" id="highlight-theme" rel="stylesheet">
     <link href="revealjs/plugin/copycode/copycode.css" rel="stylesheet">
+    <link href="revealjs/plugin/copycode/copycode-button-fix.css" rel="stylesheet">
     
     <link href="/favicon.ico" rel="shortcut icon" type="image/x-icon">
     <link href="/favicon.ico" rel="icon" type="image/x-icon">
@@ -519,7 +520,7 @@ OK
             <a href="https://github.com/redis/jedis" target="_blank">Jedis</a> Example (SET/GET/DEL)
           </h2>
           <pre data-cc="false"><code class="kotlin" data-line-numbers="|1|3|5-6|8|10-11" data-noescape="" data-trim="">
-val jedis = JedisPooled("localhost", 6379)
+val jedis = RedisClient.create("localhost", 6379)
 
 jedis.set("key1", "Hello");
 
@@ -539,7 +540,7 @@ println("key1=$v2")
             <a href="https://github.com/redis/jedis" target="_blank">Jedis</a> Example (HSET/HGETALL)
           </h2>
           <pre data-cc="false"><code class="kotlin" data-line-numbers="|1|3-10|12-13" data-noescape="" data-trim="">
-val jedis = JedisPooled("localhost", 6379)
+val jedis = RedisClient.create("localhost", 6379)
 
 jedis.hset(
   "user:123",

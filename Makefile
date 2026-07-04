@@ -1,9 +1,9 @@
 .PHONY: default help build-all stop clean build uberjar uber dist stage clean-docs sync-revealjs \
-		    versioncheck upgrade-wrapper _require-gradle-version
+		    versions upgrade-wrapper _require-gradle-version
 
-GRADLE_VERSION := $(shell sed -n 's/^gradle = "\(.*\)"/\1/p' gradle/libs.versions.toml)
+GRADLE_VERSION := $(shell sed -n 's/^gradle-wrapper = "\(.*\)"/\1/p' gradle/libs.versions.toml)
 
-default: versioncheck
+default: help
 
 help:  ## Show this help (list of targets)
 	@awk 'BEGIN {FS = ":.*?## "; printf "Usage: make <target>\n\nTargets:\n"} \
@@ -20,26 +20,27 @@ clean: ## Remove Gradle build outputs
 build: ## Build the project (skipping tests)
 	./gradlew build -xtest
 
-uberjar: ## Build the shadow (uber) jar
-	./gradlew shadowJar
-
-uber: stage ## Stage and run the uber jar (pass ARGS=...)
-	java -jar build/libs/kslides.jar $(ARGS)
-
 # Produces a runnable distribution under build/install/ via the application plugin.
 dist: ## Produce a runnable distribution under build/install/
 	./gradlew installDist
 
-stage: ## Run the Gradle stage task
+stage: ## Heroku stage build (clean + shadowJar)
 	./gradlew stage
 
 clean-docs: ## Remove generated docs (playground, kroki)
 	rm -rf docs/playground docs/kroki
 
+uberjar: ## Build the shaded uberjar (build/libs/kslides.jar)
+	./gradlew shadowJar
+
+# Matches Procfile (-DPORT=$PORT); falls back to 8080 for local runs.
+uber: uberjar ## Build and run the uberjar (honours $PORT, defaults to 8080)
+	java -DPORT=$${PORT:-8080} -jar build/libs/kslides.jar $(ARGS)
+
 sync-revealjs: ## Sync the reveal.js assets
 	./gradlew syncRevealJs
 
-versioncheck: ## Check for dependency updates (default target)
+versions: ## Check for dependency updates
 	./gradlew dependencyUpdates --no-configuration-cache --no-parallel
 
 # Gradle's documented upgrade procedure: the first run rewrites

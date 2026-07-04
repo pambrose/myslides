@@ -5,6 +5,7 @@ import com.kslides.githubRawUrl
 import com.kslides.playground
 import com.kslides.slide.DslSlide
 import com.kslides.unorderedList
+import kotlinx.html.SECTION
 import kotlinx.html.a
 import kotlinx.html.h1
 import kotlinx.html.h2
@@ -34,6 +35,7 @@ object Dsl {
         topRightHref = "#/dsl"
       }
 
+      context(section: SECTION)
       fun DslSlide.javaSlide(
         fileName: String,
         heightPx: Int = 500,
@@ -51,6 +53,7 @@ object Dsl {
         }
       }
 
+      context(section: SECTION)
       fun DslSlide.kotlinSlide(
         fileName: String,
         heightPx: Int = 500,

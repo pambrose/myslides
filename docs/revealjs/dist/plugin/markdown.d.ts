@@ -1,6 +1,5 @@
-import {MarkdownConfig, RevealPlugin} from 'reveal.js';
-import {Marked} from 'marked';
-
+import { MarkdownConfig, RevealPlugin } from 'reveal.js';
+import { Marked } from 'marked';
 export interface MarkdownSlidifyOptions {
     separator?: string | null;
     verticalSeparator?: string | null;

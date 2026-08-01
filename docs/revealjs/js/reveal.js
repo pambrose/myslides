@@ -18,17 +18,16 @@ import Touch from './controllers/touch'
 import Focus from './controllers/focus'
 import Notes from './controllers/notes'
 import Playback from './components/playback'
-import {defaultConfig} from './config.ts'
+import { defaultConfig } from './config.ts'
 import * as Util from './utils/util'
 import * as Device from './utils/device'
 import {
-  HORIZONTAL_SLIDES_SELECTOR,
-  POST_MESSAGE_METHOD_BLACKLIST,
-  SLIDES_SELECTOR,
-  VERTICAL_SLIDES_SELECTOR
+	SLIDES_SELECTOR,
+	HORIZONTAL_SLIDES_SELECTOR,
+	VERTICAL_SLIDES_SELECTOR,
+	POST_MESSAGE_METHOD_BLACKLIST
 } from './utils/constants'
-import {version as VERSION} from '../package.json';
-
+import { version as VERSION } from '../package.json';
 export { VERSION };
 
 /**

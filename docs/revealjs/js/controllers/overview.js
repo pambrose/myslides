@@ -1,5 +1,5 @@
-import {SLIDES_SELECTOR} from '../utils/constants'
-import {queryAll, transformElement} from '../utils/util'
+import { SLIDES_SELECTOR } from '../utils/constants'
+import { extend, queryAll, transformElement } from '../utils/util'
 
 /**
  * Handles all logic related to the overview mode

@@ -1,4 +1,4 @@
-import {closest, createStyleSheet, extend, matches, queryAll} from '../utils/util'
+import { queryAll, extend, createStyleSheet, matches, closest } from '../utils/util'
 
 // Counter used to generate unique IDs for auto-animated elements
 let autoAnimateCounter = 0;
@@ -37,7 +37,7 @@ export default class AutoAnimate {
 		// 3. data-auto-animate-restart isn't set on the physically latter
 		//    slide (independent of slide direction).
 		if( fromSlide && toSlide && fromSlide.hasAttribute( 'data-auto-animate' ) && toSlide.hasAttribute( 'data-auto-animate' )
-				&& fromSlide.getAttribute( 'data-auto-animate-id' ) === toSlide.getAttribute( 'data-auto-animate-id' )
+				&& fromSlide.getAttribute( 'data-auto-animate-id' ) === toSlide.getAttribute( 'data-auto-animate-id' ) 
 				&& !( toSlideIndex > fromSlideIndex ? toSlide : fromSlide ).hasAttribute( 'data-auto-animate-restart' ) ) {
 
 			// Create a new auto-animate sheet

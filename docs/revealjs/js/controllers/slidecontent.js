@@ -1,5 +1,5 @@
-import {closest, encodeRFC3986URI, extend, getMimeTypeFromFile, queryAll} from '../utils/util'
-import {isMobile} from '../utils/device'
+import { extend, queryAll, closest, getMimeTypeFromFile, encodeRFC3986URI } from '../utils/util'
+import { isMobile } from '../utils/device'
 
 import fitty from 'fitty';
 

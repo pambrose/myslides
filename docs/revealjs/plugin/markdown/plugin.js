@@ -4,7 +4,7 @@
  * of external markdown documents.
  */
 
-import {marked} from 'marked';
+import { marked } from 'marked';
 
 const DEFAULT_SLIDE_SEPARATOR = '\r?\n---\r?\n',
 	  DEFAULT_NOTES_SEPARATOR = 'notes?:',
@@ -458,7 +458,7 @@ const Plugin = () => {
 					code = escapeForHTML( code );
 
 					// return `<pre><code ${lineNumbers} class="${language}">${code}</code></pre>`;
-
+					
 					return `<pre><code ${lineNumbers} ${lineNumberOffset} class="${language}">${code}</code></pre>`;
 				};
 			}

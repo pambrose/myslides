@@ -1,5 +1,5 @@
-import {enterFullscreen, queryAll} from '../utils/util'
-import {isAndroid} from '../utils/device'
+import { queryAll, enterFullscreen } from '../utils/util'
+import { isAndroid } from '../utils/device'
 
 /**
  * Manages our presentation controls. This includes both

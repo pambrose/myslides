@@ -1,4 +1,4 @@
-import {loadScript} from '../utils/loader'
+import { loadScript } from '../utils/loader'
 
 /**
  * Manages loading and registering of reveal.js plugins.

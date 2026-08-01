@@ -1,10 +1,10 @@
 /// <reference path="./reveal.d.ts" />
 
-import {RevealConfig} from './config.ts';
-import type {RevealApi} from './reveal';
+import { RevealConfig } from './config.ts';
+import type { RevealApi } from './reveal';
 
 // @ts-ignore
-import Deck, {VERSION} from './reveal.js';
+import Deck, { VERSION } from './reveal.js';
 
 /**
  * Expose the Reveal class to the window. To create a

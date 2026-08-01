@@ -57,6 +57,10 @@
     
     <style media="screen" type="text/css">
 			#githubCorner path { fill: #258BD2; }
+			.reveal pre { font-size: 0.60em; }
+			.reveal pre code { white-space: pre-wrap; word-break: break-word; }
+			.reveal .smallcode pre { font-size: 0.40em; }
+			.reveal .largecode pre { font-size: 0.70em; }
 			
 			.smallText {
 			  padding-bottom: 20px;
@@ -294,6 +298,12 @@
 
 			scrollSnap: 'mandatory',
 
+			copycode: {
+				timeout: 2000,
+				copy: 'Copy',
+				copied: 'Copied!'
+			},
+			
 			plugins: [ RevealZoom, RevealSearch, RevealMarkdown, RevealHighlight, RevealMenu, CopyCode ]
 		});
 

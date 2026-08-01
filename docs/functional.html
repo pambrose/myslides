@@ -57,6 +57,10 @@
     
     <style media="screen" type="text/css">
 			#githubCorner path { fill: #258BD2; }
+			.reveal pre { font-size: 0.60em; }
+			.reveal pre code { white-space: pre-wrap; word-break: break-word; }
+			.reveal .smallcode pre { font-size: 0.40em; }
+			.reveal .largecode pre { font-size: 0.70em; }
 			
 			.agenda li {
 			  padding-top: 10px;
@@ -147,7 +151,7 @@
         
         <section data-auto-animate="">
           <h2>Elements of a Function</h2>
-          <pre data-cc="false"><code class="kotlin" data-noescape="">
+          <pre><code class="kotlin" data-noescape="">
 fun sum(
   a: Int,
   b: Int,
@@ -161,7 +165,7 @@ fun sum(
         
         <section data-auto-animate="">
           <h2>Elements of a Function</h2>
-          <pre data-cc="false"><code class="kotlin" data-noescape="">
+          <pre><code class="kotlin" data-noescape="">
 fun sum(
   a: Int,
   b: Int,
@@ -177,24 +181,7 @@ fun sum(
         
         <section data-auto-animate="">
           <h2>Elements of a Function</h2>
-          <pre data-cc="false"><code class="kotlin" data-noescape="">
-fun sum(
-  a: Int,
-  b: Int,
-): Int {
-  return a + b
-}
-</code>
-          </pre>
-          <ul>
-            <li>Name (sum)</li>
-            <li>Parameters (a: Int, b: Int)</li>
-          </ul>
-        </section>
-        
-        <section data-auto-animate="">
-          <h2>Elements of a Function</h2>
-          <pre data-cc="false"><code class="kotlin" data-noescape="">
+          <pre><code class="kotlin" data-noescape="">
 fun sum(
   a: Int,
   b: Int,
@@ -206,13 +193,12 @@ fun sum(
           <ul>
             <li>Name (sum)</li>
             <li>Parameters (a: Int, b: Int)</li>
-            <li>Return Type (Int)</li>
           </ul>
         </section>
         
         <section data-auto-animate="">
           <h2>Elements of a Function</h2>
-          <pre data-cc="false"><code class="kotlin" data-noescape="">
+          <pre><code class="kotlin" data-noescape="">
 fun sum(
   a: Int,
   b: Int,
@@ -225,13 +211,12 @@ fun sum(
             <li>Name (sum)</li>
             <li>Parameters (a: Int, b: Int)</li>
             <li>Return Type (Int)</li>
-            <li>Body (return a + b)</li>
           </ul>
         </section>
         
         <section data-auto-animate="">
           <h2>Elements of a Function</h2>
-          <pre data-cc="false"><code class="kotlin" data-noescape="">
+          <pre><code class="kotlin" data-noescape="">
 fun sum(
   a: Int,
   b: Int,
@@ -241,6 +226,7 @@ fun sum(
 </code>
           </pre>
           <ul>
+            <li>Name (sum)</li>
             <li>Parameters (a: Int, b: Int)</li>
             <li>Return Type (Int)</li>
             <li>Body (return a + b)</li>
@@ -249,7 +235,25 @@ fun sum(
         
         <section data-auto-animate="">
           <h2>Elements of a Function</h2>
-          <pre data-cc="false"><code class="kotlin" data-noescape="">
+          <pre><code class="kotlin" data-noescape="">
+fun sum(
+  a: Int,
+  b: Int,
+): Int {
+  return a + b
+}
+</code>
+          </pre>
+          <ul>
+            <li>Parameters (a: Int, b: Int)</li>
+            <li>Return Type (Int)</li>
+            <li>Body (return a + b)</li>
+          </ul>
+        </section>
+        
+        <section data-auto-animate="">
+          <h2>Elements of a Function</h2>
+          <pre><code class="kotlin" data-noescape="">
 fun sum(
   a: Int,
   b: Int,
@@ -266,7 +270,7 @@ fun sum(
         
         <section data-auto-animate="">
           <h2>Elements of a Function</h2>
-          <pre data-cc="false"><code class="kotlin" data-noescape="">
+          <pre><code class="kotlin" data-noescape="">
 fun sum(
   a: Int,
   b: Int,
@@ -283,7 +287,7 @@ fun sum(
         
         <section data-auto-animate="">
           <h2>Elements of a Function</h2>
-          <pre data-cc="false"><code class="kotlin" data-noescape="">
+          <pre><code class="kotlin" data-noescape="">
 fun sum(
   a: Int,
   b: Int,
@@ -620,6 +624,12 @@ or returns a function as a result.</p>
 
 			scrollSnap: 'mandatory',
 
+			copycode: {
+				timeout: 2000,
+				copy: 'Copy',
+				copied: 'Copied!'
+			},
+			
 			plugins: [ RevealZoom, RevealSearch, RevealMarkdown, RevealHighlight, RevealMenu, CopyCode ]
 		});
 

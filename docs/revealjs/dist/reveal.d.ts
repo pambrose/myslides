@@ -1,16 +1,4 @@
-import {
-  FragmentAnimation,
-  HighlightConfig,
-  KatexConfig,
-  MarkdownConfig,
-  Mathjax2Config,
-  Mathjax3Config,
-  Mathjax4Config,
-  RevealConfig,
-  TransitionSpeed,
-  TransitionStyle
-} from './config';
-
+import { RevealConfig, TransitionStyle, TransitionSpeed, FragmentAnimation, KatexConfig, Mathjax2Config, Mathjax3Config, Mathjax4Config, HighlightConfig, MarkdownConfig } from './config';
 export type {
 	RevealConfig,
 	TransitionStyle,

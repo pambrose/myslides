@@ -1,5 +1,5 @@
-import {queryAll} from '../utils/util'
-import {colorBrightness, colorToRgb} from '../utils/color'
+import { queryAll } from '../utils/util'
+import { colorToRgb, colorBrightness } from '../utils/color'
 
 /**
  * Creates and updates slide backgrounds.

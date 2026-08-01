@@ -1,4 +1,4 @@
-import {queryAll} from '../utils/util'
+import { extend, queryAll } from '../utils/util'
 
 /**
  * Handles sorting and navigation of slide fragments.

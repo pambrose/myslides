@@ -1,6 +1,5 @@
-import {HLJSApi} from 'highlight.js';
-import {RevealPlugin} from 'reveal.js';
-
+import { HLJSApi } from 'highlight.js';
+import { RevealPlugin } from 'reveal.js';
 export interface HighlightLine {
     start?: number;
     end?: number;

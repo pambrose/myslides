@@ -1,5 +1,4 @@
-import {RevealPlugin} from 'reveal.js';
-
+import { RevealPlugin } from 'reveal.js';
 export interface KaTeXPlugin extends RevealPlugin {
     id: 'katex';
 }

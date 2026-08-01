@@ -1,5 +1,7 @@
 import com.kslides.KSlides
 import com.kslides.codeSnippet
+import com.kslides.config.CopyCodeButton
+import com.kslides.config.CopyCodeDisplay
 import com.kslides.include
 import com.kslides.orderedList
 import com.kslides.permuteBy
@@ -20,7 +22,6 @@ import kotlinx.html.script
 import kotlinx.html.style
 
 object Functional {
-
   fun KSlides.functionalPresentation() {
     presentation {
       path = "functional.html"
@@ -41,6 +42,14 @@ object Functional {
 
       presentationConfig {
         topRightHref = "#/functional"
+
+        copyCodeConfig {
+          button = CopyCodeButton.ALWAYS
+          display = CopyCodeDisplay.ICONS
+          timeout = 2000
+          copy = "Copy"
+          copied = "Copied!"
+        }
       }
 
       dslSlide {

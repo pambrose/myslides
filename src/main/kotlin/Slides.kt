@@ -37,6 +37,22 @@ fun main() {
       #githubCorner path { fill: #258BD2; }
       """
 
+    // Shrink code blocks so long lines fit the slide window (reveal's default is 0.55em). This
+    // fits the ~85-92 char lines of the slideDefinition slides; the rare extra-long line (e.g. a
+    // full URL) wraps instead of overflowing horizontally rather than forcing an unreadable size.
+    css += """
+      .reveal pre { font-size: 0.60em; }
+      .reveal pre code { white-space: pre-wrap; word-break: break-word; }
+    """
+
+    // Per-slide override: the "highlighted code" slideDefinitions (classes = "smallcode") render their
+    // code smaller than the global 0.60em. ".reveal .smallcode pre" (two classes) outranks ".reveal pre"
+    // on specificity, so it wins regardless of order; long lines still wrap via the global pre-wrap rule.
+    css += """
+      .reveal .smallcode pre { font-size: 0.40em; }
+      .reveal .largecode pre { font-size: 0.70em; }
+    """
+
     presentationConfig {
       history = true
       transition = Transition.SLIDE
@@ -52,6 +68,12 @@ fun main() {
       enableMenu = true
       theme = PresentationTheme.SOLARIZED
       slideNumber = "c/t"
+
+      copyCodeConfig {
+        timeout = 2000
+        copy = "Copy"
+        copied = "Copied!"
+      }
 
       playgroundConfig {
         theme = PlaygroundTheme.DARCULA

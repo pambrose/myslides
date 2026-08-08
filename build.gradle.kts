@@ -62,7 +62,17 @@ fun Project.configureShadowJar() {
   tasks.shadowJar {
     isZip64 = true
     archiveFileName.set("$projectName.jar")
+
+    // duplicatesStrategy takes precedence over transformers, so the default EXCLUDE would
+    // drop duplicate entries before mergeServiceFiles()/KotlinModuleMetadataTransformer could
+    // merge them. Let duplicates through globally, then restore EXCLUDE for every path no
+    // transformer claims, so only the merged files are allowed to appear more than once.
+    duplicatesStrategy = DuplicatesStrategy.INCLUDE
     mergeServiceFiles()
+    filesNotMatching(listOf("META-INF/services/**", "META-INF/*.kotlin_module")) {
+      duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+    }
+
     exclude("META-INF/*.SF", "META-INF/*.DSA", "META-INF/*.RSA", "LICENSE*")
     mustRunAfter(cleanTask)
     manifest {

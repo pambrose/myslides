@@ -54,10 +54,6 @@
     
     <style>
 			#githubCorner path { fill: #258BD2; }
-			.reveal pre { font-size: 0.60em; }
-			.reveal pre code { white-space: pre-wrap; word-break: break-word; }
-			.reveal .smallcode pre { font-size: 0.40em; }
-			.reveal .largecode pre { font-size: 0.70em; }
 			
 			.smallText {
 			  padding-bottom: 20px;
@@ -68,6 +64,11 @@
 			
 		</style>
     
+    <style type="text/css">
+			.reveal .kslides-code-1 pre { font-size: 0.60em; }
+			.reveal .kslides-code-1 pre code { white-space: pre-wrap; word-break: break-word; }
+			.reveal pre code .hljs-ln-numbers { white-space: nowrap; word-break: normal; }
+		</style>
   </head>
   <body>
     <div class="reveal">
@@ -82,12 +83,12 @@
 			<a class="top-right" href="#/dsl" target="_self" title="Go to 1st Slide">&#127968;</a>
 
       <div class="slides">
-        <section id="dsl">
+        <section class="kslides-code-1" id="dsl">
           <h2>Kotlin DSL Basics</h2>
           <img src="images/dsl/dslimage.png" width="250px"><a href="https://pambrose.github.io/myslides/dsl.html">https://pambrose.github.io/myslides/dsl.html</a>
         </section>
         
-        <section>
+        <section class="kslides-code-1">
           <h3>&#128367; Overview of Slides</h3>
           <ul style="font-size:30px; padding-left: 80px">
             <li>What is a DSL?</li>
@@ -103,7 +104,7 @@
           </ul>
         </section>
         
-        <section>
+        <section class="kslides-code-1">
           <h2>&#128294; What is a DSL?</h2>
                       Domain specific language (DSL) is a computer language that&rsquo;s targeted to a
             particular kind of problem, rather than a general purpose language that&rsquo;s
@@ -111,7 +112,7 @@
           <a href="https://martinfowler.com/bliki/DomainSpecificLanguage.html"> (source: Martin Fowler)</a>
         </section>
         
-        <section>
+        <section class="kslides-code-1">
           <h3>&#128367; Where do we use DSLs</h3>
           <ul style="font-size:30px; padding-left: 80px">
             <li>Configurations Files</li>
@@ -122,125 +123,125 @@
           </ul>
         </section>
         
-        <section>
+        <section class="kslides-code-1">
           <h1>Java Object Creation</h1>
         </section>
         
-        <section>
+        <section class="kslides-code-1">
           <h2>Java Person Object</h2>
           <iframe height="500px" src="playground/slide-204-1.html" style="border:none;" width="100%"></iframe>
         </section>
         
-        <section>
+        <section class="kslides-code-1">
           <h2>Java Address Object</h2>
           <iframe height="500px" src="playground/slide-205-1.html" style="border:none;" width="100%"></iframe>
         </section>
         
-        <section>
+        <section class="kslides-code-1">
           <h2>Java Object Creation</h2>
           <iframe height="500px" src="playground/slide-206-1.html" style="border:none;" width="100%"></iframe>
         </section>
         
-        <section>
+        <section class="kslides-code-1">
           <h1>Kotlin non-DSL Object Creation</h1>
         </section>
         
-        <section>
+        <section class="kslides-code-1">
           <h2>Kotlin Data Objects</h2>
           <iframe height="500px" src="playground/slide-208-1.html" style="border:none;" width="100%"></iframe>
         </section>
         
-        <section>
+        <section class="kslides-code-1">
           <h2>Kotlin Approach (1)</h2>
           <iframe height="500px" src="playground/slide-209-1.html" style="border:none;" width="100%"></iframe>
         </section>
         
-        <section>
+        <section class="kslides-code-1">
           <h2>Kotlin Approach (2)</h2>
           <iframe height="500px" src="playground/slide-210-1.html" style="border:none;" width="100%"></iframe>
         </section>
         
-        <section>
+        <section class="kslides-code-1">
           <h2>Kotlin Approach (3)</h2>
           <iframe height="500px" src="playground/slide-211-1.html" style="border:none;" width="100%"></iframe>
         </section>
         
-        <section>
+        <section class="kslides-code-1">
           <h1>Lambdas</h1>
         </section>
         
-        <section>
+        <section class="kslides-code-1">
           <h2>Lambdas (1)</h2>
           <iframe height="500px" src="playground/slide-213-1.html" style="border:none;" width="100%"></iframe>
         </section>
         
-        <section>
+        <section class="kslides-code-1">
           <h2>Lambdas (2)</h2>
           <iframe height="500px" src="playground/slide-214-1.html" style="border:none;" width="100%"></iframe>
         </section>
         
-        <section>
+        <section class="kslides-code-1">
           <h1>Lambdas with Receivers</h1>
         </section>
         
-        <section>
+        <section class="kslides-code-1">
           <h2>Lambdas with Receivers</h2>
           <iframe height="500px" src="playground/slide-216-1.html" style="border:none;" width="100%"></iframe>
         </section>
         
-        <section>
+        <section class="kslides-code-1">
           <h1>Lambda Function Arguments</h1>
         </section>
         
-        <section>
+        <section class="kslides-code-1">
           <h2>Lambda Function Arguments (1)</h2>
           <iframe height="500px" src="playground/slide-218-1.html" style="border:none;" width="100%"></iframe>
         </section>
         
-        <section>
+        <section class="kslides-code-1">
           <h2>Lambda Function Arguments (2)</h2>
           <iframe height="500px" src="playground/slide-219-1.html" style="border:none;" width="100%"></iframe>
         </section>
         
-        <section>
+        <section class="kslides-code-1">
           <h1>Extension Functions</h1>
         </section>
         
-        <section>
+        <section class="kslides-code-1">
           <h2>Extension Functions (1)</h2>
           <iframe height="500px" src="playground/slide-221-1.html" style="border:none;" width="100%"></iframe>
         </section>
         
-        <section>
+        <section class="kslides-code-1">
           <h2>Extension Functions (2)</h2>
           <iframe height="500px" src="playground/slide-222-1.html" style="border:none;" width="100%"></iframe>
         </section>
         
-        <section>
+        <section class="kslides-code-1">
           <h1>Person DSL</h1>
         </section>
         
-        <section>
+        <section class="kslides-code-1">
           <h2>Person DSL without Receiver</h2>
           <iframe height="500px" src="playground/slide-224-1.html" style="border:none;" width="100%"></iframe>
         </section>
         
-        <section>
+        <section class="kslides-code-1">
           <h2>Person DSL with Receiver</h2>
           <iframe height="500px" src="playground/slide-225-1.html" style="border:none;" width="100%"></iframe>
         </section>
         
-        <section>
+        <section class="kslides-code-1">
           <h2>Address DSL with Receiver</h2>
           <iframe height="500px" src="playground/slide-226-1.html" style="border:none;" width="100%"></iframe>
         </section>
         
-        <section>
+        <section class="kslides-code-1">
           <h2>Final Person DSL</h2>
           <iframe height="500px" src="playground/slide-227-1.html" style="border:none;" width="100%"></iframe>
         </section>
         
-        <section>
+        <section class="kslides-code-1">
           <h3>&#128367; Kotlin DSL Examples</h3>
           <ul style="font-size:30px; padding-left: 80px">
             <li>

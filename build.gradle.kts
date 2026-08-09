@@ -109,10 +109,15 @@ fun Project.configureRevealSync() {
     into(layout.projectDirectory.dir(docsRevealJsDir))
   }
 
-// Single source of truth for images assets: docs/images/ (committed for GitHub Pages).
+// Single source of truth for static assets: docs/ (committed for GitHub Pages). The generated
+// pages reference them relative to the output root, so the HTTP server needs the same files
+// under public/; copy rather than commit a second set.
   tasks.processResources {
     from(rootProject.layout.projectDirectory.dir("docs/images")) {
       into("public/images")
+    }
+    from(rootProject.layout.projectDirectory.file("docs/favicon.ico")) {
+      into("public")
     }
   }
 }

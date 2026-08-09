@@ -27,8 +27,8 @@ dist: ## Produce a runnable distribution under build/install/
 stage: ## Heroku stage build (clean + shadowJar)
 	./gradlew stage
 
-clean-docs: ## Remove generated docs (playground, kroki)
-	rm -rf docs/playground docs/kroki
+clean-docs: ## Remove generated docs (playground, kroki, mermaid)
+	rm -rf docs/playground docs/kroki docs/mermaid
 
 uberjar: ## Build the shaded uberjar (build/libs/kslides.jar)
 	./gradlew shadowJar

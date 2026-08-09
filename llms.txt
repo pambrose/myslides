@@ -1,0 +1,35 @@
+# myslides
+
+> Paul Ambrose's collection of [kslides](https://github.com/kslides/kslides) presentations — seven topic decks (HTTP, functional programming, Unix, Docker, C, Kotlin DSLs, Redis) plus an index deck. Published to GitHub Pages at <https://pambrose.github.io/myslides> and Netlify at <https://pambrose-slides.netlify.app>, and deployable to Heroku as an uberjar.
+
+The primary author workflow is running `fun main()` in `src/main/kotlin/Slides.kt` from IntelliJ — not a Gradle task. That one run regenerates every deck into `/docs` and starts the embedded HTTP server, because `output { }` enables `enableFileSystem` and `enableHttp` together. There are no tests; `make build` passes `-xtest`.
+
+Every deck sits flat at the output root (`c.html`, `docker.html`, …), so the deck-depth `../` issues that affect nested decks don't arise here. The site is published under a subpath (`/myslides`), so no link may start with `/` — it would resolve against the GitHub account root. As of kslides 1.4.0, asset paths (logos, corner SVGs, backgrounds, `favicon`, playground/diagram iframes) are resolved by the library against the output root; corner links and paths inside slide content are emitted verbatim.
+
+## Authoring
+
+- [Slides.kt](https://github.com/pambrose/myslides/blob/master/src/main/kotlin/Slides.kt): Entry point. Holds the shared `kslidesConfig` / `output` / `presentationConfig` blocks, the global deck CSS, the index deck, and the calls into each topic deck. Defines `useLocal` — `System.getenv("PORT").orEmpty().isEmpty()` — which decides whether playground sources are read from the local companion directories or from GitHub raw URLs.
+- Topic decks: [C.kt](https://github.com/pambrose/myslides/blob/master/src/main/kotlin/C.kt), [Docker.kt](https://github.com/pambrose/myslides/blob/master/src/main/kotlin/Docker.kt), [Dsl.kt](https://github.com/pambrose/myslides/blob/master/src/main/kotlin/Dsl.kt), [Functional.kt](https://github.com/pambrose/myslides/blob/master/src/main/kotlin/Functional.kt), [Http.kt](https://github.com/pambrose/myslides/blob/master/src/main/kotlin/Http.kt), [Redis.kt](https://github.com/pambrose/myslides/blob/master/src/main/kotlin/Redis.kt), [Unix.kt](https://github.com/pambrose/myslides/blob/master/src/main/kotlin/Unix.kt). Each exposes one `fun KSlides.<topic>Presentation()` and sets its own root-level `path`.
+- Deck CSS is accumulated with `css += """…"""`; individual slides opt into a rule with `classes += "name"`. The global code-block size is 0.60em with `pre-wrap`, overridable per slide via `.smallcode` (0.40em) or `.largecode` (0.70em).
+- The three companion source repos — `c-basics/`, `dsl-demo/`, `redis-demo/` — are independent git repos listed in `.gitignore`. They are not obtained by cloning this repo, and local playground slides reference them by path.
+- [kslides](https://github.com/kslides/kslides): The upstream library, DSL, and block reference.
+
+## Build & configuration
+
+- [Makefile](https://github.com/pambrose/myslides/blob/master/Makefile): Thin wrapper over `./gradlew`. `make help` (the default target) lists everything; common ones are `make build`, `make uber`, `make stage`, `make sync-revealjs`, `make versions`, and `make upgrade-wrapper`. `make clean-docs` removes `docs/playground`, `docs/kroki`, and `docs/mermaid`.
+- [build.gradle.kts](https://github.com/pambrose/myslides/blob/master/build.gradle.kts): Organized as `configureKotlin()` / `configureShadowJar()` / `configureRevealSync()` / `configureVersions()`. `mainName` selects the HTTP entry point; `shadowJar` produces `build/libs/kslides.jar`. Its `duplicatesStrategy` is `INCLUDE` so Shadow's resource transformers see every duplicate, narrowed back to `EXCLUDE` for everything outside `META-INF/services/**` and `META-INF/*.kotlin_module`, which have no transformer to merge them. The `syncRevealJs` task and the `docs/images` → `public/images` `processResources` copy live here too.
+- [gradle/libs.versions.toml](https://github.com/pambrose/myslides/blob/master/gradle/libs.versions.toml): Version catalog — kslides, Kotlin, Shadow, the JVM toolchain, and the Gradle wrapper. Bump versions here, not in the build script or Makefile. After a `kslides-core` bump run `make sync-revealjs` and check `git status`; it is a no-op for some releases and adds whole plugin directories for others.
+- [CLAUDE.md](https://github.com/pambrose/myslides/blob/master/CLAUDE.md): Repository guidance for contributors and AI assistants, including the known rough edges.
+
+## Assets & deployment
+
+- `docs/` is the single source of truth for static assets; `processResources` copies `docs/images/` to `public/images` and `docs/favicon.ico` to `public/` in the resources output, so the HTTP server and the static site serve identical files. There is intentionally no `src/main/resources/public/images/` directory and no second committed favicon.
+- `docs/revealjs/` is unpacked from the `kslides-core` JAR by the `syncRevealJs` `Sync` task, so it mirrors the JAR exactly and hand-added files there are deleted on the next run. It is committed so GitHub Pages can serve it without a build step.
+- kroki diagrams render against a local kroki container at `http://localhost:8000` and are committed under `docs/kroki/`; mermaid output lands in `docs/mermaid/`.
+- [netlify.toml](https://github.com/pambrose/myslides/blob/master/netlify.toml): Points Netlify at `docs/` as the publish base.
+- [Procfile](https://github.com/pambrose/myslides/blob/master/Procfile): Heroku process definition; the `web` dyno runs the uberjar.
+
+## History
+
+- [CHANGELOG.md](https://github.com/pambrose/myslides/blob/master/CHANGELOG.md): Structured per-version diff (Keep a Changelog format).
+- [RELEASE_NOTES.md](https://github.com/pambrose/myslides/blob/master/RELEASE_NOTES.md): Narrative highlights per release.

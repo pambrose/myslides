@@ -54,10 +54,6 @@
     
     <style>
 			#githubCorner path { fill: #258BD2; }
-			.reveal pre { font-size: 0.60em; }
-			.reveal pre code { white-space: pre-wrap; word-break: break-word; }
-			.reveal .smallcode pre { font-size: 0.40em; }
-			.reveal .largecode pre { font-size: 0.70em; }
 			
 			.smallText {
 			  padding-bottom: 20px;
@@ -81,6 +77,11 @@
 			
 		</style>
     
+    <style type="text/css">
+			.reveal .kslides-code-1 pre { font-size: 0.60em; }
+			.reveal .kslides-code-1 pre code { white-space: pre-wrap; word-break: break-word; }
+			.reveal pre code .hljs-ln-numbers { white-space: nowrap; word-break: normal; }
+		</style>
   </head>
   <body>
     <div class="reveal">
@@ -95,12 +96,12 @@
 			<a class="top-right" href="#/redis" target="_self" title="Go to 1st Slide">&#127968;</a>
 
       <div class="slides">
-        <section id="redis">
+        <section class="kslides-code-1" id="redis">
           <h2>Redis Basics</h2>
           <a href="https://redis.io" target="_blank"><img src="images/redis/redis.png" width="250px"></a><a href="https://pambrose.github.io/myslides/redis.html">https://pambrose.github.io/myslides/redis.html</a>
         </section>
         
-        <section>
+        <section class="kslides-code-1">
           <h3>&#128367; Overview of Slides</h3>
           <ul style="font-size:30px; padding-left: 80px">
             <li>
@@ -124,7 +125,7 @@
           </ul>
         </section>
         
-        <section data-markdown="">
+        <section class="kslides-code-1" data-markdown="">
           <script type="text/template">
 ## OSX Install for Redis Client and Server
 
@@ -139,7 +140,7 @@ $ brew install redis iredis
 </script>
         </section>
         
-        <section data-markdown="">
+        <section class="kslides-code-1" data-markdown="">
           <script type="text/template">
 ## Start a Redis Server
 
@@ -160,7 +161,7 @@ $ redis-server
 </script>
         </section>
         
-        <section data-markdown="">
+        <section class="kslides-code-1" data-markdown="">
           <script type="text/template">
 ## Start a Redis Client
 
@@ -180,7 +181,7 @@ $ iredis
 </script>
         </section>
         
-        <section>
+        <section class="kslides-code-1">
           <h3>❓What Problems Are We Trying To Solve?</h3>
           <ul style="font-size:30px; padding-left: 80px">
             <li>Anyone with a credit card buy 100 servers</li>
@@ -194,7 +195,7 @@ $ iredis
           </ul>
         </section>
         
-        <section>
+        <section class="kslides-code-1">
           <h3>&#128294; What is Redis?</h3>
           <ul style="font-size:30px; padding-left: 80px">
             <li>REmote DIctionary Server</li>
@@ -209,7 +210,7 @@ $ iredis
           </ul>
         </section>
         
-        <section>
+        <section class="kslides-code-1">
           <br>
           <br>
           <h2>High Level Architecture</h2>
@@ -220,7 +221,7 @@ $ iredis
           </div>
         </section>
         
-        <section>
+        <section class="kslides-code-1">
           <h2 style="margin-bottom:20px;">&#129517; Redis DataTypes</h2>
           <div class="multiColumn2">
             <div class="column2">
@@ -264,7 +265,7 @@ $ iredis
           </div>
         </section>
         
-        <section>
+        <section class="kslides-code-1">
           <h2 style="margin-bottom:20px;">
             &#128652; <a href="https://redis.io/commands/" target="_blank">Redis Commands</a>
           </h2>
@@ -286,13 +287,13 @@ $ iredis
           </div>
         </section>
         
-        <section>
+        <section class="kslides-code-1">
           <h1>
             <a href="https://redis.io/docs/data-types/strings/" target="_blank">Redis Strings</a>
           </h1>
         </section>
         
-        <section>
+        <section class="kslides-code-1">
           <h2>
             <a href="https://redis.io/commands/set/" target="_blank">SET</a>/<a href="https://redis.io/commands/get/" target="_blank">GET</a>/<a href="https://redis.io/commands/del/" target="_blank">DEL</a> Commands
           </h2>
@@ -315,7 +316,7 @@ OK
           </pre>
         </section>
         
-        <section>
+        <section class="kslides-code-1">
           <h2>
             <a href="https://redis.io/commands/expire/" target="_blank">EXPIRE</a>/<a href="https://redis.io/commands/persist/" target="_blank">PERSIST</a> Commands
           </h2>
@@ -334,7 +335,7 @@ OK
           </pre>
         </section>
         
-        <section>
+        <section class="kslides-code-1">
           <h2>
             <a href="https://redis.io/commands/set/" target="_blank">SET</a> Command Options
           </h2>
@@ -351,7 +352,7 @@ OK
           </pre>
         </section>
         
-        <section>
+        <section class="kslides-code-1">
           <h2>
             <a href="https://redis.io/commands/mset/" target="_blank">MSET</a>/<a href="https://redis.io/commands/mget/" target="_blank">MGET</a> Commands
           </h2>
@@ -369,7 +370,7 @@ OK
           </pre>
         </section>
         
-        <section>
+        <section class="kslides-code-1">
           <h2>
             <a href="https://redis.io/commands/incr/" target="_blank">INCR</a>/<a href="https://redis.io/commands/incrby/" target="_blank">INCRBY</a> Commands
           </h2>
@@ -392,7 +393,7 @@ OK
           </pre>
         </section>
         
-        <section>
+        <section class="kslides-code-1">
           <h2>
             <a href="https://redis.io/commands/decr/" target="_blank">DECR</a>/<a href="https://redis.io/commands/decrby/" target="_blank">DECRBY</a> Commands
           </h2>
@@ -415,13 +416,13 @@ OK
           </pre>
         </section>
         
-        <section>
+        <section class="kslides-code-1">
           <h1>
             <a href="https://redis.io/docs/data-types/lists/" target="_blank">Redis Lists</a>
           </h1>
         </section>
         
-        <section>
+        <section class="kslides-code-1">
           <h2>
             <a href="https://redis.io/commands/lpush/" target="_blank">LPUSH</a>/<a href="https://redis.io/commands/rpop/" target="_blank">RPOP</a>/<a href="https://redis.io/commands/llen/" target="_blank">LLEN</a> Commands
           </h2>
@@ -444,7 +445,7 @@ OK
           </pre>
         </section>
         
-        <section>
+        <section class="kslides-code-1">
           <h2>
             <a href="https://redis.io/commands/lpush/" target="_blank">LPUSH</a>/<a href="https://redis.io/commands/lpop/" target="_blank">LPOP</a> Commands
           </h2>
@@ -463,7 +464,7 @@ OK
           </pre>
         </section>
         
-        <section>
+        <section class="kslides-code-1">
           <h2>
             <a href="https://redis.io/commands/blpop/" target="_blank">BLPOP</a> Command
           </h2>
@@ -483,13 +484,13 @@ OK
           </pre>
         </section>
         
-        <section>
+        <section class="kslides-code-1">
           <h1>
             <a href="https://redis.io/docs/data-types/hashes/" target="_blank">Redis Hashes</a>
           </h1>
         </section>
         
-        <section>
+        <section class="kslides-code-1">
           <h2>
             <a href="https://redis.io/commands/hset/" target="_blank">HSET</a>/<a href="https://redis.io/commands/hget/" target="_blank">HGET</a>/<a href="https://redis.io/commands/hgetall/" target="_blank">HGETALL</a> Commands
           </h2>
@@ -510,13 +511,13 @@ OK
           </pre>
         </section>
         
-        <section>
+        <section class="kslides-code-1">
           <h1>
             <a href="https://redis.io/docs/clients/" target="_blank">Programmatic APIs</a>
           </h1>
         </section>
         
-        <section>
+        <section class="kslides-code-1">
           <h2>
             <a href="https://github.com/redis/jedis" target="_blank">Jedis</a> Example (SET/GET/DEL)
           </h2>
@@ -536,7 +537,7 @@ println("key1=$v2")
           </pre>
         </section>
         
-        <section>
+        <section class="kslides-code-1">
           <h2>
             <a href="https://github.com/redis/jedis" target="_blank">Jedis</a> Example (HSET/HGETALL)
           </h2>
@@ -558,11 +559,11 @@ println("user:123=$valMap")
           </pre>
         </section>
         
-        <section>
+        <section class="kslides-code-1">
           <h1>Use Cases</h1>
         </section>
         
-        <section>
+        <section class="kslides-code-1">
           <h2>Session Cache</h2>
           <div>
             <img height="375px" src="kroki/slide-256-1.svg">
@@ -571,7 +572,7 @@ println("user:123=$valMap")
           <h4>Rate Limiter</h4>
         </section>
         
-        <section>
+        <section class="kslides-code-1">
           <h2>Saving User Profile using HSET</h2>
           <pre data-cc="false"><code class="kotlin" data-line-numbers="|1-5|7-11|12|13|15|16|17" data-noescape="" data-trim="">
 data class User(val map: Map&lt;String, String&gt;) {
@@ -595,7 +596,7 @@ println("user2=$user2")
           </pre>
         </section>
         
-        <section>
+        <section class="kslides-code-1">
           <h2>Saving User Profile using SET</h2>
           <pre data-cc="false"><code class="kotlin" data-line-numbers="|1-6|8|9|10|12|13|14" data-noescape="" data-trim="">
 @Serializable
@@ -616,7 +617,7 @@ println("user2=$user2")
           </pre>
         </section>
         
-        <section>
+        <section class="kslides-code-1">
           <h2>Naive Rate Limiter using INCR (1)</h2>
           <pre data-cc="false"><code class="bash" data-line-numbers="|1|2|3|4-7|8|9-10|11-13" data-noescape="" data-trim="">
 FUNCTION LIMIT_API_CALL(ip)
@@ -637,7 +638,7 @@ END
           <h4>Limit each IP to 10 requests/sec</h4>
         </section>
         
-        <section>
+        <section class="kslides-code-1">
           <h2>Naive Rate Limiter using INCR (2)</h2>
           <pre data-cc="false"><code class="bash" data-line-numbers="|1|2|3-4|5|6-9|10|11" data-noescape="" data-trim="">
 FUNCTION LIMIT_API_CALL(ip):
@@ -656,7 +657,7 @@ END
           <h4>Limit each IP to 10 requests/sec</h4>
         </section>
         
-        <section>
+        <section class="kslides-code-1">
           <h2>Naive Rate Limiter using a List</h2>
           <pre data-cc="false"><code class="bash" data-line-numbers="|1|2|3-4|5|6|7-10|11-13|14|15" data-noescape="" data-trim="">
 FUNCTION LIMIT_API_CALL(ip)
@@ -679,7 +680,7 @@ END
           <h4>Limit each IP to 10 requests/sec</h4>
         </section>
         
-        <section>
+        <section class="kslides-code-1">
           <h2>Work Distribution</h2>
           <div>
             <img height="275px" src="kroki/slide-262-1.svg">
@@ -687,7 +688,7 @@ END
           <h4>Distribute compute-intensive jobs</h4>
         </section>
         
-        <section>
+        <section class="kslides-code-1">
           <h2>Submit Work</h2>
           <pre data-cc="false"><code class="bash" data-line-numbers="|1|2" data-noescape="" data-trim="">
 FUNCTION SUBMIT_WORK_TO_QUEUE(work_desc)
@@ -696,7 +697,7 @@ LPUSH("work_queue:render", work_desc)
           </pre>
         </section>
         
-        <section>
+        <section class="kslides-code-1">
           <h2>Execute Work</h2>
           <pre data-cc="false"><code class="bash" data-line-numbers="|1|2,5|3|4" data-noescape="" data-trim="">
 FUNCTION REMOVE_WORK_FROM_QUEUE()
@@ -708,7 +709,7 @@ END
           </pre>
         </section>
         
-        <section>
+        <section class="kslides-code-1">
           <h2>WorkDesc Class</h2>
           <pre data-cc="false"><code class="kotlin" data-line-numbers="" data-noescape="" data-trim="">
 @Serializable
@@ -720,7 +721,7 @@ data class WorkDesc(
           </pre>
         </section>
         
-        <section>
+        <section class="kslides-code-1">
           <h2>Submit Work</h2>
           <pre data-cc="false"><code class="kotlin" data-line-numbers="|1,7|2|3|4|5|6" data-noescape="" data-trim="">
 repeat(10000) {
@@ -734,7 +735,7 @@ repeat(10000) {
           </pre>
         </section>
         
-        <section>
+        <section class="kslides-code-1">
           <h2>Execute Work</h2>
           <pre data-cc="false"><code class="kotlin" data-line-numbers="|1|3|4,11|5,10|6,9|7|8" data-noescape="" data-trim="">
 val executor = Executors.newCachedThreadPool()
@@ -752,13 +753,13 @@ workers.forEach { worker -&gt;
           </pre>
         </section>
         
-        <section>
+        <section class="kslides-code-1">
           <h1>
             <a href="https://redis.io/docs/manual/pubsub/" target="_blank">Redis Pub/Sub</a>
           </h1>
         </section>
         
-        <section>
+        <section class="kslides-code-1">
           <h3>
             <a href="https://redis.io/commands/subscribe/" target="_blank">SUBSCRIBE</a>/<a href="https://redis.io/commands/unsubscribe/" target="_blank">UNSUBSCRIBE</a>/<a href="https://redis.io/commands/publish/" target="_blank">PUBLISH</a> Commands
           </h3>
@@ -775,7 +776,7 @@ message   from topic1: Hello
           </pre>
         </section>
         
-        <section>
+        <section class="kslides-code-1">
           <h3>
             <a href="https://redis.io/commands/psubscribe/" target="_blank">PSUBSCRIBE</a>/<a href="https://redis.io/commands/punsubscribe/" target="_blank">PUNSUBSCRIBE</a> Commands
           </h3>
@@ -794,7 +795,7 @@ pmessage  from weather.*:weather.94513: 70
           </pre>
         </section>
         
-        <section>
+        <section class="kslides-code-1">
           <h2>Stock Ticker Prices</h2>
           <div>
             <img height="375px" src="kroki/slide-271-1.svg">
@@ -802,7 +803,7 @@ pmessage  from weather.*:weather.94513: 70
           <h4>Distributing stock ticker prices</h4>
         </section>
         
-        <section>
+        <section class="kslides-code-1">
           <h2>Publish Stock Prices</h2>
           <pre data-cc="false"><code class="kotlin" data-line-numbers="|1,15|2-6|8-9|11-12|14" data-noescape="" data-trim="">
 repeat(200) {
@@ -824,7 +825,7 @@ repeat(200) {
           </pre>
         </section>
         
-        <section>
+        <section class="kslides-code-1">
           <h2>Subscribe to a Stock Price</h2>
           <pre data-cc="false"><code class="kotlin" data-line-numbers="|1-11|2-4|13-15|17-19|21" data-noescape="" data-trim="">
 class MyListener : JedisPubSub() {

@@ -54,10 +54,6 @@
     
     <style>
 			#githubCorner path { fill: #258BD2; }
-			.reveal pre { font-size: 0.60em; }
-			.reveal pre code { white-space: pre-wrap; word-break: break-word; }
-			.reveal .smallcode pre { font-size: 0.40em; }
-			.reveal .largecode pre { font-size: 0.70em; }
 			
 			.agenda li {
 			  padding-top: 10px;
@@ -73,6 +69,11 @@
 			
 		</style>
     
+    <style type="text/css">
+			.reveal .kslides-code-1 pre { font-size: 0.60em; }
+			.reveal .kslides-code-1 pre code { white-space: pre-wrap; word-break: break-word; }
+			.reveal pre code .hljs-ln-numbers { white-space: nowrap; word-break: normal; }
+		</style>
   </head>
   <body>
     <div class="reveal">
@@ -87,12 +88,12 @@
 			<a class="top-right" href="#/functional" target="_self" title="Go to 1st Slide">&#127968;</a>
 
       <div class="slides">
-        <section id="functional">
+        <section class="kslides-code-1" id="functional">
           <h2>Lambdas and Higher-Order Functions</h2>
           <img src="images/functional/machine-functional.png" width="100%"><a href="https://pambrose.github.io/myslides/functional.html">https://pambrose.github.io/myslides/functional.html</a>
         </section>
         
-        <section id="unclebob">
+        <section class="kslides-code-1" id="unclebob">
           <h2>Uncle Bob Quote</h2>
           <blockquote class="twitter-tweet tw-align-center" style="">
             <p dir="ltr" lang="en">Procedural programming is good.Object oriented programming is good.Functional programming is good.Programming with all three is best.</p>
@@ -101,7 +102,7 @@
           <script async="async" charset="utf-8" src="https://platform.twitter.com/widgets.js"></script>
         </section>
         
-        <section>
+        <section class="kslides-code-1">
           <h2>Agenda</h2>
           <div class="agenda">
             <ol style="color: red; font-size:35px; padding-top:5px;">
@@ -113,40 +114,40 @@
           </div>
         </section>
         
-        <section>
+        <section class="kslides-code-1">
           <h2 style="color: red;">Functions as Types</h2>
         </section>
         
-        <section>
+        <section class="kslides-code-1">
           <h2>Simple Types</h2>
           <iframe height="400px" src="playground/slide-31-1.html" style="border:none;" width="100%"></iframe>
         </section>
         
-        <section>
+        <section class="kslides-code-1">
           <h2>User Object Types</h2>
           <iframe height="400px" src="playground/slide-32-1.html" style="border:none;" width="100%"></iframe>
         </section>
         
-        <section>
+        <section class="kslides-code-1">
           <h2>Function Invocation</h2>
           <iframe height="450px" src="playground/slide-33-1.html" style="border:none;" width="100%"></iframe>
         </section>
         
-        <section>
+        <section class="kslides-code-1">
           <h2>Assigning a Function Reference</h2>
           <iframe height="450px" src="playground/slide-34-1.html" style="border:none;" width="100%"></iframe>
         </section>
         
-        <section>
+        <section class="kslides-code-1">
           <h2>Invoking a Function Reference</h2>
           <iframe height="500px" src="playground/slide-35-1.html" style="border:none;" width="100%"></iframe>
         </section>
         
-        <section>
+        <section class="kslides-code-1">
           <h2>How do we describe the type of a function?</h2>
         </section>
         
-        <section data-auto-animate="">
+        <section class="kslides-code-1" data-auto-animate="">
           <h2>Elements of a Function</h2>
           <pre data-cc="false"><code class="kotlin" data-noescape="">
 fun sum(
@@ -160,7 +161,7 @@ fun sum(
           <ul></ul>
         </section>
         
-        <section data-auto-animate="">
+        <section class="kslides-code-1" data-auto-animate="">
           <h2>Elements of a Function</h2>
           <pre data-cc="false"><code class="kotlin" data-noescape="">
 fun sum(
@@ -176,24 +177,7 @@ fun sum(
           </ul>
         </section>
         
-        <section data-auto-animate="">
-          <h2>Elements of a Function</h2>
-          <pre data-cc="false"><code class="kotlin" data-noescape="">
-fun sum(
-  a: Int,
-  b: Int,
-): Int {
-  return a + b
-}
-</code>
-          </pre>
-          <ul>
-            <li>Name (sum)</li>
-            <li>Parameters (a: Int, b: Int)</li>
-          </ul>
-        </section>
-        
-        <section data-auto-animate="">
+        <section class="kslides-code-1" data-auto-animate="">
           <h2>Elements of a Function</h2>
           <pre data-cc="false"><code class="kotlin" data-noescape="">
 fun sum(
@@ -207,11 +191,10 @@ fun sum(
           <ul>
             <li>Name (sum)</li>
             <li>Parameters (a: Int, b: Int)</li>
-            <li>Return Type (Int)</li>
           </ul>
         </section>
         
-        <section data-auto-animate="">
+        <section class="kslides-code-1" data-auto-animate="">
           <h2>Elements of a Function</h2>
           <pre data-cc="false"><code class="kotlin" data-noescape="">
 fun sum(
@@ -226,11 +209,10 @@ fun sum(
             <li>Name (sum)</li>
             <li>Parameters (a: Int, b: Int)</li>
             <li>Return Type (Int)</li>
-            <li>Body (return a + b)</li>
           </ul>
         </section>
         
-        <section data-auto-animate="">
+        <section class="kslides-code-1" data-auto-animate="">
           <h2>Elements of a Function</h2>
           <pre data-cc="false"><code class="kotlin" data-noescape="">
 fun sum(
@@ -242,13 +224,32 @@ fun sum(
 </code>
           </pre>
           <ul>
+            <li>Name (sum)</li>
             <li>Parameters (a: Int, b: Int)</li>
             <li>Return Type (Int)</li>
             <li>Body (return a + b)</li>
           </ul>
         </section>
         
-        <section data-auto-animate="">
+        <section class="kslides-code-1" data-auto-animate="">
+          <h2>Elements of a Function</h2>
+          <pre data-cc="false"><code class="kotlin" data-noescape="">
+fun sum(
+  a: Int,
+  b: Int,
+): Int {
+  return a + b
+}
+</code>
+          </pre>
+          <ul>
+            <li>Parameters (a: Int, b: Int)</li>
+            <li>Return Type (Int)</li>
+            <li>Body (return a + b)</li>
+          </ul>
+        </section>
+        
+        <section class="kslides-code-1" data-auto-animate="">
           <h2>Elements of a Function</h2>
           <pre data-cc="false"><code class="kotlin" data-noescape="">
 fun sum(
@@ -265,7 +266,7 @@ fun sum(
           </ul>
         </section>
         
-        <section data-auto-animate="">
+        <section class="kslides-code-1" data-auto-animate="">
           <h2>Elements of a Function</h2>
           <pre data-cc="false"><code class="kotlin" data-noescape="">
 fun sum(
@@ -282,7 +283,7 @@ fun sum(
           </ul>
         </section>
         
-        <section data-auto-animate="">
+        <section class="kslides-code-1" data-auto-animate="">
           <h2>Elements of a Function</h2>
           <pre data-cc="false"><code class="kotlin" data-noescape="">
 fun sum(
@@ -300,74 +301,74 @@ fun sum(
           </ul>
         </section>
         
-        <section>
+        <section class="kslides-code-1">
           <h2>Specifying a Function Type</h2>
           <iframe height="450px" src="playground/slide-46-1.html" style="border:none;" width="100%"></iframe>
         </section>
         
-        <section>
+        <section class="kslides-code-1">
           <h2>Specifying a Function Type</h2>
           <iframe height="450px" src="playground/slide-47-1.html" style="border:none;" width="100%"></iframe>
         </section>
         
-        <section>
+        <section class="kslides-code-1">
           <h2>Specifying a Function Type</h2>
           <iframe height="450px" src="playground/slide-48-1.html" style="border:none;" width="100%"></iframe>
         </section>
         
-        <section>
+        <section class="kslides-code-1">
           <h2>Type Equivalence</h2>
           <iframe height="450px" src="playground/slide-49-1.html" style="border:none;" width="100%"></iframe>
         </section>
         
-        <section>
+        <section class="kslides-code-1">
           <h2>Break Through Moment #1 of 4</h2>
           <img src="images/functional/breakthrough1.jpg" width="400px">
           <h3 style="color: red;">We understand that functions are 1st class types!!</h3>
         </section>
         
-        <section>
+        <section class="kslides-code-1">
           <h2 style="color: red;">Lambdas</h2>
           <p>Lambdas are nameless functions that can be passed around as values. They are also called closures.</p>
         </section>
         
-        <section>
+        <section class="kslides-code-1">
           <h3>Defining and Invoking a Lambda</h3>
           <iframe height="550px" src="playground/slide-52-1.html" style="border:none;" width="100%"></iframe>
         </section>
         
-        <section>
+        <section class="kslides-code-1">
           <h3>Lambda Simplification</h3>
           <iframe height="400px" src="playground/slide-53-1.html" style="border:none;" width="100%"></iframe>
         </section>
         
-        <section>
+        <section class="kslides-code-1">
           <h3>Single Parameter Lambdas</h3>
           <iframe height="400px" src="playground/slide-54-1.html" style="border:none;" width="100%"></iframe>
         </section>
         
-        <section>
+        <section class="kslides-code-1">
           <h3>Lambda Examples</h3>
           <iframe height="400px" src="playground/slide-55-1.html" style="border:none;" width="100%"></iframe>
         </section>
         
-        <section>
+        <section class="kslides-code-1">
           <h3>Lambda Examples</h3>
           <iframe height="400px" src="playground/slide-56-1.html" style="border:none;" width="100%"></iframe>
         </section>
         
-        <section>
+        <section class="kslides-code-1">
           <h3>Lambda Examples</h3>
           <iframe height="400px" src="playground/slide-57-1.html" style="border:none;" width="100%"></iframe>
         </section>
         
-        <section>
+        <section class="kslides-code-1">
           <h2>Break Through Moment #2 of 4</h2>
           <img src="images/functional/breakthrough2.jpg" width="400px">
           <h3 style="color: red;">We can work with lambdas!!</h3>
         </section>
         
-        <section>
+        <section class="kslides-code-1">
           <h2 style="color: red;">Higher-Order Functions</h2>
           <p>A function that takes another function as an argument,
 or returns a function as a result.</p>
@@ -376,53 +377,53 @@ or returns a function as a result.</p>
           </p>
         </section>
         
-        <section>
+        <section class="kslides-code-1">
           <h3>Functional Parameter</h3>
           <iframe height="400px" src="playground/slide-60-1.html" style="border:none;" width="100%"></iframe>
         </section>
         
-        <section>
+        <section class="kslides-code-1">
           <h3>Functional Argument</h3>
           <iframe height="575px" src="playground/slide-61-1.html" style="border:none;" width="100%"></iframe>
         </section>
         
-        <section>
+        <section class="kslides-code-1">
           <h3>List of Functional Arguments</h3>
           <iframe height="550px" src="playground/slide-62-1.html" style="border:none;" width="100%"></iframe>
         </section>
         
-        <section>
+        <section class="kslides-code-1">
           <h3>List of Functional Arguments</h3>
           <iframe height="550px" src="playground/slide-63-1.html" style="border:none;" width="100%"></iframe>
         </section>
         
-        <section>
+        <section class="kslides-code-1">
           <h3>Functional Return Value</h3>
           <iframe height="400px" src="playground/slide-64-1.html" style="border:none;" width="100%"></iframe>
         </section>
         
-        <section>
+        <section class="kslides-code-1">
           <h3>Functional Return Value</h3>
           <iframe height="500px" src="playground/slide-65-1.html" style="border:none;" width="100%"></iframe>
         </section>
         
-        <section>
+        <section class="kslides-code-1">
           <h3>Conditional Functional Return Value</h3>
           <iframe height="550px" src="playground/slide-66-1.html" style="border:none;" width="100%"></iframe>
         </section>
         
-        <section>
+        <section class="kslides-code-1">
           <h3>Functional Argument and Return Value</h3>
           <iframe height="550px" src="playground/slide-67-1.html" style="border:none;" width="100%"></iframe>
         </section>
         
-        <section>
+        <section class="kslides-code-1">
           <h2>Break Through Moment #3 of 4</h2>
           <img src="images/functional/breakthrough3.jpg" width="400px">
           <h3 style="color: red;">We can work with higher-order functions!!</h3>
         </section>
         
-        <section>
+        <section class="kslides-code-1">
           <h2 style="color: red;">Collection-based Operations</h2>
           <div class="cbo">
             <ul style="color: red; font-size:30px;">
@@ -437,108 +438,108 @@ or returns a function as a result.</p>
           </div>
         </section>
         
-        <section>
+        <section class="kslides-code-1">
           <h3>Filter Calls</h3>
           <iframe height="500px" src="playground/slide-70-1.html" style="border:none;" width="100%"></iframe>
         </section>
         
-        <section>
+        <section class="kslides-code-1">
           <h3>Filter Calls</h3>
           <iframe height="500px" src="playground/slide-71-1.html" style="border:none;" width="100%"></iframe>
         </section>
         
-        <section>
+        <section class="kslides-code-1">
           <h3>Filter Calls</h3>
           <iframe height="500px" src="playground/slide-72-1.html" style="border:none;" width="100%"></iframe>
         </section>
         
-        <section>
+        <section class="kslides-code-1">
           <h3>Method Chaining</h3>
           <iframe height="500px" src="playground/slide-73-1.html" style="border:none;" width="100%"></iframe>
         </section>
         
-        <section>
+        <section class="kslides-code-1">
           <h3>Negated Filter Calls</h3>
           <iframe height="500px" src="playground/slide-74-1.html" style="border:none;" width="100%"></iframe>
         </section>
         
-        <section>
+        <section class="kslides-code-1">
           <h3>Filter with Index Calls</h3>
           <iframe height="400px" src="playground/slide-75-1.html" style="border:none;" width="100%"></iframe>
         </section>
         
-        <section>
+        <section class="kslides-code-1">
           <h3>Filter by Type and Null</h3>
           <iframe height="400px" src="playground/slide-76-1.html" style="border:none;" width="100%"></iframe>
         </section>
         
-        <section>
+        <section class="kslides-code-1">
           <h3>Transformation Calls</h3>
           <iframe height="500px" src="playground/slide-77-1.html" style="border:none;" width="100%"></iframe>
         </section>
         
-        <section>
+        <section class="kslides-code-1">
           <h3>Transformation Calls</h3>
           <iframe height="500px" src="playground/slide-78-1.html" style="border:none;" width="100%"></iframe>
         </section>
         
-        <section>
+        <section class="kslides-code-1">
           <h3>Transformation Calls</h3>
           <iframe height="500px" src="playground/slide-79-1.html" style="border:none;" width="100%"></iframe>
         </section>
         
-        <section>
+        <section class="kslides-code-1">
           <h3>onEach() Calls</h3>
           <iframe height="500px" src="playground/slide-80-1.html" style="border:none;" width="100%"></iframe>
         </section>
         
-        <section>
+        <section class="kslides-code-1">
           <h3>also() Calls</h3>
           <iframe height="500px" src="playground/slide-81-1.html" style="border:none;" width="100%"></iframe>
         </section>
         
-        <section>
+        <section class="kslides-code-1">
           <h3>Combining Calls</h3>
           <iframe height="400px" src="playground/slide-82-1.html" style="border:none;" width="100%"></iframe>
         </section>
         
-        <section>
+        <section class="kslides-code-1">
           <h3>Combining Calls</h3>
           <iframe height="400px" src="playground/slide-83-1.html" style="border:none;" width="100%"></iframe>
         </section>
         
-        <section>
+        <section class="kslides-code-1">
           <h3>Combining Calls</h3>
           <iframe height="500px" src="playground/slide-84-1.html" style="border:none;" width="100%"></iframe>
         </section>
         
-        <section>
+        <section class="kslides-code-1">
           <h3>Working with Strings</h3>
           <iframe height="500px" src="playground/slide-85-1.html" style="border:none;" width="100%"></iframe>
         </section>
         
-        <section>
+        <section class="kslides-code-1">
           <h3>Working with Strings</h3>
           <iframe height="500px" src="playground/slide-86-1.html" style="border:none;" width="100%"></iframe>
         </section>
         
-        <section>
+        <section class="kslides-code-1">
           <h3>Aggregates - sum() Call</h3>
           <iframe height="400px" src="playground/slide-87-1.html" style="border:none;" width="100%"></iframe>
         </section>
         
-        <section>
+        <section class="kslides-code-1">
           <h3>Aggregates - max() Call</h3>
           <iframe height="400px" src="playground/slide-88-1.html" style="border:none;" width="100%"></iframe>
         </section>
         
-        <section>
+        <section class="kslides-code-1">
           <h2>Break Through Moment #4 of 4</h2>
           <img src="images/functional/breakthrough4.jpg" width="400px">
           <h3 style="color: red;">We can use lambdas in collection operations!!</h3>
         </section>
         
-        <section>
+        <section class="kslides-code-1">
           <h2>Benefits of Functional Programming</h2>
           <div class="benefits">
             <ul style="color: red; font-size:30px; padding-top:5px;">
@@ -553,7 +554,7 @@ or returns a function as a result.</p>
           </div>
         </section>
         
-        <section>
+        <section class="kslides-code-1">
           <h2>Problems with Functional Programming</h2>
           <div class="benefits">
             <ul style="color: red; font-size:30px; padding-top:5px;">
@@ -565,7 +566,7 @@ or returns a function as a result.</p>
           </div>
         </section>
         
-        <section>
+        <section class="kslides-code-1">
           <h2>What Have We Learned?</h2>
           <div class="agenda">
             <ol style="color: red; font-size:35px; padding-left: 90px; padding-top:5px;">
@@ -577,7 +578,7 @@ or returns a function as a result.</p>
           </div>
         </section>
         
-        <section>
+        <section class="kslides-code-1">
           <h2>Big Picture Takeaways</h2>
           <div class="agenda">
             <ul style="color: red; font-size:35px; padding-left: 90px; padding-top:5px;">
@@ -589,7 +590,7 @@ or returns a function as a result.</p>
           </div>
         </section>
         
-        <section>
+        <section class="kslides-code-1">
           <h2>Thank You</h2>
         </section>
         

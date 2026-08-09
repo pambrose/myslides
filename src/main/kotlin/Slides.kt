@@ -10,10 +10,6 @@ import com.kslides.PresentationTheme
 import com.kslides.Speed
 import com.kslides.Transition
 import com.kslides.kslides
-import kotlinx.css.LinearDimension
-import kotlinx.css.fontSize
-import kotlinx.css.lineHeight
-import kotlinx.css.properties.LineHeight
 
 fun main() {
   kslides {
@@ -37,23 +33,16 @@ fun main() {
       #githubCorner path { fill: #258BD2; }
       """
 
-    // Shrink code blocks so long lines fit the slide window (reveal's default is 0.55em). This
-    // fits the ~85-92 char lines of the slideDefinition slides; the rare extra-long line (e.g. a
-    // full URL) wraps instead of overflowing horizontally rather than forcing an unreadable size.
-    css += """
-      .reveal pre { font-size: 0.60em; }
-      .reveal pre code { white-space: pre-wrap; word-break: break-word; }
-    """
-
-    // Per-slide override: the "highlighted code" slideDefinitions (classes = "smallcode") render their
-    // code smaller than the global 0.60em. ".reveal .smallcode pre" (two classes) outranks ".reveal pre"
-    // on specificity, so it wins regardless of order; long lines still wrap via the global pre-wrap rule.
-    css += """
-      .reveal .smallcode pre { font-size: 0.40em; }
-      .reveal .largecode pre { font-size: 0.70em; }
-    """
-
     presentationConfig {
+      // Shrink code blocks so long lines fit the slide window (reveal's default is 0.55em), and
+      // wrap the rare extra-long line (e.g. a full URL) instead of overflowing horizontally.
+      // Both cascade to every slide; an individual slide can override either in its own
+      // slideConfig { }.
+      slideConfig {
+        codeFontSize = "0.60em"
+        codeWrap = true
+      }
+
       history = true
       transition = Transition.SLIDE
       transitionSpeed = Speed.SLOW
@@ -86,20 +75,13 @@ fun main() {
         foldedButton = false
         lines = true
 
-        css {
-          rule(".CodeMirror pre") {
-            lineHeight = LineHeight("25px")
-          }
-
-          rule(".CodeMirror") {
-            fontSize = LinearDimension("20px")
-          }
-
-          rule(".code-output") {
-            lineHeight = LineHeight("25px")
-            fontSize = LinearDimension("20px")
-          }
-        }
+        // Sizes the editor and the run-output pane together. Absolute units on purpose: the
+        // Playground renders in its own iframe document, so em would resolve against that
+        // document's root rather than the slide. lineHeight only pins the spacing these decks
+        // have always used — CodeMirror's own ratio already scales with fontSize, so dropping
+        // it just loosens the lines slightly inside the fixed-height iframe.
+        fontSize = "20px"
+        lineHeight = "25px"
       }
     }
 

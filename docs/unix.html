@@ -54,10 +54,6 @@
     
     <style>
 			#githubCorner path { fill: #258BD2; }
-			.reveal pre { font-size: 0.60em; }
-			.reveal pre code { white-space: pre-wrap; word-break: break-word; }
-			.reveal .smallcode pre { font-size: 0.40em; }
-			.reveal .largecode pre { font-size: 0.70em; }
 			
 			.history li {
 			  padding-top: 0px;
@@ -65,6 +61,11 @@
 			
 		</style>
     
+    <style type="text/css">
+			.reveal .kslides-code-1 pre { font-size: 0.60em; }
+			.reveal .kslides-code-1 pre code { white-space: pre-wrap; word-break: break-word; }
+			.reveal pre code .hljs-ln-numbers { white-space: nowrap; word-break: normal; }
+		</style>
   </head>
   <body>
     <div class="reveal">
@@ -79,12 +80,12 @@
 			<a class="top-right" href="#/unix" target="_self" title="Go to 1st Slide">&#127968;</a>
 
       <div class="slides">
-        <section id="unix">
+        <section class="kslides-code-1" id="unix">
           <h2>Unix Basics</h2>
           <a href="http://oldcomputers.net/att-unix-pc.html" target="_blank"><img src="images/unix/att-unix-pc-3b1.jpg" width="400px"></a><a href="https://pambrose.github.io/myslides/unix.html">https://pambrose.github.io/myslides/unix.html</a>
         </section>
         
-        <section>
+        <section class="kslides-code-1">
           <h2>&#128294; What is an Operating System?</h2>
           <h4 style="color: red;">A set of programs that control on a computer</h4>
           <ul style="font-size:30px; padding-left: 80px">
@@ -100,7 +101,7 @@
           </ul>
         </section>
         
-        <section>
+        <section class="kslides-code-1">
           <h2>&#128218; History of Unix</h2>
           <ul style="font-size:30px; padding-left: 90px">
             <li>1969 at AT&amp;T Bell Labs -- Unix was a trademark of AT&amp;T</li>
@@ -114,7 +115,7 @@
           <a href="images/unix/Unix_history.png" target="_blank"><img src="images/unix/Unix_history.png" width="300px"></a>
         </section>
         
-        <section>
+        <section class="kslides-code-1">
           <h2>&#128680; Why do we care about Unix?</h2>
           <ul>
             <li>AWS, Google, Azure, Digital Ocean, and more</li>
@@ -126,7 +127,7 @@
           </ul>
         </section>
         
-        <section>
+        <section class="kslides-code-1">
           <h2>&#128170; The Unix Philosophy</h2>
           <ul style="font-size:30px; padding-left: 20px">
             <li>Write programs that do one thing and do it well -- DOTADIW</li>
@@ -135,7 +136,7 @@
           </ul>
         </section>
         
-        <section>
+        <section class="kslides-code-1">
           <h2>&#128026; What is a Unix Shell?</h2>
           <div>
             <ul style="font-size:30px">
@@ -152,7 +153,7 @@
           <a href="https://hyperpolyglot.org/unix-shells" target="_blank">&#128073; Summary of shells</a>
         </section>
         
-        <section>
+        <section class="kslides-code-1">
           <h2>✉ Unix Shell Environment Variables</h2>
           <ul style="font-size:30px; padding-left: 20px">
             <li>env</li>
@@ -163,7 +164,7 @@
           </ul>
         </section>
         
-        <section>
+        <section class="kslides-code-1">
           <h2>&#129466; General Command Structure</h2>
           <h3 style="color: red;">command options args</h3>
           <ul style="font-size:30px">
@@ -175,7 +176,7 @@
           </ul>
         </section>
         
-        <section>
+        <section class="kslides-code-1">
           <h2>&#128194; File System Commands</h2>
           <ul style="font-size:30px; padding-left: 20px">
             <li>Files, Directories, and Paths ( / .. . ../ ~ *)</li>
@@ -193,7 +194,7 @@
           </ul>
         </section>
         
-        <section>
+        <section class="kslides-code-1">
           <h2>&#128394; Unix Editors</h2>
           <div>
             <ul style="font-size:30px; padding-left: 20px">
@@ -208,7 +209,7 @@
           </div>
         </section>
         
-        <section>
+        <section class="kslides-code-1">
           <h2>&#128747; I/O Control</h2>
           <div>
             <ul style="font-size:30px; padding-left: 20px">
@@ -221,23 +222,23 @@
           <img src="images/unix/diagram-shell-keyboard-terminal.png" width="800px">
         </section>
         
-        <section>
+        <section class="kslides-code-1">
           <h2>&#128229; Common Patterns - Standard Input</h2>
           <img src="images/unix/diagram-input-examples.png" width="1000px">
         </section>
         
-        <section>
+        <section class="kslides-code-1">
           <h2>&#128228; Common Patterns - Standard Output</h2>
           <img src="images/unix/diagram-output-examples.png" width="1000px">
         </section>
         
-        <section>
+        <section class="kslides-code-1">
           <h2>&#128703; Pipes</h2>
           <img src="images/unix/diagram-cat-sort-uniq-pipeline.png" width="1000px">
         </section>
         
         <section>
-          <section>
+          <section class="kslides-code-1">
             <h2>&#128220; Text Processing</h2>
             <ul style="font-size:30px; padding-left: 20px">
               <li>wc</li>
@@ -254,7 +255,7 @@
             </ul>
           </section>
           
-          <section data-markdown="" data-separator="" data-separator-notes="^Notes?:" data-separator-vertical="">
+          <section class="kslides-code-1" data-markdown="" data-separator="" data-separator-notes="^Notes?:" data-separator-vertical="">
             <script type="text/template">
 ## tr examples
 ```bash
@@ -267,7 +268,7 @@ echo "Welcome to the shell" | tr 'shell' 'machine'
 </script>
           </section>
           
-          <section data-markdown="" data-separator="" data-separator-notes="^Notes?:" data-separator-vertical="">
+          <section class="kslides-code-1" data-markdown="" data-separator="" data-separator-notes="^Notes?:" data-separator-vertical="">
             <script type="text/template">
 ## cut examples
 ```bash
@@ -284,7 +285,7 @@ ps -e | cut -c 26-500
           
         </section>
         
-        <section data-markdown="">
+        <section class="kslides-code-1" data-markdown="">
           <script type="text/template">
 ## 🔎 Searching with find
 ```bash
@@ -303,7 +304,7 @@ ps -e | cut -c 26-500
 </script>
         </section>
         
-        <section>
+        <section class="kslides-code-1">
           <h2>&#127880; Misc Commands</h2>
           <ul style="font-size:30px; padding-left: 20px">
             <li>ssh</li>
@@ -315,7 +316,7 @@ ps -e | cut -c 26-500
           </ul>
         </section>
         
-        <section>
+        <section class="kslides-code-1">
           <h2>&#128230; Job/Process Control</h2>
           <pre><code class="kotlin" data-line-numbers="" data-noescape="" data-trim="">
               python3 -m http.server 8080
@@ -329,7 +330,7 @@ ps -e | cut -c 26-500
           </ul>
         </section>
         
-        <section>
+        <section class="kslides-code-1">
           <h2>&#128220; Scripts</h2>
           <pre><code class="kotlin" data-line-numbers="" data-noescape="" data-trim="">
               #!/bin/sh
@@ -338,7 +339,7 @@ ps -e | cut -c 26-500
           </pre>
         </section>
         
-        <section>
+        <section class="kslides-code-1">
           <h2>&#129489; User Management</h2>
           <ul style="font-size:30px; padding-left: 20px">
             <li>w/who</li>
@@ -352,7 +353,7 @@ ps -e | cut -c 26-500
           </ul>
         </section>
         
-        <section>
+        <section class="kslides-code-1">
           <h2>&#127881; Fun Commands</h2>
           <ul style="font-size:30px; padding-left: 20px">
             <li>lynx</li>
@@ -367,7 +368,7 @@ ps -e | cut -c 26-500
           </ul>
         </section>
         
-        <section>
+        <section class="kslides-code-1">
           <h2>&#128129; Helpful Links</h2>
           <a href="https://effective-shell.com" target="_blank">&#128073; Effective Shell</a>
           <br>

@@ -7,6 +7,7 @@ import com.kslides.orderedList
 import com.kslides.permuteBy
 import com.kslides.playground
 import com.kslides.unorderedList
+import kotlinx.css.fontSize
 import kotlinx.html.Dir
 import kotlinx.html.a
 import kotlinx.html.blockQuote
@@ -375,6 +376,8 @@ object Functional {
           h3 { +"Functional Argument" }
           playground("$lambdas/Hof2.kt") {
             height = "575px"
+            fontSize = "18px"
+            lineHeight = "1.2"
           }
         }
       }
@@ -384,6 +387,8 @@ object Functional {
           h3 { +"List of Functional Arguments" }
           playground("$lambdas/Hof3a.kt") {
             height = "550px"
+            fontSize = "18px"
+            lineHeight = "1.2"
           }
         }
       }
@@ -393,6 +398,8 @@ object Functional {
           h3 { +"List of Functional Arguments" }
           playground("$lambdas/Hof3b.kt") {
             height = "550px"
+            fontSize = "15px"
+            lineHeight = "1.2"
           }
         }
       }
@@ -472,7 +479,7 @@ object Functional {
 
       dslSlide {
         content {
-          h3 { +"Filter Calls" }
+          h3 { +"Filter Calls 1" }
           playground("$lambdas/Filter1a.kt") {
             height = "500px"
           }
@@ -481,9 +488,11 @@ object Functional {
 
       dslSlide {
         content {
-          h3 { +"Filter Calls" }
+          h3 { +"Filter Calls 2" }
           playground("$lambdas/Filter1b.kt") {
             height = "500px"
+            fontSize = "18px"
+            lineHeight = "1.2"
           }
         }
       }

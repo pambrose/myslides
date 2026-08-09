@@ -7,7 +7,6 @@ import com.kslides.orderedList
 import com.kslides.permuteBy
 import com.kslides.playground
 import com.kslides.unorderedList
-import kotlinx.css.fontSize
 import kotlinx.html.Dir
 import kotlinx.html.a
 import kotlinx.html.blockQuote

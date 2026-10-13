@@ -9,14 +9,38 @@ This file starts at 1.4.1. Earlier history lives in `git log`.
 
 ## [Unreleased]
 
+## [1.4.2] - 2026-10-13
+
+A small release: kslides 1.5.1 and a current toolchain, font sizing moved onto the kslides config API, two fixes to the functional-programming deck, and Dependabot. How the decks are authored is unchanged — run `fun main()` in `Slides.kt`.
+
+### Added
+
+- `.github/dependabot.yml`: weekly Gradle version-update PRs for `gradle/libs.versions.toml` and the Gradle wrapper, each release held back 7 days (`cooldown`). `kslides-core` gets a group of its own so it never arrives bundled with other bumps; Dependabot cannot run `make sync-revealjs` or regenerate `/docs`, so a kslides PR still needs both done by hand. Other minor and patch updates share one group. Nothing builds these PRs — the repo has no workflows.
+- `make versions-all`, which prints the ben-manes plugin's full plain-text report — every up-to-date dependency, its URL, and the configurations that declare it — by passing `--output-formatter=plain`.
+
 ### Changed
 
+- kslides 1.4.0 → **1.5.0**. 1.5.0 emits Markdown slide content as a text node instead of parsing it as XML, so character references now reach the page as written rather than being decoded at build time. Regenerating `/docs` after the bump touched only `docs/http.html`, where two slides' `<span>.</span>` and `<span>&amp;</span>` became the `&#46;` and `&#38;` that `Http.kt` actually contains; the browser decodes both, so the slides read the same. `docs/revealjs/` is unchanged — 1.5.0 ships the same reveal.js distribution as 1.4.0.
+- kslides 1.5.0 → **1.5.1**, a maintenance release with no code changes beyond KDoc. It moves the library onto Ktor 3.6.0 and kotlin-css 2026.10.0 and builds it with Kotlin 2.4.21. Its reveal.js distribution is byte-identical to the committed `docs/revealjs/`, so `make sync-revealjs` has nothing to do.
+- Kotlin 2.4.10 → **2.4.21** and the Gradle wrapper 9.7.0 → **9.8.1** (`gradle-wrapper.properties`, `gradle-wrapper.jar`, `gradlew.bat`). The build stays warning-free on both.
 - Font sizes now use the kslides config API instead of hand-written CSS. `Slides.kt` sets `slideConfig { codeFontSize = "0.60em"; codeWrap = true }` in place of the global `.reveal pre` / `pre code` rules (available since kslides 1.2.0, which describes it as replacing the raw-CSS approach), and `playgroundConfig { fontSize = "20px"; lineHeight = "25px" }` in place of the three hand-written `.CodeMirror` / `.code-output` rules (kslides 1.4.0). Rendering is unchanged; regenerating `/docs` drops 922 lines.
-- `codeWrap` also emits `.reveal pre code .hljs-ln-numbers { white-space: nowrap; word-break: normal; }`, which the hand-written `word-break: break-word` rule was missing — without it the rule inherits into the highlight plugin's line-number gutter and squeezes two-digit line numbers onto one digit per line.
+- Four playgrounds in the functional-programming deck override the global size so their wider samples fit the iframe: _Functional Argument_ (`Hof2.kt`), the first _List of Functional Arguments_ (`Hof3a.kt`), and _Filter Calls 2_ (`Filter1b.kt`) at 18px, and the second _List of Functional Arguments_ (`Hof3b.kt`) at 15px, all with `lineHeight = "1.2"`.
+- `make versions` now lists only what is behind, one line each (` - group:name current -> latest`), followed by any dependency that could not be checked (` ? …`) and a pending Gradle update. The formatter lives in `configureVersions()` in `build.gradle.kts`; the plugin's default report, which first lists everything already current, is what `make versions-all` prints.
+- The Gradle version is now kept only in `gradle/wrapper/gradle-wrapper.properties`. The `gradle-wrapper` key is gone from `gradle/libs.versions.toml`: Dependabot's wrapper PRs cannot update it, and a stale value would have made the next `make upgrade-wrapper` downgrade the wrapper. `make upgrade-wrapper` reads the current version from the properties file and takes a new one as `make upgrade-wrapper GRADLE_VERSION=x.y.z`.
+- The ben-manes versions plugin 0.60.0 → **0.66.0**. 0.60.0's `dependencyUpdates` has no `--output-formatter` option, so `make versions-all` needs the bump.
 
 ### Removed
 
 - The `.smallcode` (0.40em) and `.largecode` (0.70em) rules. They were copied from `kslides-template` in `a9e31b2` along with a comment describing the `slideDefinition` slides that use them there, but this repo has no `slideDefinition` calls and never applied either class — they were shipped into all eight pages and matched nothing. A slide that needs a different size now sets `codeFontSize` in its own `slideConfig { }`.
+
+### Fixed
+
+- Two-digit line numbers in code blocks no longer wrap one digit per line. The hand-written `word-break: break-word` rule inherited into the highlight plugin's line-number gutter; `codeWrap` emits `.reveal pre code .hljs-ln-numbers { white-space: nowrap; word-break: normal; }` alongside its wrapping rule.
+- The functional-programming deck's two consecutive _Filter Calls_ slides are now titled _Filter Calls 1_ and _Filter Calls 2_, so they can be told apart in the slide menu and overview.
+
+### Documentation
+
+- `README.md`, `CLAUDE.md`, and `llms.txt` describe Dependabot, `make versions-all`, where the Gradle version now lives, and the current toolchain versions.
 
 ## [1.4.1] - 2026-08-08
 
@@ -62,5 +86,6 @@ Three months of toolchain and build work, and four kslides releases' worth of re
 - Added this changelog, plus `RELEASE_NOTES.md`, `CLAUDE.md`, and `llms.txt`.
 - `README.md`: refreshed the stale toolchain versions and `make` targets, and documented the Makefile, the uberjar's duplicate handling, the companion demo repos and the `PORT`-driven local/GitHub source switch, and publishing under a subpath.
 
-[Unreleased]: https://github.com/pambrose/myslides/compare/1.4.1...HEAD
+[Unreleased]: https://github.com/pambrose/myslides/compare/1.4.2...HEAD
+[1.4.2]: https://github.com/pambrose/myslides/compare/1.4.1...1.4.2
 [1.4.1]: https://github.com/pambrose/myslides/compare/ae811a5...1.4.1

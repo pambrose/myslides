@@ -21,8 +21,9 @@ The Makefile is a thin wrapper over `./gradlew`:
 - `make dist` — `./gradlew installDist`
 - `make sync-revealjs` — runs `syncRevealJs` (see Architecture)
 - `make clean-docs` — `rm -rf docs/playground docs/kroki`
-- `make versions` — `./gradlew dependencyUpdates`; must use `--no-configuration-cache --no-parallel`
-- `make upgrade-wrapper` — re-pins the wrapper by reading `gradle-wrapper = "..."` from `gradle/libs.versions.toml`, then runs `./gradlew wrapper` twice (Gradle's documented two-pass procedure). Bump that catalog key and `gradle/wrapper/gradle-wrapper.properties` in lockstep.
+- `make versions` — `./gradlew dependencyUpdates`; must use `--no-configuration-cache --no-parallel`. Prints only what is behind (plus anything unresolved and a Gradle update), via the `outputFormatter { }` in `configureVersions()`
+- `make versions-all` — the same task with `--output-formatter=plain`, the plugin's full report including every up-to-date dependency. 0.66.0 of the ben-manes plugin accepts that flag; 0.60.0 rejected it as an unknown option, so don't pin the plugin back
+- `make upgrade-wrapper GRADLE_VERSION=x.y.z` — runs `./gradlew wrapper` twice (Gradle's documented two-pass procedure). With no argument it re-pins the current version, read from `distributionUrl` in `gradle/wrapper/gradle-wrapper.properties` — the only place the Gradle version is kept. Don't reintroduce a `gradle-wrapper` catalog key: Dependabot's wrapper PRs can't update it, and once stale it would make the next `make upgrade-wrapper` downgrade the wrapper.
 
 **There are no tests.** `src/test` does not exist, and `make build` passes `-xtest` accordingly. Don't read a green build as evidence that a deck renders — regenerate and look.
 
@@ -34,7 +35,7 @@ The Makefile is a thin wrapper over `./gradlew`:
 
 **Static asset roots differ by output mode, and `/docs` is the single source of truth.** HTTP-served decks read static assets from `src/main/resources/public/`; filesystem-generated decks read them from `/docs`. Rather than commit two copies, `tasks.processResources` copies `docs/images/` to `public/images/` and `docs/favicon.ico` to `public/` in the resources output, so the embedded server serves the exact files the static site does. Neither `src/main/resources/public/images/` nor a second `favicon.ico` exists in the repo — the copies land in `build/resources/main/public/`, never back in `src`. To add an image: drop it under `docs/images/<topic>/` and commit; both delivery paths pick it up on the next build. Anything new that both modes must serve belongs in `/docs` with a matching `from(...)` in `processResources`.
 
-**reveal.js asset sync.** The distribution's single source of truth is the `kslides-core` JAR (at classpath `revealjs/**`); `syncRevealJs` unpacks it into `docs/revealjs/` so the published static decks have working JS/CSS. Two consequences: it is a `Sync` task, so `docs/revealjs/` is made to *match the JAR exactly* and anything hand-added there is deleted on the next run (the local `plugin/copycode/copycode-button-fix.css` added in July 2026 survives only because kslides-core now ships a byte-identical copy); and a core bump may or may not change anything — 1.2.0 brought a newer reveal.js plus `plugin/mermaid/`, while 1.3.0 and 1.4.0 ship it unchanged. Run `make sync-revealjs` after a bump and check `git status` rather than assuming either way. The tree is committed so Pages can serve it without a build step.
+**reveal.js asset sync.** The distribution's single source of truth is the `kslides-core` JAR (at classpath `revealjs/**`); `syncRevealJs` unpacks it into `docs/revealjs/` so the published static decks have working JS/CSS. Two consequences: it is a `Sync` task, so `docs/revealjs/` is made to *match the JAR exactly* and anything hand-added there is deleted on the next run (the local `plugin/copycode/copycode-button-fix.css` added in July 2026 survives only because kslides-core now ships a byte-identical copy); and a core bump may or may not change anything — 1.2.0 brought a newer reveal.js plus `plugin/mermaid/`, while 1.3.0 through 1.5.1 ship it unchanged. Run `make sync-revealjs` after a bump and check `git status` rather than assuming either way. The tree is committed so Pages can serve it without a build step.
 
 **`useLocal` switches playground sources between disk and GitHub.** `Slides.kt` computes `val useLocal = System.getenv("PORT").orEmpty().isEmpty()` and passes it to the C, DSL, and Redis decks. Locally (no `PORT`) their `playground(...)` calls read companion sources from `c-basics/`, `dsl-demo/`, and `redis-demo/`; on Heroku (`PORT` set) they fall back to `githubRawUrl(...)`. **Those three directories are independent git repos, listed in `.gitignore`, and are not checked out by cloning this one** — a local run without them present will reference files that aren't there.
 
@@ -53,7 +54,8 @@ The Makefile is a thin wrapper over `./gradlew`:
 ## Build configuration
 
 - Kotlin DSL. `build.gradle.kts` is organized as `configureKotlin()` / `configureShadowJar()` / `configureRevealSync()` / `configureVersions()` extension functions called at the top level.
-- Version catalog in `gradle/libs.versions.toml` — bump kslides/kotlin/shadow/jvm/gradle-wrapper there, never in `build.gradle.kts` or the `Makefile`. The `jvm` key drives `jvmToolchain(...)`; `gradle-wrapper` drives `make upgrade-wrapper`.
+- Version catalog in `gradle/libs.versions.toml` — bump kslides/kotlin/shadow/jvm there, never in `build.gradle.kts`. The `jvm` key drives `jvmToolchain(...)`.
+- **Dependabot** (`.github/dependabot.yml`) is the `gradle` ecosystem only, weekly, with a 7-day `cooldown`: the catalog plus the wrapper. `com.kslides:*` is its own group, listed before `gradle-minor-and-patch` so kslides never lands bundled with other bumps. A kslides PR still needs the post-bump steps under Conventions. There are no workflows, so nothing builds Dependabot's PRs, and no `github-actions` ecosystem to configure; add one if a workflow ever lands.
 - `group` and `version` live in `gradle.properties`. `version` is *this repo's* version, distinct from the kslides library version in the catalog.
 - `mainName` in `build.gradle.kts` (`"SlidesKt"`) selects the HTTP entry point and the uberjar's `Main-Class`.
 - `-Xreturn-value-checker=check` is applied to `compileKotlin` only, deliberately — the checker is scoped to production code so a future test source set using a chained-receiver assertion DSL won't produce false positives.
@@ -66,4 +68,4 @@ The Makefile is a thin wrapper over `./gradlew`:
 
 - Record anything user-visible or build-affecting in **both** `CHANGELOG.md` (Keep a Changelog, structured per version) and `RELEASE_NOTES.md` (narrative highlights), and bump `version` in `gradle.properties` in the same commit.
 - Regenerating `/docs` is a deliberate act with a large diff (~100 files). Keep it in its own commit, or clearly separated, so review of the source change stays readable.
-- After a `kslides` bump: regenerate `/docs`, run `make sync-revealjs`, and check `git status` for both.
+- After a `kslides` bump (by hand or a merged Dependabot PR): regenerate `/docs`, run `make sync-revealjs`, and check `git status` for both.

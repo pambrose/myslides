@@ -42,16 +42,23 @@ make uberjar                 # build build/libs/kslides.jar
 make uber                    # build the uberjar and run it (honours $PORT, else 8080)
 make stage                   # clean + shadowJar, as Heroku invokes it
 make sync-revealjs           # re-unpack the reveal.js assets (see below)
-make versions                # report dependency updates
-make upgrade-wrapper         # re-pin the Gradle wrapper from libs.versions.toml
+make versions                # list only the dependencies that are behind
+make versions-all            # the plugin's full report, up-to-date ones included
+make upgrade-wrapper GRADLE_VERSION=x.y.z  # move the Gradle wrapper to x.y.z
 make clean-docs              # remove docs/playground, docs/kroki and docs/mermaid
 ```
 
-Versions live in `gradle/libs.versions.toml` — kslides, Kotlin, Shadow, the
-JVM toolchain (`jvm`), and the Gradle wrapper (`gradle-wrapper`). Bump them
-there rather than in `build.gradle.kts` or the `Makefile`, both of which read
-the catalog. This repo's own version is `version` in `gradle.properties`, and
-is unrelated to the kslides library version.
+Versions live in `gradle/libs.versions.toml` — kslides, Kotlin, Shadow, and
+the JVM toolchain (`jvm`). Bump them there rather than in `build.gradle.kts`,
+which reads the catalog. The Gradle version is kept only in
+`gradle/wrapper/gradle-wrapper.properties`. This repo's own version is
+`version` in `gradle.properties`, and is unrelated to the kslides library
+version.
+
+Dependabot (`.github/dependabot.yml`) opens weekly PRs for the catalog and the
+wrapper, each release held back 7 days. kslides gets a PR of its own: after
+merging it, run `make sync-revealjs` and regenerate `/docs`. No CI builds these
+PRs, so run `make build` on one before merging it.
 
 For local kroki diagram rendering, run a kroki container at
 `http://localhost:8000` (the URL is wired into `Slides.kt`). Rendered output
@@ -102,7 +109,8 @@ make sync-revealjs
 
 Run it after upgrading `kslides-core` and check `git status` — whether it
 changes anything depends on the release. Core 1.2.0 brought a newer reveal.js
-and added `plugin/mermaid/`; 1.3.0 and 1.4.0 ship the distribution unchanged.
+and added `plugin/mermaid/`; 1.3.0 through 1.5.1 ship the distribution
+unchanged.
 
 It is a `Sync` task, so `docs/revealjs/` is made to match the JAR *exactly* —
 anything hand-added there is deleted on the next run. The contents are
@@ -155,8 +163,9 @@ tracked as task inputs, so a plain build can hand back a cached jar.
 
 ## Tooling
 
-- Gradle 9.7.0 (Kotlin DSL), configuration cache enabled.
-- Kotlin 2.4.10, kslides 1.4.0.
+- Gradle 9.8.1 (Kotlin DSL), configuration cache enabled. The version is kept
+  only in `gradle/wrapper/gradle-wrapper.properties`.
+- Kotlin 2.4.21, kslides 1.5.1.
 - Versions and plugin coordinates live in `gradle/libs.versions.toml`.
 - Shaded fat-jar produced by the Shadow plugin.
 

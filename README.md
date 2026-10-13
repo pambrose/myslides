@@ -40,6 +40,7 @@ make                         # list every target (the default)
 make build                   # ./gradlew build -xtest — there are no tests
 make uberjar                 # build build/libs/kslides.jar
 make uber                    # build the uberjar and run it (honours $PORT, else 8080)
+make docs                    # regenerate every deck into docs/, then serve (Ctrl-C)
 make stage                   # clean + shadowJar, as Heroku invokes it
 make sync-revealjs           # re-unpack the reveal.js assets (see below)
 make versions                # list only the dependencies that are behind

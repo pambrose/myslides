@@ -1,4 +1,4 @@
-.PHONY: default help build-all stop clean build uberjar uber dist stage clean-docs sync-revealjs \
+.PHONY: default help build-all stop clean build uberjar uber dist stage docs clean-docs sync-revealjs \
 		    versions versions-all upgrade-wrapper _require-gradle-version
 
 # The wrapper's current Gradle version; `make upgrade-wrapper GRADLE_VERSION=x.y.z` moves to another one.
@@ -28,6 +28,14 @@ dist: ## Produce a runnable distribution under build/install/
 
 stage: ## Heroku stage build (clean + shadowJar)
 	./gradlew stage
+
+# Runs fun main() in Slides.kt, as the IntelliJ green arrow does: every deck is
+# written into docs/, then the HTTP server starts on 8080 — stop it with Ctrl-C
+# once the decks are written. Diagram slides need a kroki server on
+# localhost:8000, and the playground slides read c-basics/, dsl-demo/ and
+# redis-demo/ unless PORT is set in the environment.
+docs: ## Regenerate every deck into docs/, then serve them (Ctrl-C to stop)
+	./gradlew run
 
 clean-docs: ## Remove generated docs (playground, kroki, mermaid)
 	rm -rf docs/playground docs/kroki docs/mermaid

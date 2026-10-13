@@ -1,0 +1,30 @@
+# Weekly version-update pull requests. Security updates also need Dependabot alerts turned on in the
+# repository's settings.
+#
+# Every update waits 7 days after a release before it is proposed (`cooldown`), so a release that is
+# pulled, or found to be compromised, in its first week never arrives as a pull request. Security
+# updates are not held back.
+#
+# Gradle is the only ecosystem: the repo has no workflows of its own (Pages deploys through GitHub's
+# built-in pages-build-deployment), so there are no action pins to keep current. Nothing builds a
+# Dependabot PR either, so check one out and run `make build` before merging it.
+version: 2
+updates:
+  # gradle/libs.versions.toml and the Gradle wrapper (gradle-wrapper.properties, gradlew, gradlew.bat
+  # and gradle-wrapper.jar). gradle-wrapper.properties is the only place the Gradle version is kept,
+  # so a wrapper PR leaves nothing else to bump.
+  - package-ecosystem: gradle
+    directory: /
+    schedule:
+      interval: weekly
+    cooldown:
+      default-days: 7
+    open-pull-requests-limit: 10
+    groups:
+      # Listed first so kslides-core never rides along in the minor-and-patch group: a kslides PR is not
+      # finished when it merges. Run `make sync-revealjs` and commit any docs/revealjs/ changes, then
+      # regenerate /docs, or the published decks keep the old output and reveal.js assets.
+      kslides:
+        patterns: [ "com.kslides:*" ]
+      gradle-minor-and-patch:
+        update-types: [ "minor", "patch" ]

@@ -9,6 +9,14 @@ This file starts at 1.4.1. Earlier history lives in `git log`.
 
 ## [Unreleased]
 
+### Added
+
+- `make docs`, which runs `./gradlew run` — the same `fun main()` as IntelliJ's green arrow — to regenerate every deck into `docs/` and then serve them on 8080 until Ctrl-C. Diagram slides still need kroki on `localhost:8000`, and the playground slides the `c-basics/`, `dsl-demo/` and `redis-demo/` checkouts.
+
+### Documentation
+
+- `CLAUDE.md` listed `make clean-docs` as removing only `docs/playground` and `docs/kroki`; it has removed `docs/mermaid` too since 1.4.1.
+
 ## [1.4.2] - 2026-10-13
 
 A small release: kslides 1.5.1 and a current toolchain, font sizing moved onto the kslides config API, two fixes to the functional-programming deck, and Dependabot. How the decks are authored is unchanged — run `fun main()` in `Slides.kt`.

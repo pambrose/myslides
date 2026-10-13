@@ -8,7 +8,7 @@ Paul Ambrose's personal collection of [kslides](https://github.com/kslides/kslid
 
 ## Build & run
 
-**The primary author workflow is running `fun main()` in `src/main/kotlin/Slides.kt` from IntelliJ (green arrow), not a Gradle task.** That single run regenerates every deck into `/docs` *and* starts the HTTP server, because `output { }` enables both modes.
+**The primary author workflow is running `fun main()` in `src/main/kotlin/Slides.kt` from IntelliJ (green arrow); `make docs` (`./gradlew run`, from the `application` plugin) does the same from a terminal.** That single run regenerates every deck into `/docs` *and* starts the HTTP server, because `output { }` enables both modes.
 
 The Makefile is a thin wrapper over `./gradlew`:
 
@@ -20,7 +20,8 @@ The Makefile is a thin wrapper over `./gradlew`:
 - `make stage` — `./gradlew stage`; this is what Heroku invokes
 - `make dist` — `./gradlew installDist`
 - `make sync-revealjs` — runs `syncRevealJs` (see Architecture)
-- `make clean-docs` — `rm -rf docs/playground docs/kroki`
+- `make docs` — `./gradlew run`: writes every deck into `docs/`, then serves them on 8080 until Ctrl-C. kslides finishes the file output before the server starts, so once 8080 is listening `docs/` is complete. Needs kroki on `localhost:8000` and the three companion repos (see Architecture). Listed in `.PHONY` because a `docs/` directory exists — without it make reports `docs` up to date and does nothing
+- `make clean-docs` — `rm -rf docs/playground docs/kroki docs/mermaid`
 - `make versions` — `./gradlew dependencyUpdates`; must use `--no-configuration-cache --no-parallel`. Prints only what is behind (plus anything unresolved and a Gradle update), via the `outputFormatter { }` in `configureVersions()`
 - `make versions-all` — the same task with `--output-formatter=plain`, the plugin's full report including every up-to-date dependency. 0.66.0 of the ben-manes plugin accepts that flag; 0.60.0 rejected it as an unknown option, so don't pin the plugin back
 - `make upgrade-wrapper GRADLE_VERSION=x.y.z` — runs `./gradlew wrapper` twice (Gradle's documented two-pass procedure). With no argument it re-pins the current version, read from `distributionUrl` in `gradle/wrapper/gradle-wrapper.properties` — the only place the Gradle version is kept. Don't reintroduce a `gradle-wrapper` catalog key: Dependabot's wrapper PRs can't update it, and once stale it would make the next `make upgrade-wrapper` downgrade the wrapper.
@@ -68,4 +69,4 @@ The Makefile is a thin wrapper over `./gradlew`:
 
 - Record anything user-visible or build-affecting in **both** `CHANGELOG.md` (Keep a Changelog, structured per version) and `RELEASE_NOTES.md` (narrative highlights), and bump `version` in `gradle.properties` in the same commit.
 - Regenerating `/docs` is a deliberate act with a large diff (~100 files). Keep it in its own commit, or clearly separated, so review of the source change stays readable.
-- After a `kslides` bump (by hand or a merged Dependabot PR): regenerate `/docs`, run `make sync-revealjs`, and check `git status` for both.
+- After a `kslides` bump (by hand or a merged Dependabot PR): regenerate `/docs` (`make docs`), run `make sync-revealjs`, and check `git status` for both.

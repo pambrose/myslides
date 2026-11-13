@@ -13,6 +13,15 @@ This file starts at 1.4.1. Earlier history lives in `git log`.
 
 - `make docs`, which runs `./gradlew run` — the same `fun main()` as IntelliJ's green arrow — to regenerate every deck into `docs/` and then serve them on 8080 until Ctrl-C. Diagram slides still need kroki on `localhost:8000`, and the playground slides the `c-basics/`, `dsl-demo/` and `redis-demo/` checkouts.
 
+### Changed
+
+- kslides 1.5.1 → **1.5.2**, a maintenance release with no behavior or API changes. Its reveal.js distribution is identical to the committed `docs/revealjs/`, so `make sync-revealjs` has nothing to do.
+- The Gradle wrapper 9.8.1 → **9.9.1** (`gradle-wrapper.properties`, `gradle-wrapper.jar`): Dependabot's 9.8.2 (#16), then `make upgrade-wrapper GRADLE_VERSION=9.9.1`. The ben-manes versions plugin 0.66.0 → **0.67.0** (#16). The build stays warning-free, and `make versions` and `make versions-all` both work on 0.67.0.
+
+### Fixed
+
+- `make stage` (and `make build-all`) failed with `Cannot access output property 'destinationDirectory' of task ':compileKotlin'` whenever `build/` already existed. `stage` depends on both `clean` and `shadowJar`, but nothing ordered `clean` before `shadowJar`'s dependencies, so with parallel execution `clean` could delete `build/classes` while `compileKotlin` was still reading it. Every task now runs after `clean` when both are in the build (`mustRunAfter`, which adds no dependency). Heroku was never affected, because it builds from an empty tree.
+
 ### Documentation
 
 - `CLAUDE.md` listed `make clean-docs` as removing only `docs/playground` and `docs/kroki`; it has removed `docs/mermaid` too since 1.4.1.

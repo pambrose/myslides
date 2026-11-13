@@ -110,7 +110,7 @@ make sync-revealjs
 
 Run it after upgrading `kslides-core` and check `git status` — whether it
 changes anything depends on the release. Core 1.2.0 brought a newer reveal.js
-and added `plugin/mermaid/`; 1.3.0 through 1.5.1 ship the distribution
+and added `plugin/mermaid/`; 1.3.0 through 1.5.2 ship the distribution
 unchanged.
 
 It is a `Sync` task, so `docs/revealjs/` is made to match the JAR *exactly* —
@@ -164,9 +164,9 @@ tracked as task inputs, so a plain build can hand back a cached jar.
 
 ## Tooling
 
-- Gradle 9.8.1 (Kotlin DSL), configuration cache enabled. The version is kept
+- Gradle 9.9.1 (Kotlin DSL), configuration cache enabled. The version is kept
   only in `gradle/wrapper/gradle-wrapper.properties`.
-- Kotlin 2.4.21, kslides 1.5.1.
+- Kotlin 2.4.21, kslides 1.5.2.
 - Versions and plugin coordinates live in `gradle/libs.versions.toml`.
 - Shaded fat-jar produced by the Shadow plugin.
 

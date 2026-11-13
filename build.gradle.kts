@@ -37,6 +37,15 @@ tasks.register<DefaultTask>("stage") {
   dependsOn(cleanTask, shadowJarTask)
 }
 
+// dependsOn() does not order clean against shadowJar's dependencies, and with org.gradle.parallel
+// on, clean could delete build/classes while compileKotlin was still snapshotting it, failing a
+// local `make stage` whenever build/ already existed. Ordering every task after clean, whenever
+// both are in the graph, makes clean finish first. It adds no dependency: a build without clean
+// is unaffected.
+tasks.configureEach {
+  if (name != cleanTask) mustRunAfter(cleanTask)
+}
+
 configureKotlin()
 configureShadowJar()
 configureRevealSync()
@@ -74,7 +83,6 @@ fun Project.configureShadowJar() {
     }
 
     exclude("META-INF/*.SF", "META-INF/*.DSA", "META-INF/*.RSA", "LICENSE*")
-    mustRunAfter(cleanTask)
     manifest {
       attributes(
         "Implementation-Title" to projectName,
